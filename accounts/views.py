@@ -21,6 +21,7 @@ def new_session(request):
     # if request.user.is_authenticated:
     return render(request,template_name,args)
 
+
 # Login page for users visiting with browser
 def login_view(request):
     template_name = "accounts/login.html"

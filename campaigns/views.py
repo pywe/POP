@@ -6,7 +6,22 @@ from django.contrib.auth import authenticate,login,logout
 from .models import *
 
 # Create your views here.
+def campaign_list(request):
+    template_name = "campaigns/campaign_list.html"
+    args = {}
+    return render(request,template_name,args)
 
+
+def new_basket(request):
+    template_name = "campaigns/new_basket.html"
+    args = {}
+    return render(request,template_name,args)
+
+
+def observation_session(request):
+    template_name = "campaigns/observation_session.html"
+    args = {}
+    return render(request,template_name,args)
 
 
 # Create anatomical classes using api

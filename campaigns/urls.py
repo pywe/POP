@@ -17,4 +17,6 @@ urlpatterns = [
     url(r"^api/v1/options/get-district-standards/$",views.get_district_standards, name="get-district-standards"),
     url(r"^api/v1/options/get-pharmacy-standards/$",views.get_pharmacy_standards, name="get-pharmacy-standards"),
     url(r"^api/v1/options/get-insurance-types/$",views.get_insurance_types, name="get-insurance-types"),
+    url(r"^campaigns/new-basket/$",views.new_basket,name="new-basket"),
+    url(r"^campaigns/observation-session/$",views.observation_session,name="observation-session"),
 ]

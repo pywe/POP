@@ -1,4 +1,5 @@
-function login(){
+function login(element){
+    console.log(element)
     var username = document.getElementById("username").value
     var password = document.getElementById("password").value
     const mydata={
@@ -21,14 +22,14 @@ function login(){
 .then(response => response.json()) // parses JSON response into native JavaScript objects
 .then(data => {
     if (data.success){
-        console.log(data.message); 
-        localStorage.setItem('loggedIn',true) 
+        console.log(data.message);
+        localStorage.setItem('loggedIn',true)
         localStorage.setItem('user',JSON.stringify(data.user))
         window.location.href = "/"
     }else{
-        console.log(data.message); 
+        console.log(data.message);
     }
-      
+
 })
 .catch(err =>{
     console.log(err);
@@ -48,11 +49,11 @@ function isLoggedIn(){
                 document.getElementById('username').innerHTML = user['username']
             return true
             }else{
-                return false 
-            }      
+                return false
+            }
         }else{
             return false
-        }         
+        }
     }else{
         return false
         }

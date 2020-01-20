@@ -52,8 +52,8 @@
 					<div class="text-center text-white">
 						<h1>New Basket</h1>
 						<ol class="breadcrumb text-center">
-							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item"><a href="observation_session.html">Observation Session</a></li>
+							<li class="breadcrumb-item"><a href="/">Home</a></li>
+							<li class="breadcrumb-item"><a href="/campaigns/observation-session">Observation Session</a></li>
 							<li class="breadcrumb-item active text-white" aria-current="page">New Basket</li>
 						</ol>
 					</div>
@@ -212,7 +212,7 @@
 										<p id="form-sold-hint" class="input-hint">
 											What form of drug was sold? liquid,tablet
 										</p>
-						
+
 								<select class="form-control custom-select select2-show-search" aria-describedby="form-sold-hint"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
@@ -282,21 +282,17 @@
 		});
 	</script>
 
-	<script>
-		window.onload = function Load() {
-			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Blackberry/i) || navigator.userAgent.match(/WebOs/i)) { // detect mobile browser
-				window.location.replace("https://gigship.pywe.org/registration/"); // redirect if mobile browser detected
-			}
-		}
+// 	<script>
+// 		window.onload = function Load() {
+// 			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Blackberry/i) || navigator.userAgent.match(/WebOs/i)) { // detect mobile browser
+// 				window.location.replace("https://gigship.pywe.org/registration/"); // redirect if mobile browser detected
+// 			}
+// 		}
 	</script>
 
 	<!-- Notification -->
-<<<<<<< HEAD
 	<!-- <a href="#" id="notification"><span class="notification-text">Notifications</span><i
 			class="fa fa-bell"></i></a> -->
-=======
-	<a href="#" id="notification"><span class="notification-text">Notifications</span><i class="fa fa-bell"></i></a>
->>>>>>> 121b386ef74fc724ec95452c6f1657a68a302c70
 
 	<!-- Back to top -->
 	<a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
