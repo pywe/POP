@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Description" content="">
+    <meta name="Author" content="PywE">
+    <meta name="keywords" content="" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="/static/images/brand/logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/brand/logo.svg" />
+
+    <!-- Title -->
+    <title>POP Ghana | Campaign List</title>
+
+    <!-- Bootstrap Css -->
+    <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Dashboard Css -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+
+    <!-- Font-awesome  Css -->
+    <link href="/static/css/icons.css" rel="stylesheet" />
+
+    <!--Horizontal Menu-->
+    <link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
+    <link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
+
+    <!--Select2 Plugin -->
+    <link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+    <!-- Owl Theme css-->
+    <link href="/static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+    <!-- Cookie css -->
+    <link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
+
+    <!-- Custom scroll bar css-->
+    <link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    <!-- COLOR-SKINS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+</head>
+
+<body>
+    <!--Sliders Section-->
+    <section>
+        <div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+            <div class="header-text mb-0">
+                <div class="container">
+                    <div class="text-center text-white">
+                        <h1 class="">Create New Pharmacy</h1>
+                        <ol class="breadcrumb text-center">
+                            <li class="breadcrumb-item">User <strong id="username" app-variable="username"></strong>
+                            </li>
+                            <li class="breadcrumb-item"><a href="campaign_list.html">Campaign List</a></li>
+                            <li class="breadcrumb-item"><a href="observation_session.html"><span id="global_name"
+                                        app-variable="campaign-name"></span></a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">New Pharmacy</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Sliders Section-->
+
+    <!--Pharmacy-Pharmacist-details-section-->
+    <section class="sptb">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-12 col-md-12 col-md-12">
+                    <div class="card">
+                        <div class="card-header ">
+                            <h3 class="card-title">Pharmacy</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Name</label>
+                                                <input type="text" class="form-control" placeholder="Pharmacy Name"
+                                                    required>
+                                            </div>
+                                            <div class="form-group mb-md-0">
+                                                <label class="form-label text-dark">Contact</label>
+                                                <p id="pharmacist-contact-hint" class="input-hint">
+                                                    Mobile phone number of the followed pharmacist (vendor).
+                                                </p>
+                                                <input type="text" aria-describedby="pharmacist-contact-hint"
+                                                    class="form-control" maxlength="14" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Detailed Address <span
+                                                        class="form-label-small"> Make this detailed to easily find
+                                                        pharmacy.</span></label>
+                                                <textarea class="form-control" name="example-textarea-input"
+                                                    rows="2"></textarea>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">District social standard</label>
+                                                <select class="form-control custom-select select2-show-search"
+                                                    data-placeholder="Choose one (with searchbox)">
+                                                    <option value="" selected>---------</option>
+                                                    <option value="Upper-Top quartile">Upper-Top quartile</option>
+                                                    <option value="Average-2nd quartile">Average-2nd quartile</option>
+                                                    <option value="Average-3rd quartile">Average-3rd quartile</option>
+                                                    <option value="Lower-4th quartile">Lower-4th quartile</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Conselling</label>
+                                                <div class="form-control">
+                                                    <label class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="checkbox" value="checkbox">
+                                                        <span class="custom-control-label"></span>
+                                                    </label>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Computerized</label>
+                                                <div class="form-control">
+                                                    <label class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="checkbox" value="checkbox">
+                                                        <span class="custom-control-label"></span>
+                                                    </label>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Dependent on hospital</label>
+                                                <div class="form-control">
+                                                    <label class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            name="checkbox" value="checkbox">
+                                                        <span class="custom-control-label"></span>
+                                                    </label>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Staff mostly
+                                                    followed</label>
+                                                <select class="form-control custom-select select2-show-search"
+                                                    data-placeholder="Choose one (with searchbox)">
+                                                    <option value="" selected>---------</option>
+                                                    <option value="Owner">Owner</option>
+                                                    <option value="Pharmacist in chief">Pharmacist in chief</option>
+                                                    <option value="Pharmacist assistant">Pharmacist assistant</option>
+                                                    <option value="Technician">Technician</option>
+                                                    <option value="Vendor">Vendor</option>
+                                                </select>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Staff mostly present</label>
+                                                <select class="form-control custom-select select2-show-search"
+                                                    data-placeholder="Choose one (with searchbox)">
+                                                    <option value="" selected>---------</option>
+                                                    <option value="Owner">Owner</option>
+                                                    <option value="Pharmacist in chief">Pharmacist in chief</option>
+                                                    <option value="Pharmacist assistant">Pharmacist assistant</option>
+                                                    <option value="Technician">Technician</option>
+                                                    <option value="Vendor">Vendor</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Email</label>
+                                                <input type="email" class="form-control" placeholder="Email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Area Name</label>
+                                                <div class="row gutters-xs">
+                                                    <select class="form-control custom-select select2-show-search"
+                                                        data-placeholder="Choose one (with searchbox)">
+                                                        <option value="0">Area Name</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Average patients per day <span
+                                                        class="form-label-small pull-left"> Average number of patients
+                                                        visiting the pharmacy per day.</span></label>
+                                                <input type="number" class="form-control" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Insurance convention</label>
+                                                <select class="form-control custom-select select2-show-search"
+                                                    data-placeholder="Choose one (with searchbox)">
+                                                    <option value="" selected>---------</option>
+                                                    <option value="Private Insurance">Private Insurance</option>
+                                                    <option value="Public Insurance">Public Insurance</option>
+                                                    <option value="No Insurance">No Insurance</option>
+                                                    <option value="Undetermined">Undetermined</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">Pharmacy standard</label>
+                                                <select class="form-control custom-select select2-show-search"
+                                                    data-placeholder="Choose one (with searchbox)">
+                                                    <option value="" selected>---------</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B+">B+</option>
+                                                    <option value="B">B</option>
+                                                    <option value="B-">B-</option>
+                                                    <option value="C">C</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label text-dark">District profile</label>
+                                                <select class="form-control custom-select select2-show-search"
+                                                    data-placeholder="Choose one (with searchbox)">
+                                                    <option value="" selected>---------</option>
+                                                    <option value="Residential">Residential</option>
+                                                    <option value="Business">Business</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label">Tests available</label>
+                                                <select class="form-control select2-no-search"
+                                                    data-placeholder="Choose Browser" multiple>
+                                                    <option value="0">Tests available</option>
+                                                </select>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label class="form-label">Comments <span class="form-label-small"> Any
+                                                        other things we should take notice of...</span></label>
+                                                <textarea class="form-control" name="example-textarea-input"
+                                                    rows="5"></textarea>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card">
+                        <div class="card-header ">
+                            <h3 class="card-title">Pharmacist</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label text-dark">Pharmacist First Name</label>
+                                <input type="text" class="form-control" maxlength="150" placeholder="First Name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label text-dark">Pharmacist Last Name</label>
+                                <input type="text" maxlength="150" class="form-control" placeholder="Last Name"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="float-right mb-4 mb-lg-0">
+                        <a class="btn btn-success w-150" href="#">Save</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Pharmacy-Pharmacist-details-section-->
+    
+
+    <!-- Notification -->
+    <a href="#" id="notification"><span class="notification-text">Notifications</span><i class="fa fa-bell"></i></a>
+
+    <!-- Back to top -->
+    <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JQuery js-->
+    <script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
+    <script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+    <!--JQuery Sparkline Js-->
+    <script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+
+    <!-- Circle Progress Js-->
+    <script src="/static/js/vendors/circle-progress.min.js"></script>
+
+    <!-- Star Rating Js-->
+    <script src="/static/plugins/rating/jquery.rating-stars.js"></script>
+
+    <!--Owl Carousel js -->
+    <script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
+
+    <!--Horizontal Menu-->
+    <script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+    <!--Counters -->
+    <script src="/static/plugins/counters/counterup.min.js"></script>
+    <script src="/static/plugins/counters/waypoints.min.js"></script>
+
+    <!--JQuery TouchSwipe js-->
+    <script src="/static/js/jquery.touchSwipe.min.js"></script>
+
+    <!--Select2 js -->
+    <script src="/static/plugins/select2/select2.full.min.js"></script>
+    <script src="/static/js/select2.js"></script>
+
+    <!-- Cookie js -->
+    <script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+    <script src="/static/plugins/cookie/cookie.js"></script>
+
+    <!-- Count Down-->
+    <script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
+
+    <!-- Ion.RangeSlider -->
+    <script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
+
+    <!-- Custom scroll bar Js-->
+    <script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- sticky Js-->
+    <script src="/static/js/sticky.js"></script>
+
+    <!-- Swipe Js-->
+    <script src="/static/js/swipe.js"></script>
+
+    <!-- Scripts Js-->
+    <script src="/static/js/scripts2.js"></script>
+
+    <!-- Ion.RangeSlider -->
+    <script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
+
+    <!--Showmore Js-->
+    <script src="/static/js/jquery.showmore.js"></script>
+    <script src="/static/js/showmore.js"></script>
+
+    <!-- Custom Js-->
+    <script src="/static/js/custom.js"></script>
+
+
+    <script>document.getElementById('name').oninput = function () {
+            var pharmacyName = this.value;
+            console.log(pharmacyName)
+
+            var result = [];
+
+            db.transaction(['pharmacies'], IDBTransaction.READ_ONLY)
+                .objectStore('pharmacies')
+                .openCursor(
+                    IDBKeyRange.bound(pharmacyName, pharmacyName + '\uffff'), // The important part
+                    IDBCursor.PREV)
+                .onsuccess = function (e) {
+                    e || (e = event);
+                    var cursor = e.target.result;
+                    if (cursor) {
+
+                        // Return result to "pharmacy" input field
+                        document.getElementById('name').value = cursor.value.pharmacyName;
+                    }
+
+                };
+
+        }
+    </script>
+    <script>
+        window.onload = function Load(){
+            if(isLoggedIn()){
+                //   redirect user to campaign list or last page
+                // Get user's country and fetch appropriate list
+                fetchCampaigns()
+            }
+            else{
+                //   user must login
+                window.location.href = "/accounts/login/"
+            }
+        } 
+   </script> 
+   <script src="/static/js/campaign.js"></script> 
+   <script src="/static/js/login.js"></script>  
+
+
+</body>
+
+</html>
