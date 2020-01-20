@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8" />
+        <title>POP|Ghana</title>
+                <!-- Bootstrap -->
+                <link href="css/bootstrap.css" rel="stylesheet">
+                <link rel="stylesheet" href="css/bootstrap-responsive.css">
+                <link rel="stylesheet" href="css/bootstrap-modal.css">
+                <link rel="stylesheet" href="css/select2.css">
+        <!-- <link rel="stylesheet" href="css/font-awesome.min.css">    -->
+    </head>
+    <body>
+        <div class="container">
+                        <div id="header">
+                            </div>
+            <div class="row-fluid">
+                <div class="span3">
+                    <a href="campaign_list.html"><img src="images/logo.svg" width="50px" height="50px"></a>
+                </div>
+                <div class="span9" style="padding-top:33px">
+                    <ul class="breadcrumb">
+                            <li>User <strong app-variable="username"></strong><span class="divider">/</span></li>
+    <li><a href="campaign_list.html">Campaign List</a> <span class="divider">/</span></li>
+    <li><a href="observation_session.html"><span id="global_name" app-variable="campaign-name-pretty"></span></a> / Browse Pharmacy</li>
+                        <li class="pull-right">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content row campain_list" id="campain_list">
+
+<div class="span12">
+<form id="browsePharmacy" action="#" method="post">
+<table align="center" width="80%" class="table-condensed">
+    <tbody>
+        <tr>
+            <td width="20%">Objective</td>
+            <td>
+                <select class="objective" name="your_objective">
+                    <option value="1" selected="selected">Check if a specific pharmacy already exists</option>
+                    <option value="2">Identify all pharmacies meeting certain criteria</option>
+                </select>
+                <span class="help-inline"><a  id="newPharmacy" href= "new_pharmacy.html" class="btn btn-small"><i class="icon-plus"></i>Add Pharmacy</a></span>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%">Pharmacy Name</td>
+            <td>
+                <input type="text" class="pharmacylist" name="name" placeholder="Search Pharmacy" id="pharmacy-name">
+            </td>
+        </tr>
+        <tr>
+            <td width="20%">City</td>
+            <td>
+                <select class="city" name="city">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%">District</td>
+            <td>
+                <select class="district disabled" name="district">
+                    <option value="" selected="selected">---Please Select---</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%">Panel History</td>
+            <td id="list_campaign"></td>
+        </tr>
+        <tr>
+            <td width="20%">Not already covered in current period</td>
+            <td>
+                <select class="disabled" name="covered">
+                    <option value="y" selected="selected">Yes</option>
+                    <option value="n">No</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td width="20%">Hospital influence</td>
+            <td>
+                <input class="disabled" type="checkbox" name="depend_on_an_hospital" value="MAJOR"/>Major influence<br/>
+                <input class="disabled" type="checkbox" name="depend_on_an_hospital" value="MINOR"/>Minor influence<br/>
+                <input class="disabled" type="checkbox" name="depend_on_an_hospital" value="INSIDE"/>Inside hospital
+            </td>
+        </tr>
+<!--        <tr>
+            <td width="20%">Close my location</td>
+            <td>
+                <select class="closeLocation" name="close_location">
+                    <option value="y">Yes</option>
+                    <option value="n" selected="selected">No</option>
+                </select>
+            </td>
+        </tr>-->
+        <tr>
+            <td width="20%"><button id="searchPharmacy" type="submit" class="btn btn-primary"></i>Search pharmacy</button></td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</form>
+</div>
+            </div>
+        </div>
+        <script src="scripts/jquery-2.2.1.min.js"></script>
+        <script src="scripts/bootstrap.min.js"></script>
+
+             
+
+<script type="text/javascript">
+jQuery(document).ready(function() 
+{
+    // Sanisphere.isConnected(function(status)
+    // {
+    //     if (status) {
+    //         Sanisphere.loggedIn();
+    //         Sanisphere.Controller.Pharmacy.initBrowseScreen();
+    //     } else {
+    //         window.location.href = "login.html";
+    //     }
+    // });
+    
+    jQuery(".objective").on("change", function(e)
+    {
+        e.preventDefault();
+        if (jQuery(".objective").val() === "1") {
+            jQuery(".disabled").prop("disabled", true);
+        } else {
+            jQuery(".disabled").prop("disabled", false);
+        }
+        jQuery(".city").trigger("change");
+    });
+    
+    jQuery(".city").on("change", function(e)
+    {
+        e.preventDefault();
+        var me = this;
+        if ("" !== jQuery(me).val()) {
+            jQuery(".district").prop("disabled", false);
+            Sanisphere.Model.Campaign.getCountry(function(country)
+            {
+                jQuery(".district").html('<option value="" selected="selected">---Please Select---</option>');
+                Sanisphere.Model.City.find(jQuery(me).val(), function(data) {  
+                    if (data) { 
+                        districtList = JSON.parse(data.rows.item(0).districts) ;    
+                        for (var i = 0; i < districtList.length; i++) {
+                            if ("*" == districtList[i].substr(0,1)) {              
+                                // ----------------------------------------------------------------------------------
+                                // It's not a district but a sub-area , we consider it as an optgroup
+                                // ----------------------------------------------------------------------------------
+                                jQuery(".district").append(jQuery("<optGroup>").attr("label", districtList[i].substr(1)));                        
+                            } else {
+                                jQuery(".district").append(jQuery("<option></option>").attr("value", districtList[i].toUpperCase()).text(districtList[i].toUpperCase()));
+                            } 
+                         }
+                      }
+                  }) ;
+            });
+            shortcut.add("Ctrl+A", function() 
+            {
+                jQuery("#newPharmacy").trigger("click");
+            });
+        } else {
+            jQuery(".district").prop("disabled", true);
+        }
+    }).triggerHandler('change');
+    
+    jQuery(".closeLocation").on("change", function(e)
+    {
+        e.preventDefault();
+        if ("y" === jQuery(this).val()) {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(location)
+                {
+                    Sanisphere.position = location.coords;
+                }, function()
+                {
+                    bootbox.alert("Error while get your location.");
+                });
+            } else {
+                alert("Your device currently doesn't support geolocalization.");
+            }
+        }
+    });
+    
+    jQuery("#searchPharmacy").on("click", function(e)
+    {
+        e.preventDefault();
+        Sanisphere.Storage.setParam("pharmacy-search", jQuery("#browsePharmacy").serializeArray(), function()
+        {
+            window.setTimeout(function()
+            {
+                window.location.href = "list_pharmacy.html";
+            }, 500);
+        });
+    });
+    
+    jQuery("#newPharmacy").on("click", function(e) {
+        e.preventDefault();
+        Sanisphere.Model.Pharmacy.setId(null, function() {
+            Sanisphere.Model.Pharmacy.isEditAction(function()
+            {
+                window.location.href = "new_pharmacy.html";
+            }, false);
+        });
+    });
+    
+    //@todo city is mandatory but district is not, changes the city and district option
+});
+</script>
+    </body>
+</html>

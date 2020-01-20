@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="google-site-verification" content="">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<!-- Title -->
+	<title>POP | Ghana</title>
+
+	<!-- Bootstrap Css -->
+	<link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- Dashboard Css -->
+	<link href="/static/css/style.css" rel="stylesheet" />
+
+	<!-- Font-awesome  Css -->
+	<link href="/static/css/icons.css" rel="stylesheet" />
+
+	<!--Horizontal Menu-->
+	<link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
+	<link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
+
+	<!--Select2 Plugin -->
+	<link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+	<!-- Owl Theme css-->
+	<link href="/static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+	<!-- Cookie css -->
+	<link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
+
+	<!-- Custom scroll bar css-->
+	<link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+	<!-- COLOR-SKINS -->
+	<link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+</head>
+
+<body>
+
+
+	<!--Sliders Section-->
+	<section>
+		<div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+			<div class="header-text mb-0">
+				<div class="container">
+					<div class="text-center text-white">
+						<h1>New Basket</h1>
+						<ol class="breadcrumb text-center">
+							<li class="breadcrumb-item"><a href="#">Home</a></li>
+							<li class="breadcrumb-item"><a href="observation_session.html">Observation Session</a></li>
+							<li class="breadcrumb-item active text-white" aria-current="page">New Basket</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--/Sliders Section-->
+
+	<!--Patient data-section-->
+	<section class="sptb">
+		<div class="container">
+			<div class="row ">
+				<div class="col-lg-12 col-md-12 col-md-12">
+					<div class="card dropify-image-avatar">
+						<div class="card-header ">
+							<h3 class="card-title">Patient</h3>
+						</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-9">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="form-label text-dark">Insurance scheme</label>
+												<select class="form-control custom-select select2-show-search"
+													data-placeholder="Choose one (with searchbox)">
+													<option value="" selected>---------</option>
+													<option value="Private Insurance">Private Insurance</option>
+													<option value="Public Insurance">Public Insurance</option>
+													<option value="No Insurance">No Insurance</option>
+													<option value="Undetermined">Undetermined</option>
+												</select>
+											</div>
+											<div class="form-group">
+												<label class="form-label text-dark">Gender</label>
+												<select class="form-control custom-select select2-show-search"
+													data-placeholder="Choose one (with searchbox)">
+													<option value="" selected>---------</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
+													<option value="Other">Other</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="form-label text-dark">Age</label>
+												<input type="number" class="form-control" placeholder="Patient Age"
+													required>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header ">
+							<h3 class="card-title">Drugs</h3>
+							<div class="card-options">
+								<a class="btn btn-light btn-sm" href="#"><i class="fa fa-plus"></i> Add Another</a>
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label class="form-label text-dark">Initial request</label>
+								<p id="initial-req-hint" class="input-hint">
+									Who started the request?
+								</p>
+								<select aria-describedby="initial-req-hint"
+									class="form-control custom-select select2-show-search"
+									data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="brand patient">brand patient</option>
+									<option value="brand prescription">brand prescription</option>
+									<option value="inn patient">inn patient</option>
+									<option value="inn prescription">inn prescription</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Drug sold</label>
+								<p id="drug-sold-hint" class="input-hint">
+									Brand name of drug that has been sold?
+								</p>
+								<input type="text" aria-describedby="drug-sold-hint" class="form-control"
+									maxlength="200" required>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Drug Sale Driver</label>
+								<p id="drug-sale-driver-hint" class="input-hint">
+									Who makes the final selection for the purchased product?
+								</p>
+								<select aria-describedby="drug-sale-driver-hint"
+									class="form-control custom-select select2-show-search"
+									data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="Patient">Patient</option>
+									<option value="Pharmacist">Pharmacist</option>
+									<option value="Prescriber">Prescriber</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Switched</label>
+								<p id="switched-hint" class="input-hint">
+									Was there a switch?
+								</p>
+								<div class="form-control">
+									<label class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input"
+											aria-describedby="switched-hint" name="checkbox" value="checkbox">
+										<span class="custom-control-label"></span>
+									</label>
+
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Leaked</label>
+								<p id="leaked-hint" class="input-hint">
+									Was there a leak?
+								</p>
+								<div class="form-control">
+									<label class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" ame="checkbox"
+											value="checkbox" required>
+										<span class="custom-control-label"></span>
+									</label>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Product switched or leaked</label>
+								<p id="switchleaked-hint" class="input-hint">
+									What product was switched or leaked?
+								</p>
+								<input type="text" aria-describedby="switchedleaked-hint" class="form-control"
+									maxlength="200" required>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Reason for switch or leak</label>
+										<p id="switchleaked-reason-hint" class="input-hint">
+											Why was there a switch or a leak?
+										</p>
+								<select class="form-control custom-select select2-show-search" aria-describedby="switchleaked-reason-hint"
+									data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="Not available">Not available</option>
+									<option value="Price">Price</option>
+									<option value="Therapeutic Reason">Therapeutic Reason</option>
+									<option value="Other Reason">Other Reason</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Form sold</label>
+										<p id="form-sold-hint" class="input-hint">
+											What form of drug was sold? liquid,tablet
+										</p>
+						
+								<select class="form-control custom-select select2-show-search" aria-describedby="form-sold-hint"
+									data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="3">Capsule</option>
+									<option value="7">Cream</option>
+									<option value="14">Ear drop</option>
+									<option value="15">Eye drop</option>
+									<option value="9">Gel</option>
+									<option value="12">Inhaler</option>
+									<option value="6">Injection</option>
+									<option value="8">Ointment</option>
+									<option value="10">Patch</option>
+									<option value="13">Pessary</option>
+									<option value="16">Powder</option>
+									<option value="11">Spray</option>
+									<option value="1">Suppositories</option>
+									<option value="4">Suspension</option>
+									<option value="5">Syrup</option>
+									<option value="2">Tablet</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Division</label>
+										<p id="division-hint" class="input-hint">
+											Was the whole box sold? How was it divided?
+										</p>
+								<select aria-describedby="division-hint" class="form-control custom-select select2-show-search"
+									data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="unit">unit</option>
+									<option value="blister">blister</option>
+									<option value="box">box</option>
+									<option value="blister+unit">blister+unit</option>
+									<option value="box+unit">box+unit</option>
+									<option value="box+blister">box+blister</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="float-right mb-4 mb-lg-0">
+					<a class="btn btn-success w-150" href="#">Finish</a>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<!--/Job posts-section-->
+
+	<script src="https://www.pywe.org/static/js/jquery.min.js"></script>
+	<script>
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#blah').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#imgInp").change(function () {
+			readURL(this);
+		});
+	</script>
+
+	<script>
+		window.onload = function Load() {
+			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Blackberry/i) || navigator.userAgent.match(/WebOs/i)) { // detect mobile browser
+				window.location.replace("https://gigship.pywe.org/registration/"); // redirect if mobile browser detected
+			}
+		}
+	</script>
+
+	<!-- Notification -->
+<<<<<<< HEAD
+	<!-- <a href="#" id="notification"><span class="notification-text">Notifications</span><i
+			class="fa fa-bell"></i></a> -->
+=======
+	<a href="#" id="notification"><span class="notification-text">Notifications</span><i class="fa fa-bell"></i></a>
+>>>>>>> 121b386ef74fc724ec95452c6f1657a68a302c70
+
+	<!-- Back to top -->
+	<a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+	<!-- JQuery js-->
+	<script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
+
+	<!-- Bootstrap js -->
+	<script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
+	<script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+	<!--JQuery Sparkline Js-->
+	<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+
+	<!-- Circle Progress Js-->
+	<script src="/static/js/vendors/circle-progress.min.js"></script>
+
+	<!-- Star Rating Js-->
+	<script src="/static/plugins/rating/jquery.rating-stars.js"></script>
+
+	<!--Owl Carousel js -->
+	<script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
+
+	<!--Horizontal Menu-->
+	<script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+	<!--Counters -->
+	<script src="/static/plugins/counters/counterup.min.js"></script>
+	<script src="/static/plugins/counters/waypoints.min.js"></script>
+
+	<!--JQuery TouchSwipe js-->
+	<script src="/static/js/jquery.touchSwipe.min.js"></script>
+
+	<!--Select2 js -->
+	<script src="/static/plugins/select2/select2.full.min.js"></script>
+	<script src="/static/js/select2.js"></script>
+
+	<!-- Cookie js -->
+	<script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+	<script src="/static/plugins/cookie/cookie.js"></script>
+
+	<!-- Count Down-->
+	<script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
+
+	<!-- Ion.RangeSlider -->
+	<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
+
+	<!-- Custom scroll bar Js-->
+	<script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- sticky Js-->
+	<script src="/static/js/sticky.js"></script>
+
+	<!-- Swipe Js-->
+	<script src="/static/js/swipe.js"></script>
+
+	<!-- Scripts Js-->
+	<script src="/static/js/scripts2.js"></script>
+
+	<!-- Ion.RangeSlider -->
+	<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
+
+	<!--Showmore Js-->
+	<script src="/static/js/jquery.showmore.js"></script>
+	<script src="/static/js/showmore.js"></script>
+
+	<!-- Custom Js-->
+	<script src="/static/js/custom.js"></script>
+</body>
+
+</html>
