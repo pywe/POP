@@ -1,0 +1,3 @@
+Migrations should be run in order the class appear
+First class models should be migrated together and at First
+Second class models follow and so on.
