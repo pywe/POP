@@ -18,6 +18,12 @@ def new_basket(request):
     return render(request,template_name,args)
 
 
+def new_pharmacy(request):
+    template_name = "campaigns/new_pharmacy.html"
+    args = {}
+    return render(request,template_name,args)
+
+
 def observation_session(request):
     template_name = "campaigns/observation_session.html"
     args = {}

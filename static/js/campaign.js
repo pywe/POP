@@ -22,7 +22,7 @@ if (data.success){
     // save the objects gotten at this point to local database
     var tbody = document.getElementById("campaignList");
     tbody.innerHTML = ""
-    // constructing table data from objects retrieved 
+    // constructing table data from objects retrieved
     var d = new Date()
     var year = d.getFullYear()
     var month = parseInt(d.getMonth())+1
@@ -38,20 +38,20 @@ if (data.success){
         tr += `<td>`+data.objects[i]['status']+`</td>`
         tr += `<td>`+year+"/"+month+"/"+day+"|"+hour+":"+mins+":"+seconds+`</td>`
         if(data.objects[i]['status'] === 'active'){
-        tr += `<td><a href="/campaign_list/new_session/" onclick="saveCampaign('`+data.objects[i]['name']+`')" class="btn btn-light"><img src="/static/images/icon-viewlink.svg" /> Open</a> <a onclick="fetchCampaigns()" class="btn btn-primary">Update this campaign</a></td>`
+        tr += `<td><a href="/campaign_list/new_session/" onclick="saveCampaign('`+data.objects[i]['name']+`')" class="btn btn-light"><img src="/static/images/icon-viewlink.svg" /> Open</a> <a onclick="fetchCampaigns()" class="btn btn-primary text-white">Update this campaign</a></td>`
         }else{
-         tr += `<td>No action available</td>`   
+         tr += `<td>No action available</td>`
         }
         tr += `</tr>`
         tbody.innerHTML += tr
     }
-    
+
 
     }
 else{
-    console.log(data); 
+    console.log(data);
 }
-  
+
 })
 .catch(err =>{
 console.log(err);

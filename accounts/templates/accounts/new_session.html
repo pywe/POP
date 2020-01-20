@@ -14,39 +14,39 @@
         <meta name="MobileOptimized" content="320">
         <link rel="icon" href="/static/images/brand/logo.svg" type="image/x-icon" />
         <link rel="shortcut icon" type="image/x-icon" href="/static/images/brand/logo.svg" />
-    
+
         <!-- Title -->
         <title>POP Ghana | New Session</title>
-    
+
         <!-- Bootstrap Css -->
         <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
-    
+
         <!-- Dashboard Css -->
         <link href="/static/css/style.css" rel="stylesheet" />
-    
+
         <!-- Font-awesome  Css -->
         <link href="/static/css/icons.css" rel="stylesheet" />
-    
+
         <!--Horizontal Menu-->
         <link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
         <link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
-    
+
         <!--Select2 Plugin -->
         <link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
-    
+
         <!-- Owl Theme css-->
         <link href="/static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
-    
+
         <!-- Cookie css -->
         <link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
-    
+
         <!-- Custom scroll bar css-->
         <link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
-    
+
         <!-- COLOR-SKINS -->
         <link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
     </head>
-    
+
     <body>
         <!--Sliders Section-->
         <section>
@@ -56,10 +56,10 @@
                         <div class="text-center text-white">
                             <h1>Creat A New Session</h1>
                             <ol class="breadcrumb text-center">
-                                <li class="breadcrumb-item">User <strong id="username" app-variable="username"></strong>
+                                <li class="breadcrumb-item"><strong id="username" app-variable="username"></strong>
                                 </li>
-                                <li class="breadcrumb-item"><a href="campaign_list.html">Campaign List</a></li>
-                                <li class="breadcrumb-item"><a href="observation_session.html"><span id="global_name"
+                                <li class="breadcrumb-item"><a href="/">Campaign List</a></li>
+                                <li class="breadcrumb-item"><a href="/campaigns/observation-session"><span id="global_name"
                                     app-variable="campaign-name-pretty"></span></a></li>
                                 <li class="breadcrumb-item active text-white" aria-current="page">New Session</li>
                             </ol>
@@ -75,25 +75,25 @@
                     <div class="col-lg-5 col-xl-4 col-md-7 d-block mx-auto">
                         <div class="wrapper wrapper2">
                             <form id="login" class="card-body" tabindex="500">
-    
+
                                 <div class="session">
                                     <input type="text" name="new-session">
                                     <label>Session Name</label>
                                 </div>
                                 <div class="submit">
-                                    <a class="btn btn-primary btn-block" href="new_basket.html">Save</a>
+                                    <a class="btn btn-primary btn-block" href="/campaigns/new-pharmacy">Save</a>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
         </div>
    <!-- Notification -->
    <a href="#" id="notification"><span class="notification-text">Notifications</span><i class="fa fa-bell"></i></a>
-    
+
    <!-- Back to top -->
    <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
 
@@ -167,14 +167,15 @@
            //   redirect user to campaign list or last page
            // Get user's country and fetch appropriate list
            fetchCampaigns()
+           document.getElementById("global_name").innerHTML = localStorage.getItem('campaign')
        }
        else{
            //   user must login
            window.location.href = "/accounts/login/"
        }
-   } 
-</script> 
-<script src="/static/js/campaign.js"></script> 
-<script src="/static/js/login.js"></script>  
+   }
+</script>
+<script src="/static/js/campaign.js"></script>
+<script src="/static/js/login.js"></script>
 </body>
 </html>
