@@ -64,7 +64,8 @@
                 if(isLoggedIn()){
                       redirect user to campaign list or last page
                     Get user's country and fetch appropriate list
-                    /fetchCampaigns()
+                    fetchCampaigns()
+                    document.getElementById("global_name").innerHTML = localStorage.getItem('campaign')
                 }
                 else{
                       user must login

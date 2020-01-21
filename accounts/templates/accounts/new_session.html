@@ -74,14 +74,14 @@
                 <div class="single-page">
                     <div class="col-lg-5 col-xl-4 col-md-7 d-block mx-auto">
                         <div class="wrapper wrapper2">
-                            <form id="login" class="card-body" tabindex="500">
+                            <form id="login" class="card-body" tabindex="500" method="dialog" action="#">
 
                                 <div class="session">
-                                    <input type="text" name="new-session">
+                                    <input id="session" type="text" name="new-session" required="required">
                                     <label>Session Name</label>
                                 </div>
                                 <div class="submit">
-                                    <a class="btn btn-primary btn-block" href="/campaigns/new-pharmacy">Save</a>
+                                    <a class="btn btn-primary btn-block" onclick="saveSession()">Save</a>
                                 </div>
                             </form>
                         </div>
@@ -166,13 +166,18 @@
        if(isLoggedIn()){
            //   redirect user to campaign list or last page
            // Get user's country and fetch appropriate list
-           fetchCampaigns()
+        //   fetchCampaigns()
            document.getElementById("global_name").innerHTML = localStorage.getItem('campaign')
        }
        else{
            //   user must login
            window.location.href = "/accounts/login/"
        }
+   }
+   function saveSession(){
+       console.log(document.getElementById("session").value)
+       localStorage.setItem("session",document.getElementById("session").value)
+      window.location.href = "/campaigns/new-pharmacy"
    }
 </script>
 <script src="/static/js/campaign.js"></script>

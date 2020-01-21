@@ -38,7 +38,7 @@ if (data.success){
         tr += `<td>`+data.objects[i]['status']+`</td>`
         tr += `<td>`+year+"/"+month+"/"+day+"|"+hour+":"+mins+":"+seconds+`</td>`
         if(data.objects[i]['status'] === 'active'){
-        tr += `<td><a href="/campaign_list/new_session/" onclick="saveCampaign('`+data.objects[i]['name']+`')" class="btn btn-light"><img src="/static/images/icon-viewlink.svg" /> Open</a> <a onclick="fetchCampaigns()" class="btn btn-primary text-white">Update this campaign</a></td>`
+        tr += `<td><a href="/campaigns/new-session/" onclick="saveCampaign('`+data.objects[i]['name']+`')" class="btn btn-light"><img src="/static/images/icon-viewlink.svg" /> Open</a> <a onclick="fetchCampaigns()" class="btn btn-primary text-white">Update this campaign</a></td>`
         }else{
          tr += `<td>No action available</td>`
         }
