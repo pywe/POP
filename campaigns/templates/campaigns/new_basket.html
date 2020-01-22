@@ -18,6 +18,9 @@
 	<!-- Dashboard Css -->
 	<link href="/static/css/style.css" rel="stylesheet" />
 
+	<!--Animate Css-->
+	<link rel="stylesheet" href="/static/css/animate.css">
+
 	<!-- Font-awesome  Css -->
 	<link href="/static/css/icons.css" rel="stylesheet" />
 
@@ -54,7 +57,8 @@
 						<h1>New Basket</h1>
 						<ol class="breadcrumb text-center">
 							<li class="breadcrumb-item"><a href="/">Home</a></li>
-							<li class="breadcrumb-item"><a href="/campaigns/observation-session">Observation Session</a></li>
+							<li class="breadcrumb-item"><a href="/campaigns/observation-session">Observation Session</a>
+							</li>
 							<li class="breadcrumb-item active text-white" aria-current="page">New Basket</li>
 						</ol>
 					</div>
@@ -67,9 +71,10 @@
 	<!--Patient data-section-->
 	<section class="sptb">
 		<div class="container">
+			<form>
 			<div class="row ">
 				<div class="col-lg-12 col-md-12 col-md-12">
-					<div class="card dropify-image-avatar">
+					<div class="card">
 						<div class="card-header ">
 							<h3 class="card-title">Patient</h3>
 						</div>
@@ -79,8 +84,8 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="form-label text-dark">Insurance scheme</label>
-												<select class="form-control custom-select select2-show-search"
+												<label for="insurance-scheme" class="form-label text-dark">Insurance scheme</label>
+												<select name="insurance-scheme" class="form-control custom-select select2-show-search"
 													data-placeholder="Choose one (with searchbox)">
 													<option value="" selected>---------</option>
 													<option value="Private Insurance">Private Insurance</option>
@@ -90,8 +95,8 @@
 												</select>
 											</div>
 											<div class="form-group">
-												<label class="form-label text-dark">Gender</label>
-												<select class="form-control custom-select select2-show-search"
+												<label for="gender" class="form-label text-dark">Gender</label>
+												<select name="gender" class="form-control custom-select select2-show-search"
 													data-placeholder="Choose one (with searchbox)">
 													<option value="" selected>---------</option>
 													<option value="Male">Male</option>
@@ -102,8 +107,8 @@
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="form-label text-dark">Age</label>
-												<input type="number" class="form-control" placeholder="Patient Age"
+												<label for="age" class="form-label text-dark">Age</label>
+												<input name="age" type="number" class="form-control" placeholder="Patient Age"
 													required>
 											</div>
 										</div>
@@ -112,15 +117,276 @@
 							</div>
 						</div>
 					</div>
-					<div class="card dropify-image-avatar">
+					<div class="card">
 						<div class="card-header ">
-							<h3 class="card-title">Drugs</h3>
+							<h3 class="card-title">Drug</h3>
 							<!--<div class="card-options">-->
 							<!--	<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i class="fa fa-plus"></i> Add Another</a>-->
 							<!--</div>-->
 						</div>
 
-						<div class="card-body" id="drugs">
+						<div class="card-body">
+							<div class="form-group">
+								<label for="intitial-req" class="form-label text-dark">Initial request</label>
+								<p id="initial-req-hint" class="input-hint">
+									Who started the request?
+								</p>
+								<select name="initial-req" aria-describedby="initial-req-hint"
+									class="form-control custom-select select2-show-search"
+									data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="brand patient">brand patient</option>
+									<option value="brand prescription">brand prescription</option>
+									<option value="inn patient">inn patient</option>
+									<option value="inn prescription">inn prescription</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="drug-sold" class="form-label text-dark">Drug sold</label>
+								<p id="drug-sold-hint" class="input-hint">
+									Brand name of drug that has been sold?
+								</p>
+								<input name="drug-sold" type="text" aria-describedby="drug-sold-hint" class="form-control"
+									maxlength="200" required>
+							</div>
+							<div class="form-group">
+								<label for="drug-sale-driver" class="form-label text-dark">Drug Sale Driver</label>
+								<p id="drug-sale-driver-hint" class="input-hint">
+									Who makes the final selection for the purchased product?
+								</p>
+								<select name="drug-sale-driver" aria-describedby="drug-sale-driver-hint"
+									class="form-control custom-select select2-show-search"
+									data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="Patient">Patient</option>
+									<option value="Pharmacist">Pharmacist</option>
+									<option value="Prescriber">Prescriber</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Switched</label>
+								<p id="switched-hint" class="input-hint">
+									Was there a switch?
+								</p>
+								<div class="form-control">
+									<label class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input"
+											aria-describedby="switched-hint" name="checkbox" value="checkbox">
+										<span class="custom-control-label"></span>
+									</label>
+
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Leaked</label>
+								<p id="leaked-hint" class="input-hint">
+									Was there a leak?
+								</p>
+								<div class="form-control">
+									<label class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" name="checkbox"
+											value="checkbox" required>
+										<span class="custom-control-label"></span>
+									</label>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="switchleaked" class="form-label text-dark">Product switched or leaked</label>
+								<p id="switchleaked-hint" class="input-hint">
+									What product was switched or leaked?
+								</p>
+								<input name="switchleaked" type="text" aria-describedby="switchedleaked-hint" class="form-control"
+									maxlength="200" required>
+							</div>
+							<div class="form-group">
+								<label for="switchleak-reason" class="form-label text-dark">Reason for switch or leak</label>
+								<p id="switchleaked-reason-hint" class="input-hint">
+									Why was there a switch or a leak?
+								</p>
+								<select name="switchleaked-reason" class="form-control custom-select select2-show-search"
+									aria-describedby="switchleaked-reason-hint"
+									data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="Not available">Not available</option>
+									<option value="Price">Price</option>
+									<option value="Therapeutic Reason">Therapeutic Reason</option>
+									<option value="Other Reason">Other Reason</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="form-sold" class="form-label text-dark">Form sold</label>
+								<p id="form-sold-hint" class="input-hint">
+									What form of drug was sold? liquid,tablet
+								</p>
+
+								<select name="form-sold" class="form-control custom-select select2-show-search"
+									aria-describedby="form-sold-hint" data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="3">Capsule</option>
+									<option value="7">Cream</option>
+									<option value="14">Ear drop</option>
+									<option value="15">Eye drop</option>
+									<option value="9">Gel</option>
+									<option value="12">Inhaler</option>
+									<option value="6">Injection</option>
+									<option value="8">Ointment</option>
+									<option value="10">Patch</option>
+									<option value="13">Pessary</option>
+									<option value="16">Powder</option>
+									<option value="11">Spray</option>
+									<option value="1">Suppositories</option>
+									<option value="4">Suspension</option>
+									<option value="5">Syrup</option>
+									<option value="2">Tablet</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark" for="division">Division</label>
+								<p id="division-hint" class="input-hint">
+									Was the whole box sold? How was it divided?
+								</p>
+								<select name="division" aria-describedby="division-hint"
+									class="form-control custom-select select2-show-search"
+									data-placeholder="Choose one (with searchbox)">
+									<option value="" selected>---------</option>
+									<option value="unit">unit</option>
+									<option value="blister">blister</option>
+									<option value="box">box</option>
+									<option value="blister+unit">blister+unit</option>
+									<option value="box+unit">box+unit</option>
+									<option value="box+blister">box+blister</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="card-footer">
+							<div class="card-options">
+								<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i
+										class="fa fa-plus"></i> Add Another</a>
+							</div>
+						</div>
+					</div>
+					<div id="drugs"></div>
+				</div>
+				<div class="float-right mb-4 mb-lg-0">
+					<a class="btn btn-success w-150" onclick="collectForm()" href="#">Finish</a>
+				</div>
+			</div>
+		</form>
+		</div>
+
+	</section>
+	<!--/Job posts-section-->
+
+
+	<script>
+// 		window.onload = function Load() {
+// 			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Blackberry/i) || navigator.userAgent.match(/WebOs/i)) { // detect mobile browser
+// 				window.location.replace("https://gigship.pywe.org/registration/"); // redirect if mobile browser detected
+// 			}
+// 		}
+	</script>
+
+	<!--App js-->
+	<script href="/static/js/app.js"></script>
+
+	<!-- Notification -->
+	<!-- <a href="#" id="notification"><span class="notification-text">Notifications</span><i
+			class="fa fa-bell"></i></a> -->
+
+	<!-- Back to top -->
+	<a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+	<!-- JQuery js-->
+	<script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
+
+	<!-- Bootstrap js -->
+	<script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
+	<script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+	<!--JQuery Sparkline Js-->
+	<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+
+	<!-- Circle Progress Js-->
+	<script src="/static/js/vendors/circle-progress.min.js"></script>
+
+	<!-- Star Rating Js-->
+	<script src="/static/plugins/rating/jquery.rating-stars.js"></script>
+
+	<!--Owl Carousel js -->
+	<script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
+
+	<!--Horizontal Menu-->
+	<script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+	<!--Counters -->
+	<script src="/static/plugins/counters/counterup.min.js"></script>
+	<script src="/static/plugins/counters/waypoints.min.js"></script>
+
+	<!--JQuery TouchSwipe js-->
+	<script src="/static/js/jquery.touchSwipe.min.js"></script>
+
+	<!--Select2 js -->
+	<script src="/static/plugins/select2/select2.full.min.js"></script>
+	<script src="/static/js/select2.js"></script>
+
+	<!-- Cookie js -->
+	<script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+	<script src="/static/plugins/cookie/cookie.js"></script>
+
+	<!-- Count Down-->
+	<script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
+
+	<!-- Ion.RangeSlider -->
+	<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
+
+	<!-- Custom scroll bar Js-->
+	<script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- sticky Js-->
+	<script src="/static/js/sticky.js"></script>
+
+	<!-- Swipe Js-->
+	<script src="/static/js/swipe.js"></script>
+
+	<!-- Scripts Js-->
+	<script src="/static/js/scripts2.js"></script>
+
+	<!-- Ion.RangeSlider -->
+	<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
+
+	<!--Showmore Js-->
+	<script src="/static/js/jquery.showmore.js"></script>
+	<script src="/static/js/showmore.js"></script>
+
+	<!-- Custom Js-->
+	<script src="/static/js/custom.js"></script>
+	<script>
+		function makeid(length) {
+			var result = '';
+			var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			var charactersLength = characters.length;
+			for (var i = 0; i < length; i++) {
+				result += characters.charAt(Math.floor(Math.random() * charactersLength));
+			}
+			return result;
+		}
+		function addDrugForm() {
+			var id = makeid(10)
+			document.getElementById("drugs").innerHTML += `<div class="animated slideInUp" id="` + id + `">
+	        <hr>
+	        <a style="float:right;" class="btn btn-danger btn-sm" href="#/" onclick="removeDrugForm('`+ id + `')">Remove</a>
+	        <div class="card">
+						<div class="card-header ">
+							<h3 class="card-title">Drug</h3>
+							<!--<div class="card-options">-->
+							<!--	<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i class="fa fa-plus"></i> Add Another</a>-->
+							<!--</div>-->
+						</div>
+
+						<div class="card-body">
 							<div class="form-group">
 								<label class="form-label text-dark">Initial request</label>
 								<p id="initial-req-hint" class="input-hint">
@@ -253,275 +519,72 @@
 								</select>
 							</div>
 						</div>
-
+  						
 						<div class="card-footer">
 							<div class="card-options">
 								<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i class="fa fa-plus"></i> Add Another</a>
 							</div>
 						</div>
-					</div>
-
-				</div>
-				<div class="float-right mb-4 mb-lg-0">
-					<a class="btn btn-success w-150" href="#">Finish</a>
-				</div>
-			</div>
-		</div>
-		</div>
-	</section>
-	<!--/Job posts-section-->
-
-	<script src="https://www.pywe.org/static/js/jquery.min.js"></script>
-	<script>
-		function readURL(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-
-				reader.onload = function (e) {
-					$('#blah').attr('src', e.target.result);
-				}
-
-				reader.readAsDataURL(input.files[0]);
-			}
+					</div>`;
 		}
-
-		$("#imgInp").change(function () {
-			readURL(this);
-		});
+		function removeDrugForm(id) {
+			$("#" + id).remove();
+			// document.getElementById(id).style.display = "none"
+		}
 	</script>
-
-    <script>
-// 		window.onload = function Load() {
-// 			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Blackberry/i) || navigator.userAgent.match(/WebOs/i)) { // detect mobile browser
-// 				window.location.replace("https://gigship.pywe.org/registration/"); // redirect if mobile browser detected
-// 			}
-// 		}
-	</script>
-
-	<!-- Notification -->
-	<!-- <a href="#" id="notification"><span class="notification-text">Notifications</span><i
-			class="fa fa-bell"></i></a> -->
-
-	<!-- Back to top -->
-	<a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
-
-	<!-- JQuery js-->
-	<script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
-
-	<!-- Bootstrap js -->
-	<script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
-	<script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-
-	<!--JQuery Sparkline Js-->
-	<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
-
-	<!-- Circle Progress Js-->
-	<script src="/static/js/vendors/circle-progress.min.js"></script>
-
-	<!-- Star Rating Js-->
-	<script src="/static/plugins/rating/jquery.rating-stars.js"></script>
-
-	<!--Owl Carousel js -->
-	<script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
-
-	<!--Horizontal Menu-->
-	<script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
-
-	<!--Counters -->
-	<script src="/static/plugins/counters/counterup.min.js"></script>
-	<script src="/static/plugins/counters/waypoints.min.js"></script>
-
-	<!--JQuery TouchSwipe js-->
-	<script src="/static/js/jquery.touchSwipe.min.js"></script>
-
-	<!--Select2 js -->
-	<script src="/static/plugins/select2/select2.full.min.js"></script>
-	<script src="/static/js/select2.js"></script>
-
-	<!-- Cookie js -->
-	<script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
-	<script src="/static/plugins/cookie/cookie.js"></script>
-
-	<!-- Count Down-->
-	<script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
-
-	<!-- Ion.RangeSlider -->
-	<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
-
-	<!-- Custom scroll bar Js-->
-	<script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-
-	<!-- sticky Js-->
-	<script src="/static/js/sticky.js"></script>
-
-	<!-- Swipe Js-->
-	<script src="/static/js/swipe.js"></script>
-
-	<!-- Scripts Js-->
-	<script src="/static/js/scripts2.js"></script>
-
-	<!-- Ion.RangeSlider -->
-	<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
-
-	<!--Showmore Js-->
-	<script src="/static/js/jquery.showmore.js"></script>
-	<script src="/static/js/showmore.js"></script>
-
-	<!-- Custom Js-->
-	<script src="/static/js/custom.js"></script>
 	<script>
-	function makeid(length) {
-   var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-   var charactersLength = characters.length;
-   for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   return result;
-}
-	    function addDrugForm(){
-	        var id = makeid(10)
-	        document.getElementById("drugs").innerHTML += `<div class="animated slideInUp" id="`+id+`">
-	        <hr>
-	        <a style="float:right;" class="btn btn-danger btn-sm" href="#/" onclick="removeDrugForm('`+id+`')">Remove</a>
-	        <div class="form-group">
-								<label class="form-label text-dark">Initial request</label>
-								<p id="`+id+`initial-req-hint" class="input-hint">
-									Who started the request?
-								</p>
-								<select aria-describedby="`+id+`initial-req-hint"
-									class="form-control custom-select select3-show-search"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="brand patient">brand patient</option>
-									<option value="brand prescription">brand prescription</option>
-									<option value="inn patient">inn patient</option>
-									<option value="inn prescription">inn prescription</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Drug sold</label>
-								<p id="`+id+`drug-sold-hint" class="input-hint">
-									Brand name of drug that has been sold?
-								</p>
-								<input type="text" aria-describedby="`+id+`drug-sold-hint" class="form-control"
-									maxlength="200" required>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Drug Sale Driver</label>
-								<p id="`+id+`drug-sale-driver-hint" class="input-hint">
-									Who makes the final selection for the purchased product?
-								</p>
-								<select aria-describedby="`+id+`drug-sale-driver-hint"
-									class="form-control custom-select select3-show-search"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="Patient">Patient</option>
-									<option value="Pharmacist">Pharmacist</option>
-									<option value="Prescriber">Prescriber</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Switched</label>
-								<p id="`+id+`switched-hint" class="input-hint">
-									Was there a switch?
-								</p>
-								<div class="form-control">
-									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
-											aria-describedby="`+id+`switched-hint" name="checkbox" value="checkbox">
-										<span class="custom-control-label"></span>
-									</label>
-
-								</div>
-
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Leaked</label>
-								<p id="`+id+`leaked-hint" class="input-hint">
-									Was there a leak?
-								</p>
-								<div class="form-control">
-									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" name="checkbox"
-											value="checkbox" required>
-										<span class="custom-control-label"></span>
-									</label>
-
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Product switched or leaked</label>
-								<p id="`+id+`switchleaked-hint" class="input-hint">
-									What product was switched or leaked?
-								</p>
-								<input type="text" aria-describedby="`+id+`switchedleaked-hint" class="form-control"
-									maxlength="200" required>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Reason for switch or leak</label>
-										<p id="`+id+`switchleaked-reason-hint" class="input-hint">
-											Why was there a switch or a leak?
-										</p>
-								<select class="form-control custom-select select3-show-search" aria-describedby="`+id+`switchleaked-reason-hint"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="Not available">Not available</option>
-									<option value="Price">Price</option>
-									<option value="Therapeutic Reason">Therapeutic Reason</option>
-									<option value="Other Reason">Other Reason</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Form sold</label>
-										<p id="`+id+`form-sold-hint" class="input-hint">
-											What form of drug was sold? liquid,tablet
-										</p>
-
-								<select class="form-control custom-select select3-show-search" aria-describedby="`+id+`form-sold-hint"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="3">Capsule</option>
-									<option value="7">Cream</option>
-									<option value="14">Ear drop</option>
-									<option value="15">Eye drop</option>
-									<option value="9">Gel</option>
-									<option value="12">Inhaler</option>
-									<option value="6">Injection</option>
-									<option value="8">Ointment</option>
-									<option value="10">Patch</option>
-									<option value="13">Pessary</option>
-									<option value="16">Powder</option>
-									<option value="11">Spray</option>
-									<option value="1">Suppositories</option>
-									<option value="4">Suspension</option>
-									<option value="5">Syrup</option>
-									<option value="2">Tablet</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Division</label>
-										<p id="`+id+`division-hint" class="input-hint">
-											Was the whole box sold? How was it divided?
-										</p>
-								<select aria-describedby="`+id+`division-hint" class="form-control custom-select select3-show-search"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="unit">unit</option>
-									<option value="blister">blister</option>
-									<option value="box">box</option>
-									<option value="blister+unit">blister+unit</option>
-									<option value="box+unit">box+unit</option>
-									<option value="box+blister">box+blister</option>
-								</select>
-							</div>
-							</div>`
-	    }
-	    function removeDrugForm(id){
-	         $( "#"+id ).remove();
-	       // document.getElementById(id).style.display = "none"
-	    }
+		function collectForm(){
+			var basketdata = $('#form input').serializeArray().reduce(function (obj, item) {
+			obj[item.name] = item.value;
+			return obj;
+		}, {});
+		console.log(basketdata)
+		};
 	</script>
+
+	<script>
+	// for single values
+//function add(data) {
+    //let request = db.transaction(["baskets"], "readwrite").objectStore("baskets").add(data);
+//}
+
+// for multiple values
+/*function addMultiple(data, callback) {
+    const tx = db.transaction(["baskets"], "readwrite");
+
+    data.forEach(value => {
+        let request = tx.objectStore("baskets").add(data);
+    })
+
+    tx.oncomplete = function(event) {
+        callback();
+    }
+};*/
+
+/// if we are only working with arrays    
+/*function add(data, callback) {
+    const tx = db.transaction(["baskets"], "readwrite");
+
+    data.forEach(value => {
+        let request = tx.objectStore("baskets").add(data);
+    })
+
+    tx.oncomplete = function(event) {
+        callback();
+    }
+};*/
+
+// so when want to insert single array value , we would do it like this.
+
+/*const value = {
+    id: 1,
+    name: 'hhdd'
+}
+add([value], () => {
+
+})*/
+	</script>
+
 </body>
 
 </html>
