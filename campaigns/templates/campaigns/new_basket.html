@@ -71,226 +71,257 @@
 	<!--Patient data-section-->
 	<section class="sptb">
 		<div class="container">
-			<form>
-			<div class="row ">
-				<div class="col-lg-12 col-md-12 col-md-12">
-					<div class="card">
-						<div class="card-header ">
-							<h3 class="card-title">Patient</h3>
-						</div>
-						<div class="card-body">
-							<div class="row">
-								<div class="col-lg-9">
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="insurance-scheme" class="form-label text-dark">Insurance scheme</label>
-												<select name="insurance-scheme" class="form-control custom-select select2-show-search"
-													data-placeholder="Choose one (with searchbox)">
-													<option value="" selected>---------</option>
-													<option value="Private Insurance">Private Insurance</option>
-													<option value="Public Insurance">Public Insurance</option>
-													<option value="No Insurance">No Insurance</option>
-													<option value="Undetermined">Undetermined</option>
-												</select>
+			<form id="form">
+				<div class="row ">
+					<div class="col-lg-12 col-md-12 col-md-12">
+						<div class="card">
+							<div class="card-header ">
+								<h3 class="card-title">Patient</h3>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-lg-9">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="insurance-scheme" class="form-label text-dark">Insurance
+														scheme</label>
+													<select name="insurance-scheme"
+														class="form-control custom-select select2-show-search"
+														data-placeholder="Choose one (with searchbox)">
+														<option value="" selected>---------</option>
+														<option value="Private Insurance">Private Insurance</option>
+														<option value="Public Insurance">Public Insurance</option>
+														<option value="No Insurance">No Insurance</option>
+														<option value="Undetermined">Undetermined</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="gender" class="form-label text-dark">Gender</label>
+													<select name="gender"
+														class="form-control custom-select select2-show-search"
+														data-placeholder="Choose one (with searchbox)">
+														<option value="" selected>---------</option>
+														<option value="Male">Male</option>
+														<option value="Female">Female</option>
+														<option value="Other">Other</option>
+													</select>
+												</div>
 											</div>
-											<div class="form-group">
-												<label for="gender" class="form-label text-dark">Gender</label>
-												<select name="gender" class="form-control custom-select select2-show-search"
-													data-placeholder="Choose one (with searchbox)">
-													<option value="" selected>---------</option>
-													<option value="Male">Male</option>
-													<option value="Female">Female</option>
-													<option value="Other">Other</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="age" class="form-label text-dark">Age</label>
-												<input name="age" type="number" class="form-control" placeholder="Patient Age"
-													required>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="age" class="form-label text-dark">Age</label>
+													<input name="age" type="number" class="form-control"
+														placeholder="Patient Age" required>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="card">
-						<div class="card-header ">
-							<h3 class="card-title">Drug</h3>
-							<!--<div class="card-options">-->
-							<!--	<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i class="fa fa-plus"></i> Add Another</a>-->
-							<!--</div>-->
-						</div>
+						<div class="card">
+							<div class="card-header ">
+								<h3 class="card-title">Drug</h3>
+								<!--<div class="card-options">-->
+								<!--	<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i class="fa fa-plus"></i> Add Another</a>-->
+								<!--</div>-->
+							</div>
 
-						<div class="card-body">
-							<div class="form-group">
-								<label for="intitial-req" class="form-label text-dark">Initial request</label>
-								<p id="initial-req-hint" class="input-hint">
-									Who started the request?
-								</p>
-								<select name="initial-req" aria-describedby="initial-req-hint"
-									class="form-control custom-select select2-show-search"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="brand patient">brand patient</option>
-									<option value="brand prescription">brand prescription</option>
-									<option value="inn patient">inn patient</option>
-									<option value="inn prescription">inn prescription</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="drug-sold" class="form-label text-dark">Drug sold</label>
-								<p id="drug-sold-hint" class="input-hint">
-									Brand name of drug that has been sold?
-								</p>
-								<input name="drug-sold" type="text" aria-describedby="drug-sold-hint" class="form-control"
-									maxlength="200" required>
-							</div>
-							<div class="form-group">
-								<label for="drug-sale-driver" class="form-label text-dark">Drug Sale Driver</label>
-								<p id="drug-sale-driver-hint" class="input-hint">
-									Who makes the final selection for the purchased product?
-								</p>
-								<select name="drug-sale-driver" aria-describedby="drug-sale-driver-hint"
-									class="form-control custom-select select2-show-search"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="Patient">Patient</option>
-									<option value="Pharmacist">Pharmacist</option>
-									<option value="Prescriber">Prescriber</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Switched</label>
-								<p id="switched-hint" class="input-hint">
-									Was there a switch?
-								</p>
-								<div class="form-control">
-									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
-											aria-describedby="switched-hint" name="checkbox" value="checkbox">
-										<span class="custom-control-label"></span>
-									</label>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-lg-9">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="intitial-req" class="form-label text-dark">Initial
+														request</label>
+													<p id="initial-req-hint" class="input-hint">
+														Who started the request?
+													</p>
+													<select name="initial-req" aria-describedby="initial-req-hint"
+														class="form-control custom-select select2-show-search"
+														data-placeholder="Choose one (with searchbox)">
+														<option value="" selected>---------</option>
+														<option value="brand patient">brand patient</option>
+														<option value="brand prescription">brand prescription</option>
+														<option value="inn patient">inn patient</option>
+														<option value="inn prescription">inn prescription</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="drug-sold" class="form-label text-dark">Drug
+														sold</label>
+													<p id="drug-sold-hint" class="input-hint">
+														Brand name of drug that has been sold?
+													</p>
+													<input name="drug-sold" type="text"
+														aria-describedby="drug-sold-hint" class="form-control"
+														maxlength="200" required>
+												</div>
+												<div class="form-group">
+													<label for="drug-sale-driver" class="form-label text-dark">Drug Sale
+														Driver</label>
+													<p id="drug-sale-driver-hint" class="input-hint">
+														Who makes the final selection for the purchased product?
+													</p>
+													<select name="drug-sale-driver"
+														aria-describedby="drug-sale-driver-hint"
+														class="form-control custom-select select2-show-search"
+														data-placeholder="Choose one (with searchbox)">
+														<option value="" selected>---------</option>
+														<option value="Patient">Patient</option>
+														<option value="Pharmacist">Pharmacist</option>
+														<option value="Prescriber">Prescriber</option>
+													</select>
+												</div>
+												<div class="row">
+													<div class="col-6 col-sm-3">
+														<div class="form-group">
+															<label class="form-label text-dark">Switched</label>
+															<p id="switched-hint" class="input-hint">
+																Was there a switch?
+															</p>
+															<div class="form-control">
+																<label class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input"
+																		aria-describedby="switched-hint"
+																		name="switched-checkbox">
+																	<span class="custom-control-label"></span>
+																</label>
+
+															</div>
+
+														</div>
+													</div>
+													<div class="col-6 col-sm-3">
+														<div class="form-group">
+															<label class="form-label text-dark">Leaked</label>
+															<p id="leaked-hint" class="input-hint">
+																Was there a leak?
+															</p>
+															<div class="form-control">
+																<label class="custom-control custom-checkbox">
+																	<input type="checkbox" class="custom-control-input"
+																		name="leaked-checkbox" required>
+																	<span class="custom-control-label"></span>
+																</label>
+
+															</div>
+														</div>
+
+													</div>
+												</div>
+
+
+											</div>
+
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="switchleaked" class="form-label text-dark">Product
+														switched or
+														leaked</label>
+													<p id="switchleaked-hint" class="input-hint">
+														What product was switched or leaked?
+													</p>
+													<input name="switchleaked" type="text"
+														aria-describedby="switchedleaked-hint" class="form-control"
+														maxlength="200" required>
+												</div>
+												<div class="form-group">
+													<label for="switchleak-reason" class="form-label text-dark">Reason
+														for switch or
+														leak</label>
+													<p id="switchleaked-reason-hint" class="input-hint">
+														Why was there a switch or a leak?
+													</p>
+													<select name="switchleaked-reason"
+														class="form-control custom-select select2-show-search"
+														aria-describedby="switchleaked-reason-hint"
+														data-placeholder="Choose one (with searchbox)">
+														<option value="" selected>---------</option>
+														<option value="Not available">Not available</option>
+														<option value="Price">Price</option>
+														<option value="Therapeutic Reason">Therapeutic Reason</option>
+														<option value="Other Reason">Other Reason</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="form-sold" class="form-label text-dark">Form
+														sold</label>
+													<p id="form-sold-hint" class="input-hint">
+														What form of drug was sold? liquid,tablet
+													</p>
+
+													<select name="form-sold"
+														class="form-control custom-select select2-show-search"
+														aria-describedby="form-sold-hint"
+														data-placeholder="Choose one (with searchbox)">
+														<option value="" selected>---------</option>
+														<option value="3">Capsule</option>
+														<option value="7">Cream</option>
+														<option value="14">Ear drop</option>
+														<option value="15">Eye drop</option>
+														<option value="9">Gel</option>
+														<option value="12">Inhaler</option>
+														<option value="6">Injection</option>
+														<option value="8">Ointment</option>
+														<option value="10">Patch</option>
+														<option value="13">Pessary</option>
+														<option value="16">Powder</option>
+														<option value="11">Spray</option>
+														<option value="1">Suppositories</option>
+														<option value="4">Suspension</option>
+														<option value="5">Syrup</option>
+														<option value="2">Tablet</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label class="form-label text-dark" for="division">Division</label>
+													<p id="division-hint" class="input-hint">
+														Was the whole box sold? How was it divided?
+													</p>
+													<select name="division" aria-describedby="division-hint"
+														class="form-control custom-select select2-show-search"
+														data-placeholder="Choose one (with searchbox)">
+														<option value="" selected>---------</option>
+														<option value="unit">unit</option>
+														<option value="blister">blister</option>
+														<option value="box">box</option>
+														<option value="blister+unit">blister+unit</option>
+														<option value="box+unit">box+unit</option>
+														<option value="box+blister">box+blister</option>
+													</select>
+												</div>
+
+											</div>
+
+										</div>
+										<div id="drugs"></div>
+										<div class="card-footer">
+											<div class="card-options">
+												<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i
+														class="fa fa-plus"></i> Add Another</a>
+											</div>
+										</div>
+
+									</div>
 
 								</div>
-
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Leaked</label>
-								<p id="leaked-hint" class="input-hint">
-									Was there a leak?
-								</p>
-								<div class="form-control">
-									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" name="checkbox"
-											value="checkbox" required>
-										<span class="custom-control-label"></span>
-									</label>
-
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="switchleaked" class="form-label text-dark">Product switched or leaked</label>
-								<p id="switchleaked-hint" class="input-hint">
-									What product was switched or leaked?
-								</p>
-								<input name="switchleaked" type="text" aria-describedby="switchedleaked-hint" class="form-control"
-									maxlength="200" required>
-							</div>
-							<div class="form-group">
-								<label for="switchleak-reason" class="form-label text-dark">Reason for switch or leak</label>
-								<p id="switchleaked-reason-hint" class="input-hint">
-									Why was there a switch or a leak?
-								</p>
-								<select name="switchleaked-reason" class="form-control custom-select select2-show-search"
-									aria-describedby="switchleaked-reason-hint"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="Not available">Not available</option>
-									<option value="Price">Price</option>
-									<option value="Therapeutic Reason">Therapeutic Reason</option>
-									<option value="Other Reason">Other Reason</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="form-sold" class="form-label text-dark">Form sold</label>
-								<p id="form-sold-hint" class="input-hint">
-									What form of drug was sold? liquid,tablet
-								</p>
-
-								<select name="form-sold" class="form-control custom-select select2-show-search"
-									aria-describedby="form-sold-hint" data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="3">Capsule</option>
-									<option value="7">Cream</option>
-									<option value="14">Ear drop</option>
-									<option value="15">Eye drop</option>
-									<option value="9">Gel</option>
-									<option value="12">Inhaler</option>
-									<option value="6">Injection</option>
-									<option value="8">Ointment</option>
-									<option value="10">Patch</option>
-									<option value="13">Pessary</option>
-									<option value="16">Powder</option>
-									<option value="11">Spray</option>
-									<option value="1">Suppositories</option>
-									<option value="4">Suspension</option>
-									<option value="5">Syrup</option>
-									<option value="2">Tablet</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark" for="division">Division</label>
-								<p id="division-hint" class="input-hint">
-									Was the whole box sold? How was it divided?
-								</p>
-								<select name="division" aria-describedby="division-hint"
-									class="form-control custom-select select2-show-search"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="unit">unit</option>
-									<option value="blister">blister</option>
-									<option value="box">box</option>
-									<option value="blister+unit">blister+unit</option>
-									<option value="box+unit">box+unit</option>
-									<option value="box+blister">box+blister</option>
-								</select>
-							</div>
-						</div>
-
-						<div class="card-footer">
-							<div class="card-options">
-								<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i
-										class="fa fa-plus"></i> Add Another</a>
 							</div>
 						</div>
 					</div>
-					<div id="drugs"></div>
+
+					<div class="float-right mb-4 mb-lg-0">
+						<a class="btn btn-success w-150" onclick="collectForm()" href="#">Finish</a>
+					</div>
 				</div>
-				<div class="float-right mb-4 mb-lg-0">
-					<a class="btn btn-success w-150" onclick="collectForm()" href="#">Finish</a>
-				</div>
-			</div>
-		</form>
+			</form>
 		</div>
 
 	</section>
 	<!--/Job posts-section-->
 
-
-	<script>
-// 		window.onload = function Load() {
-// 			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Blackberry/i) || navigator.userAgent.match(/WebOs/i)) { // detect mobile browser
-// 				window.location.replace("https://gigship.pywe.org/registration/"); // redirect if mobile browser detected
-// 			}
-// 		}
-	</script>
-
-	<!--App js-->
-	<script href="/static/js/app.js"></script>
 
 	<!-- Notification -->
 	<!-- <a href="#" id="notification"><span class="notification-text">Notifications</span><i
@@ -387,145 +418,160 @@
 						</div>
 
 						<div class="card-body">
-							<div class="form-group">
-								<label class="form-label text-dark">Initial request</label>
-								<p id="initial-req-hint" class="input-hint">
-									Who started the request?
-								</p>
-								<select aria-describedby="initial-req-hint"
-									class="form-control custom-select select2-show-search"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="brand patient">brand patient</option>
-									<option value="brand prescription">brand prescription</option>
-									<option value="inn patient">inn patient</option>
-									<option value="inn prescription">inn prescription</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Drug sold</label>
-								<p id="drug-sold-hint" class="input-hint">
-									Brand name of drug that has been sold?
-								</p>
-								<input type="text" aria-describedby="drug-sold-hint" class="form-control"
-									maxlength="200" required>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Drug Sale Driver</label>
-								<p id="drug-sale-driver-hint" class="input-hint">
-									Who makes the final selection for the purchased product?
-								</p>
-								<select aria-describedby="drug-sale-driver-hint"
-									class="form-control custom-select select2-show-search"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="Patient">Patient</option>
-									<option value="Pharmacist">Pharmacist</option>
-									<option value="Prescriber">Prescriber</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Switched</label>
-								<p id="switched-hint" class="input-hint">
-									Was there a switch?
-								</p>
-								<div class="form-control">
-									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
-											aria-describedby="switched-hint" name="checkbox" value="checkbox">
-										<span class="custom-control-label"></span>
-									</label>
-
+								<div class="row">
+											<div class="col-md-6">
+								<div class="form-group">
+									<label for="intitial-req-`+ id + `" class="form-label text-dark">Initial request</label>
+									<p id="initial-req-hint-`+ id + `" class="input-hint">
+										Who started the request?
+									</p>
+									<select name="initial-req-`+ id + `" aria-describedby="initial-req-hint"
+										class="form-control custom-select select2-show-search"
+										data-placeholder="Choose one (with searchbox)">
+										<option value="" selected>---------</option>
+										<option value="brand patient">brand patient</option>
+										<option value="brand prescription">brand prescription</option>
+										<option value="inn patient">inn patient</option>
+										<option value="inn prescription">inn prescription</option>
+									</select>
 								</div>
-
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Leaked</label>
-								<p id="leaked-hint" class="input-hint">
-									Was there a leak?
-								</p>
-								<div class="form-control">
-									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" ame="checkbox"
-											value="checkbox" required>
-										<span class="custom-control-label"></span>
-									</label>
-
+								<div class="form-group">
+									<label for="drug-sold-`+ id + `" class="form-label text-dark">Drug sold</label>
+									<p id="drug-sold-hint-`+ id + `" class="input-hint">
+										Brand name of drug that has been sold?
+									</p>
+									<input name="drug-sold-`+ id + `" type="text" aria-describedby="drug-sold-hint"
+										class="form-control" maxlength="200" required>
+								</div>
+								<div class="form-group">
+									<label for="drug-sale-driver-`+ id + `" class="form-label text-dark">Drug Sale Driver</label>
+									<p id="drug-sale-driver-hint-`+ id + `" class="input-hint">
+										Who makes the final selection for the purchased product?
+									</p>
+									<select name="drug-sale-driver-`+ id + `" aria-describedby="drug-sale-driver-hint"
+										class="form-control custom-select select2-show-search"
+										data-placeholder="Choose one (with searchbox)">
+										<option value="" selected>---------</option>
+										<option value="Patient">Patient</option>
+										<option value="Pharmacist">Pharmacist</option>
+										<option value="Prescriber">Prescriber</option>
+									</select>
+								</div>
+								<div class="row">
+									<div class="col-6 col-sm-3">
+								<div class="form-group">
+									<label class="form-label text-dark">Switched </label>
+									<p id="switched-hint-`+ id + `" class="input-hint">
+										Was there a switch?
+									</p>
+									<div class="form-control">
+										<label class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input"
+												aria-describedby="switched-hint" name="switched-checkbox-`+ id + `">
+											<span class="custom-control-label"></span>
+										</label>
+	
+									</div>
+	
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Product switched or leaked</label>
-								<p id="switchleaked-hint" class="input-hint">
-									What product was switched or leaked?
-								</p>
-								<input type="text" aria-describedby="switchedleaked-hint" class="form-control"
-									maxlength="200" required>
+							<div class="col-6 col-sm-3">
+								<div class="form-group">
+									<label class="form-label text-dark">Leaked</label>
+									<p id="leaked-hint-`+ id + `" class="input-hint">
+										Was there a leak?
+									</p>
+									<div class="form-control">
+										<label class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="leaked-checkbox-`+ id + `" required>
+											<span class="custom-control-label"></span>
+										</label>
+	
+									</div>
+								</div>
+								
+								</div>
 							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Reason for switch or leak</label>
-										<p id="switchleaked-reason-hint" class="input-hint">
-											Why was there a switch or a leak?
-										</p>
-								<select class="form-control custom-select select2-show-search" aria-describedby="switchleaked-reason-hint"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="Not available">Not available</option>
-									<option value="Price">Price</option>
-									<option value="Therapeutic Reason">Therapeutic Reason</option>
-									<option value="Other Reason">Other Reason</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Form sold</label>
-										<p id="form-sold-hint" class="input-hint">
-											What form of drug was sold? liquid,tablet
-										</p>
+								
+								
+						</div>
+								
+								<div class="col-md-6">
+								<div class="form-group">
+									<label for="switchleaked-`+ id + `" class="form-label text-dark">Product switched or
+										leaked</label>
+									<p id="switchleaked-hint-`+ id + `" class="input-hint">
+										What product was switched or leaked?
+									</p>
+									<input name="switchleaked-`+ id + `" type="text" aria-describedby="switchedleaked-hint"
+										class="form-control" maxlength="200" required>
+								</div>
+								<div class="form-group">
+									<label for="switchleak-reason-`+ id + `" class="form-label text-dark">Reason for switch or
+										leak</label>
+									<p id="switchleaked-reason-hint-`+ id + `" class="input-hint">
+										Why was there a switch or a leak?
+									</p>
+									<select name="switchleaked-reason-`+ id + `"
+										class="form-control custom-select select2-show-search"
+										aria-describedby="switchleaked-reason-hint-`+ id + `"
+										data-placeholder="Choose one (with searchbox)">
+										<option value="" selected>---------</option>
+										<option value="Not available">Not available</option>
+										<option value="Price">Price</option>
+										<option value="Therapeutic Reason">Therapeutic Reason</option>
+										<option value="Other Reason">Other Reason</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="form-sold-`+ id + `" class="form-label text-dark">Form sold</label>
+									<p id="form-sold-hint-`+ id + `" class="input-hint">
+										What form of drug was sold? liquid,tablet
+									</p>
 
-								<select class="form-control custom-select select2-show-search" aria-describedby="form-sold-hint"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="3">Capsule</option>
-									<option value="7">Cream</option>
-									<option value="14">Ear drop</option>
-									<option value="15">Eye drop</option>
-									<option value="9">Gel</option>
-									<option value="12">Inhaler</option>
-									<option value="6">Injection</option>
-									<option value="8">Ointment</option>
-									<option value="10">Patch</option>
-									<option value="13">Pessary</option>
-									<option value="16">Powder</option>
-									<option value="11">Spray</option>
-									<option value="1">Suppositories</option>
-									<option value="4">Suspension</option>
-									<option value="5">Syrup</option>
-									<option value="2">Tablet</option>
-								</select>
+									<select name="form-sold-`+ id + `" class="form-control custom-select select2-show-search"
+										aria-describedby="form-sold-hint-`+ id + `"
+										data-placeholder="Choose one (with searchbox)">
+										<option value="" selected>---------</option>
+										<option value="3">Capsule</option>
+										<option value="7">Cream</option>
+										<option value="14">Ear drop</option>
+										<option value="15">Eye drop</option>
+										<option value="9">Gel</option>
+										<option value="12">Inhaler</option>
+										<option value="6">Injection</option>
+										<option value="8">Ointment</option>
+										<option value="10">Patch</option>
+										<option value="13">Pessary</option>
+										<option value="16">Powder</option>
+										<option value="11">Spray</option>
+										<option value="1">Suppositories</option>
+										<option value="4">Suspension</option>
+										<option value="5">Syrup</option>
+										<option value="2">Tablet</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="form-label text-dark" for="division-`+ id + `">Division</label>
+									<p id="division-hint-`+ id + `" class="input-hint">
+										Was the whole box sold? How was it divided?
+									</p>
+									<select name="division-`+ id + `" aria-describedby="division-hint"
+										class="form-control custom-select select2-show-search"
+										data-placeholder="Choose one (with searchbox)">
+										<option value="" selected>---------</option>
+										<option value="unit">unit</option>
+										<option value="blister">blister</option>
+										<option value="box">box</option>
+										<option value="blister+unit">blister+unit</option>
+										<option value="box+unit">box+unit</option>
+										<option value="box+blister">box+blister</option>
+									</select>
+								</div>
+								
 							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Division</label>
-										<p id="division-hint" class="input-hint">
-											Was the whole box sold? How was it divided?
-										</p>
-								<select aria-describedby="division-hint" class="form-control custom-select select2-show-search"
-									data-placeholder="Choose one (with searchbox)">
-									<option value="" selected>---------</option>
-									<option value="unit">unit</option>
-									<option value="blister">blister</option>
-									<option value="box">box</option>
-									<option value="blister+unit">blister+unit</option>
-									<option value="box+unit">box+unit</option>
-									<option value="box+blister">box+blister</option>
-								</select>
-							</div>
-						</div>
-  						
-						<div class="card-footer">
-							<div class="card-options">
-								<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i class="fa fa-plus"></i> Add Another</a>
-							</div>
-						</div>
-					</div>`;
+							
+							</div>`;
 		}
 		function removeDrugForm(id) {
 			$("#" + id).remove();
@@ -533,12 +579,12 @@
 		}
 	</script>
 	<script>
-		function collectForm(){
-			var basketdata = $('#form input').serializeArray().reduce(function (obj, item) {
-			obj[item.name] = item.value;
-			return obj;
-		}, {});
-		console.log(basketdata)
+		function collectForm() {
+			var basketdata = $('#form').serializeArray().reduce(function (obj, item) {
+				obj[item.name] = item.value;
+				return obj;
+			}, {});
+			console.log(basketdata)
 		};
 	</script>
 
@@ -549,40 +595,40 @@
 //}
 
 // for multiple values
-/*function addMultiple(data, callback) {
-    const tx = db.transaction(["baskets"], "readwrite");
+		/*function addMultiple(data, callback) {
+			const tx = db.transaction(["baskets"], "readwrite");
 
-    data.forEach(value => {
-        let request = tx.objectStore("baskets").add(data);
-    })
+			data.forEach(value => {
+				let request = tx.objectStore("baskets").add(data);
+			})
 
-    tx.oncomplete = function(event) {
-        callback();
-    }
-};*/
+			tx.oncomplete = function(event) {
+				callback();
+			}
+		};*/
 
 /// if we are only working with arrays    
-/*function add(data, callback) {
-    const tx = db.transaction(["baskets"], "readwrite");
+		/*function add(data, callback) {
+			const tx = db.transaction(["baskets"], "readwrite");
 
-    data.forEach(value => {
-        let request = tx.objectStore("baskets").add(data);
-    })
+			data.forEach(value => {
+				let request = tx.objectStore("baskets").add(data);
+			})
 
-    tx.oncomplete = function(event) {
-        callback();
-    }
-};*/
+			tx.oncomplete = function(event) {
+				callback();
+			}
+		};*/
 
-// so when want to insert single array value , we would do it like this.
+// so when want to insert single array values , we would do it like this.
 
-/*const value = {
-    id: 1,
-    name: 'hhdd'
-}
-add([value], () => {
+		/*const value = {
+			id: 1,
+			name: 'hhdd'
+		}
+		add([value], () => {
 
-})*/
+		})*/
 	</script>
 
 </body>
