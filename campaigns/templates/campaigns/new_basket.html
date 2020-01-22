@@ -580,11 +580,26 @@
 	</script>
 	<script>
 		function collectForm() {
-			var basketdata = $('#form').serializeArray().reduce(function (obj, item) {
+			var data = $('#form').serializeArray().reduce(function (obj, item) {
 				obj[item.name] = item.value;
 				return obj;
 			}, {});
-			console.log(basketdata)
+			console.log(data);
+			function add(data) {
+    function addMultiple(data, callback) {
+			const tx = db.transaction(["baskets"], "readwrite");
+
+			data.forEach(value => {
+				let request = tx.objectStore("baskets").add(data);
+			})
+
+			tx.oncomplete = function(event) {
+				callback();
+			}
+		};
+	console.log("done")
+}
+
 		};
 	</script>
 
@@ -622,11 +637,8 @@
 
 // so when want to insert single array values , we would do it like this.
 
-		/*const value = {
-			id: 1,
-			name: 'hhdd'
-		}
-		add([value], () => {
+		
+		/*add([value], () => {
 
 		})*/
 	</script>
