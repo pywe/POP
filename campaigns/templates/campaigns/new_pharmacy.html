@@ -89,8 +89,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-label text-dark">Name</label>
-                                                <input id="name" type="text" class="form-control"
-                                                    placeholder="Pharmacy Name" required>
+                                                <input id="name" type="text" class="form-control" placeholder="Pharmacy Name"
+                                                    required>
                                             </div>
                                             <div class="form-group mb-md-0">
                                                 <label class="form-label text-dark">Contact</label>
@@ -403,30 +403,22 @@
         }
     </script>
     <script>
-        window.onload = function Load() {
-            if (isLoggedIn()) {
+        window.onload = function Load(){
+            if(isLoggedIn()){
                 //   redirect user to campaign list or last page
                 // Get user's country and fetch appropriate list
                 // fetchCampaigns()
                 document.getElementById("global_name").innerHTML = localStorage.getItem('campaign')
                 document.getElementById("session_name").innerHTML = localStorage.getItem('session')
             }
-            else {
+            else{
                 //   user must login
-                //window.location.href = "/accounts/login/"
+                window.location.href = "/accounts/login/"
             }
         }
-    </script>
-    <script src="/static/js/campaign.js"></script>
-    <script src="/static/js/login.js"></script>
-
-
-    <script>
-        var pharmdata = $('#form').serializeArray().reduce(function (obj, item) {
-            obj[item.name] = item.value;
-            return obj;
-        }, {});
-    </script>
+   </script>
+   <script src="/static/js/campaign.js"></script>
+   <script src="/static/js/login.js"></script>
 
 
 </body>
