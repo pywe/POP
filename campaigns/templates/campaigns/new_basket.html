@@ -14,7 +14,8 @@
 
 	<!-- Bootstrap Css -->
 	<link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
-
+	<!-- Animate Css-->
+<link rel="stylesheet" href="/static/css/animate.css">
 	<!-- Dashboard Css -->
 	<link href="/static/css/style.css" rel="stylesheet" />
 
@@ -79,7 +80,9 @@
 						<h1>New Basket</h1>
 						<ol class="breadcrumb text-center">
 							<li class="breadcrumb-item"><a href="/">Home</a></li>
-							<li class="breadcrumb-item"><a href="/campaigns/observation-session">Observation Session</a>
+							<li class="breadcrumb-item"><a
+									href="/campaigns/templates/campaigns/observation_session.html">Observation
+									Session</a>
 							</li>
 							<li class="breadcrumb-item active text-white" aria-current="page">New Basket</li>
 						</ol>
@@ -108,7 +111,7 @@
 												<div class="form-group">
 													<label class="form-label text-dark">Insurance scheme</label>
 													<select name="insurance"
-														class="form-control custom-select select2-show-search"
+														class="form-control custom-select select2-no-search"
 														data-placeholder="Choose one (with searchbox)" required>
 														<option value="" selected>---------</option>
 														<option value="Private Insurance">Private Insurance</option>
@@ -120,7 +123,7 @@
 												<div class="form-group">
 													<label class="form-label text-dark">Gender</label>
 													<select name="gender"
-														class="form-control custom-select select2-show-search"
+														class="form-control custom-select select2-no-search"
 														data-placeholder="Choose one (with searchbox)" required>
 														<option value="" selected>---------</option>
 														<option value="Male">Male</option>
@@ -163,7 +166,7 @@
 													</p>
 													<select name="firstinitial_request"
 														aria-describedby="initial-req-hint"
-														class="form-control custom-select select2-show-search"
+														class="form-control custom-select select2-no-search"
 														data-placeholder="Choose one (with searchbox)">
 														<option value="" selected>---------</option>
 														<option value="brand patient">brand patient</option>
@@ -179,7 +182,7 @@
 													</p>
 													<select name="firstsale_driver"
 														aria-describedby="drug-sale-driver-hint"
-														class="form-control custom-select select2-show-search"
+														class="form-control custom-select select2-no-search"
 														data-placeholder="Choose one (with searchbox)" required>
 														<option value="" selected>---------</option>
 														<option value="Patient">Patient</option>
@@ -203,7 +206,7 @@
 														Was the whole box sold? How was it divided?
 													</p>
 													<select name="firstdivision" aria-describedby="division-hint"
-														class="form-control custom-select select2-show-search"
+														class="form-control custom-select select2-no-search"
 														data-placeholder="Choose one (with searchbox)" required>
 														<option value="" selected>---------</option>
 														<option value="unit">unit</option>
@@ -232,13 +235,15 @@
 															Was there a switch?
 														</p>
 														<div class="form-control">
-															<label class="custom-control custom-checkbox">
-																<input name="firstswitched" type="checkbox"
-																	class="custom-control-input"
-																	aria-describedby="switched-hint"
-																	name="switch-checkbox" required>
-																<span class="custom-control-label"></span>
-															</label>
+															<select name="firstswitched"
+																class="form-control custom-select select2-no-search"
+																aria-describedby="switched-hint "
+																data-placeholder="Choose one (with searchbox)" required>
+																<option value="">---------</option>
+																<option value="Yes">Yes</option>
+																<option value="No">No</option>
+															</select>
+
 
 														</div>
 
@@ -249,12 +254,14 @@
 															Was there a leak?
 														</p>
 														<div class="form-control">
-															<label class="custom-control custom-checkbox">
-																<input name="firstleaked" type="checkbox"
-																	class="custom-control-input" name="leaked-checkbox"
-																	required>
-																<span class="custom-control-label"></span>
-															</label>
+															<select name="firstleaked"
+																class="form-control custom-select select2-no-search"
+																aria-describedby="leaked-hint "
+																data-placeholder="Choose one (with searchbox)" required>
+																<option value="">---------</option>
+																<option value="Yes">Yes</option>
+																<option value="No">No</option>
+															</select>
 
 														</div>
 													</div>
@@ -267,7 +274,7 @@
 														Why was there a switch or a leak?
 													</p>
 													<select name="firstswitchleak_reason"
-														class="form-control custom-select select2-show-search"
+														class="form-control custom-select select2-no-search"
 														aria-describedby="switchleaked-reason-hint"
 														data-placeholder="Choose one (with searchbox)" required>
 														<option value="" selected>---------</option>
@@ -284,7 +291,7 @@
 													</p>
 
 													<select name="firstform_sold"
-														class="form-control custom-select select2-show-search"
+														class="form-control custom-select select2-no-search"
 														aria-describedby="form-sold-hint"
 														data-placeholder="Choose one (with searchbox)" required>
 														<option value="" selected>---------</option>
@@ -312,7 +319,7 @@
 										</div>
 									</div>
 								</div>
-								<div id="exdrugs"></div>
+								<div id="drugs"></div>
 
 								<div class="card-footer">
 									<div class="card-options">
@@ -323,7 +330,7 @@
 							</div>
 
 						</div>
-						<div class="float-right mb-4 mb-lg-0">
+						<div class="float-left text-white mb-4 mb-lg-0">
 							<a class="btn btn-success w-150" id="submitbtn">Finish</a>
 						</div>
 					</div>
@@ -344,9 +351,16 @@
 // 		}
 	</script>
 
-	<!-- Notification -->
-	<!-- <a href="#" id="notification"><span class="notification-text">Notifications</span><i
-			class="fa fa-bell"></i></a> -->
+	<!-- more -->
+
+	<nav class="fab-container">
+
+		<a href="observation_session.html" class="buttons"><i class="fa fa-pencil"></i></a>
+
+		<a id="more"><i class="fa fa-plus"></i></a>
+
+	</nav>
+
 
 	<!-- Back to top -->
 	<a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -360,6 +374,7 @@
 
 	<!--JQuery Sparkline Js-->
 	<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+
 
 	<!-- Circle Progress Js-->
 	<script src="/static/js/vendors/circle-progress.min.js"></script>
@@ -429,7 +444,7 @@
 		function addDrugForm() {
 			var id = makeid(5)
 			window.specials.push(id)
-			$("#exdrugs").append(`<div class="animated slideInUp" id="` + id + `">
+			$("#drugs").append(`<div class="animated slideInUp" id="` + id + `">
 	        <hr>
 	        <a style="float:right;" class="btn btn-danger btn-sm" href="#/" onclick="removeDrugForm('`+ id + `')">Remove</a>
 			<div class="row">
@@ -442,9 +457,9 @@
 													Who started the request?
 												</p>
 												<select name="`+ id + `firstinitial_request" aria-describedby="initial-req-hint"
-													class="form-control custom-select select2-show-search"
-													data-placeholder="Choose one (with searchbox)" required>
-													<option value="" selected>---------</option>
+													class="form-control custom-select select2-no-search"
+													placeholder="Choose one" required>
+													<option value="" selected>Choose one</option>
 													<option value="brand patient">brand patient</option>
 													<option value="brand prescription">brand prescription</option>
 													<option value="inn patient">inn patient</option>
@@ -457,9 +472,9 @@
 													Who makes the final selection for the purchased product?
 												</p>
 												<select name="`+ id + `firstsale_driver" aria-describedby="` + id + `drug-sale-driver-hint"
-													class="form-control custom-select select2-show-search"
-													data-placeholder="Choose one (with searchbox)" required>
-													<option value="" selected>---------</option>
+													class="form-control custom-select select2-no-search"
+													data-placeholder="Choose one" required>
+													<option value="" selected>Choose one</option>
 													<option value="Patient">Patient</option>
 													<option value="Pharmacist">Pharmacist</option>
 													<option value="Prescriber">Prescriber</option>
@@ -478,9 +493,9 @@
 														<p id="`+ id + `division-hint" class="input-hint">
 															Was the whole box sold? How was it divided?
 														</p>
-												<select name="`+ id + `firstdivision" aria-describedby="` + id + `division-hint" class="form-control custom-select select2-show-search"
-													data-placeholder="Choose one (with searchbox)" required>
-													<option value="" selected>---------</option>
+												<select name="`+ id + `firstdivision" aria-describedby="` + id + `division-hint" class="form-control custom-select select2-no-search"
+													data-placeholder="Choose one" required>
+													<option value="" selected>Choose one</option>
 													<option value="unit">unit</option>
 													<option value="blister">blister</option>
 													<option value="box">box</option>
@@ -500,44 +515,52 @@
 													maxlength="200" required>
 											</div>
 											<div class="row">
-											<div class="form-group col">
-												<label class="form-label text-dark">Switched</label>
-												<p id="`+ id + `switched-hint" class="input-hint">
-													Was there a switch?
-												</p>
-												<div class="form-control">
-													<label class="custom-control custom-checkbox">
-														<input name="`+ id + `firstswitched" type="checkbox" class="custom-control-input"
-															aria-describedby="`+ id + `switched-hint" name="` + id + `switch-checkbox" required>
-														<span class="custom-control-label"></span>
-													</label>
-				
+													<div class="form-group col">
+														<label class="form-label text-dark">Switched</label>
+														<p id="`+ id + `switched-hint" class="input-hint">
+															Was there a switch?
+														</p>
+														<div class="form-control">
+															<select name="`+ id + `firstswitched"
+																class="form-control custom-select select2-no-search"
+																aria-describedby="`+ id + `switched-hint "
+																data-placeholder="Choose one" required>
+																<option value="">Choose one</option>
+																<option value="Yes">Yes</option>
+																<option value="No">No</option>
+															</select>
+
+
+														</div>
+
+													</div>
+													<div class="form-group col">
+														<label class="form-label text-dark">Leaked</label>
+														<p id="`+ id + `leaked-hint" class="input-hint">
+															Was there a leak?
+														</p>
+														<div class="form-control">
+															<select name="`+ id + `firstleaked"
+																class="form-control custom-select select2-no-search"
+																aria-describedby="`+ id + `leaked-hint "
+																data-placeholder="Choose one" required>
+																<option value="">Choose one</option>
+																<option value="Yes">Yes</option>
+																<option value="No">No</option>
+															</select>
+
+														</div>
+													</div>
+
 												</div>
-				
-											</div>
-											<div class="form-group col">
-												<label class="form-label text-dark">Leaked</label>
-												<p id="`+ id + `leaked-hint" class="input-hint">
-													Was there a leak?
-												</p>
-												<div class="form-control">
-													<label class="custom-control custom-checkbox">
-														<input name="`+ id + `firstleaked" type="checkbox" class="custom-control-input" name="` + id + `leaked-checkbox" required>
-														<span class="custom-control-label"></span>
-													</label>
-				
-												</div>
-											</div>
-											
-										</div>
 										<div class="form-group">
 											<label class="form-label text-dark">Reason for switch or leak</label>
 													<p id="`+ id + `switchleaked-reason-hint" class="input-hint">
 														Why was there a switch or a leak?
 													</p>
-											<select name="`+ id + `firstswitchleak_reason" class="form-control custom-select select2-show-search" aria-describedby="` + id + `switchleaked-reason-hint"
-												data-placeholder="Choose one (with searchbox)" required>
-												<option value="" selected>---------</option>
+											<select name="`+ id + `firstswitchleak_reason" class="form-control custom-select select2-no-search" aria-describedby="` + id + `switchleaked-reason-hint"
+												data-placeholder="Choose one" required>
+												<option value="" selected>Choose one</option>
 												<option value="Not available">Not available</option>
 												<option value="Price">Price</option>
 												<option value="Therapeutic Reason">Therapeutic Reason</option>
@@ -550,9 +573,9 @@
 														What form of drug was sold? liquid,tablet
 													</p>
 			
-											<select name="`+ id + `firstform_sold" class="form-control custom-select select2-show-search" aria-describedby="` + id + `form-sold-hint"
-												data-placeholder="Choose one (with searchbox)" required>
-												<option value="" selected>---------</option>
+											<select name="`+ id + `firstform_sold" class="form-control custom-select select2-no-search" aria-describedby="` + id + `form-sold-hint"
+												placeholder="Choose one" required>
+												<option value="" selected>Choose one</option>
 												<option value="3">Capsule</option>
 												<option value="7">Cream</option>
 												<option value="14">Ear drop</option>
@@ -575,9 +598,6 @@
 							</div>
 							</div>
 							</div>`)
-			setTimeout(() => {
-				$('select').addClass('form-control custom-select select2-show-search');
-			}, 1000);
 		}
 		function removeDrugForm(id) {
 			$("#" + id).remove();
@@ -626,7 +646,7 @@
 			const data = collectForm()
 			data['username'] = " ";
 			// Make a request to add our newItem object to the object store
-			var objectStoreRequest = basketStore.add(big);
+			/*var objectStoreRequest = basketStore.add(big);
 
 			objectStoreRequest.onsuccess = function (event) {
 				// report the success of our request
@@ -637,7 +657,7 @@
 					x.className = "show";
 					setTimeout(function () { x.className = x.className.replace("show", ""); }, time);
 				}
-			}
+			}*/
 		}
 	</script>
 </body>
