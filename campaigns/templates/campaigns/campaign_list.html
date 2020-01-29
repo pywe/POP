@@ -68,7 +68,7 @@
 </section>
 <!--/Sliders Section-->
     <div class="container">
-                <h3>
+                <br><br><h3>
                     <a id="syncCampaigns" class="btn btn-secondary mb-sm-0" style="color:white;"><i class="icon-refresh"></i>&nbsp;Update Campaign List</a></h3>
                 <table class="table table-striped table-condensed table-bordered">
                     <thead>
@@ -178,6 +178,48 @@
 
         <!-- Custom Js-->
         <script src="/static/js/custom.js"></script>
+
+
+        <script>
+            if (!window.indexedDB) {
+  console.log("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.");
+}
+
+
+
+
+var db;
+// Let us open our database
+var request = window.indexedDB.open("POP Ghana");
+request.onerror = function(event) {
+  // Do something with request.errorCode!
+  console.log("Why didn't you allow my web app to use IndexedDB?!");
+};
+request.onsuccess = function(event) {
+  // Do something with request.result!
+  db = event.target.result;
+  db.onerror = function(event) {
+    // Generic error handler for all errors targeted at this database's
+    // requests!
+    console.error("Database error: " + event.target.errorCode);
+  };
+};
+
+
+// This event is only implemented in recent browsers   
+request.onupgradeneeded = function(event) { 
+  // Save the IDBDatabase interface 
+  var db = event.target.result;
+
+  // Create an objectStore for this database
+  var sessionStore = db.createObjectStore("sessions", { keyPath: "id" }, {autoIncrement: "true"});
+  var pharmacyStore = db.createObjectStore("pharmacies", {keyPath: "id"},{autoIncrement: "true"});
+  var basketStore = db.createObjectStore("baskets", {keyPath: "id"},{autoIncrement: "true"});
+};
+            </script>
+
+
+
 
 
 </body>
