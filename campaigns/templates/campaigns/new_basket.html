@@ -67,6 +67,7 @@
 	<!--Patient data-section-->
 	<section class="sptb">
 		<div class="container">
+		    <form id="basketForm" method="dialog" action="#">
 			<div class="row ">
 				<div class="col-lg-12 col-md-12 col-md-12">
 					<div class="card dropify-image-avatar">
@@ -80,7 +81,7 @@
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="form-label text-dark">Insurance scheme</label>
-												<select class="form-control custom-select select2-show-search"
+												<select name="insurance" class="form-control custom-select select2-show-search"
 													data-placeholder="Choose one (with searchbox)">
 													<option value="" selected>---------</option>
 													<option value="Private Insurance">Private Insurance</option>
@@ -91,7 +92,7 @@
 											</div>
 											<div class="form-group">
 												<label class="form-label text-dark">Gender</label>
-												<select class="form-control custom-select select2-show-search"
+												<select name="gender" class="form-control custom-select select2-show-search"
 													data-placeholder="Choose one (with searchbox)">
 													<option value="" selected>---------</option>
 													<option value="Male">Male</option>
@@ -103,7 +104,7 @@
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="form-label text-dark">Age</label>
-												<input type="number" class="form-control" placeholder="Patient Age"
+												<input name="age" type="number" class="form-control" placeholder="Patient Age"
 													required>
 											</div>
 										</div>
@@ -126,7 +127,7 @@
 								<p id="initial-req-hint" class="input-hint">
 									Who started the request?
 								</p>
-								<select aria-describedby="initial-req-hint"
+								<select name="firstinitial_request" aria-describedby="initial-req-hint"
 									class="form-control custom-select select2-show-search"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
@@ -141,7 +142,7 @@
 								<p id="drug-sold-hint" class="input-hint">
 									Brand name of drug that has been sold?
 								</p>
-								<input type="text" aria-describedby="drug-sold-hint" class="form-control"
+								<input name="firstdrug_sold" type="text" aria-describedby="drug-sold-hint" class="form-control"
 									maxlength="200" required>
 							</div>
 							<div class="form-group">
@@ -149,7 +150,7 @@
 								<p id="drug-sale-driver-hint" class="input-hint">
 									Who makes the final selection for the purchased product?
 								</p>
-								<select aria-describedby="drug-sale-driver-hint"
+								<select name="firstsale_driver" aria-describedby="drug-sale-driver-hint"
 									class="form-control custom-select select2-show-search"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
@@ -165,7 +166,7 @@
 								</p>
 								<div class="form-control">
 									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
+										<input name="firstswitched" type="checkbox" class="custom-control-input"
 											aria-describedby="switched-hint" name="checkbox" value="checkbox">
 										<span class="custom-control-label"></span>
 									</label>
@@ -180,7 +181,7 @@
 								</p>
 								<div class="form-control">
 									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" ame="checkbox"
+										<input name="firstleaked" type="checkbox" class="custom-control-input" ame="checkbox"
 											value="checkbox" required>
 										<span class="custom-control-label"></span>
 									</label>
@@ -192,7 +193,7 @@
 								<p id="switchleaked-hint" class="input-hint">
 									What product was switched or leaked?
 								</p>
-								<input type="text" aria-describedby="switchedleaked-hint" class="form-control"
+								<input name="firstproduct_switched_or_leaked" type="text" aria-describedby="switchedleaked-hint" class="form-control"
 									maxlength="200" required>
 							</div>
 							<div class="form-group">
@@ -200,7 +201,7 @@
 										<p id="switchleaked-reason-hint" class="input-hint">
 											Why was there a switch or a leak?
 										</p>
-								<select class="form-control custom-select select2-show-search" aria-describedby="switchleaked-reason-hint"
+								<select name="firstswitchleak_reason" class="form-control custom-select select2-show-search" aria-describedby="switchleaked-reason-hint"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
 									<option value="Not available">Not available</option>
@@ -215,7 +216,7 @@
 											What form of drug was sold? liquid,tablet
 										</p>
 
-								<select class="form-control custom-select select2-show-search" aria-describedby="form-sold-hint"
+								<select name="firstform_sold" class="form-control custom-select select2-show-search" aria-describedby="form-sold-hint"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
 									<option value="3">Capsule</option>
@@ -241,7 +242,7 @@
 										<p id="division-hint" class="input-hint">
 											Was the whole box sold? How was it divided?
 										</p>
-								<select aria-describedby="division-hint" class="form-control custom-select select2-show-search"
+								<select name="firstdivision" aria-describedby="division-hint" class="form-control custom-select select2-show-search"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
 									<option value="unit">unit</option>
@@ -263,10 +264,11 @@
 
 				</div>
 				<div class="float-right mb-4 mb-lg-0">
-					<a class="btn btn-success w-150" href="#">Finish</a>
+					<a class="btn btn-success w-150" onclick="collectForm()" type="submit" href="#">Finish</a>
 				</div>
 			</div>
 		</div>
+		</form>
 		</div>
 	</section>
 	<!--/Job posts-section-->
@@ -370,9 +372,10 @@
 	<!-- Custom Js-->
 	<script src="/static/js/custom.js"></script>
 	<script>
+	window.specials = ['first']
 	function makeid(length) {
    var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
    var charactersLength = characters.length;
    for ( var i = 0; i < length; i++ ) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -380,8 +383,9 @@
    return result;
 }
 	    function addDrugForm(){
-	        var id = makeid(10)
-	        document.getElementById("drugs").innerHTML += `<div class="animated slideInUp" id="`+id+`">
+	        var id = makeid(5)
+	        window.specials.push(id)
+	        $("#drugs").append(`<div class="animated slideInUp" id="`+id+`">
 	        <hr>
 	        <a style="float:right;" class="btn btn-danger btn-sm" href="#/" onclick="removeDrugForm('`+id+`')">Remove</a>
 	        <div class="form-group">
@@ -389,8 +393,7 @@
 								<p id="`+id+`initial-req-hint" class="input-hint">
 									Who started the request?
 								</p>
-								<select aria-describedby="`+id+`initial-req-hint"
-									class="form-control custom-select select3-show-search"
+								<select name="`+id+`initial_request" aria-describedby="`+id+`initial-req-hint"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
 									<option value="brand patient">brand patient</option>
@@ -404,7 +407,7 @@
 								<p id="`+id+`drug-sold-hint" class="input-hint">
 									Brand name of drug that has been sold?
 								</p>
-								<input type="text" aria-describedby="`+id+`drug-sold-hint" class="form-control"
+								<input name="`+id+`drug_sold" type="text" aria-describedby="`+id+`drug-sold-hint" class="form-control"
 									maxlength="200" required>
 							</div>
 							<div class="form-group">
@@ -412,8 +415,7 @@
 								<p id="`+id+`drug-sale-driver-hint" class="input-hint">
 									Who makes the final selection for the purchased product?
 								</p>
-								<select aria-describedby="`+id+`drug-sale-driver-hint"
-									class="form-control custom-select select3-show-search"
+								<select name="`+id+`sale_driver" aria-describedby="`+id+`drug-sale-driver-hint"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
 									<option value="Patient">Patient</option>
@@ -428,7 +430,7 @@
 								</p>
 								<div class="form-control">
 									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input"
+										<input name="`+id+`switched" type="checkbox" class="custom-control-input"
 											aria-describedby="`+id+`switched-hint" name="checkbox" value="checkbox">
 										<span class="custom-control-label"></span>
 									</label>
@@ -443,7 +445,7 @@
 								</p>
 								<div class="form-control">
 									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" name="checkbox"
+										<input name="`+id+`leaked" type="checkbox" class="custom-control-input" name="checkbox"
 											value="checkbox" required>
 										<span class="custom-control-label"></span>
 									</label>
@@ -455,7 +457,7 @@
 								<p id="`+id+`switchleaked-hint" class="input-hint">
 									What product was switched or leaked?
 								</p>
-								<input type="text" aria-describedby="`+id+`switchedleaked-hint" class="form-control"
+								<input name="`+id+`product_switched_or_leaked" type="text" aria-describedby="`+id+`switchedleaked-hint" class="form-control"
 									maxlength="200" required>
 							</div>
 							<div class="form-group">
@@ -463,7 +465,7 @@
 										<p id="`+id+`switchleaked-reason-hint" class="input-hint">
 											Why was there a switch or a leak?
 										</p>
-								<select class="form-control custom-select select3-show-search" aria-describedby="`+id+`switchleaked-reason-hint"
+								<select name="`+id+`switchleak_reason" aria-describedby="`+id+`switchleaked-reason-hint"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
 									<option value="Not available">Not available</option>
@@ -478,7 +480,7 @@
 											What form of drug was sold? liquid,tablet
 										</p>
 
-								<select class="form-control custom-select select3-show-search" aria-describedby="`+id+`form-sold-hint"
+								<select name="`+id+`form_sold" aria-describedby="`+id+`form-sold-hint"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
 									<option value="3">Capsule</option>
@@ -504,7 +506,7 @@
 										<p id="`+id+`division-hint" class="input-hint">
 											Was the whole box sold? How was it divided?
 										</p>
-								<select aria-describedby="`+id+`division-hint" class="form-control custom-select select3-show-search"
+								<select name="`+id+`division" aria-describedby="`+id+`division-hint"
 									data-placeholder="Choose one (with searchbox)">
 									<option value="" selected>---------</option>
 									<option value="unit">unit</option>
@@ -515,12 +517,51 @@
 									<option value="box+blister">box+blister</option>
 								</select>
 							</div>
-							</div>`
+							</div>`)
+							setTimeout(() => {
+                            $('select').addClass('form-control custom-select select2-show-search');
+                            }, 1000);
 	    }
 	    function removeDrugForm(id){
 	         $( "#"+id ).remove();
 	       // document.getElementById(id).style.display = "none"
 	    }
+
+	    function collectForm(){
+        let myForm = document.getElementById("basketForm");
+
+                        var saved = "first";
+                        let formData = new FormData(myForm);
+                        var myarray = [];
+                        var big = {}
+                        var info = {};
+                        //This will build the form from name, value pairs
+
+                        for(var pair of formData.entries()){
+                            var str = pair[0]
+                            var res = str.substring(0,5);
+                            if (window.specials.includes(res)){
+                            if(saved === res){
+                                var key = (pair[0]).replace(res,"")
+                                info[key] = pair[1]
+                            }
+                            else{
+                                myarray.push(info)
+                                var info = {};
+                                var key = (pair[0]).replace(res,"")
+                                info[key] = pair[1]
+                                saved = (pair[0]).substring(0,5);
+                            }}else{
+                                big[pair[0]] = pair[1]
+                            }
+                        }
+                        myarray.push(info)
+                        big['drugs']=myarray
+                        console.log(big)
+                        return big
+		};
+
+
 	</script>
 </body>
 
