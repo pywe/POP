@@ -227,9 +227,9 @@
 														Brand name of drug that has been sold?
 													</p>
 													<div class="ui input sold">
-														<input name="firstdrug_sold" type="text"
-															aria-describedby="drug-sold-hint" class="form-control"
-															maxlength="200" required placeholder="Enter here...">
+													<input name="firstdrug_sold" type="text"
+														aria-describedby="drug-sold-hint" class="form-control"
+														maxlength="200" required placeholder="Enter here...">
 													</div>
 												</div>
 												<div class="row">
@@ -238,34 +238,35 @@
 														<p id="switched-hint" class="input-hint">
 															Was there a switch?
 														</p>
+														
+															<select id="switchselect" name="firstswitched"
+																class="ui compact dropdown "
+																aria-describedby="switched-hint " required>
+																<option value="">Choose one</option>
+																<option value="Yes">Yes</option>
+																<option value="No">No</option>
+															</select>
 
-														<select id="switchselect" name="firstswitched"
-															class="ui compact dropdown som"
-															aria-describedby="switched-hint " required>
-															<option value="">Choose one</option>
-															<option value="Yes">Yes</option>
-															<option value="No">No</option>
-														</select>
 
-
-
+														
 
 													</div>
-
+													
 													<div class="form-group">
 														<label class="form-label text-dark">Leaked</label>
 														<p id="leaked-hint" class="input-hint">
 															Was there a leak?
 														</p>
+														
+															<select name="firstleaked"
+																class="ui compact dropdown"
+																aria-describedby="leaked-hint " required>
+																<option value="">Choose one</option>
+																<option value="Yes">Yes</option>
+																<option value="No">No</option>
+															</select>
 
-														<select name="firstleaked" class="ui compact dropdown"
-															aria-describedby="leaked-hint " required>
-															<option value="">Choose one</option>
-															<option value="Yes">Yes</option>
-															<option value="No">No</option>
-														</select>
-
-
+														
 													</div>
 
 												</div>
@@ -275,7 +276,8 @@
 													<p id="switchleaked-reason-hint" class="input-hint">
 														Why was there a switch or a leak?
 													</p>
-													<select name="firstswitchleak_reason" class="ui dropdown"
+													<select name="firstswitchleak_reason"
+														class="ui dropdown"
 														aria-describedby="switchleaked-reason-hint" required>
 														<option value="">Choose One</option>
 														<option value="Not available">Not available</option>
@@ -290,7 +292,8 @@
 														What form of drug was sold? liquid,tablet
 													</p>
 
-													<select name="firstform_sold" class="ui search dropdown"
+													<select name="firstform_sold"
+														class="ui search dropdown"
 														aria-describedby="form-sold-hint" required>
 														<option value="">Choose One</option>
 														<option value="3">Capsule</option>
@@ -323,11 +326,11 @@
 							</div>
 							<div class="card-footer">
 								<div class="card-options">
-
+									
 									<button class="ui labeled icon button" onclick="addDrugForm()">
 										<i class="plus icon"></i>
 										Add Another
-									</button>
+									  </button>
 								</div>
 							</div>
 
@@ -617,44 +620,39 @@
 										</div>
 									</div>
 								</div>`);
-			$('#drugs .ui.dropdown')
-				.dropdown({ action: 'nothing' })
-				.on('click', '.item', function (e) {
-					var id = $(this).data('value');
-
-					if ($(e.target).is('.remove.icon')) {
-						// removed
-						e.preventDefault();
-						console.log('removed ' + id);
-					} else {
-						// selected
-						$('#drugs .dropdown').dropdown('set selected', id).dropdown('hide');
-						console.log('selected ' + id);
-					}
-				}
-				);
-
-			function disable() {
-				$('.dropdown').dropdown();
-
-				$('.ui.input.sold').addClass("disabled")
+								$('#drugs .ui.dropdown')
+		.dropdown({ action: 'nothing' })
+		.on('click', '.item', function(e){
+			var id = $(this).data('value');
+			
+			if ($(e.target).is('.remove.icon')) {
+				// removed
+				e.preventDefault();
+				console.log('removed ' + id);
+			} else {
+				// selected
+				$('#drugs .dropdown').dropdown('set selected', id).dropdown('hide');
+				console.log('selected ' + id);
 			}
-			function enable() {
-				$('.dropdown').dropdown();
+		}
+	);
 
-				$('.ui.input.sold').removeClass("disabled")
-			}
-			$(document).ready(function () {
-				$("select.ui.compact.dropdown.som").change(function () {
-					var selectedItem = $(this).children("option:selected").val();
-					alert("You have selected the item - " + selectedItem);
-				});
-			});
+	function disable() {
+		$('.dropdown').dropdown();
 
-			if (selectedItem = "No") {
-				disable()
+$('.ui.input.sold').addClass("disabled")
+  }
+  function enable() {$('.dropdown').dropdown();
 
-			}
+$('.ui.input.sold').removeClass("disabled")
+  }
+
+  if ($('#switchselect').options[$('#switchselect').selectedIndex].value == "No") {
+	disable()
+	  
+  } else{
+	enable()
+  }
 		}
 		function removeDrugForm(id) {
 			$("#" + id).remove();
