@@ -28,6 +28,10 @@
 		}, 600);
 		return false;
 	});	
+
+	$('select.dropdown')
+  .dropdown()
+;
 	
 	// ______________Quantity-right-plus
 	var quantitiy = 0;
