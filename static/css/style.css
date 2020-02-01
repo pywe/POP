@@ -14035,6 +14035,11 @@ svg {
 	right: 9px;
   }
 
+#more:hover i {
+	background: #fff;
+	color: #f15a24;
+	border: 2px solid #f15a24;
+}
   #more {
 	color: #fff;
 	text-align: center;
@@ -14089,7 +14094,10 @@ svg {
   
   .buttons:active, 
   .buttons:focus, 
-  .buttons:hover {
+  .buttons:hover  {
+	background: #fff;
+	color: #ca2320;
+	border: 2px solid #ca2320;
 	box-shadow: 0 0 4px rgba(0,0,0,.14),
 	  0 4px 8px rgba(0,0,0,.28);
   }

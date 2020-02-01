@@ -98,251 +98,210 @@
 	<!--/Sliders Section-->
 
 	<!--Patient data-section-->
+	<br><br>
+	<div class="ui container">
+		<div class="ui info message">
+			<i class="close icon"></i>
 
-	<section class="sptb">
-		<div class="container">
-			<form id="basketForm" method="dialog" onsubmit="submitForm()">
-				<div class="row ">
-					<div class="col-lg-12 col-md-12 col-md-12">
-						<div class="card">
-							<div class="card-header ">
-								<h3 class="card-title">Patient</h3>
-							</div>
-							<div class="card-body">
-								<div class="row">
-									<div class="col-lg-9">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label class="form-label text-dark">Insurance scheme</label>
-													<select name="insurance" class="ui focus search dropdown" required>
-														<option value="">Choose One</option>
-														<option value="Private Insurance">Private Insurance</option>
-														<option value="Public Insurance">Public Insurance</option>
-														<option value="No Insurance">No Insurance</option>
-														<option value="Undetermined">Undetermined</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Gender</label>
-													<select name="gender" class="ui focus dropdown" required>
-														<option value="">Choose One</option>
-														<option value="Male">Male</option>
-														<option value="Female">Female</option>
-														<option value="Other">Other</option>
-													</select>
-												</div>
-											</div>
+			<p class="ui">
+				<p>Please Note!
+					All fields marked with <i class="small asterisk red inverted icon"></i> are required and need to be
+					filled before submission.
+				</p>
+		</div>
+		<form method="dialog" onsubmit="collectForm()" class="ui form">
 
-
-											<div class="col-md-6">
-												<div class="ui right labeled input">
-													<input type="number" placeholder="Patient Age">
-													<div class="ui basic label">
-														yrs
-													</div>
-												</div>
-											</div>
-
-
-										</div>
-									</div>
-								</div>
-							</div>
+			<div class="ui raised segments">
+				<div class="ui segment">
+					<h3 class="ui">Patient</h3>
+				</div>
+				<div class="ui secondary segment">
+					<div class="fields">
+						<div class="field">
+							<label>Insurance scheme <i class="small asterisk red inverted icon"></i></label>
+							<select name="insurance" class="ui dropdown" required>
+								<option value="">Choose One</option>
+								<option value="Private Insurance">Private Insurance</option>
+								<option value="Public Insurance">Public Insurance</option>
+								<option value="No Insurance">No Insurance</option>
+								<option value="Undetermined">Undetermined</option>
+							</select>
 						</div>
-						<div class="card">
-							<div class="card-header ">
-								<h3 class="card-title">Drugs</h3>
-								<!--<div class="card-options">-->
-								<!--	<a class="btn btn-light btn-sm" href="#/" onclick="addDrugForm()"><i class="fa fa-plus"></i> Add Another</a>-->
-								<!--</div>-->
-							</div>
 
-							<div class="card-body" id="drugs">
-								<div class="row">
-									<div class="col-lg-9">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label class="form-label text-dark">Initial request</label>
-													<p id="initial-req-hint" class="input-hint">
-														Who started the request?
-													</p>
-													<select name="firstinitial_request"
-														aria-describedby="initial-req-hint" class="ui focus dropdown">
-														<option value="">Choose One</option>
-														<option value="brand patient">brand patient</option>
-														<option value="brand prescription">brand prescription</option>
-														<option value="inn patient">inn patient</option>
-														<option value="inn prescription">inn prescription</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Drug Sale Driver</label>
-													<p id="drug-sale-driver-hint" class="input-hint">
-														Who makes the final selection for the purchased product?
-													</p>
-													<select name="firstsale_driver"
-														aria-describedby="drug-sale-driver-hint" class="ui focus dropdown"
-														required>
-														<option value="">Choose One</option>
-														<option value="Patient">Patient</option>
-														<option value="Pharmacist">Pharmacist</option>
-														<option value="Prescriber">Prescriber</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Product switched or
-														leaked</label>
-													<p id="switchleaked-hint" class="input-hint">
-														What product was switched or leaked?
-													</p>
-													<div class="ui focus input">
-														<input name="firstproduct_switched_or_leaked" type="text"
-															aria-describedby="switchedleaked-hint"
-															maxlength="200" placeholder="Enter here..." required>
-													</div>
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Division</label>
-													<p id="division-hint" class="input-hint">
-														Was the whole box sold? How was it divided?
-													</p>
-													<select name="firstdivision" aria-describedby="division-hint"
-														class="ui focus dropdown" required>
-														<option value="">Choose One</option>
-														<option value="unit">unit</option>
-														<option value="blister">blister</option>
-														<option value="box">box</option>
-														<option value="blister+unit">blister+unit</option>
-														<option value="box+unit">box+unit</option>
-														<option value="box+blister">box+blister</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label class="form-label text-dark">Drug sold</label>
-													<p id="drug-sold-hint" class="input-hint">
-														Brand name of drug that has been sold?
-													</p>
-													<div class="ui focus input sold">
-													<input name="firstdrug_sold" type="text"
-														aria-describedby="drug-sold-hint"
-														maxlength="200" required placeholder="Enter here...">
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group">
-														<label class="form-label text-dark">Switched</label>
-														<p id="switched-hint" class="input-hint">
-															Was there a switch?
-														</p>
-														
-															<select id="switchselect" name="firstswitched"
-																class="ui focus compact dropdown "
-																aria-describedby="switched-hint " required>
-																<option value="">Choose one</option>
-																<option value="Yes">Yes</option>
-																<option value="No">No</option>
-															</select>
+						<div class="field">
+							<label>Gender <i class="small asterisk red inverted icon"></i></label>
+							<select class="ui dropdown" required>
+								<option value="">Choose One</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+								<option value="Other">Other</option>
+							</select>
+						</div>
 
-
-														
-
-													</div>
-													
-													<div class="form-group">
-														<label class="form-label text-dark">Leaked</label>
-														<p id="leaked-hint" class="input-hint">
-															Was there a leak?
-														</p>
-														
-															<select name="firstleaked"
-																class="ui focus compact dropdown"
-																aria-describedby="leaked-hint " required>
-																<option value="">Choose one</option>
-																<option value="Yes">Yes</option>
-																<option value="No">No</option>
-															</select>
-
-														
-													</div>
-
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Reason for switch or
-														leak</label>
-													<p id="switchleaked-reason-hint" class="input-hint">
-														Why was there a switch or a leak?
-													</p>
-													<select name="firstswitchleak_reason"
-														class="ui focus dropdown"
-														aria-describedby="switchleaked-reason-hint" required>
-														<option value="">Choose One</option>
-														<option value="Not available">Not available</option>
-														<option value="Price">Price</option>
-														<option value="Therapeutic Reason">Therapeutic Reason</option>
-														<option value="Other Reason">Other Reason</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Form sold</label>
-													<p id="form-sold-hint" class="input-hint">
-														What form of drug was sold? liquid,tablet
-													</p>
-
-													<select name="firstform_sold"
-														class="ui focus search dropdown"
-														aria-describedby="form-sold-hint" required>
-														<option value="">Choose One</option>
-														<option value="3">Capsule</option>
-														<option value="7">Cream</option>
-														<option value="14">Ear drop</option>
-														<option value="15">Eye drop</option>
-														<option value="9">Gel</option>
-														<option value="12">Inhaler</option>
-														<option value="6">Injection</option>
-														<option value="8">Ointment</option>
-														<option value="10">Patch</option>
-														<option value="13">Pessary</option>
-														<option value="16">Powder</option>
-														<option value="11">Spray</option>
-														<option value="1">Suppositories</option>
-														<option value="4">Suspension</option>
-														<option value="5">Syrup</option>
-														<option value="2">Tablet</option>
-													</select>
-												</div>
-											</div>
-
-
-										</div>
-									</div>
-								</div>
-								<div id="drugs"></div>
-
-
-							</div>
-							<div class="card-footer">
-								<div class="card-options">
-									
-									<button class="ui labeled icon button" onclick="addDrugForm()">
-										<i class="plus icon"></i>
-										Add Another
-									  </button>
+						<div class="field">
+							<label>Age <i class="small asterisk red inverted icon"></i></label>
+							<div class="ui right labeled input">
+								<input type="number" placeholder="Patient Age" min="5">
+								<div class="ui basic label">
+									yrs
 								</div>
 							</div>
 
 						</div>
-						<div class="float-left ">
-							<button class="positive ui button" id="submitbtn">Finish</button>
+
+					</div>
+				</div>
+			</div>
+
+
+			<div class="ui raised segments">
+				<div class="ui segment">
+					<h3 class="ui">Drugs</h3>
+				</div>
+				<div class="ui secondary segment">
+					<div class="fields">
+						<div class="field">
+							<label>Who started the request? <i class="small asterisk red inverted icon"></i></label>
+							<select class="ui compact dropdown">
+								<option value="">Choose One</option>
+								<option value="brand patient">brand patient</option>
+								<option value="brand prescription">brand prescription</option>
+								<option value="inn patient">inn patient</option>
+								<option value="inn prescription">inn prescription</option>
+							</select>
 						</div>
+
+						<div class="field">
+							<label>Who makes the final selection for the purchased product? <i
+									class="small asterisk red inverted icon"></i></label>
+							<select name="sale_driver" class="ui dropdown" required>
+								<option value="">Choose One</option>
+								<option value="Patient">Patient</option>
+								<option value="Pharmacist">Pharmacist</option>
+								<option value="Prescriber">Prescriber</option>
+							</select>
+						</div>
+
+
+						<div class="fields">
+							<div class="field">
+								<label>Was there a switch? <i class="small asterisk red inverted icon"></i></label>
+								<select id="switchselect" name="switched" class="ui compact dropdown "
+									aria-describedby="switched-hint " required>
+									<option value="">Choose</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</div>
+
+							<div class="field">
+								<label>Was there a leak?</label>
+								<select name="firstleaked" class="ui compact dropdown" aria-describedby="leaked-hint "
+									required>
+									<option value="">Choose</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</div>
+						</div>
+
 					</div>
 
-			</form>
-		</div>
-		<div id="snackbar"></div>
+					<div class="fields">
+						<div class="field">
+							<label>Brand name of drug that has been sold <i
+									class="small asterisk red inverted icon"></i></label>
+							<div class="ui input">
+								<input name="firstdrug_sold" type="text" maxlength="200" required>
+							</div>
+						</div>
+
+						<div class="field">
+							<label>What product was switched or leaked? <i
+									class="small asterisk red inverted icon"></i></label>
+							<div class="ui input">
+								<input name="firstdrug_sold" type="text" maxlength="200" required>
+							</div>
+						</div>
+
+						<div class="field">
+							<label>Was the whole box sold? How was it divided? <i
+									class="small asterisk red inverted icon"></i></label>
+							<select name="firstdivision" class="ui dropdown" required>
+								<option value="">Choose One</option>
+								<option value="unit">unit</option>
+								<option value="blister">blister</option>
+								<option value="box">box</option>
+								<option value="blister+unit">blister+unit</option>
+								<option value="box+unit">box+unit</option>
+								<option value="box+blister">box+blister</option>
+							</select>
+						</div>
+
+
+					</div>
+
+					<div class="fields">
+						<div class="field">
+							<label>Why was there a switch or a leak? <i
+									class="small asterisk red inverted icon"></i></label>
+							<select name="switchleak_reason" class="ui dropdown" required>
+								<option value="">Choose One</option>
+								<option value="Not available">Not available</option>
+								<option value="Price">Price</option>
+								<option value="Therapeutic Reason">Therapeutic Reason</option>
+								<option value="Other Reason">Other Reason</option>
+							</select>
+						</div>
+
+						<div class="field">
+							<label>What form of drug was sold? liquid,tablet? <i
+									class="small asterisk red inverted icon"></i></label>
+							<select name="form_sold" class="ui search dropdown" required>
+								<option value="">Choose One</option>
+								<option value="3">Capsule</option>
+								<option value="7">Cream</option>
+								<option value="14">Ear drop</option>
+								<option value="15">Eye drop</option>
+								<option value="9">Gel</option>
+								<option value="12">Inhaler</option>
+								<option value="6">Injection</option>
+								<option value="8">Ointment</option>
+								<option value="10">Patch</option>
+								<option value="13">Pessary</option>
+								<option value="16">Powder</option>
+								<option value="11">Spray</option>
+								<option value="1">Suppositories</option>
+								<option value="4">Suspension</option>
+								<option value="5">Syrup</option>
+								<option value="2">Tablet</option>
+							</select>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="ui segment">
+					<button class="ui labeled icon button" onclick="addDrugForm()">
+						<i class="plus icon"></i>
+						Add Another
+					</button>
+				</div>
+			</div>
+
+			<div class="ui horizontal divider">
+				<button class="positive ui big submit button" type="submit">
+					Finish <i class="icon arrow right"></i>
+				</button>
+				<span class="grayed" style="display: none;">
+					<i class="ui wait icon"></i>
+					Please wait.. </span>
+			</div>
+
+		</form>
+	</div>
+
+	<div id="snackbar"></div>
 	</section>
 	<!--/Job posts-section-->
 
@@ -359,8 +318,8 @@
 	<!-- more -->
 
 	<nav class="fab-container">
-
-		<a href="observation_session.html" class="buttons"><i class="fa fa-pencil"></i></a>
+		<a id="litbut" href="#" class="buttons"><i class="sign out icon"></i></a>
+		<a id="litbut" href="observation_session.html" class="buttons"><i class="fa fa-pencil"></i></a>
 
 		<a id="more"><i class="fa fa-plus"></i></a>
 
@@ -441,30 +400,31 @@
 	<script src="/static/js/custom.js"></script>
 
 	<script>
-	$('#switchselect').change(function() {
-    //Use $option (with the "$") to see that the variable is a jQuery object
-    var $option = $(this).find('option:selected');
-    //Added with the EDIT
-    var value = $option.val();//to get content of "value" attrib
-	var text = $option.text();//to get <option>Text</option> content
-	console.log(text)
-	function disable() {
-		$('.dropdown').dropdown();
+		/*$('#switchselect').change(function () {
+			//Use $option (with the "$") to see that the variable is a jQuery object
+			var $option = $(this).find('option:selected');
+			//Added with the EDIT
+			var value = $option.val();//to get content of "value" attrib
+			var text = $option.text();//to get <option>Text</option> content
+			console.log(text)
+			function disable() {
+				$('.dropdown').dropdown();
 
-$('.ui.input.sold').addClass("disabled")
-  }
-  function enable() {$('.dropdown').dropdown();
+				$('.ui.input.sold').addClass("disabled")
+			}
+			function enable() {
+				$('.dropdown').dropdown();
 
-$('.ui.input.sold').removeClass("disabled")
-  }
+				$('.ui.input.sold').removeClass("disabled")
+			}
 
-	if (text == "No") {
-	disable()
-	  
-  } else{
-	enable()
-  }
-});
+			if (text == "No") {
+				disable()
+
+			} else {
+				enable()
+			}
+		});*/
 	</script>
 
 	<script>
@@ -496,7 +456,7 @@ $('.ui.input.sold').removeClass("disabled")
 														Who started the request?
 													</p>
 													<select name="` + id + `firstinitial_request"
-														aria-describedby="` + id + `initial-req-hint" class="ui focus dropdown">
+														aria-describedby="` + id + `initial-req-hint" class="ui dropdown">
 														<option value="">Choose One</option>
 														<option value="brand patient">brand patient</option>
 														<option value="brand prescription">brand prescription</option>
@@ -510,7 +470,7 @@ $('.ui.input.sold').removeClass("disabled")
 														Who makes the final selection for the purchased product?
 													</p>
 													<select name="` + id + `firstsale_driver"
-														aria-describedby="` + id + `drug-sale-driver-hint" class="ui focus dropdown"
+														aria-describedby="` + id + `drug-sale-driver-hint" class="ui dropdown"
 														required>
 														<option value="">Choose One</option>
 														<option value="Patient">Patient</option>
@@ -524,7 +484,7 @@ $('.ui.input.sold').removeClass("disabled")
 													<p id="` + id + `switchleaked-hint" class="input-hint">
 														What product was switched or leaked?
 													</p>
-													<div class="ui focus input">
+													<div class="ui input">
 														<input name="` + id + `firstproduct_switched_or_leaked" type="text"
 															aria-describedby="` + id + `switchedleaked-hint"
 															maxlength="200" placeholder="Enter here..." required>
@@ -536,7 +496,7 @@ $('.ui.input.sold').removeClass("disabled")
 														Was the whole box sold? How was it divided?
 													</p>
 													<select name="` + id + `firstdivision" aria-describedby="` + id + `division-hint"
-														class="ui focus dropdown" required>
+														class="ui dropdown" required>
 														<option value="">Choose One</option>
 														<option value="unit">unit</option>
 														<option value="blister">blister</option>
@@ -553,7 +513,7 @@ $('.ui.input.sold').removeClass("disabled")
 													<p id="` + id + `drug-sold-hint" class="input-hint">
 														Brand name of drug that has been sold?
 													</p>
-													<div class="ui focus input">
+													<div class="ui input">
 													<input name="` + id + `firstdrug_sold" type="text"
 														aria-describedby="` + id + `drug-sold-hint"
 														maxlength="200" required placeholder="Enter here...">
@@ -567,7 +527,7 @@ $('.ui.input.sold').removeClass("disabled")
 														</p>
 														
 															<select name="` + id + `firstswitched"
-																class="ui focus compact dropdown"
+																class="ui compact dropdown"
 																aria-describedby="` + id + `switched-hint " required>
 																<option value="">Choose one</option>
 																<option value="Yes">Yes</option>
@@ -586,7 +546,7 @@ $('.ui.input.sold').removeClass("disabled")
 														</p>
 														
 															<select name="` + id + `firstleaked"
-																class="ui focus compact dropdown"
+																class="ui compact dropdown"
 																aria-describedby="` + id + `leaked-hint " required>
 																<option value="">Choose one</option>
 																<option value="Yes">Yes</option>
@@ -604,7 +564,7 @@ $('.ui.input.sold').removeClass("disabled")
 														Why was there a switch or a leak?
 													</p>
 													<select name="` + id + `firstswitchleak_reason"
-														class="ui focus dropdown"
+														class="ui dropdown"
 														aria-describedby="switchleaked-reason-hint" required>
 														<option value="">Choose One</option>
 														<option value="Not available">Not available</option>
@@ -620,7 +580,7 @@ $('.ui.input.sold').removeClass("disabled")
 													</p>
 
 													<select name="` + id + `firstform_sold"
-														class="ui focus search dropdown"
+														class="ui search dropdown"
 														aria-describedby="` + id + `form-sold-hint" required>
 														<option value="">Choose One</option>
 														<option value="3">Capsule</option>
@@ -647,26 +607,36 @@ $('.ui.input.sold').removeClass("disabled")
 										</div>
 									</div>
 								</div>`);
-		$('#drugs .ui.dropdown')
-		.dropdown({ action: 'nothing' })
-		.on('click', '.item', function(e){
-			var id = $(this).data('value');
-		}
-	);
+			$('#drugs .ui.dropdown')
+				.dropdown({ action: 'nothing' })
+				.on('click', '.item', function (e) {
+					var id = $(this).data('value');
+					if ($(e.target).is('.remove.icon')) {
+						// removed
+						e.preventDefault();
+						console.log('removed ' + id);
+					} else {
+						// selected
+						$('#loc_dropdown .dropdown').dropdown('set selected', id).dropdown('hide');
+						console.log('selected ' + id);
+					}
+				}
+				);
 
-	
 
-  
 
-  
+
+
+
 		}
 		function removeDrugForm(id) {
+			var db;
 			$("#" + id).remove();
 			// document.getElementById(id).style.display = "none"
 		}
 
-		function collectForm() {
-			let myForm = document.getElementById("basketForm");
+		
+			/* myForm = document.getElementById("basketForm");
 
 			var saved = "first";
 			let formData = new FormData(myForm);
@@ -697,8 +667,8 @@ $('.ui.input.sold').removeClass("disabled")
 			myarray.push(info)
 			big['drugs'] = myarray
 			console.log(big)
-			return big
-		};
+			return big*/
+		
 
 
 		function submitForm() {
