@@ -4,9 +4,9 @@
 		<meta charset="UTF-8">
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="Description" content="Job board html template">
-		<meta name="Author" content="Spruko Technologies Private Limited">
-		<meta name="keywords" content="bootstrap job board template, bootstrap job template, hr consultancy website template, job board bootstrap template, job board html template, job listing html template, job portal html template, job portal templates html5, job posting website template, job recruitment website template, job template bootstrap, job template html, simple html and css templates, simple html css templates, directory listing html template, classified website template, responsive css template, html5 responsive template, job posting template, simple bootstrap template, bootstrap 4 templates, job application template, html5 template, premium, recruitment, template, html, job alert, directory"/>
+		<meta name="Description" content="">
+		<meta name="Author" content="pywe.org">
+		<meta name="keywords" content=""/>
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 
 		<!-- Title -->
-		<title>rejoin - Job board html template</title>
+		<title>POP Ghana | LockScreen</title>
 
 		<!-- Bootstrap Css -->
 		<link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -535,7 +535,7 @@
 										<input type="password" name="password">
 										<label>Password</label>
 									</div>
-									<a onclick="checkPwd" href="#" class="btn btn-primary btn-block">Unlock</a>
+									<a onclick="checkPwd" href="#" class="btn btn-secondary mb-sm-0 btn-block">Unlock</a>
 								</form>
 							</div>
 						</div>
@@ -548,11 +548,15 @@
 		
 
 <script>
+	localStorage.getItem('username')
 localStorage.setItem('lockedOut', 'True');
 var passwd = localStorage.getItem('password');
 function checkPwd(){
-	if (passwd!= document.getElementById("password").value) {
-	
+	if (passwd == document.getElementById("password").value) {
+		window.location.href = "/campaigns/templates/campaigns/new_basket.html"
+		localStorage.setItem('lockedOut', 'False');
+} else {
+	window.location.href = "/campaigns/templates/campaigns/lockscreen.html"
 }
 }
 
