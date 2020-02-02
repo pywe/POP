@@ -29,6 +29,11 @@ def observation_session(request):
     args = {}
     return render(request,template_name,args)
 
+def lockscreen(request):
+    template_name = "campaigns/lockscreen.html"
+    args = {}
+    return render(request,template_name,args)
+
 
 # Create anatomical classes using api
 @csrf_exempt

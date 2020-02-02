@@ -457,8 +457,8 @@
 	<!-- more -->
 
 	<nav class="fab-container">
-		<a id="litbut" href="lockscreen.html" class="buttons"><i class="sign out icon"></i></a>
-		<a id="litbut" href="observation_session.html" class="buttons"><i class="fa fa-pencil"></i></a>
+		<a id="litbut" href="/campaigns/lockscreen" class="buttons"><i class="sign out icon"></i></a>
+		<a id="litbut" href="/campaigns/observation-session" class="buttons"><i class="fa fa-pencil"></i></a>
 
 		<a id="more"><i class="fa fa-plus"></i></a>
 
@@ -584,7 +584,7 @@
 			window.specials.push(id)
 			$("#drugs").append(`<div class="animated slideInUp" id="` + id + `">
 			<div class="ui secondary segment">
-				
+
 				<button onclick="removeDrugForm('`+ id + `')" class="ui left floated red button">Remove</button><hr>
 					<div class="fields">
 						<div class="field">
@@ -760,7 +760,7 @@
 		function submitForm() {
 
 
-			
+
 			const data = collectForm()
 			// Make a request to add our newItem object to the object store
 			/*var objectStoreRequest = basketStore.add(big);

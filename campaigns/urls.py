@@ -20,4 +20,5 @@ urlpatterns = [
     url(r"^campaigns/new-basket/$",views.new_basket,name="new-basket"),
     url(r"^campaigns/new-pharmacy/$",views.new_pharmacy,name="new-pharmacy"),
     url(r"^campaigns/observation-session/$",views.observation_session,name="observation-session"),
+    url(r"^campaigns/lockscreen/$",views.lockscreen,name="lockscreen"),
 ]
