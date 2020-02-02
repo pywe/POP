@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<!-- Required meta tags -->
+	<!--  meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="google-site-verification" content="">
@@ -109,7 +109,7 @@
 					filled before submission.
 				</p>
 		</div>
-		<form method="dialog" onsubmit="collectForm()" class="ui form">
+		<form method="dialog" onsubmit="submitForm()" class="ui form">
 
 			<div class="ui raised segments">
 				<div class="ui segment">
@@ -119,7 +119,7 @@
 					<div class="fields">
 						<div class="field">
 							<label>Insurance scheme <i class="small asterisk red inverted icon"></i></label>
-							<select name="insurance" class="ui dropdown" required>
+							<select name="insurance" class="ui dropdown">
 								<option value="">Choose One</option>
 								<option value="Private Insurance">Private Insurance</option>
 								<option value="Public Insurance">Public Insurance</option>
@@ -130,7 +130,7 @@
 
 						<div class="field">
 							<label>Gender <i class="small asterisk red inverted icon"></i></label>
-							<select class="ui dropdown" required>
+							<select name="Gender" class="ui dropdown">
 								<option value="">Choose One</option>
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
@@ -141,7 +141,7 @@
 						<div class="field">
 							<label>Age <i class="small asterisk red inverted icon"></i></label>
 							<div class="ui right labeled input">
-								<input type="number" placeholder="Patient Age" min="5">
+								<input name="Age" type="number" placeholder="Patient Age" min="5">
 								<div class="ui basic label">
 									yrs
 								</div>
@@ -153,151 +153,153 @@
 				</div>
 			</div>
 
+			<div id="form-block" class="application block">
+				<div class="ui raised segments">
+					<div class="ui segment">
+						<h3 class="ui">Drug</h3>
+					</div>
+					<div class="ui secondary segment">
+						<div class="fields">
+							<div class="field">
+								<label>Who started the request? <i class="small asterisk red inverted icon"></i></label>
+								<select name="request_starter" class="ui compact dropdown">
+									<option value="">Choose One</option>
+									<option value="brand patient">brand patient</option>
+									<option value="brand prescription">brand prescription</option>
+									<option value="inn patient">inn patient</option>
+									<option value="inn prescription">inn prescription</option>
+								</select>
+							</div>
 
-			<div class="ui raised segments">
-				<div class="ui segment">
-					<h3 class="ui">Drugs</h3>
-				</div>
-				<div class="ui secondary segment">
-					<div class="fields">
-						<div class="field">
-							<label>Who started the request? <i class="small asterisk red inverted icon"></i></label>
-							<select class="ui compact dropdown">
-								<option value="">Choose One</option>
-								<option value="brand patient">brand patient</option>
-								<option value="brand prescription">brand prescription</option>
-								<option value="inn patient">inn patient</option>
-								<option value="inn prescription">inn prescription</option>
-							</select>
+							<div class="field">
+								<label>Who makes the final selection for the purchased product? <i
+										class="small asterisk red inverted icon"></i></label>
+								<select name="sale_driver" class="ui dropdown">
+									<option value="">Choose One</option>
+									<option value="Patient">Patient</option>
+									<option value="Pharmacist">Pharmacist</option>
+									<option value="Prescriber">Prescriber</option>
+								</select>
+							</div>
+
+
+							<div class="fields">
+								<div class="field">
+									<label>Was there a switch? <i class="small asterisk red inverted icon"></i></label>
+									<select id="switchselect" name="switched" class="ui compact dropdown "
+										onchange="//showhideForm(this.value)">
+										<option value="">Choose</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
+									</select>
+								</div>
+
+								<div id="leakedfield" class="field">
+									<label>Was there a leak?</label>
+									<select id="leaked" name="leaked" class="ui compact dropdown"
+										aria-describedby="leaked-hint ">
+										<option value="">Choose</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
+									</select>
+								</div>
+							</div>
+
 						</div>
 
-						<div class="field">
-							<label>Who makes the final selection for the purchased product? <i
-									class="small asterisk red inverted icon"></i></label>
-							<select name="sale_driver" class="ui dropdown" required>
-								<option value="">Choose One</option>
-								<option value="Patient">Patient</option>
-								<option value="Pharmacist">Pharmacist</option>
-								<option value="Prescriber">Prescriber</option>
-							</select>
-						</div>
+						<div  class="fields">
+							<div id="drug_sold_field" class="field" style="display:block">
+								<label>Brand name of drug that has been sold <i
+										class="small asterisk red inverted icon"></i></label>
+								<div class="ui input">
+									<input name="drug_sold" type="text" maxlength="200">
+								</div>
+							</div>
 
+							<div class="field">
+								<label>What product was switched or leaked? <i
+										class="small asterisk red inverted icon"></i></label>
+								<div class="ui input">
+									<input name="drug_switched_leaked" type="text" maxlength="200">
+								</div>
+							</div>
+
+							<div class="field">
+								<label>Was the whole box sold? How was it divided? <i
+										class="small asterisk red inverted icon"></i></label>
+								<select name="division" class="ui dropdown">
+									<option value="">Choose One</option>
+									<option value="unit">unit</option>
+									<option value="blister">blister</option>
+									<option value="box">box</option>
+									<option value="blister+unit">blister+unit</option>
+									<option value="box+unit">box+unit</option>
+									<option value="box+blister">box+blister</option>
+								</select>
+							</div>
+
+
+						</div id>
 
 						<div class="fields">
 							<div class="field">
-								<label>Was there a switch? <i class="small asterisk red inverted icon"></i></label>
-								<select id="switchselect" name="switched" class="ui compact dropdown "
-									aria-describedby="switched-hint " required>
-									<option value="">Choose</option>
-									<option value="Yes">Yes</option>
-									<option value="No">No</option>
+								<label>Why was there a switch or a leak? <i
+										class="small asterisk red inverted icon"></i></label>
+								<select name="switchleak_reason" class="ui dropdown">
+									<option value="">Choose One</option>
+									<option value="Not available">Not available</option>
+									<option value="Price">Price</option>
+									<option value="Therapeutic Reason">Therapeutic Reason</option>
+									<option value="Other Reason">Other Reason</option>
 								</select>
 							</div>
 
 							<div class="field">
-								<label>Was there a leak?</label>
-								<select name="firstleaked" class="ui compact dropdown" aria-describedby="leaked-hint "
-									required>
-									<option value="">Choose</option>
-									<option value="Yes">Yes</option>
-									<option value="No">No</option>
+								<label>What form of drug was sold? liquid,tablet? <i
+										class="small asterisk red inverted icon"></i></label>
+								<select name="form_sold" class="ui search dropdown">
+									<option value="">Choose One</option>
+									<option value="3">Capsule</option>
+									<option value="7">Cream</option>
+									<option value="14">Ear drop</option>
+									<option value="15">Eye drop</option>
+									<option value="9">Gel</option>
+									<option value="12">Inhaler</option>
+									<option value="6">Injection</option>
+									<option value="8">Ointment</option>
+									<option value="10">Patch</option>
+									<option value="13">Pessary</option>
+									<option value="16">Powder</option>
+									<option value="11">Spray</option>
+									<option value="1">Suppositories</option>
+									<option value="4">Suspension</option>
+									<option value="5">Syrup</option>
+									<option value="2">Tablet</option>
 								</select>
 							</div>
-						</div>
 
+						</div>
 					</div>
+					<div id="drugs"></div>
 
-					<div class="fields">
-						<div class="field">
-							<label>Brand name of drug that has been sold <i
-									class="small asterisk red inverted icon"></i></label>
-							<div class="ui input">
-								<input name="firstdrug_sold" type="text" maxlength="200" required>
-							</div>
-						</div>
-
-						<div class="field">
-							<label>What product was switched or leaked? <i
-									class="small asterisk red inverted icon"></i></label>
-							<div class="ui input">
-								<input name="firstdrug_sold" type="text" maxlength="200" required>
-							</div>
-						</div>
-
-						<div class="field">
-							<label>Was the whole box sold? How was it divided? <i
-									class="small asterisk red inverted icon"></i></label>
-							<select name="firstdivision" class="ui dropdown" required>
-								<option value="">Choose One</option>
-								<option value="unit">unit</option>
-								<option value="blister">blister</option>
-								<option value="box">box</option>
-								<option value="blister+unit">blister+unit</option>
-								<option value="box+unit">box+unit</option>
-								<option value="box+blister">box+blister</option>
-							</select>
-						</div>
-
-
+					<div class="ui segment">
+						<button class="ui labeled icon button" onclick="addDrugForm()">
+							<i class="plus icon"></i>
+							Add Another
+						</button>
 					</div>
-
-					<div class="fields">
-						<div class="field">
-							<label>Why was there a switch or a leak? <i
-									class="small asterisk red inverted icon"></i></label>
-							<select name="switchleak_reason" class="ui dropdown" required>
-								<option value="">Choose One</option>
-								<option value="Not available">Not available</option>
-								<option value="Price">Price</option>
-								<option value="Therapeutic Reason">Therapeutic Reason</option>
-								<option value="Other Reason">Other Reason</option>
-							</select>
-						</div>
-
-						<div class="field">
-							<label>What form of drug was sold? liquid,tablet? <i
-									class="small asterisk red inverted icon"></i></label>
-							<select name="form_sold" class="ui search dropdown" required>
-								<option value="">Choose One</option>
-								<option value="3">Capsule</option>
-								<option value="7">Cream</option>
-								<option value="14">Ear drop</option>
-								<option value="15">Eye drop</option>
-								<option value="9">Gel</option>
-								<option value="12">Inhaler</option>
-								<option value="6">Injection</option>
-								<option value="8">Ointment</option>
-								<option value="10">Patch</option>
-								<option value="13">Pessary</option>
-								<option value="16">Powder</option>
-								<option value="11">Spray</option>
-								<option value="1">Suppositories</option>
-								<option value="4">Suspension</option>
-								<option value="5">Syrup</option>
-								<option value="2">Tablet</option>
-							</select>
-						</div>
-
-					</div>
-				</div>
-
-				<div class="ui segment">
-					<button class="ui labeled icon button" onclick="addDrugForm()">
-						<i class="plus icon"></i>
-						Add Another
-					</button>
 				</div>
 			</div>
 
 			<div class="ui horizontal divider">
-				<button class="positive ui big submit button" type="submit">
+				<button onclick="collectForm()" type="submit" class="positive ui big submit button">
 					Finish <i class="icon arrow right"></i>
 				</button>
 				<span class="grayed" style="display: none;">
 					<i class="ui wait icon"></i>
 					Please wait.. </span>
 			</div>
-
+			<div class="ui error message"></div>
 		</form>
 	</div>
 
@@ -308,17 +310,154 @@
 	<script src="https://www.pywe.org/static/js/jquery.min.js"></script>
 
 	<script>
-// 		window.onload = function Load() {
-// 			if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Blackberry/i) || navigator.userAgent.match(/WebOs/i)) { // detect mobile browser
-// 				window.location.replace("https://gigship.pywe.org/registration/"); // redirect if mobile browser detected
-// 			}
-// 		}
+		function collectForm() {
+			$('form')
+				.form({
+					on: 'blur',
+					fields: {
+						Age: {
+							identifier: 'Age',
+							rules: [
+								{
+									type: 'integer[1..100]',
+									prompt: ' Patient Age is Empty! Please choose an age value of 5-100'
+								}
+							]
+						},
+						drug_sold: {
+							identifier: 'drug_sold',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'Brand Name of Drug sold not entered! Please input 00 if none'
+								}
+							]
+						},
+						drug_switched_leaked: {
+							identifier: 'drug_switched_leaked',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'What product was switched or leaked? Please input 00 if none!'
+								}
+							]
+						},
+						insurance: {
+							identifier: 'insurance',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'Please select a Insurance Scheme'
+								}
+							]
+						},
+						Gender: {
+							identifier: 'Gender',
+							rules: [
+								{
+									type: 'empty',
+									prompt: "What's the Patients Gender? Please select a dropdown value"
+								}
+							]
+						},
+						request_starter: {
+							identifier: 'request_starter',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'Who started the request? Please choose from the dropdown'
+								}
+							]
+						},
+						sale_driver: {
+							identifier: 'sale_driver',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'Who makes the final selection for the purchased product? Please choose from the dropdown'
+								}
+							]
+						},
+						switched: {
+							identifier: 'switched',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'Was there a Switch? Please choose from dropdown'
+								}
+							]
+						},
+						firstleaked: {
+							identifier: 'leaked',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'Was there a leak? Choose Yes or No'
+								}
+							]
+						},
+						firstdivision: {
+							identifier: 'division',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'Was the whole box sold? How was it divided? Please select from dropdown'
+								}
+							]
+						},
+						switchleak_reason: {
+							identifier: 'switchleak_reason',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'Please select a dropdown value'
+								}
+							]
+						},
+						form_sold: {
+							identifier: 'form_sold',
+							rules: [
+								{
+									type: 'empty',
+									prompt: 'What form of drug was sold? liquid,tablet? Please Choose from dropdown'
+								}
+							]
+						}
+
+					}
+				})
+				;
+
+			var
+				$form = $('form'),
+				allFields = $form.form('get values');
+			console.log(allFields);
+		}
+	</script>
+
+	<script>
+		/*function showhideForm(value) {
+			if (value == "yes") {
+				$('form')
+					// set value
+					.form('set value', 'leaked', 'No');
+				//document.getElementById("div1").style.display = 'block';
+				document.getElementById("leakedfield").style.display = 'none';
+			}
+			if (value == "no") {
+				$('form')
+					// set value
+					.form('set value', 'leaked', 'Yes');
+				//document.getElementById("div2").style.display = 'block';
+				document.getElementById("drug_sold_field").style.display = 'none';
+			}
+		}*/
 	</script>
 
 	<!-- more -->
 
 	<nav class="fab-container">
-		<a id="litbut" href="#" class="buttons"><i class="sign out icon"></i></a>
+		<a id="litbut" href="lockscreen.html" class="buttons"><i class="sign out icon"></i></a>
 		<a id="litbut" href="observation_session.html" class="buttons"><i class="fa fa-pencil"></i></a>
 
 		<a id="more"><i class="fa fa-plus"></i></a>
@@ -444,184 +583,131 @@
 			var id = makeid(5)
 			window.specials.push(id)
 			$("#drugs").append(`<div class="animated slideInUp" id="` + id + `">
-	        <hr>
-	        <a style="float:right;" class="btn btn-danger btn-sm" href="#/" onclick="removeDrugForm('`+ id + `')">Remove</a>
-			<div class="row">
-									<div class="col-lg-9">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label class="form-label text-dark">Initial request</label>
-													<p id="` + id + `initial-req-hint" class="input-hint">
-														Who started the request?
-													</p>
-													<select name="` + id + `firstinitial_request"
-														aria-describedby="` + id + `initial-req-hint" class="ui dropdown">
-														<option value="">Choose One</option>
-														<option value="brand patient">brand patient</option>
-														<option value="brand prescription">brand prescription</option>
-														<option value="inn patient">inn patient</option>
-														<option value="inn prescription">inn prescription</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Drug Sale Driver</label>
-													<p id="` + id + `drug-sale-driver-hint" class="input-hint">
-														Who makes the final selection for the purchased product?
-													</p>
-													<select name="` + id + `firstsale_driver"
-														aria-describedby="` + id + `drug-sale-driver-hint" class="ui dropdown"
-														required>
-														<option value="">Choose One</option>
-														<option value="Patient">Patient</option>
-														<option value="Pharmacist">Pharmacist</option>
-														<option value="Prescriber">Prescriber</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Product switched or
-														leaked</label>
-													<p id="` + id + `switchleaked-hint" class="input-hint">
-														What product was switched or leaked?
-													</p>
-													<div class="ui input">
-														<input name="` + id + `firstproduct_switched_or_leaked" type="text"
-															aria-describedby="` + id + `switchedleaked-hint"
-															maxlength="200" placeholder="Enter here..." required>
-													</div>
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Division</label>
-													<p id="` + id + `division-hint" class="input-hint">
-														Was the whole box sold? How was it divided?
-													</p>
-													<select name="` + id + `firstdivision" aria-describedby="` + id + `division-hint"
-														class="ui dropdown" required>
-														<option value="">Choose One</option>
-														<option value="unit">unit</option>
-														<option value="blister">blister</option>
-														<option value="box">box</option>
-														<option value="blister+unit">blister+unit</option>
-														<option value="box+unit">box+unit</option>
-														<option value="box+blister">box+blister</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label class="form-label text-dark">Drug sold</label>
-													<p id="` + id + `drug-sold-hint" class="input-hint">
-														Brand name of drug that has been sold?
-													</p>
-													<div class="ui input">
-													<input name="` + id + `firstdrug_sold" type="text"
-														aria-describedby="` + id + `drug-sold-hint"
-														maxlength="200" required placeholder="Enter here...">
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group">
-														<label class="form-label text-dark">Switched</label>
-														<p id="` + id + `switched-hint" class="input-hint">
-															Was there a switch?
-														</p>
-														
-															<select name="` + id + `firstswitched"
-																class="ui compact dropdown"
-																aria-describedby="` + id + `switched-hint " required>
-																<option value="">Choose one</option>
-																<option value="Yes">Yes</option>
-																<option value="No">No</option>
-															</select>
+			<div class="ui secondary segment">
+				
+				<button onclick="removeDrugForm('`+ id + `')" class="ui left floated red button">Remove</button><hr>
+					<div class="fields">
+						<div class="field">
+							<label>Who started the request? <i class="small asterisk red inverted icon"></i></label>
+							<select id="`+ id + `-request-starter" name="`+ id + `-request_starter" class="ui compact dropdown">
+								<option value="">Choose One</option>
+								<option value="brand patient">brand patient</option>
+								<option value="brand prescription">brand prescription</option>
+								<option value="inn patient">inn patient</option>
+								<option value="inn prescription">inn prescription</option>
+							</select>
+						</div>
+
+						<div class="field">
+							<label>Who makes the final selection for the purchased product? <i
+									class="small asterisk red inverted icon"></i></label>
+							<select id ="`+ id + `-sale-driver" name="`+ id + `-sale_driver" class="ui dropdown" >
+								<option value="">Choose One</option>
+								<option value="Patient">Patient</option>
+								<option value="Pharmacist">Pharmacist</option>
+								<option value="Prescriber">Prescriber</option>
+							</select>
+						</div>
 
 
-														
+						<div class="fields">
+							<div class="field">
+								<label>Was there a switch? <i class="small asterisk red inverted icon"></i></label>
+								<select id="`+ id + `-switched" name="`+ id + `-switched" class="ui compact dropdown "" >
+									<option value="">Choose</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</div>
 
-													</div>
-													
-													<div class="form-group">
-														<label class="form-label text-dark">Leaked</label>
-														<p id="` + id + `leaked-hint" class="input-hint">
-															Was there a leak?
-														</p>
-														
-															<select name="` + id + `firstleaked"
-																class="ui compact dropdown"
-																aria-describedby="` + id + `leaked-hint " required>
-																<option value="">Choose one</option>
-																<option value="Yes">Yes</option>
-																<option value="No">No</option>
-															</select>
+							<div class="field">
+								<label>Was there a leak?</label>
+								<select id="`+ id + `-leaked" name="`+ id + `-leaked" class="ui compact dropdown"
+									>
+									<option value="">Choose</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</div>
+						</div>
 
-														
-													</div>
+					</div>
 
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Reason for switch or
-														leak</label>
-													<p id="` + id + `switchleaked-reason-hint" class="input-hint">
-														Why was there a switch or a leak?
-													</p>
-													<select name="` + id + `firstswitchleak_reason"
-														class="ui dropdown"
-														aria-describedby="switchleaked-reason-hint" required>
-														<option value="">Choose One</option>
-														<option value="Not available">Not available</option>
-														<option value="Price">Price</option>
-														<option value="Therapeutic Reason">Therapeutic Reason</option>
-														<option value="Other Reason">Other Reason</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label class="form-label text-dark">Form sold</label>
-													<p id="` + id + `form-sold-hint" class="input-hint">
-														What form of drug was sold? liquid,tablet
-													</p>
+					<div class="fields">
+						<div class="field">
+							<label>Brand name of drug that has been sold <i
+									class="small asterisk red inverted icon"></i></label>
+							<div class="ui input">
+								<input id="`+ id + `-drug-sold" name="`+ id + `-drug_sold" type="text" maxlength="200" >
+							</div>
+						</div>
 
-													<select name="` + id + `firstform_sold"
-														class="ui search dropdown"
-														aria-describedby="` + id + `form-sold-hint" required>
-														<option value="">Choose One</option>
-														<option value="3">Capsule</option>
-														<option value="7">Cream</option>
-														<option value="14">Ear drop</option>
-														<option value="15">Eye drop</option>
-														<option value="9">Gel</option>
-														<option value="12">Inhaler</option>
-														<option value="6">Injection</option>
-														<option value="8">Ointment</option>
-														<option value="10">Patch</option>
-														<option value="13">Pessary</option>
-														<option value="16">Powder</option>
-														<option value="11">Spray</option>
-														<option value="1">Suppositories</option>
-														<option value="4">Suspension</option>
-														<option value="5">Syrup</option>
-														<option value="2">Tablet</option>
-													</select>
-												</div>
-											</div>
+						<div class="field">
+							<label>What product was switched or leaked? <i
+									class="small asterisk red inverted icon"></i></label>
+							<div class="ui input">
+								<input id="`+ id + `-"drug-switched-leaked" name="`+ id + `-drug_switched_leaked" type="text" maxlength="200" >
+							</div>
+						</div>
+
+						<div class="field">
+							<label>Was the whole box sold? How was it divided? <i
+									class="small asterisk red inverted icon"></i></label>
+							<select id="`+ id + `-division" name="`+ id + `-division" class="ui dropdown" >
+								<option value="">Choose One</option>
+								<option value="unit">unit</option>
+								<option value="blister">blister</option>
+								<option value="box">box</option>
+								<option value="blister+unit">blister+unit</option>
+								<option value="box+unit">box+unit</option>
+								<option value="box+blister">box+blister</option>
+							</select>
+						</div>
 
 
-										</div>
-									</div>
-								</div>`);
+					</div>
+
+					<div class="fields">
+						<div class="field">
+							<label>Why was there a switch or a leak? <i
+									class="small asterisk red inverted icon"></i></label>
+							<select id="`+ id + `-switchleak-reason" name="`+ id + `-switchleak_reason" class="ui dropdown" >
+								<option value="">Choose One</option>
+								<option value="Not available">Not available</option>
+								<option value="Price">Price</option>
+								<option value="Therapeutic Reason">Therapeutic Reason</option>
+								<option value="Other Reason">Other Reason</option>
+							</select>
+						</div>
+
+						<div class="field">
+							<label>What form of drug was sold? liquid,tablet? <i
+									class="small asterisk red inverted icon"></i></label>
+							<select id="`+ id + `-form-sold" name="`+ id + `-form_sold" class="ui search dropdown" >
+								<option value="">Choose One</option>
+								<option value="3">Capsule</option>
+								<option value="7">Cream</option>
+								<option value="14">Ear drop</option>
+								<option value="15">Eye drop</option>
+								<option value="9">Gel</option>
+								<option value="12">Inhaler</option>
+								<option value="6">Injection</option>
+								<option value="8">Ointment</option>
+								<option value="10">Patch</option>
+								<option value="13">Pessary</option>
+								<option value="16">Powder</option>
+								<option value="11">Spray</option>
+								<option value="1">Suppositories</option>
+								<option value="4">Suspension</option>
+								<option value="5">Syrup</option>
+								<option value="2">Tablet</option>
+							</select>
+						</div>
+
+					</div>
+				</div></div>`);
 			$('#drugs .ui.dropdown')
-				.dropdown({ action: 'nothing' })
-				.on('click', '.item', function (e) {
-					var id = $(this).data('value');
-					if ($(e.target).is('.remove.icon')) {
-						// removed
-						e.preventDefault();
-						console.log('removed ' + id);
-					} else {
-						// selected
-						$('#loc_dropdown .dropdown').dropdown('set selected', id).dropdown('hide');
-						console.log('selected ' + id);
-					}
-				}
-				);
+				.dropdown({ on: 'hover' });
 
 
 
@@ -630,52 +716,52 @@
 
 		}
 		function removeDrugForm(id) {
-			var db;
-			$("#" + id).remove();
+			$("#" + id).transition('fade')
+				.remove();
 			// document.getElementById(id).style.display = "none"
 		}
 
-		
-			/* myForm = document.getElementById("basketForm");
 
-			var saved = "first";
-			let formData = new FormData(myForm);
-			var myarray = [];
-			var big = {}
-			var info = {};
-			//This will build the form from name, value pairs
+		/* myForm = document.getElementById("basketForm");
 
-			for (var pair of formData.entries()) {
-				var str = pair[0]
-				var res = str.substring(0, 5);
-				if (window.specials.includes(res)) {
-					if (saved === res) {
-						var key = (pair[0]).replace(res, "")
-						info[key] = pair[1]
-					}
-					else {
-						myarray.push(info)
-						var info = {};
-						var key = (pair[0]).replace(res, "")
-						info[key] = pair[1]
-						saved = (pair[0]).substring(0, 5);
-					}
-				} else {
-					big[pair[0]] = pair[1]
+		var saved = "first";
+		let formData = new FormData(myForm);
+		var myarray = [];
+		var big = {}
+		var info = {};
+		//This will build the form from name, value pairs
+
+		for (var pair of formData.entries()) {
+			var str = pair[0]
+			var res = str.substring(0, 5);
+			if (window.specials.includes(res)) {
+				if (saved === res) {
+					var key = (pair[0]).replace(res, "")
+					info[key] = pair[1]
 				}
+				else {
+					myarray.push(info)
+					var info = {};
+					var key = (pair[0]).replace(res, "")
+					info[key] = pair[1]
+					saved = (pair[0]).substring(0, 5);
+				}
+			} else {
+				big[pair[0]] = pair[1]
 			}
-			myarray.push(info)
-			big['drugs'] = myarray
-			console.log(big)
-			return big*/
-		
+		}
+		myarray.push(info)
+		big['drugs'] = myarray
+		console.log(big)
+		return big*/
+
 
 
 		function submitForm() {
-			document.getElementById('submitbtn').innerHTML = 'processing...'
-			$("#submitbtn").prop("disabled", true);
+
+
+			
 			const data = collectForm()
-			data['username'] = " ";
 			// Make a request to add our newItem object to the object store
 			/*var objectStoreRequest = basketStore.add(big);
 

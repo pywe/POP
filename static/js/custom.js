@@ -41,21 +41,8 @@ $('.message .close')
     ;
   })
 ;
-	
-	// ______________Quantity-right-plus
-	var quantitiy = 0;
-	$('.quantity-right-plus').on('click', function(e) {
-		e.preventDefault();
-		var quantity = parseInt($('#quantity').val()); 
-		$('#quantity').val(quantity + 1); 
-	});
-	$('.quantity-left-minus').on('click', function(e) {
-		e.preventDefault();
-		var quantity = parseInt($('#quantity').val());
-		if (quantity > 0) {
-			$('#quantity').val(quantity - 1);
-		}
-	});	
+
+
 	
 	/*boYSIqMee+p4uAjskftSrErYaF9PDNDn+EGSzR9N2BspYI8=
 feCz66HNQhyoUIndT6pXQpWta+PA3e1h3yExMyH1EsOo6f8PXnNPyHGLRfchOSF9WSX7exs=*/	
@@ -169,72 +156,20 @@ feCz66HNQhyoUIndT6pXQpWta+PA3e1h3yExMyH1EsOo6f8PXnNPyHGLRfchOSF9WSX7exs=*/
 		e.preventDefault();
 		return false;
 	});
-
-
-	//______________Indexeddb
-	
-	  $(document).ready(function(){
-
-	  
-	  // Let us open our database
-	  var request = window.indexedDB.open("POP Ghana");
-	  request.onerror = function(event) {
-		// Do something with request.errorCode!
-		console.log("Why didn't you allow my web app to use IndexedDB?!");
-	  };
-	  request.onsuccess = function(event) {
-		// Do something with request.result!
-		db = event.target.result;
-		db.onerror = function(event) {
-		  // Generic error handler for all errors targeted at this database's
-		  // requests!
-		  console.error("Database error: " + event.target.errorCode);
-		};
-	  };
-	  
-	  
-	  // This event is only implemented in recent browsers   
-	  request.onupgradeneeded = function(event) { 
-		// Save the IDBDatabase interface 
-		var db = event.target.result;
-	  
-		// Create an objectStore for this database
-		var sessionStore = db.createObjectStore("sessions", { keyPath: "id" }, {autoIncrement: "true"});
-		var pharmacyStore = db.createObjectStore("pharmacies", {keyPath: "id"},{autoIncrement: "true"});
-		var basketStore = db.createObjectStore("baskets", {keyPath: "id"},{autoIncrement: "true"});
-		if (!window.indexedDB) {
-			console.log("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.");
-		  }
-		  $('.positive.ui.big.submit.button"]').on('click', function collectForm() {
-			var
-				$form = $('.form'),
-				allFields = $form.form('get values')
-				;
-			console.log(allFields);
-			store();
+	$(menu).appendTo("#rightMenu").each(function() {
+		activateSemantics();
 		});
-	
-	
-		  function store () {
-			// create the transaction with 1st parameter is the list of stores and the second specifies
-			// a flag for the readwrite option
-			var transaction = db.transaction([ 'baskets' ], 'readwrite');
-		
-			
-			//Create the Object to be saved i.e. our details
-			var allFields;
-		
-			// add the details to the store
-			var store = transaction.objectStore('baskets');
-			var request = store.add(allFields);
-			request.onsuccess = function (e) {
-				alert("Your Basket data has been saved");
-			};
-			request.onerror = function (e) {
-				alert("Error in saving the basket data. Reason : " + e.value);
-			}
+		function activateSemantics(){
+			 $('.ui.dropdown')
+		  .dropdown({
+			  on: 'hover'});
 		}
-	  };
-	});
+
+
+	var
+	$form = $('form'),
+	// get all values
+	allFields = $form.form('get values');
+	console.log(allFields);
 				  
 })(jQuery);

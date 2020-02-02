@@ -19,41 +19,41 @@
 		<title>rejoin - Job board html template</title>
 
 		<!-- Bootstrap Css -->
-		<link href="../assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
 
 		<!-- Dashboard Css -->
-		<link href="../assets/css/style.css" rel="stylesheet" />
+		<link href="/static/css/style.css" rel="stylesheet" />
 
 		<!-- Font-awesome  Css -->
-		<link href="../assets/css/icons.css" rel="stylesheet"/>
+		<link href="/static/css/icons.css" rel="stylesheet"/>
 
 		<!--Horizontal Menu-->
-		<link href="../assets/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
-		<link href="../assets/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
+		<link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
+		<link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
 
 		<!--Select2 Plugin -->
-		<link href="../assets/plugins/select2/select2.min.css" rel="stylesheet" />
+		<link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
 
 		<!-- Cookie css -->
-		<link href="../assets/plugins/cookie/cookie.css" rel="stylesheet">
+		<link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
 
 		<!-- Custom scroll bar css-->
-		<link href="../assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+		<link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
 
 		<!-- COLOR-SKINS -->
-		<link id="theme" rel="stylesheet" type="text/css" media="all" href="../assets/color-skins/color-skins/color10.css" />
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
 
 	</head>
 	<body>
 
 		<!--Loader-->
 		<div id="global-loader">
-			<img src="../assets/images/loader.svg" class="loader-img" alt="">
+			<img src="/static/images/loader.svg" class="loader-img" alt="">
 		</div>
 
 		<!--Header Main-->
 		<div class="header-main">
-			<!--Top Bar-->
+			<!--Top Bar
 			<div class="top-bar">
 				<div class="container">
 					<div class="row">
@@ -301,28 +301,28 @@
 					</div>
 				</div>
 			</div>
-			<!--Top Bar-->
+			Top Bar-->
 
-			<!-- Mobile Header -->
+			<!-- Mobile Header
 			<div class="horizontal-header clearfix ">
 				<div class="container">
 					<a id="horizontal-navtoggle" class="animated-arrow"><span></span></a>
-					<span class="smllogo"><img src="../assets/images/brand/logo.png" width="120" alt=""/></span>
+					<span class="smllogo"><img src="/static/images/brand/logo.png" width="120" alt=""/></span>
 					<a href="#" class="callusbtn bg-light"><i class="fa fa-bell text-body" aria-hidden="true"></i></a>
 				</div>
 			</div>
-			<!-- /Mobile Header -->
+			 /Mobile Header -->
 
-			<!--Horizontal-main-->
+			<!--Horizontal-main
 			<div class="horizontal-main clearfix">
 				<div class="horizontal-mainwrapper container clearfix">
 					<div class="desktoplogo">
-						<a href="index.html"><img src="../assets/images/brand/logo.png" alt=""></a>
+						<a href="index.html"><img src="/static/images/brand/logo.png" alt=""></a>
 					</div>
 					<div class="desktoplogo-1">
-						<a href="index.html"><img src="../assets/images/brand/logo.png" alt=""></a>
+						<a href="index.html"><img src="/static/images/brand/logo.png" alt=""></a>
 					</div>
-					<!--Nav-->
+					Nav
 					<nav class="horizontalMenu clearfix d-md-flex">
 						<ul class="horizontalMenu-list">
 							<li><a href="#">Home <span class="fa fa-caret-down m-0"></span></a>
@@ -491,7 +491,7 @@
 							</li>
 						</ul>
 					</nav>
-					<!--/Nav-->
+					/Nav-->
 				</div>
 			</div>
 			<!--/Horizontal-main-->
@@ -500,7 +500,7 @@
 
 		<!--Breadcrumb-->
 		<section>
-			<div class="bannerimg cover-image bg-background3" data-image-src="../assets/images/banners/banner2.jpg">
+			<div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
 				<div class="header-text mb-0">
 					<div class="container">
 						<div class="text-center text-white ">
@@ -525,17 +525,17 @@
 						<div class="single-page w-100 p-0" >
 							<div class="wrapper wrapper2">
 								<form id="forgotpsd" class="card-body">
-									<div class="text-center mb-4 ">
-										<span class="avatar avatar-xxl  brround cover-image" data-image-src="../assets/images/users/male/25.jpg"></span>
-									</div>
+									<!--<div class="text-center mb-4 ">
+										<span class="avatar avatar-xxl  brround cover-image" data-image-src="/static/images/users/male/25.jpg"></span>
+									</div>-->
 									<span class="m-4 d-none d-lg-block text-center">
-										<span class="text-dark"><strong>Rubin Carmody</strong></span>
+										<span class="text-dark"><strong id="username" app-variable="username"></strong></span>
 									</span>
 									<div class="passwd">
 										<input type="password" name="password">
 										<label>Password</label>
 									</div>
-									<a href="#" class="btn btn-primary btn-block">Unlock</a>
+									<a onclick="checkPwd" href="#" class="btn btn-primary btn-block">Unlock</a>
 								</form>
 							</div>
 						</div>
@@ -545,211 +545,67 @@
 		</div>
 		<!--/lookscreen-Section-->
 
-		<!-- Onlinesletter-->
-		<section class="sptb bg-white border-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-7 col-xl-6 col-md-12">
-						<div class="sub-newsletter">
-							<h3 class="mb-2"><i class="fa fa-paper-plane-o mr-2"></i> Subscribe To Our Onlinesletter</h3>
-							<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-						</div>
-					</div>
-					<div class="col-lg-5 col-xl-6 col-md-12">
-						<div class="input-group sub-input mt-1">
-							<input type="text" class="form-control input-lg " placeholder="Enter your Email">
-							<div class="input-group-append ">
-								<button type="button" class="btn btn-primary btn-lg br-tr-3  br-br-3">
-									Subscribe
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!--/Onlinesletter-->
+		
 
-		<!--Footer Section-->
-		<section>
-			<footer class="bg-dark text-white cover-image" data-image-src="../assets/images/banners/banner3.jpg">
-				<div class="footer-main">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-2 col-md-12">
-								<h6>Job Categories</h6>
-								<hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
-								<ul class="list-unstyled mb-0">
-									<li><a href="#">Developement</a></li>
-									<li><a href="#">Designing</a></li>
-									<li><a href="#">Marketing</a></li>
-									<li><a href="#">Others</a></li>
-								</ul>
-							</div>
-							<div class="col-lg-2 col-md-12">
-								<h6>Job Type</h6>
-								<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto">
-								<ul class="list-unstyled mb-0">
-									<li><a href="#">Work from home</a></li>
-									<li><a href="#">Internship</a></li>
-									<li><a href="#">Part time</a></li>
-									<li><a href="#">Full time</a></li>
-								</ul>
-							</div>
-							<div class="col-lg-2 col-md-12">
-								<h6>Resources</h6>
-								<hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
-								<ul class="list-unstyled mb-0">
-									<li><a href="#">Support</a></li>
-									<li><a href="#">FAQ</a></li>
-									<li><a href="#">Terms of Service</a></li>
-									<li><a href="#">Contact Details</a></li>
-								</ul>
-							</div>
-							<div class="col-lg-3 col-md-12">
-								<h6>Popular Ads</h6>
-								<hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
-								<ul class="list-unstyled mb-0">
-									<li><a href="#"><i class="fa fa-caret-right text-white-50"></i> Educational college Ads</a></li>
-									<li><a href="#"><i class="fa fa-caret-right text-white-50"></i> Free Lancer for Web Developer</a></li>
-									<li><a href="#"><i class="fa fa-caret-right text-white-50"></i> Searching for Developer</a></li>
-									<li><a href="#"><i class="fa fa-caret-right text-white-50"></i> BPO Online In Bangalore</a></li>
-								</ul>
-							</div>
-							<div class="col-lg-3 col-md-12">
-								<h6 class="mb-2">Subscribe</h6>
-								<hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
-								<div class="input-group w-100">
-									<input type="text" class="form-control " placeholder="Email">
-									<div class="input-group-append ">
-										<button type="button" class="btn btn-primary "> Subscribe </button>
-									</div>
-								</div>
-								<h6 class="mb-2 mt-5">Payments</h6>
-								<hr class="deep-purple  accent-2 mb-4 mt-0 d-inline-block mx-auto">
-								<ul class="payments mb-0">
-									<li>
-										<a href="javascript:;" class="payments-icon"><i class="fa fa-cc-amex" aria-hidden="true"></i></a>
-									</li>
-									<li>
-										<a href="javascript:;" class="payments-icon"><i class="fa fa-cc-visa" aria-hidden="true"></i></a>
-									</li>
-									<li>
-										<a href="javascript:;" class="payments-icon"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></a>
-									</li>
-									<li>
-										<a href="javascript:;" class="payments-icon"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></a>
-									</li>
-									<li>
-										<a href="javascript:;" class="payments-icon"><i class="fa fa-cc-paypal" aria-hidden="true"></i></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="text-white-50 border-top p-0">
-					<div class="container">
-						<div class="row d-flex">
-							<div class="col-lg-8 col-sm-12  mt-2 mb-2 text-left ">
-								Copyright © 2019 <a href="index.html" class="fs-14 text-white">rejoin</a>. Designed by <a href="spruko.com" class="fs-14 text-white">Spruko</a> All rights reserved.
-							</div>
-							<div class="col-lg-4 col-sm-12 ml-auto mb-2 mt-2 d-none d-lg-block">
-								<ul class="social mb-0">
-									<li>
-										<a class="social-icon" href=""><i class="fa fa-facebook"></i></a>
-									</li>
-									<li>
-										<a class="social-icon" href=""><i class="fa fa-twitter"></i></a>
-									</li>
-									<li>
-										<a class="social-icon" href=""><i class="fa fa-rss"></i></a>
-									</li>
-									<li>
-										<a class="social-icon" href=""><i class="fa fa-youtube"></i></a>
-									</li>
-									<li>
-										<a class="social-icon" href=""><i class="fa fa-linkedin"></i></a>
-									</li>
-									<li>
-										<a class="social-icon" href=""><i class="fa fa-google-plus"></i></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="text-white p-0 border-top">
-					<div class="container">
-						<div class="p-2 text-center footer-links">
-							<a href="#" class="btn btn-link">How It Works</a>
-							<a href="#" class="btn btn-link">About Us</a>
-							<a href="#" class="btn btn-link">Pricing</a>
-							<a href="#" class="btn btn-link">Ads Categories</a>
-							<a href="#" class="btn btn-link">Privacy Policy</a>
-							<a href="#" class="btn btn-link">Terms Of Conditions</a>
-							<a href="#" class="btn btn-link">Blog</a>
-							<a href="#" class="btn btn-link">Contact Us</a>
-							<a href="#" class="btn btn-link">Premium Ad</a>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</section>
-		<!--Footer Section-->
+<script>
+localStorage.setItem('lockedOut', 'True');
+var passwd = localStorage.getItem('password');
+function checkPwd(){
+	if (passwd!= document.getElementById("password").value) {
+	
+}
+}
 
-		<!-- Notification -->
-		<a href="advanced-search.html" id="notification" ><span class="notification-text">Create Job Alert</span><i class="fa fa-bell"></i></a>
-
+</script>
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" ><i class="fa fa-arrow-up"></i></a>
 
 		<!-- JQuery js-->
-		<script src="../assets/js/vendors/jquery-3.2.1.min.js"></script>
+		<script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
 
 		<!-- Bootstrap js -->
-		<script src="../assets/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
-		<script src="../assets/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+		<script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
+		<script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 
 		<!--JQuery Sparkline Js-->
-		<script src="../assets/js/vendors/jquery.sparkline.min.js"></script>
+		<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
 
 		<!-- Circle Progress Js-->
-		<script src="../assets/js/vendors/circle-progress.min.js"></script>
+		<script src="/static/js/vendors/circle-progress.min.js"></script>
 
 		<!-- Star Rating Js-->
-		<script src="../assets/plugins/rating/jquery.rating-stars.js"></script>
+		<script src="/static/plugins/rating/jquery.rating-stars.js"></script>
 
 		<!--Horizontal Menu-->
-		<script src="../assets/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+		<script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
 
 		<!--Owl Carousel js -->
-		<script src="../assets/plugins/owl-carousel/owl.carousel.js"></script>
+		<script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
 
 		<!--JQuery TouchSwipe js-->
-		<script src="../assets/js/jquery.touchSwipe.min.js"></script>
+		<script src="/static/js/jquery.touchSwipe.min.js"></script>
 
 		<!--Select2 js -->
-		<script src="../assets/plugins/select2/select2.full.min.js"></script>
-		<script src="../assets/js/select2.js"></script>
+		<script src="/static/plugins/select2/select2.full.min.js"></script>
+		<script src="/static/js/select2.js"></script>
 
 		<!-- Cookie js -->
-		<script src="../assets/plugins/cookie/jquery.ihavecookies.js"></script>
-		<script src="../assets/plugins/cookie/cookie.js"></script>
+		<script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+		<script src="/static/plugins/cookie/cookie.js"></script>
 
 		<!-- Custom scroll bar Js-->
-		<script src="../assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
 
 		<!-- sticky Js-->
-		<script src="../assets/js/sticky.js"></script>
+		<script src="/static/js/sticky.js"></script>
 
 		<!-- Swipe Js-->
-		<script src="../assets/js/swipe.js"></script>
+		<script src="/static/js/swipe.js"></script>
 
 		<!-- Scripts Js-->
-		<script src="../assets/js/scripts2.js"></script>
+		<script src="/static/js/scripts2.js"></script>
 
 		<!-- Custom Js-->
-		<script src="../assets/js/custom.js"></script>
+		<script src="/static/js/custom.js"></script>
 	</body>
 </html>
