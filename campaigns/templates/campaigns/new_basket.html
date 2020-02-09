@@ -12,6 +12,7 @@
 	<!-- Title -->
 	<title>POP | Ghana</title>
 
+	<script src="/static/plugins/dexie/dexie.js"></script>
 	<!-- Bootstrap Css -->
 	<link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
 	<!-- Animate Css-->
@@ -109,7 +110,7 @@
 					filled before submission.
 				</p>
 		</div>
-		<form method="dialog" onsubmit="submitForm()" class="ui form">
+		<form id="basketForm" method="dialog" class="ui form">
 
 			<div class="ui raised segments">
 				<div class="ui segment">
@@ -162,7 +163,7 @@
 						<div class="fields">
 							<div class="field">
 								<label>Who started the request? <i class="small asterisk red inverted icon"></i></label>
-								<select name="request_starter" class="ui compact dropdown">
+								<select name="firstrequest_starter" class="ui compact dropdown">
 									<option value="">Choose One</option>
 									<option value="brand patient">brand patient</option>
 									<option value="brand prescription">brand prescription</option>
@@ -174,7 +175,7 @@
 							<div class="field">
 								<label>Who makes the final selection for the purchased product? <i
 										class="small asterisk red inverted icon"></i></label>
-								<select name="sale_driver" class="ui dropdown">
+								<select name="firstsale_driver" class="ui dropdown">
 									<option value="">Choose One</option>
 									<option value="Patient">Patient</option>
 									<option value="Pharmacist">Pharmacist</option>
@@ -186,7 +187,7 @@
 							<div class="fields">
 								<div class="field">
 									<label>Was there a switch? <i class="small asterisk red inverted icon"></i></label>
-									<select id="switchselect" name="switched" class="ui compact dropdown "
+									<select id="switchselect" name="firstswitched" class="ui compact dropdown "
 										onchange="//showhideForm(this.value)">
 										<option value="">Choose</option>
 										<option value="Yes">Yes</option>
@@ -196,7 +197,7 @@
 
 								<div id="leakedfield" class="field">
 									<label>Was there a leak?</label>
-									<select id="leaked" name="leaked" class="ui compact dropdown"
+									<select id="leaked" name="firstleaked" class="ui compact dropdown"
 										aria-describedby="leaked-hint ">
 										<option value="">Choose</option>
 										<option value="Yes">Yes</option>
@@ -212,7 +213,7 @@
 								<label>Brand name of drug that has been sold <i
 										class="small asterisk red inverted icon"></i></label>
 								<div class="ui input">
-									<input name="drug_sold" type="text" maxlength="200">
+									<input name="firstdrug_sold" type="text" maxlength="200">
 								</div>
 							</div>
 
@@ -220,14 +221,14 @@
 								<label>What product was switched or leaked? <i
 										class="small asterisk red inverted icon"></i></label>
 								<div class="ui input">
-									<input name="drug_switched_leaked" type="text" maxlength="200">
+									<input name="firstdrug_switched_leaked" type="text" maxlength="200">
 								</div>
 							</div>
 
 							<div class="field">
 								<label>Was the whole box sold? How was it divided? <i
 										class="small asterisk red inverted icon"></i></label>
-								<select name="division" class="ui dropdown">
+								<select name="firstdivision" class="ui dropdown">
 									<option value="">Choose One</option>
 									<option value="unit">unit</option>
 									<option value="blister">blister</option>
@@ -245,7 +246,7 @@
 							<div class="field">
 								<label>Why was there a switch or a leak? <i
 										class="small asterisk red inverted icon"></i></label>
-								<select name="switchleak_reason" class="ui dropdown">
+								<select name="firstswitchleak_reason" class="ui dropdown">
 									<option value="">Choose One</option>
 									<option value="Not available">Not available</option>
 									<option value="Price">Price</option>
@@ -257,7 +258,7 @@
 							<div class="field">
 								<label>What form of drug was sold? liquid,tablet? <i
 										class="small asterisk red inverted icon"></i></label>
-								<select name="form_sold" class="ui search dropdown">
+								<select name="firstform_sold" class="ui search dropdown">
 									<option value="">Choose One</option>
 									<option value="3">Capsule</option>
 									<option value="7">Cream</option>
@@ -428,15 +429,64 @@
 				})
 				;
 
-			var
+			/*var
 				$form = $('form'),
 				allFields = $form.form('get values');
-			console.log(allFields);
+			console.log(allFields);*/
+			myForm = document.getElementById("basketForm");
+
+var saved = "first";
+let formData = new FormData(myForm);
+var myarray = [];
+var big = {}
+var info = {};
+//This will build the form from name, value pairs
+
+for (var pair of formData.entries()) {
+	var str = pair[0]
+	var res = str.substring(0, 5);
+	if (window.specials.includes(res)) {
+		if (saved === res) {
+			var key = (pair[0]).replace(res, "")
+			info[key] = pair[1]
+		}
+		else {
+			myarray.push(info)
+			var info = {};
+			var key = (pair[0]).replace(res, "")
+			info[key] = pair[1]
+			saved = (pair[0]).substring(0, 5);
+		}
+	} else {
+		big[pair[0]] = pair[1]
+	}
+}
+myarray.push(info)
+big['drugs'] = myarray
+console.log(big)
+
+const db = new Dexie('POP Ghana');
+   db.version(1).stores({
+       baskets: '++'
+   });
+
+   db.baskets.add(big); // insert
+   //db.simple.add('two'); // insert
+   //db.simple.put('three'); // insert    
+   //db.simple.put('Three', 3); // update
+    
+   //const value = await db.simple.get(3);
+   // Three
+
+return big
 		}
 	</script>
 
 	<script>
-		/*function showhideForm(value) {
+		/*
+		
+		   
+		function showhideForm(value) {
 			if (value == "yes") {
 				$('form')
 					// set value
@@ -589,7 +639,7 @@
 					<div class="fields">
 						<div class="field">
 							<label>Who started the request? <i class="small asterisk red inverted icon"></i></label>
-							<select id="`+ id + `-request-starter" name="`+ id + `-request_starter" class="ui compact dropdown">
+							<select name="`+ id + `request_starter" class="ui compact dropdown">
 								<option value="">Choose One</option>
 								<option value="brand patient">brand patient</option>
 								<option value="brand prescription">brand prescription</option>
@@ -601,7 +651,7 @@
 						<div class="field">
 							<label>Who makes the final selection for the purchased product? <i
 									class="small asterisk red inverted icon"></i></label>
-							<select id ="`+ id + `-sale-driver" name="`+ id + `-sale_driver" class="ui dropdown" >
+							<select id ="`+ id + `-sale-driver" name="`+ id + `sale_driver" class="ui dropdown" >
 								<option value="">Choose One</option>
 								<option value="Patient">Patient</option>
 								<option value="Pharmacist">Pharmacist</option>
@@ -613,7 +663,7 @@
 						<div class="fields">
 							<div class="field">
 								<label>Was there a switch? <i class="small asterisk red inverted icon"></i></label>
-								<select id="`+ id + `-switched" name="`+ id + `-switched" class="ui compact dropdown "" >
+								<select name="`+ id + `switched" class="ui compact dropdown "" >
 									<option value="">Choose</option>
 									<option value="Yes">Yes</option>
 									<option value="No">No</option>
@@ -622,7 +672,7 @@
 
 							<div class="field">
 								<label>Was there a leak?</label>
-								<select id="`+ id + `-leaked" name="`+ id + `-leaked" class="ui compact dropdown"
+								<select name="`+ id + `leaked" class="ui compact dropdown"
 									>
 									<option value="">Choose</option>
 									<option value="Yes">Yes</option>
@@ -638,7 +688,7 @@
 							<label>Brand name of drug that has been sold <i
 									class="small asterisk red inverted icon"></i></label>
 							<div class="ui input">
-								<input id="`+ id + `-drug-sold" name="`+ id + `-drug_sold" type="text" maxlength="200" >
+								<input name="`+ id + `drug_sold" type="text" maxlength="200" >
 							</div>
 						</div>
 
@@ -646,14 +696,14 @@
 							<label>What product was switched or leaked? <i
 									class="small asterisk red inverted icon"></i></label>
 							<div class="ui input">
-								<input id="`+ id + `-"drug-switched-leaked" name="`+ id + `-drug_switched_leaked" type="text" maxlength="200" >
+								<input name="`+ id + `drug_switched_leaked" type="text" maxlength="200" >
 							</div>
 						</div>
 
 						<div class="field">
 							<label>Was the whole box sold? How was it divided? <i
 									class="small asterisk red inverted icon"></i></label>
-							<select id="`+ id + `-division" name="`+ id + `-division" class="ui dropdown" >
+							<select name="`+ id + `division" class="ui dropdown" >
 								<option value="">Choose One</option>
 								<option value="unit">unit</option>
 								<option value="blister">blister</option>
@@ -671,7 +721,7 @@
 						<div class="field">
 							<label>Why was there a switch or a leak? <i
 									class="small asterisk red inverted icon"></i></label>
-							<select id="`+ id + `-switchleak-reason" name="`+ id + `-switchleak_reason" class="ui dropdown" >
+							<select switchleak-reason" name="`+ id + `switchleak_reason" class="ui dropdown" >
 								<option value="">Choose One</option>
 								<option value="Not available">Not available</option>
 								<option value="Price">Price</option>
@@ -683,7 +733,7 @@
 						<div class="field">
 							<label>What form of drug was sold? liquid,tablet? <i
 									class="small asterisk red inverted icon"></i></label>
-							<select id="`+ id + `-form-sold" name="`+ id + `-form_sold" class="ui search dropdown" >
+							<select name="`+ id + `form_sold" class="ui search dropdown" >
 								<option value="">Choose One</option>
 								<option value="3">Capsule</option>
 								<option value="7">Cream</option>
@@ -707,7 +757,7 @@
 					</div>
 				</div></div>`);
 			$('#drugs .ui.dropdown')
-				.dropdown({ on: 'hover' });
+				.dropdown({ on: 'click' });
 
 
 
@@ -722,38 +772,7 @@
 		}
 
 
-		/* myForm = document.getElementById("basketForm");
-
-		var saved = "first";
-		let formData = new FormData(myForm);
-		var myarray = [];
-		var big = {}
-		var info = {};
-		//This will build the form from name, value pairs
-
-		for (var pair of formData.entries()) {
-			var str = pair[0]
-			var res = str.substring(0, 5);
-			if (window.specials.includes(res)) {
-				if (saved === res) {
-					var key = (pair[0]).replace(res, "")
-					info[key] = pair[1]
-				}
-				else {
-					myarray.push(info)
-					var info = {};
-					var key = (pair[0]).replace(res, "")
-					info[key] = pair[1]
-					saved = (pair[0]).substring(0, 5);
-				}
-			} else {
-				big[pair[0]] = pair[1]
-			}
-		}
-		myarray.push(info)
-		big['drugs'] = myarray
-		console.log(big)
-		return big*/
+		/**/
 
 
 
