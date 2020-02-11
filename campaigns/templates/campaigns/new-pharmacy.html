@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Description" content="">
+    <meta name="Author" content="PywE">
+    <meta name="keywords" content="" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="/static/images/brand/logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/brand/logo.svg" />
+
+    <!-- Title -->
+    <title>POP Ghana | Campaign List</title>
+  
+    <!-- Bootstrap Css -->
+    <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Dashboard Css -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+
+    <!-- Font-awesome  Css -->
+    <link href="/static/css/icons.css" rel="stylesheet" />
+
+    <!--Horizontal Menu-->
+    <link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
+    <link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
+
+    <!--Select2 Plugin -->
+    <link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+    <!-- Owl Theme css-->
+    <link href="/static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+    <!-- Cookie css -->
+    <link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
+
+    <!--Semantic UI css-->
+    <link rel="stylesheet" href="/static/plugins/Semantic-UI-CSS/semantic.min.css">
+
+    <!-- Custom scroll bar css-->
+    <link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    <!-- COLOR-SKINS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+</head>
+
+<body>
+    <!--Sliders Section-->
+    <section>
+        <div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+            <div class="header-text mb-0">
+                <div class="container">
+                    <div class="text-center text-white">
+                        <h1 class="">Create New Pharmacy</h1>
+                        <ol class="breadcrumb text-center">
+                            <li class="breadcrumb-item"><strong id="username" app-variable="username"></strong>
+                            </li>
+                            <li class="breadcrumb-item"><a href="/">Campaign List</a></li>
+                            <li class="breadcrumb-item"><a href="/campaigns/observation-session"><span id="global_name"
+                                        app-variable="campaign-name"></span></a></li>
+                            <li class="breadcrumb-item"><a href="/campaigns/new-session"><span id="session_name"
+                                        app-variable="campaign-name"></span></a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">New Pharmacy</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Sliders Section-->
+
+    <!--Pharmacy-Pharmacist-details-section-->
+    <br><br>
+    <div class="ui container">
+        <form method="dialog" class="ui form">
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Pharmacy</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class="fields">
+                        <div class="field">
+                            <label>Name</label>
+                            <div class="ui input">
+                                <input name="pharmacy_name" type="text" maxlength="200">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Mobile phone number of the followed Pharmacist (vendor).</label>
+                            <div class="ui input">
+                                <input name="pharmacist_contact" type="text" maxlength="14">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Detailed Address <span class="ui text small">
+                                    Make this detailed to easily find
+                                    pharmacy.</span></label>
+                            <div class="ui input">
+                                <textarea name="detailed_address" rows="1"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="fields">
+                        <div class="field">
+                            <label>District social standard</label>
+                            <select name="district_social_standard" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Upper-Top quartile">Upper-Top quartile</option>
+                                <option value="Average-2nd quartile">Average-2nd quartile</option>
+                                <option value="Average-3rd quartile">Average-3rd quartile</option>
+                                <option value="Lower-4th quartile">Lower-4th quartile</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Is Conselling Available?</label>
+                            <select name="counselling" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Is Pharmacy Computerized?</label>
+                            <select name="computerized" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Is Pharmacy Dependent On a Hospital?</label>
+                            <select name="dependent_on_hospital" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="field">
+                            <label>Staff mostly followed</label>
+                            <select name="staff_mostly_followed" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Owner">Owner</option>
+                                <option value="Pharmacist in chief">Pharmacist in chief</option>
+                                <option value="Pharmacist assistant">Pharmacist assistant</option>
+                                <option value="Technician">Technician</option>
+                                <option value="Vendor">Vendor</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Staff mostly present</label>
+                            <select name="staff_mostly_present" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Owner">Owner</option>
+                                <option value="Pharmacist in chief">Pharmacist in chief</option>
+                                <option value="Pharmacist assistant">Pharmacist assistant</option>
+                                <option value="Technician">Technician</option>
+                                <option value="Vendor">Vendor</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Email of pharmacy</label>
+                            <div class="ui input">
+                                <input name="pharmacy_email" type="email" maxlength="200">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Area Name</label>
+                            <select name="area_name" class="ui search dropdown">
+                                <option value="">Search Area Name</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="fields">
+                        <div class="field">
+                            <label>Average number of patients
+                                visiting the pharmacy per day</label>
+                            <div class="ui right labeled input">
+                                <input name="Average_patients_per_day " type="number" min="1">
+                                <div class="ui basic label">
+                                    Patients
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Insurance convention</label>
+                            <select name="insurance_convention" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Private Insurance">Private Insurance</option>
+                                <option value="Public Insurance">Public Insurance</option>
+                                <option value="No Insurance">No Insurance</option>
+                                <option value="Undetermined">Undetermined</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Pharmacy standard</label>
+                            <select name="pharmacy_standard" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="A">A</option>
+                                <option value="B+">B+</option>
+                                <option value="B">B</option>
+                                <option value="B-">B-</option>
+                                <option value="C">C</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="fields">
+                        <div class="field">
+                            <label>District profile</label>
+                            <select name="district_profile" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Residential">Residential</option>
+                                <option value="Business">Business</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Tests available</label>
+                            <select name="tests_available" class="ui search multiple dropdown">
+                                <option value="">Find</option>
+                                <option value="1">Something</option>
+                                <option value="2">Something</option>
+                                <option value="Other">Other Something</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Comments <span class="ui text small">
+                                    Any
+                                    other things we should take notice of...</span></label>
+                            <div class="ui input">
+                                <textarea name="detailed_address" rows="1"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Pharmacist</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class="ui fields">
+                        <div class="ui field">
+                            <label>First Name</label>
+                            <div class="ui input">
+                                <input name="pharmacist_first_name" type="text" maxlength="150">
+                            </div>
+                        </div>
+                        <div class="ui field">
+                            <label>Last Name</label>
+                            <div class="ui input">
+                                <input name="pharmacist_last_name" type="text" maxlength="150">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="ui horizontal divider">
+        <button type="submit" onclick="collectForm()" class="positive ui big submit button">
+            Save <i class="icon save right"></i>
+        </button>
+        <span class="grayed" style="display: none;">
+            <i class="ui wait icon"></i>
+            Saving.. </span>
+    </div>
+    </form>
+    </div>
+    <!--/Pharmacy-Pharmacist-details-section-->
+
+
+<script>
+    function collectForm() {
+        var formdata;
+        var pharmdata = $('form').serializeArray().reduce(function (obj, item) {
+            obj[item.name] = item.value;
+            
+            return obj;
+            obj=pharmdata
+            
+        }, {});
+        
+        console.log(pharmdata)
+        const db = new Dexie('POP Ghana');
+			db.version(1).stores({
+				pharmacies: '++'
+			});
+
+			db.pharmacies.add(pharmdata);
+        
+
+        $('body')
+				.toast({
+					title: 'Success',
+
+					message: 'Your Pharmacy is Safe !',
+					class: 'orange',
+					className: {
+						toast: 'ui big message'
+					}
+				});
+    }
+</script>
+    <!-- Back to top -->
+    <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JQuery js-->
+    <script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
+    <script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+    <!--JQuery Sparkline Js-->
+    <script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+
+    <!--Semantic js-->
+    <!--<script src="/static/plugins/Semantic-UI-CSS/semantic.js"></script>-->
+    <script src="/static/plugins/Semantic-UI-CSS/semantic.min.js"></script>
+
+    <!-- Circle Progress Js-->
+    <script src="/static/js/vendors/circle-progress.min.js"></script>
+
+    <!-- Star Rating Js-->
+    <script src="/static/plugins/rating/jquery.rating-stars.js"></script>
+
+    <!--Owl Carousel js -->
+    <script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
+
+    <script src="/static/plugins/dexie/dexie.js"></script>
+
+    <!--Horizontal Menu-->
+    <script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+    <!--Counters -->
+    <script src="/static/plugins/counters/counterup.min.js"></script>
+    <script src="/static/plugins/counters/waypoints.min.js"></script>
+
+    <!--JQuery TouchSwipe js-->
+    <script src="/static/js/jquery.touchSwipe.min.js"></script>
+
+    <!--Select2 js -->
+    <script src="/static/plugins/select2/select2.full.min.js"></script>
+    <script src="/static/js/select2.js"></script>
+
+    <!-- Cookie js -->
+    <script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+    <script src="/static/plugins/cookie/cookie.js"></script>
+
+    <!-- Count Down-->
+    <script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
+
+    <!-- Ion.RangeSlider -->
+    <script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
+
+    <!-- Custom scroll bar Js-->
+    <script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- sticky Js-->
+    <script src="/static/js/sticky.js"></script>
+
+    <!-- Swipe Js-->
+    <script src="/static/js/swipe.js"></script>
+
+    <!-- Scripts Js-->
+    <script src="/static/js/scripts2.js"></script>
+
+    <!-- Ion.RangeSlider -->
+    <script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
+
+    <!--Showmore Js-->
+    <script src="/static/js/jquery.showmore.js"></script>
+    <script src="/static/js/showmore.js"></script>
+
+    <!-- Custom Js-->
+    <script src="/static/js/custom.js"></script>
+    <script src="/static/js/app.js"></script>
+
+
+    <script>document.getElementById('name').oninput = function () {
+            var pharmacyName = this.value;
+            console.log(pharmacyName)
+
+            var result = [];
+
+            db.transaction(['pharmacies'], IDBTransaction.READ_ONLY)
+                .objectStore('pharmacies')
+                .openCursor(
+                    IDBKeyRange.bound(pharmacyName, pharmacyName + '\uffff'), // The important part
+                    IDBCursor.PREV)
+                .onsuccess = function (e) {
+                    e || (e = event);
+                    var cursor = e.target.result;
+                    if (cursor) {
+
+                        // Return result to "pharmacy" input field
+                        document.getElementById('name').value = cursor.value.pharmacyName;
+                    }
+
+                };
+
+        }
+    </script>
+    <script>
+        window.onload = function Load() {
+            if (isLoggedIn()) {
+                //   redirect user to campaign list or last page
+                // Get user's country and fetch appropriate list
+                // fetchCampaigns()
+                document.getElementById("global_name").innerHTML = localStorage.getItem('campaign')
+                document.getElementById("session_name").innerHTML = localStorage.getItem('session')
+            }
+            else {
+                //   user must login
+                //window.location.href = "/accounts/login/"
+            }
+        }
+    </script>
+    <script src="/static/js/campaign.js"></script>
+    <script src="/static/js/login.js"></script>
+
+
+    <script>
+        
+    </script>
+
+
+</body>
+
+</html>

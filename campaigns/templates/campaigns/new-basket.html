@@ -4,7 +4,7 @@
 <head>
 	<!--  meta tags -->
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
 	<meta name="google-site-verification" content="">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -44,32 +44,8 @@
 	<link href="https://www.pywe.org/static/css/animate.css" rel="stylesheet" />
 
 	<!--Semantic UI css-->
-	<link rel="stylesheet" href="/static/plugins/Semantic-UI-CSS/semantic.css">
+	<link rel="stylesheet" href="/static/plugins/Semantic-UI-CSS/semantic.min.css">
 
-
-	<style>
-		#snackbar {
-			visibility: hidden;
-			min-width: 250px;
-			margin-left: -125px;
-			background-color: #333;
-			color: #fff;
-			text-align: center;
-			border-radius: 2px;
-			padding: 16px;
-			position: fixed;
-			z-index: 1;
-			left: 50%;
-			bottom: 30px;
-			font-size: 17px;
-		}
-
-		#snackbar.show {
-			visibility: visible;
-			-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-			animation: fadein 0.5s, fadeout 0.5s 2.5s;
-		}
-	</style>
 </head>
 
 <body>
@@ -101,25 +77,17 @@
 	<!--Patient data-section-->
 	<br><br>
 	<div class="ui container">
-		<div class="ui info message">
-			<i class="close icon"></i>
 
-			<p class="ui">
-				<p>Please Note!
-					All fields marked with <i class="small asterisk red inverted icon"></i> are required and need to be
-					filled before submission.
-				</p>
-		</div>
 		<form id="basketForm" method="dialog" class="ui form">
 
 			<div class="ui raised segments">
 				<div class="ui segment">
-					<h3 class="ui">Patient</h3>
+					<div class="ui header">Patient</div>
 				</div>
 				<div class="ui secondary segment">
 					<div class="fields">
-						<div class="field">
-							<label>Insurance scheme <i class="small asterisk red inverted icon"></i></label>
+						<div id="insurance" class="field">
+							<label>Insurance scheme</label>
 							<select name="insurance" class="ui dropdown">
 								<option value="">Choose One</option>
 								<option value="Private Insurance">Private Insurance</option>
@@ -130,7 +98,7 @@
 						</div>
 
 						<div class="field">
-							<label>Gender <i class="small asterisk red inverted icon"></i></label>
+							<label>Gender</label>
 							<select name="Gender" class="ui dropdown">
 								<option value="">Choose One</option>
 								<option value="Male">Male</option>
@@ -140,7 +108,7 @@
 						</div>
 
 						<div class="field">
-							<label>Age <i class="small asterisk red inverted icon"></i></label>
+							<label>Age</label>
 							<div class="ui right labeled input">
 								<input name="Age" type="number" placeholder="Patient Age" min="5">
 								<div class="ui basic label">
@@ -154,15 +122,14 @@
 				</div>
 			</div>
 
-			<div id="form-block" class="application block">
 				<div class="ui raised segments">
 					<div class="ui segment">
-						<h3 class="ui">Drug</h3>
+						<div class="ui header">Drug</div>
 					</div>
 					<div class="ui secondary segment">
 						<div class="fields">
 							<div class="field">
-								<label>Who started the request? <i class="small asterisk red inverted icon"></i></label>
+								<label>Who started the request?</label>
 								<select name="firstrequest_starter" class="ui compact dropdown">
 									<option value="">Choose One</option>
 									<option value="brand patient">brand patient</option>
@@ -173,8 +140,7 @@
 							</div>
 
 							<div class="field">
-								<label>Who makes the final selection for the purchased product? <i
-										class="small asterisk red inverted icon"></i></label>
+								<label>Who makes the final selection for the purchased product?</label>
 								<select name="firstsale_driver" class="ui dropdown">
 									<option value="">Choose One</option>
 									<option value="Patient">Patient</option>
@@ -186,7 +152,7 @@
 
 							<div class="fields">
 								<div class="field">
-									<label>Was there a switch? <i class="small asterisk red inverted icon"></i></label>
+									<label>Was there a switch?</label>
 									<select id="switchselect" name="firstswitched" class="ui compact dropdown "
 										onchange="//showhideForm(this.value)">
 										<option value="">Choose</option>
@@ -208,26 +174,23 @@
 
 						</div>
 
-						<div  class="fields">
+						<div class="fields">
 							<div id="drug_sold_field" class="field" style="display:block">
-								<label>Brand name of drug that has been sold <i
-										class="small asterisk red inverted icon"></i></label>
+								<label>Brand name of drug that has been sold</label>
 								<div class="ui input">
 									<input name="firstdrug_sold" type="text" maxlength="200">
 								</div>
 							</div>
 
 							<div class="field">
-								<label>What product was switched or leaked? <i
-										class="small asterisk red inverted icon"></i></label>
+								<label>What product was switched or leaked?</label>
 								<div class="ui input">
 									<input name="firstdrug_switched_leaked" type="text" maxlength="200">
 								</div>
 							</div>
 
 							<div class="field">
-								<label>Was the whole box sold? How was it divided? <i
-										class="small asterisk red inverted icon"></i></label>
+								<label>Was the whole box sold? How was it divided?</label>
 								<select name="firstdivision" class="ui dropdown">
 									<option value="">Choose One</option>
 									<option value="unit">unit</option>
@@ -244,8 +207,7 @@
 
 						<div class="fields">
 							<div class="field">
-								<label>Why was there a switch or a leak? <i
-										class="small asterisk red inverted icon"></i></label>
+								<label>Why was there a switch or a leak?</label>
 								<select name="firstswitchleak_reason" class="ui dropdown">
 									<option value="">Choose One</option>
 									<option value="Not available">Not available</option>
@@ -256,8 +218,7 @@
 							</div>
 
 							<div class="field">
-								<label>What form of drug was sold? liquid,tablet? <i
-										class="small asterisk red inverted icon"></i></label>
+								<label>What form of drug was sold? liquid,tablet?</label>
 								<select name="firstform_sold" class="ui search dropdown">
 									<option value="">Choose One</option>
 									<option value="3">Capsule</option>
@@ -293,18 +254,17 @@
 			</div>
 
 			<div class="ui horizontal divider">
-				<button onclick="collectForm()" type="submit" class="positive ui big submit button">
+				<button type="submit" onclick="collectForm()" class="positive ui big submit button">
 					Finish <i class="icon arrow right"></i>
 				</button>
 				<span class="grayed" style="display: none;">
 					<i class="ui wait icon"></i>
-					Please wait.. </span>
+					Saving.. </span>
 			</div>
-			<div class="ui error message"></div>
 		</form>
 	</div>
 
-	<div id="snackbar"></div>
+
 	</section>
 	<!--/Job posts-section-->
 
@@ -312,180 +272,75 @@
 
 	<script>
 		function collectForm() {
-			$('form')
-				.form({
-					on: 'blur',
-					fields: {
-						Age: {
-							identifier: 'Age',
-							rules: [
-								{
-									type: 'integer[1..100]',
-									prompt: ' Patient Age is Empty! Please choose an age value of 5-100'
-								}
-							]
-						},
-						drug_sold: {
-							identifier: 'drug_sold',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'Brand Name of Drug sold not entered! Please input 00 if none'
-								}
-							]
-						},
-						drug_switched_leaked: {
-							identifier: 'drug_switched_leaked',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'What product was switched or leaked? Please input 00 if none!'
-								}
-							]
-						},
-						insurance: {
-							identifier: 'insurance',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'Please select a Insurance Scheme'
-								}
-							]
-						},
-						Gender: {
-							identifier: 'Gender',
-							rules: [
-								{
-									type: 'empty',
-									prompt: "What's the Patients Gender? Please select a dropdown value"
-								}
-							]
-						},
-						request_starter: {
-							identifier: 'request_starter',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'Who started the request? Please choose from the dropdown'
-								}
-							]
-						},
-						sale_driver: {
-							identifier: 'sale_driver',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'Who makes the final selection for the purchased product? Please choose from the dropdown'
-								}
-							]
-						},
-						switched: {
-							identifier: 'switched',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'Was there a Switch? Please choose from dropdown'
-								}
-							]
-						},
-						firstleaked: {
-							identifier: 'leaked',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'Was there a leak? Choose Yes or No'
-								}
-							]
-						},
-						firstdivision: {
-							identifier: 'division',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'Was the whole box sold? How was it divided? Please select from dropdown'
-								}
-							]
-						},
-						switchleak_reason: {
-							identifier: 'switchleak_reason',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'Please select a dropdown value'
-								}
-							]
-						},
-						form_sold: {
-							identifier: 'form_sold',
-							rules: [
-								{
-									type: 'empty',
-									prompt: 'What form of drug was sold? liquid,tablet? Please Choose from dropdown'
-								}
-							]
-						}
-
-					}
-				})
-				;
-
-			/*var
-				$form = $('form'),
-				allFields = $form.form('get values');
-			console.log(allFields);*/
 			myForm = document.getElementById("basketForm");
 
-var saved = "first";
-let formData = new FormData(myForm);
-var myarray = [];
-var big = {}
-var info = {};
-//This will build the form from name, value pairs
-
-for (var pair of formData.entries()) {
-	var str = pair[0]
-	var res = str.substring(0, 5);
-	if (window.specials.includes(res)) {
-		if (saved === res) {
-			var key = (pair[0]).replace(res, "")
-			info[key] = pair[1]
-		}
-		else {
-			myarray.push(info)
+			var saved = "first";
+			let formData = new FormData(myForm);
+			var myarray = [];
+			var big = {}
 			var info = {};
-			var key = (pair[0]).replace(res, "")
-			info[key] = pair[1]
-			saved = (pair[0]).substring(0, 5);
+			//This will build the form from name, value pairs
+
+			for (var pair of formData.entries()) {
+				var str = pair[0]
+				var res = str.substring(0, 5);
+				if (window.specials.includes(res)) {
+					if (saved === res) {
+						var key = (pair[0]).replace(res, "")
+						info[key] = pair[1]
+					}
+					else {
+						myarray.push(info)
+						var info = {};
+						var key = (pair[0]).replace(res, "")
+						info[key] = pair[1]
+						saved = (pair[0]).substring(0, 5);
+					}
+				} else {
+					big[pair[0]] = pair[1]
+				}
+			}
+			myarray.push(info)
+			big['drugs'] = myarray
+			console.log('Saved Basket')
+
+			const db = new Dexie('POP Ghana');
+			db.version(1).stores({
+				baskets: '++'
+			});
+
+			db.baskets.add(big); // insert
+			//db.simple.add('two'); // insert
+			//db.simple.put('three'); // insert    
+			//db.simple.put('Three', 3); // update
+
+			//const value = await db.simple.get(3);
+			// Three
+
+			//var x = $("snackbar");
+			//x.className = "show";
+			//setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+
+			$('body')
+				.toast({
+					title: 'Success',
+
+					message: 'Your Basket is Safe !',
+					class: 'orange',
+					className: {
+						toast: 'ui big message'
+					}
+				});
+
+			return big
 		}
-	} else {
-		big[pair[0]] = pair[1]
-	}
-}
-myarray.push(info)
-big['drugs'] = myarray
-console.log(big)
 
-const db = new Dexie('POP Ghana');
-   db.version(1).stores({
-       baskets: '++'
-   });
-
-   db.baskets.add(big); // insert
-   //db.simple.add('two'); // insert
-   //db.simple.put('three'); // insert    
-   //db.simple.put('Three', 3); // update
-    
-   //const value = await db.simple.get(3);
-   // Three
-
-return big
-		}
 	</script>
 
 	<script>
 		/*
-		
-		   
+
+
 		function showhideForm(value) {
 			if (value == "yes") {
 				$('form')
@@ -521,39 +376,10 @@ return big
 	<!-- JQuery js-->
 	<script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
 
-	<!-- Bootstrap js -->
-	<script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
-	<script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 
-	<!--JQuery Sparkline Js-->
-	<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
-
-
-	<!-- Circle Progress Js-->
-	<script src="/static/js/vendors/circle-progress.min.js"></script>
-
-	<!-- Star Rating Js-->
-	<script src="/static/plugins/rating/jquery.rating-stars.js"></script>
-
-	<!--Owl Carousel js -->
-	<script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
-
-	<!--Horizontal Menu-->
-	<script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
-
-	<!--Counters -->
-	<script src="/static/plugins/counters/counterup.min.js"></script>
-	<script src="/static/plugins/counters/waypoints.min.js"></script>
-
-	<!--JQuery TouchSwipe js-->
-	<script src="/static/js/jquery.touchSwipe.min.js"></script>
-
-	<!--Select2 js -->
-	<script src="/static/plugins/select2/select2.full.min.js"></script>
-	<script src="/static/js/select2.js"></script>
 
 	<!--Semantic js-->
-	<script src="/static/plugins/Semantic-UI-CSS/semantic.js"></script>
+	<!--<script src="/static/plugins/Semantic-UI-CSS/semantic.js"></script>-->
 	<script src="/static/plugins/Semantic-UI-CSS/semantic.min.js"></script>
 
 	<!-- Cookie js -->
@@ -569,21 +395,6 @@ return big
 	<!-- Custom scroll bar Js-->
 	<script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
 
-	<!-- sticky Js-->
-	<script src="/static/js/sticky.js"></script>
-
-	<!-- Swipe Js-->
-	<script src="/static/js/swipe.js"></script>
-
-	<!-- Scripts Js-->
-	<script src="/static/js/scripts2.js"></script>
-
-	<!-- Ion.RangeSlider -->
-	<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
-
-	<!--Showmore Js-->
-	<script src="/static/js/jquery.showmore.js"></script>
-	<script src="/static/js/showmore.js"></script>
 
 	<!-- Custom Js-->
 	<script src="/static/js/custom.js"></script>
@@ -638,7 +449,7 @@ return big
 				<button onclick="removeDrugForm('`+ id + `')" class="ui left floated red button">Remove</button><hr>
 					<div class="fields">
 						<div class="field">
-							<label>Who started the request? <i class="small asterisk red inverted icon"></i></label>
+							<label>Who started the request?</label>
 							<select name="`+ id + `request_starter" class="ui compact dropdown">
 								<option value="">Choose One</option>
 								<option value="brand patient">brand patient</option>
@@ -649,9 +460,8 @@ return big
 						</div>
 
 						<div class="field">
-							<label>Who makes the final selection for the purchased product? <i
-									class="small asterisk red inverted icon"></i></label>
-							<select id ="`+ id + `-sale-driver" name="`+ id + `sale_driver" class="ui dropdown" >
+							<label>Who makes the final selection for the purchased product?</label>
+							<select id ="`+ id + `-sale-driver" name="` + id + `sale_driver" class="ui dropdown" >
 								<option value="">Choose One</option>
 								<option value="Patient">Patient</option>
 								<option value="Pharmacist">Pharmacist</option>
@@ -662,7 +472,7 @@ return big
 
 						<div class="fields">
 							<div class="field">
-								<label>Was there a switch? <i class="small asterisk red inverted icon"></i></label>
+								<label>Was there a switch?</label>
 								<select name="`+ id + `switched" class="ui compact dropdown "" >
 									<option value="">Choose</option>
 									<option value="Yes">Yes</option>
@@ -685,24 +495,21 @@ return big
 
 					<div class="fields">
 						<div class="field">
-							<label>Brand name of drug that has been sold <i
-									class="small asterisk red inverted icon"></i></label>
+							<label>Brand name of drug that has been sold</label>
 							<div class="ui input">
 								<input name="`+ id + `drug_sold" type="text" maxlength="200" >
 							</div>
 						</div>
 
 						<div class="field">
-							<label>What product was switched or leaked? <i
-									class="small asterisk red inverted icon"></i></label>
+							<label>What product was switched or leaked?</label>
 							<div class="ui input">
 								<input name="`+ id + `drug_switched_leaked" type="text" maxlength="200" >
 							</div>
 						</div>
 
 						<div class="field">
-							<label>Was the whole box sold? How was it divided? <i
-									class="small asterisk red inverted icon"></i></label>
+							<label>Was the whole box sold? How was it divided?</label>
 							<select name="`+ id + `division" class="ui dropdown" >
 								<option value="">Choose One</option>
 								<option value="unit">unit</option>
@@ -719,8 +526,7 @@ return big
 
 					<div class="fields">
 						<div class="field">
-							<label>Why was there a switch or a leak? <i
-									class="small asterisk red inverted icon"></i></label>
+							<label>Why was there a switch or a leak?</label>
 							<select switchleak-reason" name="`+ id + `switchleak_reason" class="ui dropdown" >
 								<option value="">Choose One</option>
 								<option value="Not available">Not available</option>
@@ -731,8 +537,7 @@ return big
 						</div>
 
 						<div class="field">
-							<label>What form of drug was sold? liquid,tablet? <i
-									class="small asterisk red inverted icon"></i></label>
+							<label>What form of drug was sold? liquid,tablet?</label>
 							<select name="`+ id + `form_sold" class="ui search dropdown" >
 								<option value="">Choose One</option>
 								<option value="3">Capsule</option>
@@ -770,11 +575,6 @@ return big
 				.remove();
 			// document.getElementById(id).style.display = "none"
 		}
-
-
-		/**/
-
-
 
 		function submitForm() {
 
