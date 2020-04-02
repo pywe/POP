@@ -1,10 +1,21 @@
+//
+    // Define your database
+    //
+    var db = new Dexie("observedb");
+    db.version(1).stores({
+        pharmacies: 'name,pharmacy_info',
+        baskets: '++id,basket',
+        sessions: 'session_name,session'
+    });
+
 function fetchCampaigns(){
     // get country
     var country = "Ghana"
     const mydata = {country:country}
-    fetch(window.location.origin+"/api/v1/campaigns/fetch/", {
+    // fetch(window.location.origin+"/api/v1/campaigns/fetch/", {
+    fetch("https://observe.pywe.org/api/v1/campaigns/fetch/", {
 method: 'POST', // *GET, POST, PUT, DELETE, etc.
-// mode: 'cors', // no-cors, cors, *same-origin
+ mode: 'no-cors', // no-cors, cors, *same-origin
 // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
 // credentials: 'same-origin', // include, *same-origin, omit
 headers: {

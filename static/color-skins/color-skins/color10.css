@@ -242,9 +242,7 @@ a.text-dark:hover, a.text-dark:focus {
 .panel-title1 a {
 	color: #1650e2;
 }
-.header {
-	background: linear-gradient(to right, rgba(22, 80, 226, 0.95) 0%, rgba(126, 81, 236, 0.95) 100%);
-}
+
 .header-bg {
 	background: #eef2f9;
 	background: -webkit-linear-gradient(to right, #eef2f9, #1650e2);

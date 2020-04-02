@@ -17,7 +17,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/brand/logo.svg" />
 
     <!-- Title -->
-    <title>POP Ghana | Campaign List</title>
+    <title>POP Ghana | New Pharmacy</title>
 
     <!-- Bootstrap Css -->
     <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 
     <!-- Cookie css -->
     <link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
+
+    <!--Semantic UI css-->
+    <link rel="stylesheet" href="/static/plugins/Semantic-UI-CSS/semantic.min.css">
 
     <!-- Custom scroll bar css-->
     <link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
@@ -74,239 +77,216 @@
     <!--/Sliders Section-->
 
     <!--Pharmacy-Pharmacist-details-section-->
-    <section class="sptb">
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-12 col-md-12 col-md-12">
-                    <div class="card">
-                        <div class="card-header ">
-                            <h3 class="card-title">Pharmacy</h3>
+    <br><br>
+    <div class="ui container">
+        <form id="pharmform" method="dialog" class="ui form">
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Pharmacy</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class="fields">
+                        <div class="field">
+                            <label>Name</label>
+                            <div class="ui input">
+                                <input id="pharmacy_name" name="pharmacy_name" type="text" maxlength="200">
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-9">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Name</label>
-                                                <input id="name" type="text" class="form-control"
-                                                    placeholder="Pharmacy Name" required>
-                                            </div>
-                                            <div class="form-group mb-md-0">
-                                                <label class="form-label text-dark">Contact</label>
-                                                <p id="pharmacist-contact-hint" class="input-hint">
-                                                    Mobile phone number of the followed pharmacist (vendor).
-                                                </p>
-                                                <input type="text" aria-describedby="pharmacist-contact-hint"
-                                                    class="form-control" maxlength="14" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label">Detailed Address <span
-                                                        class="form-label-small"> Make this detailed to easily find
-                                                        pharmacy.</span></label>
-                                                <textarea class="form-control" name="example-textarea-input"
-                                                    rows="2"></textarea>
-                                            </div>
 
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">District social standard</label>
-                                                <select class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Upper-Top quartile">Upper-Top quartile</option>
-                                                    <option value="Average-2nd quartile">Average-2nd quartile</option>
-                                                    <option value="Average-3rd quartile">Average-3rd quartile</option>
-                                                    <option value="Lower-4th quartile">Lower-4th quartile</option>
-                                                </select>
-                                            </div>
+                        <div class="field">
+                            <label>Mobile phone number of the followed Pharmacist (vendor).</label>
+                            <div class="ui input">
+                                <input name="pharmacist_contact" type="text" maxlength="14">
+                            </div>
+                        </div>
 
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Conselling</label>
-                                                <div class="form-control">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                            name="checkbox" value="checkbox">
-                                                        <span class="custom-control-label"></span>
-                                                    </label>
+                        <div class="field">
+                            <label>Detailed Address <span class="ui text small">
+                                    Make this detailed to easily find
+                                    pharmacy.</span></label>
+                            <div class="ui input">
+                                <textarea name="detailed_address" rows="1"></textarea>
+                            </div>
 
-                                                </div>
+                        </div>
+                    </div>
 
-                                            </div>
+                    <div class="fields">
+                        <div class="field">
+                            <label>District social standard</label>
+                            <select name="district_social_standard" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Upper-Top quartile">Upper-Top quartile</option>
+                                <option value="Average-2nd quartile">Average-2nd quartile</option>
+                                <option value="Average-3rd quartile">Average-3rd quartile</option>
+                                <option value="Lower-4th quartile">Lower-4th quartile</option>
+                            </select>
+                        </div>
 
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Computerized</label>
-                                                <div class="form-control">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                            name="checkbox" value="checkbox">
-                                                        <span class="custom-control-label"></span>
-                                                    </label>
+                        <div class="field">
+                            <label>Is Conselling Available?</label>
+                            <select name="counselling" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Is Pharmacy Computerized?</label>
+                            <select name="computerized" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
 
-                                                </div>
+                        <div class="field">
+                            <label>Is Pharmacy Dependent On a Hospital?</label>
+                            <select name="dependent_on_hospital" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="field">
+                            <label>Staff mostly followed</label>
+                            <select name="staff_mostly_followed" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Owner">Owner</option>
+                                <option value="Pharmacist in chief">Pharmacist in chief</option>
+                                <option value="Pharmacist assistant">Pharmacist assistant</option>
+                                <option value="Technician">Technician</option>
+                                <option value="Vendor">Vendor</option>
+                            </select>
+                        </div>
 
-                                            </div>
+                        <div class="field">
+                            <label>Staff mostly present</label>
+                            <select name="staff_mostly_present" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Owner">Owner</option>
+                                <option value="Pharmacist in chief">Pharmacist in chief</option>
+                                <option value="Pharmacist assistant">Pharmacist assistant</option>
+                                <option value="Technician">Technician</option>
+                                <option value="Vendor">Vendor</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Email of pharmacy</label>
+                            <div class="ui input">
+                                <input name="pharmacy_email" type="email" maxlength="200">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Area Name</label>
+                            <select name="area_name" class="ui search dropdown">
+                                <option value="">Search Area Name</option>
+                            </select>
+                        </div>
+                    </div>
 
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Dependent on hospital</label>
-                                                <div class="form-control">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                            name="checkbox" value="checkbox">
-                                                        <span class="custom-control-label"></span>
-                                                    </label>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Staff mostly
-                                                    followed</label>
-                                                <select class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Owner">Owner</option>
-                                                    <option value="Pharmacist in chief">Pharmacist in chief</option>
-                                                    <option value="Pharmacist assistant">Pharmacist assistant</option>
-                                                    <option value="Technician">Technician</option>
-                                                    <option value="Vendor">Vendor</option>
-                                                </select>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Staff mostly present</label>
-                                                <select class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Owner">Owner</option>
-                                                    <option value="Pharmacist in chief">Pharmacist in chief</option>
-                                                    <option value="Pharmacist assistant">Pharmacist assistant</option>
-                                                    <option value="Technician">Technician</option>
-                                                    <option value="Vendor">Vendor</option>
-                                                </select>
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Email</label>
-                                                <input type="email" class="form-control" placeholder="Email" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Area Name</label>
-                                                <div class="row gutters-xs">
-                                                    <select class="form-control custom-select select2-show-search"
-                                                        data-placeholder="Choose one (with searchbox)">
-                                                        <option value="0">Area Name</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Average patients per day <span
-                                                        class="form-label-small pull-left"> Average number of patients
-                                                        visiting the pharmacy per day.</span></label>
-                                                <input type="number" class="form-control" required>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Insurance convention</label>
-                                                <select class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Private Insurance">Private Insurance</option>
-                                                    <option value="Public Insurance">Public Insurance</option>
-                                                    <option value="No Insurance">No Insurance</option>
-                                                    <option value="Undetermined">Undetermined</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Pharmacy standard</label>
-                                                <select class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="A">A</option>
-                                                    <option value="B+">B+</option>
-                                                    <option value="B">B</option>
-                                                    <option value="B-">B-</option>
-                                                    <option value="C">C</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">District profile</label>
-                                                <select class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Residential">Residential</option>
-                                                    <option value="Business">Business</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label">Tests available</label>
-                                                <select class="form-control select2-no-search"
-                                                    data-placeholder="Choose Browser" multiple>
-                                                    <option value="0">Tests available</option>
-                                                </select>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label class="form-label">Comments <span class="form-label-small"> Any
-                                                        other things we should take notice of...</span></label>
-                                                <textarea class="form-control" name="example-textarea-input"
-                                                    rows="5"></textarea>
-                                            </div>
-
-
-
-                                        </div>
-                                    </div>
+                    <div class="fields">
+                        <div class="field">
+                            <label>Average number of patients
+                                visiting the pharmacy per day</label>
+                            <div class="ui right labeled input">
+                                <input name="Average_patients_per_day " type="number" min="1">
+                                <div class="ui basic label">
+                                    Patients
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-
-
-                    <div class="card">
-                        <div class="card-header ">
-                            <h3 class="card-title">Pharmacist</h3>
+                        <div class="field">
+                            <label>Insurance convention</label>
+                            <select name="insurance_convention" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Private Insurance">Private Insurance</option>
+                                <option value="Public Insurance">Public Insurance</option>
+                                <option value="No Insurance">No Insurance</option>
+                                <option value="Undetermined">Undetermined</option>
+                            </select>
                         </div>
-
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label class="form-label text-dark">Pharmacist First Name</label>
-                                <input type="text" class="form-control" maxlength="150" placeholder="First Name"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label text-dark">Pharmacist Last Name</label>
-                                <input type="text" maxlength="150" class="form-control" placeholder="Last Name"
-                                    required>
-                            </div>
+                        <div class="field">
+                            <label>Pharmacy standard</label>
+                            <select name="pharmacy_standard" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="A">A</option>
+                                <option value="B+">B+</option>
+                                <option value="B">B</option>
+                                <option value="B-">B-</option>
+                                <option value="C">C</option>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="float-right mb-4 mb-lg-0">
-                        <a class="btn btn-success w-150" href="/campaigns/new-basket">Save</a>
+                    <div class="fields">
+                        <div class="field">
+                            <label>District profile</label>
+                            <select name="district_profile" class="ui dropdown">
+                                <option value="">Choose</option>
+                                <option value="Residential">Residential</option>
+                                <option value="Business">Business</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Tests available</label>
+                            <select name="tests_available" class="ui search multiple dropdown">
+                                <option value="">Find</option>
+                                <option value="1">Something</option>
+                                <option value="2">Something</option>
+                                <option value="Other">Other Something</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Comments <span class="ui text small">
+                                    Any
+                                    other things we should take notice of...</span></label>
+                            <div class="ui input">
+                                <textarea name="detailed_address" rows="1"></textarea>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Pharmacist</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class="ui fields">
+                        <div class="ui field">
+                            <label>First Name</label>
+                            <div class="ui input">
+                                <input name="pharmacist_first_name" type="text" maxlength="150">
+                            </div>
+                        </div>
+                        <div class="ui field">
+                            <label>Last Name</label>
+                            <div class="ui input">
+                                <input name="pharmacist_last_name" type="text" maxlength="150">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="ui horizontal divider">
+        <button type="submit" onclick="savePharmacy()" class="positive ui big submit button">
+            Save <i class="icon save right"></i>
+        </button>
+        <span class="grayed" style="display: none;">
+            <i class="ui wait icon"></i>
+            Saving.. </span>
+    </div>
+    </form>
+    </div>
     <!--/Pharmacy-Pharmacist-details-section-->
 
 
-    <!-- Notification -->
-    <a href="#" id="notification"><span class="notification-text">Notifications</span><i class="fa fa-bell"></i></a>
 
     <!-- Back to top -->
     <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -321,6 +301,10 @@
     <!--JQuery Sparkline Js-->
     <script src="/static/js/vendors/jquery.sparkline.min.js"></script>
 
+    <!--Semantic js-->
+    <!--<script src="/static/plugins/Semantic-UI-CSS/semantic.js"></script>-->
+    <script src="/static/plugins/Semantic-UI-CSS/semantic.min.js"></script>
+
     <!-- Circle Progress Js-->
     <script src="/static/js/vendors/circle-progress.min.js"></script>
 
@@ -329,6 +313,8 @@
 
     <!--Owl Carousel js -->
     <script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
+
+    <script src="/static/plugins/dexie/dexie.js"></script>
 
     <!--Horizontal Menu-->
     <script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
@@ -378,54 +364,58 @@
     <script src="/static/js/app.js"></script>
 
 
-    <script>document.getElementById('name').oninput = function () {
-            var pharmacyName = this.value;
-            console.log(pharmacyName)
 
-            var result = [];
-
-            db.transaction(['pharmacies'], IDBTransaction.READ_ONLY)
-                .objectStore('pharmacies')
-                .openCursor(
-                    IDBKeyRange.bound(pharmacyName, pharmacyName + '\uffff'), // The important part
-                    IDBCursor.PREV)
-                .onsuccess = function (e) {
-                    e || (e = event);
-                    var cursor = e.target.result;
-                    if (cursor) {
-
-                        // Return result to "pharmacy" input field
-                        document.getElementById('name').value = cursor.value.pharmacyName;
-                    }
-
-                };
-
-        }
-    </script>
     <script>
         window.onload = function Load() {
             if (isLoggedIn()) {
                 //   redirect user to campaign list or last page
                 // Get user's country and fetch appropriate list
-                // fetchCampaigns()
+                fetchCampaigns()
                 document.getElementById("global_name").innerHTML = localStorage.getItem('campaign')
                 document.getElementById("session_name").innerHTML = localStorage.getItem('session')
             }
             else {
                 //   user must login
-                //window.location.href = "/accounts/login/"
+                window.location.href = "/accounts/login/"
             }
         }
     </script>
+    <script>
+        function savePharmacy() {
+    var pharmname = document.getElementById("pharmacy_name").value
+    localStorage.setItem('pharmacy_name', pharmname)
+    var data = $('#pharmform').serializeArray().reduce(function(obj, item) {
+    obj[item.name] = item.value;
+    return obj;
+}, {});
+
+console.log(data)
+db.pharmacies.put(data).catch(function(error) {
+       //errors
+       console.log("Ooops: " + error);
+    });
+
+
+    $('body')
+				.toast({
+					title: 'Success',
+
+					message: 'Your Pharmacy is Safe !',
+					class: 'orange',
+					className: {
+						toast: 'ui big message'
+					}
+                });
+                window.location.href = "/campaigns/templates/campaigns/new-basket.html"
+
+}
+</script>
     <script src="/static/js/campaign.js"></script>
     <script src="/static/js/login.js"></script>
 
 
     <script>
-        var pharmdata = $('#form').serializeArray().reduce(function (obj, item) {
-            obj[item.name] = item.value;
-            return obj;
-        }, {});
+
     </script>
 
 

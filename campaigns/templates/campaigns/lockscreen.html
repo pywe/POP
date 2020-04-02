@@ -535,7 +535,7 @@
 										<input type="password" name="password">
 										<label>Password</label>
 									</div>
-									<a onclick="checkPwd" href="#" class="btn btn-secondary mb-sm-0 btn-block">Unlock</a>
+									<a onclick="checkPwd()" href="#" class="btn btn-secondary mb-sm-0 btn-block">Unlock</a>
 								</form>
 							</div>
 						</div>
@@ -546,9 +546,22 @@
 		<!--/lookscreen-Section-->
 
 		
-
+		<script>
+            window.onload = function Load(){
+                if(isLoggedIn()){
+                      //redirect user to campaign list or last page
+                    //Get user's country and fetch appropriate list
+                    fetchCampaigns()
+                    document.getElementById("global_name").innerHTML = localStorage.getItem('campaign')
+                }
+                else{
+                      //user must login
+                    window.location.href = "/accounts/login/"
+                }
+            }
+       </script>
 <script>
-	localStorage.getItem('username')
+	var username = localStorage.getItem('username')
 localStorage.setItem('lockedOut', 'True');
 var passwd = localStorage.getItem('password');
 function checkPwd(){
@@ -611,5 +624,10 @@ function checkPwd(){
 
 		<!-- Custom Js-->
 		<script src="/static/js/custom.js"></script>
+		<script src="/static/js/dexie.js"></script>
+		<script src="/static/js/campaign.js"></script>
+		<script src="/static/js/login.js"></script>
+		
+
 	</body>
 </html>
