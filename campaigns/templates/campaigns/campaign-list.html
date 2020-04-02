@@ -57,7 +57,7 @@
 				<div class="text-center text-white">
 					<h1 class="">Campaign List</h1>
 					<ol class="breadcrumb text-center">
-                        <li class="breadcrumb-item">User <strong id="username" app-variable="username"></strong></li>
+                        <li class="breadcrumb-item"><strong id="username" app-variable="username"></strong></li>
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
 						<li class="breadcrumb-item active text-white" aria-current="page">Campaign List</li>
 					</ol>
@@ -86,20 +86,21 @@
             </div>
     <script>
         window.onload = function Load() {
-            //if(isLoggedIn()){
+            if(isLoggedIn()){
             //   redirect user to campaign list or last page
             // Get user's country and fetch appropriate list
-            ///fetchCampaigns()
-            //}
-            //else{
+            fetchCampaigns()
+            }
+            else{
             //   user must login
-            //window.location.href = "/accounts/login/"
-            //}
+            window.location.href = "/accounts/login/"
+            }
         }
     </script>
-    <script src="js/app.js"></script>
-    <script src="js/campaign.js"></script>
-    <script src="js/login.js"></script>
+    <script src="/static/js/dexie.js"></script>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/campaign.js"></script>
+    <script src="/static/js/login.js"></script>
     <!-- <script>
         window.onload = function Load(){
             if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Blackberry/i) || navigator.userAgent.match(/WebOs/i)) { // detect mobile browser
