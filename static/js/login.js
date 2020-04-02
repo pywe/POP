@@ -7,8 +7,9 @@ function login(element){
     }
     console.log(window.location.origin+"/api/v1/auth/")
     fetch(window.location.origin+"/api/v1/auth/", {
+    // fetch("https://observe.pywe.org/api/v1/auth/", {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    // mode: 'cors', // no-cors, cors, *same-origin
+    mode: 'no-cors', // no-cors, cors, *same-origin
     // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     // credentials: 'same-origin', // include, *same-origin, omit
     headers: {

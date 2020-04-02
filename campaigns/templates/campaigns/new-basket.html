@@ -10,7 +10,7 @@
 	<meta name="keywords" content="" />
 
 	<!-- Title -->
-	<title>POP | Ghana</title>
+	<title>POP Ghana | New Basket</title>
 
 	<script src="/static/plugins/dexie/dexie.js"></script>
 	<!-- Bootstrap Css -->
@@ -247,14 +247,17 @@
 					<div class="ui segment">
 						<button class="ui labeled icon button" onclick="addDrugForm()">
 							<i class="plus icon"></i>
-							Add Another
+							Add Another Drug
+						</button>
+						<button type="submit" onclick="collectForm()" class="ui labeled icon button">
+							Save Basket <i class="icon save right"></i>
 						</button>
 					</div>
 				</div>
 			</div>
 
 			<div class="ui horizontal divider">
-				<button type="submit" onclick="collectForm()" class="positive ui big submit button">
+				<button type="submit" onclick="saveOb()" class="positive ui big submit button">
 					Finish <i class="icon arrow right"></i>
 				</button>
 				<span class="grayed" style="display: none;">
@@ -271,6 +274,39 @@
 	<script src="https://www.pywe.org/static/js/jquery.min.js"></script>
 
 	<script>
+		function saveOb(){
+			var session_name = localStorage.getItem('session')
+			var session_date = localStorage.getItem('session_date')
+			
+			db.baskets.toArray(basket => { let usession = basket
+				// console.log(session_name)
+				// console.log(usession)
+				var dsession = {session_name:session_name,date_created:session_date,status:"Local", baskets:usession}
+				todb(dsession)
+			});
+		}
+
+			function todb(dsession){
+				db.sessions.put(dsession).then(result => {
+   $('body')
+				.toast({
+					title: 'Success',
+
+					message: 'Your Observation Session is Safe !',
+					class: 'orange',
+					className: {
+						toast: 'ui big message'
+					}
+				});
+				db.baskets.clear()
+				window.location.href = "/campaigns/templates/campaigns/new-session.html"
+				
+   
+}).catch(error => {
+    console.log ("Error: " + error);
+});
+			}
+			
 		function collectForm() {
 			myForm = document.getElementById("basketForm");
 
@@ -302,12 +338,9 @@
 			}
 			myarray.push(info)
 			big['drugs'] = myarray
+			console.log(big)
 			console.log('Saved Basket')
 
-			const db = new Dexie('POP Ghana');
-			db.version(1).stores({
-				baskets: '++'
-			});
 
 			db.baskets.add(big); // insert
 			//db.simple.add('two'); // insert
@@ -332,7 +365,6 @@
 					}
 				});
 
-			return big
 		}
 
 	</script>
@@ -398,6 +430,8 @@
 
 	<!-- Custom Js-->
 	<script src="/static/js/custom.js"></script>
+
+	<script src="/static/js/campaign.js"></script> 
 
 	<script>
 		/*$('#switchselect').change(function () {

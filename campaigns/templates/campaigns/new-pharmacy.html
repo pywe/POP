@@ -17,7 +17,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/brand/logo.svg" />
 
     <!-- Title -->
-    <title>POP Ghana | Campaign List</title>
+    <title>POP Ghana | New Pharmacy</title>
   
     <!-- Bootstrap Css -->
     <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -79,7 +79,7 @@
     <!--Pharmacy-Pharmacist-details-section-->
     <br><br>
     <div class="ui container">
-        <form method="dialog" class="ui form">
+        <form id="pharmform" method="dialog" class="ui form">
             <div class="ui raised segments">
                 <div class="ui segment">
                     <div class="ui header">Pharmacy</div>
@@ -89,7 +89,7 @@
                         <div class="field">
                             <label>Name</label>
                             <div class="ui input">
-                                <input name="pharmacy_name" type="text" maxlength="200">
+                                <input id="pharmacy_name" name="pharmacy_name" type="text" maxlength="200">
                             </div>
                         </div>
 
@@ -275,7 +275,7 @@
             </div>
     </div>
     <div class="ui horizontal divider">
-        <button type="submit" onclick="collectForm()" class="positive ui big submit button">
+        <button type="submit" onclick="savePharmacy()" class="positive ui big submit button">
             Save <i class="icon save right"></i>
         </button>
         <span class="grayed" style="display: none;">
@@ -287,38 +287,7 @@
     <!--/Pharmacy-Pharmacist-details-section-->
 
 
-<script>
-    function collectForm() {
-        var formdata;
-        var pharmdata = $('form').serializeArray().reduce(function (obj, item) {
-            obj[item.name] = item.value;
-            
-            return obj;
-            obj=pharmdata
-            
-        }, {});
-        
-        console.log(pharmdata)
-        const db = new Dexie('POP Ghana');
-			db.version(1).stores({
-				pharmacies: '++'
-			});
 
-			db.pharmacies.add(pharmdata);
-        
-
-        $('body')
-				.toast({
-					title: 'Success',
-
-					message: 'Your Pharmacy is Safe !',
-					class: 'orange',
-					className: {
-						toast: 'ui big message'
-					}
-				});
-    }
-</script>
     <!-- Back to top -->
     <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
 
@@ -395,45 +364,52 @@
     <script src="/static/js/app.js"></script>
 
 
-    <script>document.getElementById('name').oninput = function () {
-            var pharmacyName = this.value;
-            console.log(pharmacyName)
-
-            var result = [];
-
-            db.transaction(['pharmacies'], IDBTransaction.READ_ONLY)
-                .objectStore('pharmacies')
-                .openCursor(
-                    IDBKeyRange.bound(pharmacyName, pharmacyName + '\uffff'), // The important part
-                    IDBCursor.PREV)
-                .onsuccess = function (e) {
-                    e || (e = event);
-                    var cursor = e.target.result;
-                    if (cursor) {
-
-                        // Return result to "pharmacy" input field
-                        document.getElementById('name').value = cursor.value.pharmacyName;
-                    }
-
-                };
-
-        }
-    </script>
+    
     <script>
         window.onload = function Load() {
             if (isLoggedIn()) {
                 //   redirect user to campaign list or last page
                 // Get user's country and fetch appropriate list
-                // fetchCampaigns()
+                fetchCampaigns()
                 document.getElementById("global_name").innerHTML = localStorage.getItem('campaign')
                 document.getElementById("session_name").innerHTML = localStorage.getItem('session')
             }
             else {
                 //   user must login
-                //window.location.href = "/accounts/login/"
+                window.location.href = "/accounts/login/"
             }
         }
     </script>
+    <script>
+        function savePharmacy() {
+    var pharmname = document.getElementById("pharmacy_name").value
+    localStorage.setItem('pharmacy_name', pharmname)
+    var data = $('#pharmform').serializeArray().reduce(function(obj, item) {
+    obj[item.name] = item.value;
+    return obj;
+}, {});
+
+console.log(data)
+db.pharmacies.put(data).catch(function(error) {
+       //errors
+       console.log("Ooops: " + error);
+    });    
+
+
+    $('body')
+				.toast({
+					title: 'Success',
+
+					message: 'Your Pharmacy is Safe !',
+					class: 'orange',
+					className: {
+						toast: 'ui big message'
+					}
+                });
+                window.location.href = "/campaigns/templates/campaigns/new-basket.html"
+
+}
+</script>
     <script src="/static/js/campaign.js"></script>
     <script src="/static/js/login.js"></script>
 

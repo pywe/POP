@@ -17,7 +17,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/brand/logo.svg" />
 
     <!-- Title -->
-    <title>POP Ghana | Campaign List</title>
+    <title>POP Ghana | New Pharmacy</title>
 
     <!-- Bootstrap Css -->
     <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -74,6 +74,7 @@
     <!--Pharmacy-Pharmacist-details-section-->
     <section class="sptb">
         <div class="container">
+            <form id="pharmform" onsubmit="savePharmacy()" method="dialog">
             <div class="row ">
                 <div class="col-lg-12 col-md-12 col-md-12">
                     <div class="card">
@@ -87,7 +88,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-label text-dark">Name</label>
-                                                <input type="text" class="form-control" placeholder="Pharmacy Name"
+                                                <input id="pharmacy_name" name="pharmacy_name" type="text" class="form-control" placeholder="Pharmacy Name"
                                                     required>
                                             </div>
                                             <div class="form-group mb-md-0">
@@ -95,20 +96,20 @@
                                                 <p id="pharmacist-contact-hint" class="input-hint">
                                                     Mobile phone number of the followed pharmacist (vendor).
                                                 </p>
-                                                <input type="text" aria-describedby="pharmacist-contact-hint"
+                                                <input name="pharmacist_contact" type="text" aria-describedby="pharmacist-contact-hint"
                                                     class="form-control" maxlength="14" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Detailed Address <span
                                                         class="form-label-small"> Make this detailed to easily find
                                                         pharmacy.</span></label>
-                                                <textarea class="form-control" name="example-textarea-input"
+                                                <textarea class="form-control" name="detailed_address"
                                                     rows="2"></textarea>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="form-label text-dark">District social standard</label>
-                                                <select class="form-control custom-select select2-show-search"
+                                                <select name="district_social_standard" class="form-control custom-select select2-show-search"
                                                     data-placeholder="Choose one (with searchbox)">
                                                     <option value="" selected>---------</option>
                                                     <option value="Upper-Top quartile">Upper-Top quartile</option>
@@ -123,7 +124,7 @@
                                                 <div class="form-control">
                                                     <label class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input"
-                                                            name="checkbox" value="checkbox">
+                                                            name="counselling_checkbox" >
                                                         <span class="custom-control-label"></span>
                                                     </label>
 
@@ -136,7 +137,7 @@
                                                 <div class="form-control">
                                                     <label class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input"
-                                                            name="checkbox" value="checkbox">
+                                                            name="computerized_checkbox" >
                                                         <span class="custom-control-label"></span>
                                                     </label>
 
@@ -149,7 +150,7 @@
                                                 <div class="form-control">
                                                     <label class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input"
-                                                            name="checkbox" value="checkbox">
+                                                            name="dependent_on_hospital_checkbox">
                                                         <span class="custom-control-label"></span>
                                                     </label>
 
@@ -160,7 +161,7 @@
                                             <div class="form-group">
                                                 <label class="form-label text-dark">Staff mostly
                                                     followed</label>
-                                                <select class="form-control custom-select select2-show-search"
+                                                <select name="staff_mostly_followed" class="form-control custom-select select2-show-search"
                                                     data-placeholder="Choose one (with searchbox)">
                                                     <option value="" selected>---------</option>
                                                     <option value="Owner">Owner</option>
@@ -174,7 +175,7 @@
 
                                             <div class="form-group">
                                                 <label class="form-label text-dark">Staff mostly present</label>
-                                                <select class="form-control custom-select select2-show-search"
+                                                <select name="staff_mostly_present" class="form-control custom-select select2-show-search"
                                                     data-placeholder="Choose one (with searchbox)">
                                                     <option value="" selected>---------</option>
                                                     <option value="Owner">Owner</option>
@@ -191,12 +192,12 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-label text-dark">Email</label>
-                                                <input type="email" class="form-control" placeholder="Email" required>
+                                                <input name="pharmacy_email" type="email" class="form-control" placeholder="Email" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label text-dark">Area Name</label>
                                                 <div class="row gutters-xs">
-                                                    <select class="form-control custom-select select2-show-search"
+                                                    <select name="area_name" class="form-control custom-select select2-show-search"
                                                         data-placeholder="Choose one (with searchbox)">
                                                         <option value="0">Area Name</option>
                                                     </select>
@@ -207,7 +208,7 @@
                                                 <label class="form-label text-dark">Average patients per day <span
                                                         class="form-label-small pull-left"> Average number of patients
                                                         visiting the pharmacy per day.</span></label>
-                                                <input type="number" class="form-control" required>
+                                                <input name="avg_ppd" type="number" class="form-control" required>
                                             </div>
 
                                             <div class="form-group">
@@ -224,7 +225,7 @@
 
                                             <div class="form-group">
                                                 <label class="form-label text-dark">Pharmacy standard</label>
-                                                <select class="form-control custom-select select2-show-search"
+                                                <select name="pharmacy_standard" class="form-control custom-select select2-show-search"
                                                     data-placeholder="Choose one (with searchbox)">
                                                     <option value="" selected>---------</option>
                                                     <option value="A">A</option>
@@ -237,7 +238,7 @@
 
                                             <div class="form-group">
                                                 <label class="form-label text-dark">District profile</label>
-                                                <select class="form-control custom-select select2-show-search"
+                                                <select name="district_profile" class="form-control custom-select select2-show-search"
                                                     data-placeholder="Choose one (with searchbox)">
                                                     <option value="" selected>---------</option>
                                                     <option value="Residential">Residential</option>
@@ -248,7 +249,7 @@
 
                                             <div class="form-group">
                                                 <label class="form-label">Tests available</label>
-                                                <select class="form-control select2-no-search"
+                                                <select name="tests_available" class="form-control select2-no-search"
                                                     data-placeholder="Choose Browser" multiple>
                                                     <option value="0">Tests available</option>
                                                 </select>
@@ -258,7 +259,7 @@
                                             <div class="form-group">
                                                 <label class="form-label">Comments <span class="form-label-small"> Any
                                                         other things we should take notice of...</span></label>
-                                                <textarea class="form-control" name="example-textarea-input"
+                                                <textarea name="comments" class="form-control" name="example-textarea-input"
                                                     rows="5"></textarea>
                                             </div>
 
@@ -281,30 +282,30 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label class="form-label text-dark">Pharmacist First Name</label>
-                                <input type="text" class="form-control" maxlength="150" placeholder="First Name"
+                                <input name="pharmacist_first_name" type="text" class="form-control" maxlength="150" placeholder="First Name"
                                     required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label text-dark">Pharmacist Last Name</label>
-                                <input type="text" maxlength="150" class="form-control" placeholder="Last Name"
+                                <input name="pharmacist_last_name" type="text" maxlength="150" class="form-control" placeholder="Last Name"
                                     required>
                             </div>
                         </div>
                     </div>
-
                     <div class="float-right mb-4 mb-lg-0">
-                        <a class="btn btn-success w-150" href="#">Save</a>
+                        <button type="submit" class="btn btn-success w-150">Save</button>
                     </div>
 
                 </div>
             </div>
+        </form>
         </div>
     </section>
     <!--/Pharmacy-Pharmacist-details-section-->
     
 
     <!-- Notification -->
-    <a href="#" id="notification"><span class="notification-text">Notifications</span><i class="fa fa-bell"></i></a>
+    <!-- <a href="#" id="notification"><span class="notification-text">Notifications</span><i class="fa fa-bell"></i></a> -->
 
     <!-- Back to top -->
     <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -315,6 +316,8 @@
     <!-- Bootstrap js -->
     <script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
     <script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+    <script src="/static/js/dexie.js"></script>
 
     <!--JQuery Sparkline Js-->
     <script src="/static/js/vendors/jquery.sparkline.min.js"></script>
@@ -375,7 +378,7 @@
     <script src="/static/js/custom.js"></script>
 
 
-    <script>document.getElementById('name').oninput = function () {
+    <!-- <script>document.getElementById('name').oninput = function () {
             var pharmacyName = this.value;
             console.log(pharmacyName)
 
@@ -398,7 +401,7 @@
                 };
 
         }
-    </script>
+    </script> -->
     <script>
         window.onload = function Load(){
             if(isLoggedIn()){
@@ -412,6 +415,24 @@
             }
         } 
    </script> 
+   <script>
+    //collect form
+    function savePharmacy() {
+    var pharmname = document.getElementById("pharmacy_name").value
+    var data = $('#pharmform').serializeArray().reduce(function(obj, item) {
+    obj[item.name] = item.value;
+    return obj;
+}, {});
+// var ddata = {name: pharmname, pharmacy: data}
+console.log(data)
+db.pharmacies.put({name: pharmname, pharmacy_info: data}).catch(function(error) {
+       //errors
+       console.log("Ooops: " + error);
+    });    
+}
+    
+    
+</script>
    <script src="/static/js/campaign.js"></script> 
    <script src="/static/js/login.js"></script>  
 
