@@ -18,7 +18,7 @@
 
     <!-- Title -->
     <title>POP Ghana | New Pharmacy</title>
-
+  
     <!-- Bootstrap Css -->
     <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -77,7 +77,6 @@
     <!--/Sliders Section-->
 
     <!--Pharmacy-Pharmacist-details-section-->
-<<<<<<< HEAD
     <br><br>
     <div class="ui container">
         <form id="pharmform" method="dialog" class="ui form">
@@ -107,204 +106,6 @@
                                     pharmacy.</span></label>
                             <div class="ui input">
                                 <textarea name="detailed_address" rows="1"></textarea>
-=======
-    <section class="sptb">
-        <div class="container">
-            <form id="pharmform" onsubmit="savePharmacy()" method="dialog">
-            <div class="row ">
-                <div class="col-lg-12 col-md-12 col-md-12">
-                    <div class="card">
-                        <div class="card-header ">
-                            <h3 class="card-title">Pharmacy</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-9">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Name</label>
-                                                <input id="pharmacy_name" name="pharmacy_name" type="text" class="form-control" placeholder="Pharmacy Name"
-                                                    required>
-                                            </div>
-                                            <div class="form-group mb-md-0">
-                                                <label class="form-label text-dark">Contact</label>
-                                                <p id="pharmacist-contact-hint" class="input-hint">
-                                                    Mobile phone number of the followed pharmacist (vendor).
-                                                </p>
-                                                <input name="pharmacist_contact" type="text" aria-describedby="pharmacist-contact-hint"
-                                                    class="form-control" maxlength="14" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label">Detailed Address <span
-                                                        class="form-label-small"> Make this detailed to easily find
-                                                        pharmacy.</span></label>
-                                                <textarea class="form-control" name="detailed_address"
-                                                    rows="2"></textarea>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">District social standard</label>
-                                                <select name="district_social_standard" class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Upper-Top quartile">Upper-Top quartile</option>
-                                                    <option value="Average-2nd quartile">Average-2nd quartile</option>
-                                                    <option value="Average-3rd quartile">Average-3rd quartile</option>
-                                                    <option value="Lower-4th quartile">Lower-4th quartile</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Conselling</label>
-                                                <div class="form-control">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                            name="counselling_checkbox" >
-                                                        <span class="custom-control-label"></span>
-                                                    </label>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Computerized</label>
-                                                <div class="form-control">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                            name="computerized_checkbox" >
-                                                        <span class="custom-control-label"></span>
-                                                    </label>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Dependent on hospital</label>
-                                                <div class="form-control">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                            name="dependent_on_hospital_checkbox">
-                                                        <span class="custom-control-label"></span>
-                                                    </label>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Staff mostly
-                                                    followed</label>
-                                                <select name="staff_mostly_followed" class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Owner">Owner</option>
-                                                    <option value="Pharmacist in chief">Pharmacist in chief</option>
-                                                    <option value="Pharmacist assistant">Pharmacist assistant</option>
-                                                    <option value="Technician">Technician</option>
-                                                    <option value="Vendor">Vendor</option>
-                                                </select>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Staff mostly present</label>
-                                                <select name="staff_mostly_present" class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Owner">Owner</option>
-                                                    <option value="Pharmacist in chief">Pharmacist in chief</option>
-                                                    <option value="Pharmacist assistant">Pharmacist assistant</option>
-                                                    <option value="Technician">Technician</option>
-                                                    <option value="Vendor">Vendor</option>
-                                                </select>
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Email</label>
-                                                <input name="pharmacy_email" type="email" class="form-control" placeholder="Email" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Area Name</label>
-                                                <div class="row gutters-xs">
-                                                    <select name="area_name" class="form-control custom-select select2-show-search"
-                                                        data-placeholder="Choose one (with searchbox)">
-                                                        <option value="0">Area Name</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Average patients per day <span
-                                                        class="form-label-small pull-left"> Average number of patients
-                                                        visiting the pharmacy per day.</span></label>
-                                                <input name="avg_ppd" type="number" class="form-control" required>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Insurance convention</label>
-                                                <select class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Private Insurance">Private Insurance</option>
-                                                    <option value="Public Insurance">Public Insurance</option>
-                                                    <option value="No Insurance">No Insurance</option>
-                                                    <option value="Undetermined">Undetermined</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">Pharmacy standard</label>
-                                                <select name="pharmacy_standard" class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="A">A</option>
-                                                    <option value="B+">B+</option>
-                                                    <option value="B">B</option>
-                                                    <option value="B-">B-</option>
-                                                    <option value="C">C</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label text-dark">District profile</label>
-                                                <select name="district_profile" class="form-control custom-select select2-show-search"
-                                                    data-placeholder="Choose one (with searchbox)">
-                                                    <option value="" selected>---------</option>
-                                                    <option value="Residential">Residential</option>
-                                                    <option value="Business">Business</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label">Tests available</label>
-                                                <select name="tests_available" class="form-control select2-no-search"
-                                                    data-placeholder="Choose Browser" multiple>
-                                                    <option value="0">Tests available</option>
-                                                </select>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label class="form-label">Comments <span class="form-label-small"> Any
-                                                        other things we should take notice of...</span></label>
-                                                <textarea name="comments" class="form-control" name="example-textarea-input"
-                                                    rows="5"></textarea>
-                                            </div>
-
-
-
-                                        </div>
-                                    </div>
-                                </div>
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b
                             </div>
 
                         </div>
@@ -361,7 +162,6 @@
                             </select>
                         </div>
 
-<<<<<<< HEAD
                         <div class="field">
                             <label>Staff mostly present</label>
                             <select name="staff_mostly_present" class="ui dropdown">
@@ -396,18 +196,6 @@
                                 <div class="ui basic label">
                                     Patients
                                 </div>
-=======
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label class="form-label text-dark">Pharmacist First Name</label>
-                                <input name="pharmacist_first_name" type="text" class="form-control" maxlength="150" placeholder="First Name"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label text-dark">Pharmacist Last Name</label>
-                                <input name="pharmacist_last_name" type="text" maxlength="150" class="form-control" placeholder="Last Name"
-                                    required>
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b
                             </div>
                         </div>
                         <div class="field">
@@ -432,7 +220,6 @@
                             </select>
                         </div>
                     </div>
-<<<<<<< HEAD
 
                     <div class="fields">
                         <div class="field">
@@ -461,10 +248,6 @@
                                 <textarea name="detailed_address" rows="1"></textarea>
                             </div>
                         </div>
-=======
-                    <div class="float-right mb-4 mb-lg-0">
-                        <button type="submit" class="btn btn-success w-150">Save</button>
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b
                     </div>
                 </div>
             </div>
@@ -490,7 +273,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
     </div>
     <div class="ui horizontal divider">
         <button type="submit" onclick="savePharmacy()" class="positive ui big submit button">
@@ -502,19 +284,9 @@
     </div>
     </form>
     </div>
-=======
-        </form>
-        </div>
-    </section>
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b
     <!--/Pharmacy-Pharmacist-details-section-->
 
-<<<<<<< HEAD
 
-=======
-    <!-- Notification -->
-    <!-- <a href="#" id="notification"><span class="notification-text">Notifications</span><i class="fa fa-bell"></i></a> -->
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b
 
     <!-- Back to top -->
     <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -525,8 +297,6 @@
     <!-- Bootstrap js -->
     <script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
     <script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-
-    <script src="/static/js/dexie.js"></script>
 
     <!--JQuery Sparkline Js-->
     <script src="/static/js/vendors/jquery.sparkline.min.js"></script>
@@ -594,34 +364,7 @@
     <script src="/static/js/app.js"></script>
 
 
-<<<<<<< HEAD
-
-=======
-    <!-- <script>document.getElementById('name').oninput = function () {
-            var pharmacyName = this.value;
-            console.log(pharmacyName)
-
-            var result = [];
-
-            db.transaction(['pharmacies'], IDBTransaction.READ_ONLY)
-                .objectStore('pharmacies')
-                .openCursor(
-                    IDBKeyRange.bound(pharmacyName, pharmacyName + '\uffff'), // The important part
-                    IDBCursor.PREV)
-                .onsuccess = function (e) {
-                    e || (e = event);
-                    var cursor = e.target.result;
-                    if (cursor) {
-
-                        // Return result to "pharmacy" input field
-                        document.getElementById('name').value = cursor.value.pharmacyName;
-                    }
-
-                };
-
-        }
-    </script> -->
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b
+    
     <script>
         window.onload = function Load() {
             if (isLoggedIn()) {
@@ -635,32 +378,22 @@
                 //   user must login
                 window.location.href = "/accounts/login/"
             }
-<<<<<<< HEAD
         }
     </script>
     <script>
         function savePharmacy() {
     var pharmname = document.getElementById("pharmacy_name").value
     localStorage.setItem('pharmacy_name', pharmname)
-=======
-        } 
-   </script> 
-   <script>
-    //collect form
-    function savePharmacy() {
-    var pharmname = document.getElementById("pharmacy_name").value
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b
     var data = $('#pharmform').serializeArray().reduce(function(obj, item) {
     obj[item.name] = item.value;
     return obj;
 }, {});
-<<<<<<< HEAD
 
 console.log(data)
 db.pharmacies.put(data).catch(function(error) {
        //errors
        console.log("Ooops: " + error);
-    });
+    });    
 
 
     $('body')
@@ -682,22 +415,8 @@ db.pharmacies.put(data).catch(function(error) {
 
 
     <script>
-
+        
     </script>
-=======
-// var ddata = {name: pharmname, pharmacy: data}
-console.log(data)
-db.pharmacies.put({name: pharmname, pharmacy_info: data}).catch(function(error) {
-       //errors
-       console.log("Ooops: " + error);
-    });    
-}
-    
-    
-</script>
-   <script src="/static/js/campaign.js"></script> 
-   <script src="/static/js/login.js"></script>  
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b
 
 
 </body>

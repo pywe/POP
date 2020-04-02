@@ -277,7 +277,11 @@
 		function saveOb(){
 			var session_name = localStorage.getItem('session')
 			var session_date = localStorage.getItem('session_date')
+<<<<<<< HEAD:campaigns/templates/campaigns/new_basket.html
 
+=======
+			
+>>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/new-basket.html
 			db.baskets.toArray(basket => { let usession = basket
 				// console.log(session_name)
 				// console.log(usession)
@@ -285,6 +289,7 @@
 				todb(dsession)
 			});
 		}
+<<<<<<< HEAD:campaigns/templates/campaigns/new_basket.html
 
 			function todb(dsession){
 				db.sessions.put(dsession).then(result => {
@@ -307,6 +312,30 @@
 });
 			}
 
+=======
+
+			function todb(dsession){
+				db.sessions.put(dsession).then(result => {
+   $('body')
+				.toast({
+					title: 'Success',
+
+					message: 'Your Observation Session is Safe !',
+					class: 'orange',
+					className: {
+						toast: 'ui big message'
+					}
+				});
+				db.baskets.clear()
+				window.location.href = "/campaigns/templates/campaigns/new-session.html"
+				
+   
+}).catch(error => {
+    console.log ("Error: " + error);
+});
+			}
+			
+>>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/new-basket.html
 		function collectForm() {
 			myForm = document.getElementById("basketForm");
 
@@ -344,7 +373,11 @@
 
 			db.baskets.add(big); // insert
 			//db.simple.add('two'); // insert
+<<<<<<< HEAD:campaigns/templates/campaigns/new_basket.html
 			//db.simple.put('three'); // insert
+=======
+			//db.simple.put('three'); // insert    
+>>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/new-basket.html
 			//db.simple.put('Three', 3); // update
 
 			//const value = await db.simple.get(3);
@@ -431,7 +464,11 @@
 	<!-- Custom Js-->
 	<script src="/static/js/custom.js"></script>
 
+<<<<<<< HEAD:campaigns/templates/campaigns/new_basket.html
 	<script src="/static/js/campaign.js"></script>
+=======
+	<script src="/static/js/campaign.js"></script> 
+>>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/new-basket.html
 
 	<script>
 		/*$('#switchselect').change(function () {
