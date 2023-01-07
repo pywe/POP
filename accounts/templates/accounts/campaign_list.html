@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-
+{% load pwa %}
+{% load static %}
     <head>
         <meta charset="UTF-8">
         <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
@@ -15,7 +16,7 @@
         <meta name="MobileOptimized" content="320">
         <link rel="icon" href="/static/images/brand/logo.svg" type="image/x-icon" />
         <link rel="shortcut icon" type="image/x-icon" href="/static/images/brand/logo.svg" />
-
+{% progressive_web_app_meta %}
         <!-- Title -->
         <title>POP Ghana | Campaign List</title>
 
@@ -27,19 +28,6 @@
 
         <!-- Font-awesome  Css -->
         <link href="/static/css/icons.css" rel="stylesheet" />
-
-        <!--Horizontal Menu-->
-        <link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
-        <link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
-
-        <!--Select2 Plugin -->
-        <link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
-
-        <!-- Owl Theme css-->
-        <link href="/static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
-
-        <!-- Cookie css -->
-        <link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
 
         <!-- Custom scroll bar css-->
         <link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
@@ -69,8 +57,9 @@
 <!--/Sliders Section-->
     <div class="container">
                 <br><br><h3>
-                    <a id="syncCampaigns" class="btn btn-secondary mb-sm-0" style="color:white;"><i class="icon-refresh"></i>&nbsp;Update Campaign List</a></h3>
-                <table class="table table-striped table-condensed table-bordered">
+                    <a onclick="fetchCampaigns()" id="syncCampaigns" class="btn btn-secondary mb-sm-0" style="color:white;"><i class="icon-refresh"></i>&nbsp;Update Campaign List</a></h3>
+                <div class="tab-pane  table-responsive border-top userprof-tab">
+                <table class="table table-bordered table-hover mb-0 text-nowrap">
                     <thead>
                         <tr>
                             <th>Country</th>
@@ -83,6 +72,7 @@
                     <tbody id="campaignList">
                     </tbody>
                 </table>
+                </div>
             </div>
     <script>
         window.onload = function Load() {
@@ -98,7 +88,7 @@
         }
     </script>
     <script src="/static/js/dexie.js"></script>
-    <script src="/static/js/app.js"></script>
+    <script src="/static/js/axios.min.js"></script>
     <script src="/static/js/campaign.js"></script>
     <script src="/static/js/login.js"></script>
     <!-- <script>
@@ -120,60 +110,6 @@
         <script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
         <script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 
-        <!--JQuery Sparkline Js-->
-        <script src="/static/js/vendors/jquery.sparkline.min.js"></script>
-
-        <!-- Circle Progress Js-->
-        <script src="/static/js/vendors/circle-progress.min.js"></script>
-
-        <!-- Star Rating Js-->
-        <script src="/static/plugins/rating/jquery.rating-stars.js"></script>
-
-        <!--Owl Carousel js -->
-        <script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
-
-        <!--Horizontal Menu-->
-        <script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
-
-        <!--Counters -->
-        <script src="/static/plugins/counters/counterup.min.js"></script>
-        <script src="/static/plugins/counters/waypoints.min.js"></script>
-
-        <!--JQuery TouchSwipe js-->
-        <script src="/static/js/jquery.touchSwipe.min.js"></script>
-
-        <!--Select2 js -->
-        <script src="/static/plugins/select2/select2.full.min.js"></script>
-        <script src="/static/js/select2.js"></script>
-
-        <!-- Cookie js -->
-        <script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
-        <script src="/static/plugins/cookie/cookie.js"></script>
-
-        <!-- Count Down-->
-        <script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
-
-        <!-- Ion.RangeSlider -->
-        <script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
-
-        <!-- Custom scroll bar Js-->
-        <script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-
-        <!-- sticky Js-->
-        <script src="/static/js/sticky.js"></script>
-
-        <!-- Swipe Js-->
-        <script src="/static/js/swipe.js"></script>
-
-        <!-- Scripts Js-->
-        <script src="/static/js/scripts2.js"></script>
-
-        <!-- Ion.RangeSlider -->
-        <script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
-
-        <!--Showmore Js-->
-        <script src="/static/js/jquery.showmore.js"></script>
-        <script src="/static/js/showmore.js"></script>
 
         <!-- Custom Js-->
         <script src="/static/js/custom.js"></script>

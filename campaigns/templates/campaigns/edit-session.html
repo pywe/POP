@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Description" content="Job board html template">
+    <meta name="Author" content="Spruko Technologies Private Limited">
+    <meta name="keywords"
+        content="bootstrap job board template, bootstrap job template, hr consultancy website template, job board bootstrap template, job board html template, job listing html template, job portal html template, job portal templates html5, job posting website template, job recruitment website template, job template bootstrap, job template html, simple html and css templates, simple html css templates, directory listing html template, classified website template, responsive css template, html5 responsive template, job posting template, simple bootstrap template, bootstrap 4 templates, job application template, html5 template, premium, recruitment, template, html, job alert, directory" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Title -->
+    <title>POP Ghana | Edit Session</title>
+
+    <!-- Bootstrap Css -->
+    <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Dashboard Css -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+
+    <!-- Font-awesome  Css -->
+    <link href="/static/css/icons.css" rel="stylesheet" />
+
+    <!--Horizontal Menu-->
+    <link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
+    <link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
+
+    <!--Select2 Plugin -->
+    <link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+    <!-- Cookie css -->
+    <link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
+
+    <!-- Custom scroll bar css-->
+    <link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    <!-- COLOR-SKINS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+
+</head>
+
+<body>
+
+    <!--Loader-->
+    <div id="global-loader">
+        <img src="/static/images/loader.svg" class="loader-img" alt="">
+    </div>
+
+
+
+    <!--Breadcrumb-->
+    <section>
+        <div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+            <div class="header-text mb-0">
+                <div class="text-center text-white">
+                    <h1 class="">Edit Session</h1>
+                    <ol class="breadcrumb text-center">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/">Campaign List</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Baskets</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Breadcrumb-->
+
+    <!--User Dashboard-->
+    <section class="sptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 col-lg-12 col-md-12">
+                    <div class="card mb-0">
+                        <div class="card-header">
+                            <h3 id="title" class="card-title">Baskets</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="ads-tabs">
+                                <div class="tabs-menus">
+                                    <!-- Tabs -->
+                                    <ul class="nav panel-tabs">
+                                        <li class=""><a id="tab1" href="#tab1" class="active" data-toggle="tab"></a>
+                                        </li>
+                                        <!--<li><a href="#tab2" data-toggle="tab">Local (08)</a></li>-->
+                                        <!--<li><a href="#tab3" data-toggle="tab">Transmitted (05)</a></li>-->
+                                    </ul>
+                                </div>
+                                <div class="tab-content">
+                                    <div class="tab-pane active table-responsive border-top userprof-tab" id="tab1">
+                                        <table class="table table-bordered table-hover mb-0 text-nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th class="w-100">Id</th>
+                                                    <th>Date Created</th>
+                                                    <th>Drugs</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="alltab"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- more -->
+
+    <nav class="fab-container">
+        <a id="litbut" href="/campaigns/lockscreen" class="buttons"><i class="fa fa-share"></i></a>
+        <a id="litbut" href="/campaigns/observation-session" class="buttons"><i class="fa fa-eye"></i></a>
+
+        <a id="more"><i class="fa fa-plus"></i></a>
+
+    </nav>
+
+    <!-- Back to top -->
+    <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JQuery js-->
+    <script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
+    <script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+    <script src="/static/js/dexie.js"></script>
+
+
+
+    <!--JQuery Sparkline Js-->
+    <script src="/static/js/vendors/jquery.sparkline.min.js"></script>
+
+    <!-- Circle Progress Js-->
+    <script src="/static/js/vendors/circle-progress.min.js"></script>
+
+    <!-- Star Rating Js-->
+    <script src="/static/plugins/rating/jquery.rating-stars.js"></script>
+
+    <!--Owl Carousel js -->
+    <script src="/static/plugins/owl-carousel/owl.carousel.js"></script>
+
+    <!--Horizontal Menu-->
+    <script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+    <!--JQuery TouchSwipe js-->
+    <script src="/static/js/jquery.touchSwipe.min.js"></script>
+
+    <!--Select2 js -->
+    <script src="/static/plugins/select2/select2.full.min.js"></script>
+    <script src="/static/js/select2.js"></script>
+
+    <!-- Cookie js -->
+    <script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+    <script src="/static/plugins/cookie/cookie.js"></script>
+
+    <!-- Count Down-->
+    <script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
+
+    <!-- Custom scroll bar Js-->
+    <script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script src="/static/js/campaign.js"></script>
+
+    <!-- sticky Js-->
+    <script src="/static/js/sticky.js"></script>
+
+    <!-- Scripts Js-->
+    <script src="/static/js/scripts2.js"></script>
+
+    <!-- Custom Js-->
+    <script src="/static/js/custom.js"></script>
+
+    <script>
+        function getOld() {
+            var session_name = localStorage.getItem('editItem')
+            db.sessions.get(session_name, function (session) {
+                document.getElementById("title").innerHTML += ' &bull; ' + session_name
+                document.getElementById("tab1").innerHTML += `All Baskets (` + session.basket_count + `)`
+                // for (let i = 0; i < session.basket_count; i++) {
+                // var ndrugs = session.baskets[i].basket.drugs
+                let keys = session.baskIds
+                for (var a = 0; a < keys.length; a++) {
+                    // console.log(keys[a]);
+                    db.baskets.get(keys[a], function (item) {
+
+                        // console.log(item)
+
+                        // var totalDrugs = (ndrugs.reduce((a, obj) => a + Object.keys(obj).length, 0))/9;
+                        var baskets = `<tr>
+														<td>
+															<label class="custom-control custom-checkbox">
+																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
+																<span class="custom-control-label"></span>
+															</label>
+														</td>
+														<td>
+															<div class="media mt-0 mb-0">
+																<div class="media-body">
+																	<div class="card-item-desc p-0">
+																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">`+ item.id + `</h4></a>
+																	</div>
+																</div>
+															</div>
+														</td>
+														<td><i class ="fa fa-clock-o mr-1 text-muted"></i>`+ item.date_saved + `</td>
+														<td class="font-weight-semibold fs-16">`+ item.basket.drugs.length + `</td>
+														<td>
+															<a href="#" class="badge badge-warning">`+ item.status + `</a>
+														</td>
+														<td>
+															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" onclick="editbas('`+ item.id + `')" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+															<!--<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>-->
+															<!--<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" onclick="mitt('`+ item.id + `')" data-original-title="Transmit"><i class="fa fa-wifi"></i></a>-->
+														</td>
+													</tr>`
+                        document.getElementById("alltab").innerHTML += baskets
+
+                        // console.log(baskets);
+
+                    })
+
+
+                }
+
+                // }
+            })
+        }
+
+        getOld()
+        function editSess(session_name) {
+            localStorage.setItem('editItem', session_name)
+            window.location.href = "/campaigns/edit-session/"
+        }
+
+        function editbas(id) {
+            localStorage.setItem('editBask', id)
+            window.location.href = "/campaigns/edit-basket/"
+        }
+    </script>
+    <script src="/static/js/login.js"></script>
+</body>
+
+</html>

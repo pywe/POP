@@ -17,7 +17,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/static/images/brand/logo.svg" />
 
     <!-- Title -->
-    <title>POP Ghana | New Pharmacy</title>
+    <title>POP Ghana | Edit Pharmacy</title>
 
     <!-- Bootstrap Css -->
     <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -27,6 +27,19 @@
 
     <!-- Font-awesome  Css -->
     <link href="/static/css/icons.css" rel="stylesheet" />
+
+    <!--Horizontal Menu-->
+    <!--<link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />-->
+    <!--<link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />-->
+
+    <!--Select2 Plugin -->
+    <!--<link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />-->
+
+    <!-- Owl Theme css-->
+    <!--<link href="/static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />-->
+
+    <!-- Cookie css -->
+    <!--<link href="/static/plugins/cookie/cookie.css" rel="stylesheet">-->
 
     <!--Semantic UI css-->
     <link rel="stylesheet" href="/static/plugins/Semantic-UI-CSS/semantic.min.css">
@@ -38,14 +51,14 @@
     <link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
 </head>
 
-<body>
+<body onload="initForm();">
     <!--Sliders Section-->
     <section>
         <div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
             <div class="header-text mb-0">
                 <div class="container">
                     <div class="text-center text-white">
-                        <h1 class="">Create New Pharmacy</h1>
+                        <h1 class="">Edit Pharmacy</h1>
                         <ol class="breadcrumb text-center">
                             <li class="breadcrumb-item"><strong id="username" app-variable="username"></strong>
                             </li>
@@ -54,7 +67,7 @@
                                         app-variable="campaign-name"></span></a></li>
                             <li class="breadcrumb-item"><a href="/campaigns/new-session"><span id="session_name"
                                         app-variable="campaign-name"></span></a></li>
-                            <li class="breadcrumb-item active text-white" aria-current="page">New Pharmacy</li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Edit Pharmacy</li>
                         </ol>
                     </div>
                 </div>
@@ -66,7 +79,7 @@
     <!--Pharmacy-Pharmacist-details-section-->
     <br><br>
     <div class="ui container">
-        <form id="pharmform" class="ui form">
+        <form id="pharmform" onsubmit="savePharmacy()" method="dialog" class="ui form">
             <div class="ui raised segments">
                 <div class="ui segment">
                     <div class="ui header">Pharmacy</div>
@@ -86,7 +99,7 @@
                         <div class="field">
                             <label>Mobile phone number of the followed Pharmacist (vendor).</label>
                             <div class="ui input">
-                                <input name="contact" type="text" maxlength="14">
+                                <input name="contact" type="text" maxlength="14" required>
                             </div>
                         </div>
 
@@ -95,31 +108,31 @@
                                     Make this detailed to easily find
                                     pharmacy.</span></label>
                             <div class="ui input">
-                                <textarea name="detailed_address" rows="1"></textarea>
+                                <textarea name="detailed_address" rows="1" required></textarea>
                             </div>
 
                         </div>
                     </div>
 
                     <div class="four fields">
-                        <div class="field" id="district_social_standard">
+                        <div class="field">
                             <label>District social standard</label>
-                            <select id="dss" name="district_social_standard" class="ui dropdown">
+                            <select id="dss" name="district_social_standard" class="ui dropdown" required>
                                 <option value="">Choose</option>
                             </select>
                         </div>
 
                         <div class="field">
                             <label>Is Conselling Available?</label>
-                            <select name="counselling" class="ui dropdown">
+                            <select id="counselling" name="counselling" class="ui dropdown" required>
                                 <option value="">Choose</option>
-                                <option value=True>Yes</option>
-                                <option value=False>No</option>
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
                             </select>
                         </div>
                         <div class="field">
                             <label>Is Pharmacy Computerized?</label>
-                            <select name="computerized" class="ui dropdown">
+                            <select id="computerized" name="computerized" class="ui dropdown" required>
                                 <option value="">Choose</option>
                                 <option value=True>Yes</option>
                                 <option value=False>No</option>
@@ -128,7 +141,7 @@
 
                         <div class="field">
                             <label>Is Pharmacy Dependent On a Hospital?</label>
-                            <select name="dependent_on_hospital" class="ui dropdown">
+                            <select id="dependent_on_hospital" name="dependent_on_hospital" class="ui dropdown" required>
                                 <option value="">Choose</option>
                                 <option value=True>Yes</option>
                                 <option value=False>No</option>
@@ -138,26 +151,26 @@
                     <div class="three fields">
                         <div class="field" id="staff_mostly_followed">
                             <label>Staff mostly followed</label>
-                            <select id="smf" name="staff_mostly_followed" class="ui dropdown">
+                            <select id="smf" name="staff_mostly_followed" class="ui dropdown" required>
                                 <option value="">Choose</option>
                             </select>
                         </div>
 
                         <div class="field"  id="staff_mostly_present">
                             <label>Staff mostly present</label>
-                            <select id="smp" name="staff_mostly_present" class="ui dropdown">
+                            <select id="smp" name="staff_mostly_present" class="ui dropdown" required>
                                 <option value="">Choose</option>
                             </select>
                         </div>
                         <div class="field">
                             <label>Email of pharmacy</label>
                             <div class="ui input">
-                                <input name="email" type="email" maxlength="200">
+                                <input name="email" type="email" maxlength="200" required>
                             </div>
                         </div>
                         <div class="field" id="area_name">
                             <label>Area Name</label>
-                            <select id="an" name="area_name" class="ui search dropdown">
+                            <select id="an" name="area_name" class="ui search dropdown" required>
                                 <option value="">Area Name</option>
                             </select>
                         </div>
@@ -168,7 +181,7 @@
                             <label>Average number of patients
                                 visiting the pharmacy per day</label>
                             <div class="ui right labeled input">
-                                <input name="average_patients_per_day" type="number" min="1">
+                                <input name="average_patients_per_day" type="number" min="1" required>
                                 <div class="ui basic label">
                                     Patients
                                 </div>
@@ -176,13 +189,13 @@
                         </div>
                         <div class="field" id="insurance_convention">
                             <label>Insurance convention</label>
-                            <select id="ic" name="insurance_convention" class="ui dropdown">
+                            <select id="ic" name="insurance_convention" class="ui dropdown" required>
                                 <option value="">Choose</option>
                             </select>
                         </div>
                         <div class="field" id="pharmacy_standard">
                             <label>Pharmacy standard</label>
-                            <select id="ps" name="pharmacy_standard" class="ui dropdown">
+                            <select id="ps" name="pharmacy_standard" class="ui dropdown" required>
                                 <option value="">Choose</option>
                             </select>
                         </div>
@@ -191,7 +204,7 @@
                     <div class="three fields">
                         <div class="field" id="district_profile">
                             <label>District profile</label>
-                            <select id="profs" name="district_profile" class="ui dropdown">
+                            <select id="profs" name="district_profile" class="ui dropdown" required>
                                 <option value="">Choose</option>
                             </select>
                         </div>
@@ -222,13 +235,13 @@
                         <div class="field">
                             <label>First Name</label>
                             <div class="ui input">
-                                <input name="pharmacist_first_name" type="text" maxlength="150">
+                                <input name="pharmacist_first_name" type="text" maxlength="150" required>
                             </div>
                         </div>
                         <div class="field">
                             <label>Last Name</label>
                             <div class="ui input">
-                                <input name="pharmacist_last_name" type="text" maxlength="150">
+                                <input name="pharmacist_last_name" type="text" maxlength="150" required>
                             </div>
                         </div>
                     </div>
@@ -236,7 +249,7 @@
             </div>
     </div>
     <div class="ui horizontal divider">
-        <button type="button" onclick="savePharmacy()" class="positive ui big submit button">
+        <button type="submit" class="positive ui big submit button">
             Save <i class="icon save right"></i>
         </button>
         <span class="grayed" style="display: none;">
@@ -259,15 +272,66 @@
     <script src="/static/plugins/bootstrap-4.3.1-dist/js/popper.min.js"></script>
     <script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 
+    <!--JQuery Sparkline Js-->
+    <!--<script src="/static/js/vendors/jquery.sparkline.min.js"></script>-->
+
+    <!--Semantic js-->
+    <!--<script src="/static/plugins/Semantic-UI-CSS/semantic.js"></script>-->
     <script src="/static/plugins/Semantic-UI-CSS/semantic.min.js"></script>
 
     <!-- Circle Progress Js-->
     <script src="/static/js/vendors/circle-progress.min.js"></script>
 
+    <!-- Star Rating Js-->
+    <!--<script src="/static/plugins/rating/jquery.rating-stars.js"></script>-->
+
+    <!--Owl Carousel js -->
+    <!--<script src="/static/plugins/owl-carousel/owl.carousel.js"></script>-->
+
     <script src="/static/plugins/dexie/dexie.js"></script>
+
+    <!--Horizontal Menu-->
+    <!--<script src="/static/plugins/horizontal/horizontal-menu/horizontal.js"></script>-->
+
+    <!--Counters -->
+    <!--<script src="/static/plugins/counters/counterup.min.js"></script>-->
+    <!--<script src="/static/plugins/counters/waypoints.min.js"></script>-->
+
+    <!--JQuery TouchSwipe js-->
+    <!--<script src="/static/js/jquery.touchSwipe.min.js"></script>-->
+
+    <!--Select2 js -->
+    <!--<script src="/static/plugins/select2/select2.full.min.js"></script>-->
+    <!--<script src="/static/js/select2.js"></script>-->
+
+    <!-- Cookie js -->
+    <!--<script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>-->
+    <!--<script src="/static/plugins/cookie/cookie.js"></script>-->
+
+    <!-- Count Down-->
+    <!--<script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>-->
+
+    <!-- Ion.RangeSlider -->
+    <!--<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>-->
 
     <!-- Custom scroll bar Js-->
     <script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- sticky Js-->
+    <!--<script src="/static/js/sticky.js"></script>-->
+
+    <!-- Swipe Js-->
+    <!--<script src="/static/js/swipe.js"></script>-->
+
+    <!-- Scripts Js-->
+    <!--<script src="/static/js/scripts2.js"></script>-->
+
+    <!-- Ion.RangeSlider -->
+    <!--<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>-->
+
+    <!--Showmore Js-->
+    <!--<script src="/static/js/jquery.showmore.js"></script>-->
+    <!--<script src="/static/js/showmore.js"></script>-->
 
     <!-- Custom Js-->
     <script src="/static/js/custom.js"></script>
@@ -393,6 +457,86 @@ db.backdata.get('available_tests', function (value){
 })
 
 
+console.log('done')
+            var pharma_name = localStorage.getItem('pharmacy_name')
+            db.pharmacies.get(pharma_name, function (pharma) {
+                console.log(pharma)
+                if (pharma.name !== "") {
+                    document.forms[0].elements["name"].value = pharma.name
+                    // $("#Gender option:contains(" + bask.basket.Gender + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.contact !== "") {
+                    document.forms[0].elements["contact"].value = pharma.pharmacy_info.contact
+                }
+                if (pharma.pharmacy_info.detailed_address !== "") {
+                    document.forms[0].elements["detailed_address"].value = pharma.pharmacy_info.detailed_address
+                }
+                if (pharma.pharmacy_info.district_social_standard !== "") {
+                    $("#dss option:contains(" + pharma.pharmacy_info.district_social_standard + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.counselling !== "") {
+                    $('#counselling').dropdown('set selected', pharma.pharmacy_info.counselling);
+                    // $("#counselling option:contains(" + pharma.pharmacy_info.counselling + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.computerized !== "") {
+                    $('#computerized').dropdown('set selected', pharma.pharmacy_info.computerized);
+                    // $("#computerized option:contains(" + pharma.pharmacy_info.computerized + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.dependent_on_hospital !== "") {
+                    $('#dependent_on_hospital').dropdown('set selected', pharma.pharmacy_info.dependent_on_hospital);
+                    // $("#dependent_on_hospital option:contains(" + pharma.pharmacy_info.dependent_on_hospital + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.staff_mostly_followed !== "") {
+                    $("#smf option:contains(" + pharma.pharmacy_info.staff_mostly_followed + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.staff_mostly_present !== "") {
+                    $("#smp option:contains(" + pharma.pharmacy_info.staff_mostly_present + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.email !== "") {
+                    document.forms[0].elements["email"].value = pharma.pharmacy_info.email
+                }
+                if (pharma.pharmacy_info.area_name !== "") {
+                    $('#an').dropdown('set selected', pharma.pharmacy_info.area_name);
+                    // $("#an option:contains(" + pharma.pharmacy_info.area_name + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.average_patients_per_day !== "") {
+                    document.forms[0].elements["average_patients_per_day"].value = pharma.pharmacy_info.average_patients_per_day
+                }
+                if (pharma.pharmacy_info.insurance_convention !== "") {
+                    $("#ic option:contains(" + pharma.pharmacy_info.insurance_convention + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.pharmacy_standard !== "") {
+                    $("#ps option:contains(" + pharma.pharmacy_info.pharmacy_standard + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.district_profile !== "") {
+                    $("#profs option:contains(" + pharma.pharmacy_info.district_profile + ")").attr('selected', true).trigger('change');
+                }
+                if (pharma.pharmacy_info.comments !== "") {
+                    document.forms[0].elements["comments"].value = pharma.pharmacy_info.comments
+                }
+                if (pharma.pharmacy_info.pharmacist_first_name !== "") {
+                    document.forms[0].elements["pharmacist_first_name"].value = pharma.pharmacy_info.pharmacist_first_name
+                }
+                if (pharma.pharmacy_info.pharmacist_last_name !== "") {
+                    document.forms[0].elements["pharmacist_last_name"].value = pharma.pharmacy_info.pharmacist_last_name
+                }
+                if (pharma.pharmacy_info.tests_available.length !== 0) {
+
+                    for (var i=0; i< pharma.pharmacy_info.tests_available.length; i++){
+                    $('#tests').dropdown('set selected', pharma.pharmacy_info.tests_available[i]);
+                    // $("#tests option:contains(" + pharma.pharmacy_info.tests_available[i] + ")").attr('selected', true).trigger('change');
+                    }
+                }
+                // if (bask.basket.insurance !== "") {
+                //     $("#insurance option:contains(" + bask.basket.insurance + ")").attr('selected', true).trigger('change');
+                // }
+                // if (bask.basket.Age !== "") {
+                //     document.forms[0].elements["Age"].value = bask.basket.Age
+                // }
+
+            });
+
+
                 fetchCampaigns()
                 document.getElementById("global_name").innerHTML = localStorage.getItem('campaign')
                 document.getElementById("session_name").innerHTML = localStorage.getItem('session')
@@ -402,6 +546,13 @@ db.backdata.get('available_tests', function (value){
                 window.location.assign("/accounts/login/");
             }
         }
+
+
+
+function initForm() {
+
+
+}
     </script>
     <script>
         function savePharmacy() {
@@ -414,7 +565,7 @@ db.backdata.get('available_tests', function (value){
                 .toast({
                     title: 'Success',
 
-                    message: 'Pharmacy Saved!',
+                    message: 'Pharmacy Updated!',
                     class: 'orange',
                     className: {
                         toast: 'ui big message'
@@ -422,8 +573,50 @@ db.backdata.get('available_tests', function (value){
                 });
 
             localStorage.setItem('pharmacy_name', pharmname)
-                window.location.assign("/campaigns/new-session/");
+                window.location.assign("/campaigns/new-basket/");
         }
+//         axios.post('/api/v1/campaigns/create-pharmacy/', things)
+//         .then(function (response) {
+//             console.log(response.data)
+//             if(typeof response.data == 'number'){
+//             console.log(response.data)
+//             let pharmid = parseInt(response.data)
+//             localStorage.setItem("pharm_id", pharmid)
+//             localStorage.setItem('pharmacy_name', pharmname)
+//             // var data = $('#pharmform').serializeArray().reduce(function (obj, item) {
+//             //     obj[item.name] = item.value;
+//             //     return obj;
+//             // }, {});
+
+//             $('body')
+//                 .toast({
+//                     title: 'Success',
+
+//                     message: 'Pharmacy Created!',
+//                     class: 'orange',
+//                     className: {
+//                         toast: 'ui big message'
+//                     }
+//                 });
+//             window.location.assign("/campaigns/new-session/");
+//             } else if  (typeof response.data == 'object'){
+//                 console.log(response.data)
+//                 $('body')
+//                   .toast({
+//                     class: 'error',
+//                     position: 'top left',
+//                     displayTime: 'auto',
+//                     message: `A Pharmacy Exists with the Same Name!`
+//                   });
+//             }
+// })
+
+
+
+//         console.log('done')}
+
+
+
 
     </script>
 

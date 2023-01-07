@@ -2,671 +2,1002 @@
 <html>
 
 <head>
-	<!--  meta tags -->
-	<meta charset="utf-8">
-	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-	<meta name="google-site-verification" content="">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
+    <!--  meta tags -->
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta name="google-site-verification" content="">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
 
-	<!-- Title -->
-	<title>POP Ghana | New Basket</title>
+    <!-- Title -->
+    <title>POP Ghana | New Basket</title>
 
-	<script src="/static/plugins/dexie/dexie.js"></script>
-	<!-- Bootstrap Css -->
-	<link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
-	<!-- Animate Css-->
-	<link rel="stylesheet" href="/static/css/animate.css">
-	<!-- Dashboard Css -->
-	<link href="/static/css/style.css" rel="stylesheet" />
+    <script src="/static/plugins/dexie/dexie.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+      <script src="https://pharst.pywe.org/static/js/bootstrap3.min.js"></script>
+      <script src="https://pharst.pywe.org/static/js/jquery.min.js"></script>
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+        <script src="https://pharst.pywe.org/static/js/bootstrap3.min.js"></script>
+    <!-- Animate Css-->
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <!-- Dashboard Css -->
+    <link href="/static/css/style.css" rel="stylesheet" />
 
-	<!-- Font-awesome  Css -->
-	<link href="/static/css/icons.css" rel="stylesheet" />
+    <!-- Font-awesome  Css -->
+    <link href="/static/css/icons.css" rel="stylesheet" />
 
-	<!--Horizontal Menu-->
-	<link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
-	<link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
+    <!-- Custom scroll bar css-->
+    <link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
 
-	<!--Select2 Plugin -->
-	<link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+    <!-- COLOR-SKINS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+    <link href="https://www.pywe.org/static/css/animate.css" rel="stylesheet" />
 
-	<!-- Owl Theme css-->
-	<link href="/static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
-
-	<!-- Cookie css -->
-	<link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
-
-	<!-- Custom scroll bar css-->
-	<link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
-
-	<!-- COLOR-SKINS -->
-	<link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
-	<link href="https://www.pywe.org/static/css/animate.css" rel="stylesheet" />
-
-	<!--Semantic UI css-->
-	<link rel="stylesheet" href="/static/plugins/Semantic-UI-CSS/semantic.min.css">
+    <!--Semantic UI css-->
+    <link rel="stylesheet" href="/static/plugins/Semantic-UI-CSS/semantic.min.css">
+    <style>
+        .success{
+            background-color:#21ba45 !important;
+            color:white !important;
+        }
+        .warning{
+            background-color:#f2612d !important;
+            color:white !important;
+        }
+    </style>
 
 </head>
 
 <body>
 
 
-	<!--Sliders Section-->
-	<section>
-		<div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
-			<div class="header-text mb-0">
-				<div class="container">
-					<div class="text-center text-white">
-						<h1>New Basket</h1>
-
-						<ol class="breadcrumb text-center">
-							<li class="breadcrumb-item"><a href="/">Home</a></li>
-							<li class="breadcrumb-item"><a
-									href="/campaigns/templates/campaigns/observation_session.html">Observation
-									Session</a>
-							</li>
-							<li class="breadcrumb-item active text-white" aria-current="page">New Basket</li>
-						</ol>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--/Sliders Section-->
-
-	<!--Patient data-section-->
-	<br><br>
-	<div class="ui container">
-
-		<form id="basketForm" method="dialog" class="ui form">
-
-			<div class="ui raised segments">
-				<div class="ui segment">
-					<div class="ui header">Patient</div>
-				</div>
-				<div class="ui secondary segment">
-					<div class="fields">
-						<div id="insurance" class="field">
-							<label>Insurance scheme</label>
-							<select name="insurance" class="ui dropdown">
-								<option value="">Choose One</option>
-								<option value="Private Insurance">Private Insurance</option>
-								<option value="Public Insurance">Public Insurance</option>
-								<option value="No Insurance">No Insurance</option>
-								<option value="Undetermined">Undetermined</option>
-							</select>
-						</div>
-
-						<div class="field">
-							<label>Gender</label>
-							<select name="Gender" class="ui dropdown">
-								<option value="">Choose One</option>
-								<option value="Male">Male</option>
-								<option value="Female">Female</option>
-								<option value="Other">Other</option>
-							</select>
-						</div>
-
-						<div class="field">
-							<label>Age</label>
-							<div class="ui right labeled input">
-								<input name="Age" type="number" placeholder="Patient Age" min="5">
-								<div class="ui basic label">
-									yrs
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-				<div class="ui raised segments">
-					<div class="ui segment">
-						<div class="ui header">Drug</div>
-					</div>
-					<div class="ui secondary segment">
-						<div class="fields">
-							<div class="field">
-								<label>Who started the request?</label>
-								<select name="firstrequest_starter" class="ui compact dropdown">
-									<option value="">Choose One</option>
-									<option value="brand patient">brand patient</option>
-									<option value="brand prescription">brand prescription</option>
-									<option value="inn patient">inn patient</option>
-									<option value="inn prescription">inn prescription</option>
-								</select>
-							</div>
-
-							<div class="field">
-								<label>Who makes the final selection for the purchased product?</label>
-								<select name="firstsale_driver" class="ui dropdown">
-									<option value="">Choose One</option>
-									<option value="Patient">Patient</option>
-									<option value="Pharmacist">Pharmacist</option>
-									<option value="Prescriber">Prescriber</option>
-								</select>
-							</div>
-
-
-							<div class="fields">
-								<div class="field">
-									<label>Was there a switch?</label>
-									<select id="switchselect" name="firstswitched" class="ui compact dropdown "
-										onchange="//showhideForm(this.value)">
-										<option value="">Choose</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-								</div>
-
-								<div id="leakedfield" class="field">
-									<label>Was there a leak?</label>
-									<select id="leaked" name="firstleaked" class="ui compact dropdown"
-										aria-describedby="leaked-hint ">
-										<option value="">Choose</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="fields">
-							<div id="drug_sold_field" class="field" style="display:block">
-								<label>Brand name of drug that has been sold</label>
-								<div class="ui input">
-									<input name="firstdrug_sold" type="text" maxlength="200">
-								</div>
-							</div>
-
-							<div class="field">
-								<label>What product was switched or leaked?</label>
-								<div class="ui input">
-									<input name="firstdrug_switched_leaked" type="text" maxlength="200">
-								</div>
-							</div>
-
-							<div class="field">
-								<label>Was the whole box sold? How was it divided?</label>
-								<select name="firstdivision" class="ui dropdown">
-									<option value="">Choose One</option>
-									<option value="unit">unit</option>
-									<option value="blister">blister</option>
-									<option value="box">box</option>
-									<option value="blister+unit">blister+unit</option>
-									<option value="box+unit">box+unit</option>
-									<option value="box+blister">box+blister</option>
-								</select>
-							</div>
-
-
-						</div id>
-
-						<div class="fields">
-							<div class="field">
-								<label>Why was there a switch or a leak?</label>
-								<select name="firstswitchleak_reason" class="ui dropdown">
-									<option value="">Choose One</option>
-									<option value="Not available">Not available</option>
-									<option value="Price">Price</option>
-									<option value="Therapeutic Reason">Therapeutic Reason</option>
-									<option value="Other Reason">Other Reason</option>
-								</select>
-							</div>
-
-							<div class="field">
-								<label>What form of drug was sold? liquid,tablet?</label>
-								<select name="firstform_sold" class="ui search dropdown">
-									<option value="">Choose One</option>
-									<option value="3">Capsule</option>
-									<option value="7">Cream</option>
-									<option value="14">Ear drop</option>
-									<option value="15">Eye drop</option>
-									<option value="9">Gel</option>
-									<option value="12">Inhaler</option>
-									<option value="6">Injection</option>
-									<option value="8">Ointment</option>
-									<option value="10">Patch</option>
-									<option value="13">Pessary</option>
-									<option value="16">Powder</option>
-									<option value="11">Spray</option>
-									<option value="1">Suppositories</option>
-									<option value="4">Suspension</option>
-									<option value="5">Syrup</option>
-									<option value="2">Tablet</option>
-								</select>
-							</div>
-
-						</div>
-					</div>
-					<div id="drugs"></div>
-
-					<div class="ui segment">
-						<button class="ui labeled icon button" onclick="addDrugForm()">
-							<i class="plus icon"></i>
-							Add Another Drug
-						</button>
-						<button type="submit" onclick="collectForm()" class="ui labeled icon button">
-							Save Basket <i class="icon save right"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="ui horizontal divider">
-				<button type="submit" onclick="saveOb()" class="positive ui big submit button">
-					Finish <i class="icon arrow right"></i>
-				</button>
-				<span class="grayed" style="display: none;">
-					<i class="ui wait icon"></i>
-					Saving.. </span>
-			</div>
-		</form>
-	</div>
-
-
-	</section>
-	<!--/Job posts-section-->
-
-	<script src="https://www.pywe.org/static/js/jquery.min.js"></script>
-
-	<script>
-		function saveOb(){
-			var session_name = localStorage.getItem('session')
-			var session_date = localStorage.getItem('session_date')
-<<<<<<< HEAD:campaigns/templates/campaigns/new_basket.html
-
-=======
-			
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/new-basket.html
-			db.baskets.toArray(basket => { let usession = basket
-				// console.log(session_name)
-				// console.log(usession)
-				var dsession = {session_name:session_name,date_created:session_date,status:"Local", baskets:usession}
-				todb(dsession)
-			});
-		}
-<<<<<<< HEAD:campaigns/templates/campaigns/new_basket.html
-
-			function todb(dsession){
-				db.sessions.put(dsession).then(result => {
-   $('body')
-				.toast({
-					title: 'Success',
-
-					message: 'Your Observation Session is Safe !',
-					class: 'orange',
-					className: {
-						toast: 'ui big message'
-					}
-				});
-				db.baskets.clear()
-				window.location.href = "/campaigns/templates/campaigns/new-session.html"
-
-
-}).catch(error => {
-    console.log ("Error: " + error);
-});
-			}
-
-=======
-
-			function todb(dsession){
-				db.sessions.put(dsession).then(result => {
-   $('body')
-				.toast({
-					title: 'Success',
-
-					message: 'Your Observation Session is Safe !',
-					class: 'orange',
-					className: {
-						toast: 'ui big message'
-					}
-				});
-				db.baskets.clear()
-				window.location.href = "/campaigns/templates/campaigns/new-session.html"
-				
-   
-}).catch(error => {
-    console.log ("Error: " + error);
-});
-			}
-			
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/new-basket.html
-		function collectForm() {
-			myForm = document.getElementById("basketForm");
-
-			var saved = "first";
-			let formData = new FormData(myForm);
-			var myarray = [];
-			var big = {}
-			var info = {};
-			//This will build the form from name, value pairs
-
-			for (var pair of formData.entries()) {
-				var str = pair[0]
-				var res = str.substring(0, 5);
-				if (window.specials.includes(res)) {
-					if (saved === res) {
-						var key = (pair[0]).replace(res, "")
-						info[key] = pair[1]
-					}
-					else {
-						myarray.push(info)
-						var info = {};
-						var key = (pair[0]).replace(res, "")
-						info[key] = pair[1]
-						saved = (pair[0]).substring(0, 5);
-					}
-				} else {
-					big[pair[0]] = pair[1]
-				}
-			}
-			myarray.push(info)
-			big['drugs'] = myarray
-			console.log(big)
-			console.log('Saved Basket')
-
-
-			db.baskets.add(big); // insert
-			//db.simple.add('two'); // insert
-<<<<<<< HEAD:campaigns/templates/campaigns/new_basket.html
-			//db.simple.put('three'); // insert
-=======
-			//db.simple.put('three'); // insert    
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/new-basket.html
-			//db.simple.put('Three', 3); // update
-
-			//const value = await db.simple.get(3);
-			// Three
-
-			//var x = $("snackbar");
-			//x.className = "show";
-			//setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
-
-			$('body')
-				.toast({
-					title: 'Success',
-
-					message: 'Your Basket is Safe !',
-					class: 'orange',
-					className: {
-						toast: 'ui big message'
-					}
-				});
-
-		}
-
-	</script>
-
-	<script>
-		/*
-
-
-		function showhideForm(value) {
-			if (value == "yes") {
-				$('form')
-					// set value
-					.form('set value', 'leaked', 'No');
-				//document.getElementById("div1").style.display = 'block';
-				document.getElementById("leakedfield").style.display = 'none';
-			}
-			if (value == "no") {
-				$('form')
-					// set value
-					.form('set value', 'leaked', 'Yes');
-				//document.getElementById("div2").style.display = 'block';
-				document.getElementById("drug_sold_field").style.display = 'none';
-			}
-		}*/
-	</script>
-
-	<!-- more -->
-
-	<nav class="fab-container">
-		<a id="litbut" href="/campaigns/lockscreen" class="buttons"><i class="sign out icon"></i></a>
-		<a id="litbut" href="/campaigns/observation-session" class="buttons"><i class="fa fa-pencil"></i></a>
-
-		<a id="more"><i class="fa fa-plus"></i></a>
-
-	</nav>
-
-
-	<!-- Back to top -->
-	<a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
-
-	<!-- JQuery js-->
-	<script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
-
-
-
-	<!--Semantic js-->
-	<!--<script src="/static/plugins/Semantic-UI-CSS/semantic.js"></script>-->
-	<script src="/static/plugins/Semantic-UI-CSS/semantic.min.js"></script>
-
-	<!-- Cookie js -->
-	<script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
-	<script src="/static/plugins/cookie/cookie.js"></script>
-
-	<!-- Count Down-->
-	<script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
-
-	<!-- Ion.RangeSlider -->
-	<script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
-
-	<!-- Custom scroll bar Js-->
-	<script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
-
-
-	<!-- Custom Js-->
-	<script src="/static/js/custom.js"></script>
-
-<<<<<<< HEAD:campaigns/templates/campaigns/new_basket.html
-	<script src="/static/js/campaign.js"></script>
-=======
-	<script src="/static/js/campaign.js"></script> 
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/new-basket.html
-
-	<script>
-		/*$('#switchselect').change(function () {
-			//Use $option (with the "$") to see that the variable is a jQuery object
-			var $option = $(this).find('option:selected');
-			//Added with the EDIT
-			var value = $option.val();//to get content of "value" attrib
-			var text = $option.text();//to get <option>Text</option> content
-			console.log(text)
-			function disable() {
-				$('.dropdown').dropdown();
-
-				$('.ui.input.sold').addClass("disabled")
-			}
-			function enable() {
-				$('.dropdown').dropdown();
-
-				$('.ui.input.sold').removeClass("disabled")
-			}
-
-			if (text == "No") {
-				disable()
-
-			} else {
-				enable()
-			}
-		});*/
-	</script>
-
-	<script>
-		window.specials = ['first']
-		function makeid(length) {
-			var result = '';
-			var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-			var charactersLength = characters.length;
-			for (var i = 0; i < length; i++) {
-				result += characters.charAt(Math.floor(Math.random() * charactersLength));
-			}
-			return result;
-		}
-
-
-		function addDrugForm() {
-			var id = makeid(5)
-			window.specials.push(id)
-			$("#drugs").append(`<div class="animated slideInUp" id="` + id + `">
+    <!--Sliders Section-->
+    <section>
+        <div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+            <div class="header-text mb-0">
+                <div class="container">
+                    <div class="text-center text-white">
+                        <h1>New Basket</h1>
+
+                        <ol class="breadcrumb text-center">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/campaigns/observation-session/">Observation
+                                    Sessions</a>
+                            </li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">New Basket</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Sliders Section-->
+
+    <!--Patient data-section-->
+    <br><br>
+    <div class="ui container">
+        <div class="ui segment">
+                    <button style="margin:5px" class="ui labeled icon primary button" onclick="window.location.href='/campaigns/observation-session'">
+                        <i class="ui eye icon"></i>
+                        View Sessions
+                    </button>
+                    <button style="margin:5px" class="ui labeled icon warning button" onclick="window.location.assign('/campaigns/edit-pharmacy')">
+                        Edit Pharmacy <i class="ui icon pencil"></i>
+                    </button>
+                    <!--<button class="ui labeled icon success button" data-toggle="modal" data-target="#helpModal">-->
+                    <!--    Add Drug Reference <i class="plus icon"></i>-->
+                    <!--</button>-->
+        </div>
+        <form id="basketForm" class="ui form">
+
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Patient</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class="fields">
+                        <div id="insurance" class="field">
+                            <label>Insurance scheme</label>
+                            <select name="insurance" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Private Insurance">Private Insurance</option>
+                                <option value="Public Insurance">Public Insurance</option>
+                                <option value="No Insurance">No Insurance</option>
+                                <option value="Undetermined">Undetermined</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Gender</label>
+                            <select name="Gender" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Age</label>
+                            <div class="ui right labeled input">
+                                <input name="Age" type="number" placeholder="Patient Age" min="5">
+                                <div class="ui basic label">
+                                    yrs
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Drug</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class="fields">
+                        <div class="field">
+                            <label>Who started the request?</label>
+                            <select name="firstinitial_request" class="ui compact dropdown">
+                                <option value="">Choose One</option>
+                                <option value="brand patient">brand patient</option>
+                                <option value="brand prescription">brand prescription</option>
+                                <option value="inn patient">inn patient</option>
+                                <option value="inn prescription">inn prescription</option>
+                            </select>
+                            <input name="firstbasket" type="text" value="" hidden>
+                        </div>
+
+                        <div class="field">
+                            <label>Who makes the final selection for the purchased product?</label>
+                            <select name="firstsale_driver" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Patient">Patient</option>
+                                <option value="Pharmacist">Pharmacist</option>
+                                <option value="Prescriber">Prescriber</option>
+                            </select>
+                        </div>
+
+
+                        <div class="fields">
+                            <div class="field switchy">
+                                <label>Was there a switch?</label>
+                                <select id="switchselect" name="firstswitched" class="ui compact dropdown switchy-field">
+                                    <option value="">Choose</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+
+                            <div id="leakedfield" class="field leaky">
+                                <label>Was there a leak?</label>
+                                <select id="leaked" name="firstleaked" class="ui compact dropdown leaky-field" aria-describedby="leaked-hint ">
+                                    <option value="">Choose</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="fields">
+                        <div id="drug_sold_field" class="field product-sold" style="display:block">
+                            <label>Brand name of drug that has been sold</label>
+                            <div class="ui search brand">
+                              <div class="ui input">
+                                <input class="prompt" name="firstdrug_sold" type="text" placeholder="Get brands">  </div>
+                              <div class="results"></div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>What product was switched or leaked?</label>
+                             <div class="ui search brand">
+                              <div class="ui input">
+                                <input class="prompt" name="firstproduct_switched_or_leaked" type="text" placeholder="Get brands">  </div>
+                              <div class="results"></div>
+                            </div>
+                        </div>
+
+                        <div class="field division-sold">
+                            <label>Was the whole box sold? How was it divided?</label>
+                            <select name="firstdivision" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="unit">unit</option>
+                                <option value="blister">blister</option>
+                                <option value="box">box</option>
+                                <option value="blister+unit">blister+unit</option>
+                                <option value="box+unit">box+unit</option>
+                                <option value="box+blister">box+blister</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="fields">
+                        <div class="field">
+                            <label>Why was there a switch or a leak?</label>
+                            <select name="firstreason_for_switch_or_leak" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Not available">Not available</option>
+                                <option value="Price">Price</option>
+                                <option value="Therapeutic Reason">Therapeutic Reason</option>
+                                <option value="Other Reason">Other Reason</option>
+                            </select>
+                        </div>
+
+                        <div class="field form-sold">
+                            <label>What form of drug was sold? liquid,tablet?</label>
+                            <select name="firstform_sold" class="ui search dropdown">
+                                <option value="">Choose One</option>
+                                <option value=3>Capsule</option>
+                                <option value=7>Cream</option>
+                                <option value=14>Ear drop</option>
+                                <option value=15>Eye drop</option>
+                                <option value=9>Gel</option>
+                                <option value=12>Inhaler</option>
+                                <option value=6>Injection</option>
+                                <option value=8>Ointment</option>
+                                <option value=10>Patch</option>
+                                <option value=13>Pessary</option>
+                                <option value=16>Powder</option>
+                                <option value=11>Spray</option>
+                                <option value=1>Suppositories</option>
+                                <option value=4>Suspension</option>
+                                <option value=5>Syrup</option>
+                                <option value=2>Tablet</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="drugs"></div>
+
+                <div class="ui segment">
+                    <button style="margin:5px" type="button" class="ui labeled icon primary button" onclick="addDrugForm()">
+                        <i class="plus icon"></i>
+                        Add Another Drug
+                    </button>
+                    <button style="margin:5px" type="button" onclick='collectForm()' class="ui labeled icon success button">
+                        Save Basket <i class="icon save right"></i>
+                    </button>
+                </div>
+            </div>
+    </div>
+
+    <div class="ui horizontal divider">
+        <button type="button" onclick="saveOb()" class="positive ui big submit button">
+            Finish <i class="icon arrow right"></i>
+        </button>
+        <span class="grayed" style="display: none;">
+            <i class="ui wait icon"></i>
+            Saving.. </span>
+    </div>
+    </form>
+
+    </div>
+
+
+    </section>
+    <!--/Job posts-section-->
+
+       <!-- more -->
+
+    <nav class="fab-container">
+        <a id="litbut" href="/campaigns/lockscreen" class="buttons"><i class="sign out icon"></i></a>
+        <a id="litbut" href="/campaigns/observation-session" class="buttons"><i class="ui eye icon"></i></a>
+
+        <a id="more"><i class="fa fa-plus"></i></a>
+
+    </nav>
+<!-- Modal -->
+    <div id="helpModal"  class="modal fade bd-example-modal-md pull-right" style="z-index:5000;">
+        <div class="modal-dialog modal-md">
+                <!--<div style="float:left;margin:8px;"><i style="color:red;font-size:25px;" class="fa fa-close"></i></div>-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button href="#" type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                 </div>
+
+            <div class="modal-body">
+                <p>Add a new Brand to our library of brand names, this will be received by the whole community.</p>
+            <form id="add-brand-form" method="Dialog" action="#">
+               <div class="ui secondary segment">
+                    <div class="fields">
+                        <div class="field">
+                            <label>What is the brand name ? </label>
+                            <br>
+                            <div class="ui search">
+                              <div class="ui input">
+                                <input class="prompt" name="brand_name" type="text" placeholder="Search brands">  </div>
+                              <div class="results"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="field">
+                            <label>What is the inn of the product?</label>
+                            <br>
+                            <div class="ui search inn">
+                              <div class="ui input">
+                                <input class="prompt" name="inn" id="brand-inn" type="text" placeholder="Search inns">
+                              </div>
+                              <div class="results"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button href="#" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" data-dismiss="modal" href="#" onclick="addBrand()">Save Reference</button>
+            </div>
+            </div>
+            </div>
+    </div>
+
+
+<!-- Modal -->
+    <div id="innModal"  class="modal fade bd-example-modal-md pull-right" style="z-index:5000;">
+        <div class="modal-dialog modal-md">
+                <!--<div style="float:left;margin:8px;"><i style="color:red;font-size:25px;" class="fa fa-close"></i></div>-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button href="#" type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                 </div>
+
+            <div class="modal-body">
+                <p>Add a new Inn to our library of inns, this will be received by the whole community.</p>
+
+               <form id="add-inn-form" method="Dialog" action="#">
+               <div class="ui secondary segment">
+                    <div class="fields">
+                        <div class="field">
+                            <label>Inn </label>
+                            <br>
+                            <div class="ui search">
+                              <div class="ui input">
+                                <input class="prompt" name="inn" type="text" placeholder="Search inns">  </div>
+                              <div class="results"></div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="fields">
+                        <div class="field">
+                            <label>Inn Code</label>
+                            <br>
+                            <div class="ui search inncode">
+                              <div class="ui input">
+                                <input class="prompt" name="inncode" type="text" placeholder="Search inn codes">  </div>
+                              <div class="results"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="field">
+                            <label>Chemical Class</label>
+                            <br>
+                            <div class="ui search chemical">
+                              <div class="ui input">
+                                <input class="prompt" name="chemical_class" type="text" placeholder="Search chemicals">  </div>
+                              <div class="results"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button href="#" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" href="#" onclick="addInn()">Save Inn</button>
+            </div>
+            </div>
+            </div>
+    </div>
+
+    <script src="https://www.pywe.org/static/js/jquery.min.js"></script>
+
+ <!-- Back to top -->
+    <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JQuery js-->
+    <script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
+
+
+
+    <!--Semantic js-->
+    <!--<script src="/static/plugins/Semantic-UI-CSS/semantic.js"></script>-->
+    <script src="/static/plugins/Semantic-UI-CSS/semantic.min.js"></script>
+
+    <script src="/static/js/sweetalert2@8.js"></script>
+
+    <!-- Custom scroll bar Js-->
+    <script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+    <!-- Custom Js-->
+    <script src="/static/js/custom.js"></script>
+
+
+    <script src="/static/js/campaign.js"></script>
+
+ <script>
+ window.brands = [];
+
+    db.backdata.get('drug_references', function (dref){
+
+    for (let i = 0; i < dref.data.length; i++) {
+
+        window.brands.push({
+        title: dref.data[i].name,
+    });
+}
+
+
+
+})
+
+
+db.ubrands.count(function (count) {
+    // console.log(count)
+    var abrands =[]
+    for (let i = 0; i < count; i++) {
+        db.ubrands.get(i+1, function (item) {
+            abrands.push({title:item.things.brand_name})
+            // console.log(abrands)
+            var array3 = brands.concat(abrands);
+// console.log(array3)
+            $('.brand').search({
+    source : array3,
+    searchFields   : [
+      'title'
+    ],
+    // fullTextSearch: true,
+     error : {noResults   : "<button href='#' data-toggle='modal' data-target='#helpModal' class='btn btn-primary'>Add Reference</button>"}
+
+  });
+
+        })
+        // window.brands.push({title:rands[i].things.brand_name})
+        // window.brands.push({title:rands.things.brand_name})
+    }
+
+    $('.brand').search({
+    source : window.brands,
+    searchFields   : [
+      'title'
+    ],
+    fullTextSearch: false,
+     error : {noResults   : "<button href='#' data-toggle='modal' data-target='#helpModal' class='btn btn-primary'>Add Reference</button>"}
+
+  });
+
+})
+
+//   console.log(window.brands)
+  window.inns = [];
+// $('.rf').on('input', function() {
+
+
+
+db.backdata.get('inns', function (innss){
+
+    for (let i = 0; i < innss.data.length; i++) {
+
+        window.inns.push({
+        title: innss.data[i].inn,
+    });
+}
+// console.log(window.inns)
+
+ $('.inn').search({
+    source : window.inns,
+    searchFields   : [
+      'title'
+    ],
+    fullTextSearch: true,
+    error : {noResults   : "<button href='#' data-toggle='modal' data-target='#innModal' class='btn btn-primary'>Add Inn</button>"}
+  });
+})
+
+
+
+ db.backdata.get('district_standards', function (standards){
+
+    for (let i = 0; i < standards.data.length; i++) {
+        $('#dss').append($('<option>', {
+        value: standards.data[i].name,
+        text : standards.data[i].name
+    }));
+}
+})
+
+        window.baskIds = []
+        function saveOb() {
+            var session_name = localStorage.getItem('currsession')
+
+
+
+Swal.fire({
+  title: 'Are you sure you have finished?',
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, I have!',
+  cancelButtonText: 'No, I forgot something!',
+}).then((result) => {
+  if (result.value) {
+    todb(session_name)
+  }
+})
+
+
+
+        }
+
+        function arrayUnique(array) {
+    var a = array.concat();
+    for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+            if(a[i] === a[j])
+                a.splice(j--, 1);
+        }
+    }
+
+    return a;
+}
+
+        function todb(session_name) {
+            db.sessions.where('session_name').equals(session_name).modify({date_finished: new Date().toLocaleString()}).then(result => {
+                $('body')
+                    .toast({
+                        title: 'Success',
+
+                        message: 'Your Observation Session is Safe !',
+                        class: 'orange',
+                        className: {
+                            toast: 'ui big message'
+                        }
+                    });
+                localStorage.removeItem("baskCounter")
+                localStorage.removeItem("currsession")
+                window.location.href = "/campaigns/new-session/"
+
+
+            }).catch(error => {
+                console.log("Error: " + error);
+            });
+        }
+
+
+
+        function collectForm() {
+            myForm = document.getElementById("basketForm");
+
+            var saved = "first";
+            let formData = new FormData(myForm);
+            var myarray = [];
+            var big = {}
+            var info = {};
+            //This will build the form from name, value pairs
+
+            for (var pair of formData.entries()) {
+                var str = pair[0]
+                var res = str.substring(0, 5);
+                if (window.specials.includes(res)) {
+                    if (saved === res) {
+                        var key = (pair[0]).replace(res, "")
+                        info[key] = pair[1]
+                    }
+                    else {
+                        myarray.push(info)
+                        var info = {};
+                        var key = (pair[0]).replace(res, "")
+                        info[key] = pair[1]
+                        saved = (pair[0]).substring(0, 5);
+                    }
+                } else {
+                    big[pair[0]] = pair[1]
+                }
+            }
+            myarray.push(info)
+            big['drugs'] = myarray
+
+            let session_name = localStorage.getItem("currsession")
+            console.log(big)
+            db.baskets.add({ basket: big, date_saved: new Date().toLocaleString(), status: "Local", session_name: session_name }); // insert
+            var n = localStorage.getItem('baskCounter');
+            if (n === null) {
+                n = 1;
+            } else {
+                n++;
+            }
+            localStorage.setItem("baskCounter", n);
+
+            db.baskets.toArray(basket => {
+                let usession = basket
+                window.baskIds.push(usession[usession.length - 1].id)
+                db.sessions.get(session_name, function(item){
+                    let counterx = localStorage.getItem('baskCounter');
+                    let session_name = localStorage.getItem("currsession")
+                    let baskIdsO = arrayUnique(item.baskIds.concat(window.baskIds))
+                    db.sessions.where('session_name').equals(session_name).modify({baskIds:baskIdsO, basket_count:counterx})
+                    })
+
+            });
+            $('body')
+                .toast({
+                    title: 'Success',
+
+                    message: 'Your Basket is Safe !',
+                    class: 'orange',
+                    className: {
+                        toast: 'ui big message'
+                    }
+                });
+            // location.reload();
+            $('#basketForm').form('clear')
+            $('#drugs').empty()
+        }
+
+
+
+
+
+    </script>
+
+
+    <script>
+        window.specials = ['first']
+        function makeid(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+
+
+        function addDrugForm() {
+            var id = makeid(5)
+            window.specials.push(id)
+            $("#drugs").append(`<div class="animated slideInUp" id="` + id + `">
 			<div class="ui secondary segment">
+			<button onclick="removeDrugForm('`+ id + `')" class="ui left floated red button">Remove</button><hr>
+                    <div class="fields">
+                        <div class="field">
+                            <label>Who started the request?</label>
+                            <select name="`+ id + `initial_request" class="ui compact dropdown">
+                                <option value="">Choose One</option>
+                                <option value="brand patient">brand patient</option>
+                                <option value="brand prescription">brand prescription</option>
+                                <option value="inn patient">inn patient</option>
+                                <option value="inn prescription">inn prescription</option>
+                            </select>
+                            <input name="`+ id + `basket" type="text" value="" hidden>
+                        </div>
 
-				<button onclick="removeDrugForm('`+ id + `')" class="ui left floated red button">Remove</button><hr>
-					<div class="fields">
-						<div class="field">
-							<label>Who started the request?</label>
-							<select name="`+ id + `request_starter" class="ui compact dropdown">
-								<option value="">Choose One</option>
-								<option value="brand patient">brand patient</option>
-								<option value="brand prescription">brand prescription</option>
-								<option value="inn patient">inn patient</option>
-								<option value="inn prescription">inn prescription</option>
-							</select>
-						</div>
-
-						<div class="field">
-							<label>Who makes the final selection for the purchased product?</label>
-							<select id ="`+ id + `-sale-driver" name="` + id + `sale_driver" class="ui dropdown" >
-								<option value="">Choose One</option>
-								<option value="Patient">Patient</option>
-								<option value="Pharmacist">Pharmacist</option>
-								<option value="Prescriber">Prescriber</option>
-							</select>
-						</div>
-
-
-						<div class="fields">
-							<div class="field">
-								<label>Was there a switch?</label>
-								<select name="`+ id + `switched" class="ui compact dropdown "" >
-									<option value="">Choose</option>
-									<option value="Yes">Yes</option>
-									<option value="No">No</option>
-								</select>
-							</div>
-
-							<div class="field">
-								<label>Was there a leak?</label>
-								<select name="`+ id + `leaked" class="ui compact dropdown"
-									>
-									<option value="">Choose</option>
-									<option value="Yes">Yes</option>
-									<option value="No">No</option>
-								</select>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="fields">
-						<div class="field">
-							<label>Brand name of drug that has been sold</label>
-							<div class="ui input">
-								<input name="`+ id + `drug_sold" type="text" maxlength="200" >
-							</div>
-						</div>
-
-						<div class="field">
-							<label>What product was switched or leaked?</label>
-							<div class="ui input">
-								<input name="`+ id + `drug_switched_leaked" type="text" maxlength="200" >
-							</div>
-						</div>
-
-						<div class="field">
-							<label>Was the whole box sold? How was it divided?</label>
-							<select name="`+ id + `division" class="ui dropdown" >
-								<option value="">Choose One</option>
-								<option value="unit">unit</option>
-								<option value="blister">blister</option>
-								<option value="box">box</option>
-								<option value="blister+unit">blister+unit</option>
-								<option value="box+unit">box+unit</option>
-								<option value="box+blister">box+blister</option>
-							</select>
-						</div>
+                        <div class="field">
+                            <label>Who makes the final selection for the purchased product?</label>
+                            <select name="`+ id + `sale_driver" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Patient">Patient</option>
+                                <option value="Pharmacist">Pharmacist</option>
+                                <option value="Prescriber">Prescriber</option>
+                            </select>
+                        </div>
 
 
-					</div>
+                        <div class="fields">
+                            <div class="field ` + id + `switchy">
+                                <label>Was there a switch?</label>
+                                <select id="`+ id + `switchselect" name="`+ id + `switched" class="ui compact dropdown ` + id + `switchy-field">
+                                    <option value="">Choose</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
 
-					<div class="fields">
-						<div class="field">
-							<label>Why was there a switch or a leak?</label>
-							<select switchleak-reason" name="`+ id + `switchleak_reason" class="ui dropdown" >
-								<option value="">Choose One</option>
-								<option value="Not available">Not available</option>
-								<option value="Price">Price</option>
-								<option value="Therapeutic Reason">Therapeutic Reason</option>
-								<option value="Other Reason">Other Reason</option>
-							</select>
-						</div>
+                            <div id="leakedfield" class="field ` + id + `leaky">
+                                <label>Was there a leak?</label>
+                                <select id="`+ id + `leaked" name="`+ id + `leaked" class="ui compact dropdown ` + id + `leaky-field" aria-describedby="leaked-hint ">
+                                    <option value="">Choose</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
 
-						<div class="field">
-							<label>What form of drug was sold? liquid,tablet?</label>
-							<select name="`+ id + `form_sold" class="ui search dropdown" >
-								<option value="">Choose One</option>
-								<option value="3">Capsule</option>
-								<option value="7">Cream</option>
-								<option value="14">Ear drop</option>
-								<option value="15">Eye drop</option>
-								<option value="9">Gel</option>
-								<option value="12">Inhaler</option>
-								<option value="6">Injection</option>
-								<option value="8">Ointment</option>
-								<option value="10">Patch</option>
-								<option value="13">Pessary</option>
-								<option value="16">Powder</option>
-								<option value="11">Spray</option>
-								<option value="1">Suppositories</option>
-								<option value="4">Suspension</option>
-								<option value="5">Syrup</option>
-								<option value="2">Tablet</option>
-							</select>
-						</div>
+                    </div>
+
+                    <div class="fields">
+                        <div id="`+ id + `drug_sold_field" class="field ` + id + `product-sold" style="display:block">
+                            <label>Brand name of drug that has been sold</label>
+                            <div class="ui search brand">
+                              <div class="ui input">
+                                <input class="prompt" name="`+ id + `drug_sold" type="text" placeholder="Get brands">  </div>
+                              <div class="results"></div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>What product was switched or leaked?</label>
+                             <div class="ui search brand">
+                              <div class="ui input">
+                                <input class="prompt" name="`+ id + `product_switched_or_leaked" type="text" placeholder="Get brands">  </div>
+                              <div class="results"></div>
+                            </div>
+                        </div>
+
+                        <div class="field ` + id + `division-sold">
+                            <label>Was the whole box sold? How was it divided?</label>
+                            <select name="`+ id + `division" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="unit">unit</option>
+                                <option value="blister">blister</option>
+                                <option value="box">box</option>
+                                <option value="blister+unit">blister+unit</option>
+                                <option value="box+unit">box+unit</option>
+                                <option value="box+blister">box+blister</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="fields">
+                        <div class="field">
+                            <label>Why was there a switch or a leak?</label>
+                            <select name="`+ id + `reason_for_switch_or_leak" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Not available">Not available</option>
+                                <option value="Price">Price</option>
+                                <option value="Therapeutic Reason">Therapeutic Reason</option>
+                                <option value="Other Reason">Other Reason</option>
+                            </select>
+                        </div>
+
+                        <div class="field ` + id + `form-sold">
+                            <label>What form of drug was sold? liquid,tablet?</label>
+                            <select name="`+ id + `form_sold" class="ui search dropdown">
+                                <option value="">Choose One</option>
+                                <option value=3>Capsule</option>
+                                <option value=7>Cream</option>
+                                <option value=14>Ear drop</option>
+                                <option value=15>Eye drop</option>
+                                <option value=9>Gel</option>
+                                <option value=12>Inhaler</option>
+                                <option value=6>Injection</option>
+                                <option value=8>Ointment</option>
+                                <option value=10>Patch</option>
+                                <option value=13>Pessary</option>
+                                <option value=16>Powder</option>
+                                <option value=11>Spray</option>
+                                <option value=1>Suppositories</option>
+                                <option value=4>Suspension</option>
+                                <option value=5>Syrup</option>
+                                <option value=2>Tablet</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
 
 					</div>
 				</div></div>`);
-			$('#drugs .ui.dropdown')
-				.dropdown({ on: 'click' });
+            $('#drugs .ui.dropdown')
+                .dropdown({ on: 'click' });
+
+
+                $('.'+ id +'switchy-field').on('change', function(e) {
+    if(e.target.value == "Yes"){
+        $('.'+ id +'leaky-field').dropdown('set selected', "No");
+        $("."+ id +"leaky").attr('hidden',true);
+    }else{
+        $('.'+ id +'leaky-field').dropdown('set selected', "Yes");
+        $("."+ id +"switchy").attr('hidden',true);
+        $("."+ id +"leaky").attr('hidden',false);
+    }
+    });
+
+$('.'+ id +'leaky-field').on('change', function(e) {
+
+    if(e.target.value == "Yes"){
+        $('.'+ id +'switchy-field').dropdown('set selected', "No");
+        $("."+ id +"switchy").attr('hidden',true);
+        $("."+ id +"division-sold").attr('hidden',true);
+        $("."+ id +"form-sold").attr('hidden',true);
+        $("."+ id +"product-sold").attr('hidden',true);
+
+    }else{
+        $('.'+ id +'switchy-field').dropdown('set selected', "Yes");
+        $("."+ id +"leaky").attr('hidden',true);
+        $("."+ id +"switchy").attr('hidden',false);
+        $("."+ id +"product-sold").attr('hidden',false);
+        $("."+ id +"form-sold").attr('hidden',false);
+        $("."+ id +"division-sold").attr('hidden',false);
+    }
+    });
+
+
+window.brands = [];
+
+    db.backdata.get('drug_references', function (dref){
+
+    for (let i = 0; i < dref.data.length; i++) {
+
+        window.brands.push({
+        title: dref.data[i].name,
+    });
+}
+
+
+
+})
+
+
+db.ubrands.count(function (count) {
+    console.log(count)
+    var abrands =[]
+    for (let i = 0; i < count; i++) {
+        db.ubrands.get(i+1, function (item) {
+            abrands.push({title:item.things.brand_name})
+            console.log(abrands)
+            var array3 = brands.concat(abrands);
+console.log(array3)
+            $('.brand').search({
+    source : array3,
+    searchFields   : [
+      'title'
+    ],
+    // fullTextSearch: true,
+     error : {noResults   : "<button href='#' data-toggle='modal' data-target='#helpModal' class='btn btn-primary'>Add Reference</button>"}
+
+  });
+
+        })
+        // window.brands.push({title:rands[i].things.brand_name})
+        // window.brands.push({title:rands.things.brand_name})
+    }
+
+    $('.brand').search({
+    source : window.brands,
+    searchFields   : [
+      'title'
+    ],
+    fullTextSearch: false,
+     error : {noResults   : "<button href='#' data-toggle='modal' data-target='#helpModal' class='btn btn-primary'>Add Reference</button>"}
+
+  });
+
+})
+
+  console.log(window.brands)
+  window.inns = [];
+
+
+db.backdata.get('inns', function (innss){
+
+    for (let i = 0; i < innss.data.length; i++) {
+
+        window.inns.push({
+        title: innss.data[i].inn,
+    });
+}
+// console.log(window.inns)
+
+ $('.inn').search({
+    source : window.inns,
+    searchFields   : [
+      'title'
+    ],
+    fullTextSearch: true,
+    error : {noResults   : "<button href='#' data-toggle='modal' data-target='#innModal' class='btn btn-primary'>Add Inn</button>"}
+  });
+})
 
 
 
 
 
 
-		}
-		function removeDrugForm(id) {
-			$("#" + id).transition('fade')
-				.remove();
-			// document.getElementById(id).style.display = "none"
-		}
-
-		function submitForm() {
+        }
+        function removeDrugForm(id) {
+            $("#" + id).transition('fade').remove();
+        }
 
 
+        function addBrand(){
+            var things = $('#add-brand-form').form('get values')
+            console.log(things)
+               $('body')
+                .toast({
+                    title: 'Success',
+                    message: 'Reference added',
+                    class: 'orange',
+                    className: {
+                        toast:'ui big message'
+                    }
+                });
+            var obj = {title:things.brand_name}
+             window.brands.push(obj)
+             db.ubrands.add({things:things})
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+            $('.ui.search.brand').removeClass("search");
+             $('.ui.brand').addClass("search");
+              $('.brand').search({
+                source : window.brands,
+                searchFields   : [
+                  'title'
+                ],
+                fullTextSearch:true,
+                error : {noResults : "<button href='#' data-toggle='modal' data-target='#helpModal' class='btn btn-primary'>Add Reference</button>"}
+              });
+            // $("#helpModal").modal('hide');
+        }
 
-			const data = collectForm()
-			// Make a request to add our newItem object to the object store
-			/*var objectStoreRequest = basketStore.add(big);
+        function addInn(){
+            var things = $('#add-inn-form').form('get values')
+            console.log(things)
+db.uinns.add({things:things})
+$('#add-inn-form').form('clear');
+              // we update references here with the new reference brought in
+             var obj = {title:things.inn}
+             window.inns.push(obj)
+             console.log(window.inns)
+             $('.ui.search.inn').removeClass("search");
+             $('.ui.inn').addClass("search");
+              $('.inn').search({
+                source : window.inns,
+                searchFields   : [
+                  'title'
+                ],
+                fullTextSearch:true,
+                error : {noResults : "<button href='#' data-toggle='modal' data-target='#innModal' class='btn btn-primary'>Add Inn</button>"}
+              });
+            $("#innModal").modal('hide');
+            $("#brand-inn").val("");
 
-			objectStoreRequest.onsuccess = function (event) {
-				// report the success of our request
-				function toast(msg, time) {
-					var x = document.getElementById("snackbar");
 
-					x.innerHTML += '<p>successful.</p>' = msg;
-					x.className = "show";
-					setTimeout(function () { x.className = x.className.replace("show", ""); }, time);
-				}
-			}*/
-		}
-	</script>
+        }
+
+function exists(ele){
+    if (ele !== null && ele !== undefined){return true}else{return false}
+}
+$('.switchy-field').on('change', function(e) {
+    if(e.target.value == "Yes"){
+        $(".leaky").attr('hidden',true);
+    }else{
+        $(".switchy").attr('hidden',true);
+        $(".leaky").attr('hidden',false);
+    }
+    });
+
+$('.leaky-field').on('change', function(e) {
+
+    if(e.target.value == "Yes"){
+        $(".switchy").attr('hidden',true);
+        $(".division-sold").attr('hidden',true);
+        $(".form-sold").attr('hidden',true);
+        $(".product-sold").attr('hidden',true);
+
+    }else{
+        $(".leaky").attr('hidden',true);
+        $(".switchy").attr('hidden',false);
+        $(".product-sold").attr('hidden',false);
+        $(".form-sold").attr('hidden',false);
+        $(".division-sold").attr('hidden',false);
+    }
+    });
+    </script>
+    <script src="https://observe.pywe.org/static/js/axios.min.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--  meta tags -->
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta name="google-site-verification" content="">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Title -->
+    <title>POP Ghana | Edit Basket</title>
+
+    <script src="/static/plugins/dexie/dexie.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Animate Css-->
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <!-- Dashboard Css -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+
+    <!-- Font-awesome  Css -->
+    <link href="/static/css/icons.css" rel="stylesheet" />
+
+    <!--Horizontal Menu-->
+    <link href="/static/plugins/horizontal/horizontal-menu/animation/fade-down.css" rel="stylesheet" />
+    <link href="/static/plugins/horizontal/horizontal-menu/horizontal.css" rel="stylesheet" />
+
+    <!--Select2 Plugin -->
+    <link href="/static/plugins/select2/select2.min.css" rel="stylesheet" />
+
+    <!-- Owl Theme css-->
+    <link href="/static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+    <!-- Cookie css -->
+    <link href="/static/plugins/cookie/cookie.css" rel="stylesheet">
+
+    <!-- Custom scroll bar css-->
+    <link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    <!-- COLOR-SKINS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+    <link href="https://www.pywe.org/static/css/animate.css" rel="stylesheet" />
+
+    <!--Semantic UI css-->
+    <link rel="stylesheet" href="/static/plugins/Semantic-UI-CSS/semantic.min.css">
+
+</head>
+
+<body onload="initForm();">
+
+
+    <!--Sliders Section-->
+    <section>
+        <div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+            <div class="header-text mb-0">
+                <div class="container">
+                    <div class="text-center text-white">
+                        <h1>Edit Basket</h1>
+
+                        <ol class="breadcrumb text-center">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/campaigns/observation-session/">Observation
+                                    Session</a>
+                            </li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Edit Basket</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Sliders Section-->
+
+    <!--Patient data-section-->
+    <br><br>
+    <div id="basket" class="ui container">
+        <form id="basketForm" method="dialog" class="ui form">
+
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Patient</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class="fields">
+                        <div class="field">
+                            <label>Insurance scheme</label>
+                            <select id="insurance" name="insurance" class="ui clearable selection dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Private Insurance">Private Insurance</option>
+                                <option value="Public Insurance">Public Insurance</option>
+                                <option value="No Insurance">No Insurance</option>
+                                <option value="Undetermined">Undetermined</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Gender</label>
+                            <select id="Gender" name="Gender" class="ui clearable selection dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Age</label>
+                            <div class="ui right labeled input">
+                                <input id="Age" name="Age" type="number" placeholder="Patient Age" min="5">
+                                <div class="ui basic label">
+                                    yrs
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Drug</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class="fields">
+                        <div class="field">
+                            <label>Who started the request?</label>
+                            <select id="firstrequest_starter" name="firstinitial_request"
+                                class="ui compact clearable selection dropdown">
+                                <option value="">Choose One</option>
+                                <option value="brand patient">brand patient</option>
+                                <option value="brand prescription">brand prescription</option>
+                                <option value="inn patient">inn patient</option>
+                                <option value="inn prescription">inn prescription</option>
+                            </select>
+                            <input name="basket" type="text" value="" hidden>
+                        </div>
+
+                        <div class="field">
+                            <label>Who makes the final selection for the purchased product?</label>
+                            <select id="firstsale_driver" name="firstsale_driver"
+                                class="ui clearable selection dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Patient">Patient</option>
+                                <option value="Pharmacist">Pharmacist</option>
+                                <option value="Prescriber">Prescriber</option>
+                            </select>
+                        </div>
+
+
+                        <div class="fields">
+                            <div class="field switchy">
+                                <label>Was there a switch?</label>
+                                <select id="firstswitched" name="firstswitched"
+                                    class="ui compact clearable selection dropdown switchy-field">
+                                    <option value="">Choose</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+
+                            <div id="leakedfield" class="field leaky">
+                                <label>Was there a leak?</label>
+                                <select id="firstleaked" name="firstleaked"
+                                    class="ui compact clearable selection dropdown leaky-field" aria-describedby="leaked-hint ">
+                                    <option value="">Choose</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="fields">
+                        <div id="drug_sold_field" class="field product-sold" style="display:block">
+                            <label>Brand name of drug that has been sold</label>
+                            <div class="ui input">
+                                <input id="firstdrug_sold" name="firstdrug_sold" type="text" maxlength="200">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>What product was switched or leaked?</label>
+                            <div class="ui input">
+                                <input id="firstdrug_switched_leaked" name="firstproduct_switched_or_leaked" type="text"
+                                    maxlength="200">
+                            </div>
+                        </div>
+
+                        <div class="field division-sold">
+                            <label>Was the whole box sold? How was it divided?</label>
+                            <select id="firstdivision" name="firstdivision" class="ui clearable selection dropdown">
+                                <option value="">Choose One</option>
+                                <option value="unit">unit</option>
+                                <option value="blister">blister</option>
+                                <option value="box">box</option>
+                                <option value="blister+unit">blister+unit</option>
+                                <option value="box+unit">box+unit</option>
+                                <option value="box+blister">box+blister</option>
+                            </select>
+                        </div>
+
+
+                    </div id>
+
+                    <div class="fields">
+                        <div class="field">
+                            <label>Why was there a switch or a leak?</label>
+                            <select id="firstswitchleak_reason" name="firstreason_for_switch_or_leak"
+                                class="ui clearable selection dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Not available">Not available</option>
+                                <option value="Price">Price</option>
+                                <option value="Therapeutic Reason">Therapeutic Reason</option>
+                                <option value="Other Reason">Other Reason</option>
+                            </select>
+                        </div>
+
+                        <div class="field form-sold">
+                            <label>What form of drug was sold? liquid,tablet?</label>
+                            <select id="firstform_sold" name="firstform_sold"
+                                class="ui search clearable selection dropdown">
+                                <option value="">Choose One</option>
+                                <option value=3>Capsule</option>
+                                <option value=7>Cream</option>
+                                <option value=14>Ear drop</option>
+                                <option value=15>Eye drop</option>
+                                <option value=9>Gel</option>
+                                <option value=12>Inhaler</option>
+                                <option value=6>Injection</option>
+                                <option value=8>Ointment</option>
+                                <option value=10>Patch</option>
+                                <option value=13>Pessary</option>
+                                <option value=16>Powder</option>
+                                <option value=11>Spray</option>
+                                <option value="1">Suppositories</option>
+                                <option value=4>Suspension</option>
+                                <option value=5>Syrup</option>
+                                <option value=2>Tablet</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="drugs"></div>
+
+                <div class="ui segment">
+                    <!--<button class="ui labeled icon button" onclick="addDrugForm()">-->
+                    <!--	<i class="plus icon"></i>-->
+                    <!--	Add Another Drug-->
+                    <!--</button>-->
+                    <button type="submit" onclick="collectForm()" class="ui labeled icon button">
+                        Save Basket <i class="icon save right"></i>
+                    </button>
+                </div>
+            </div>
+    </div>
+
+    <div class="ui horizontal divider">
+        <!--<button type="submit" onclick="saveOb()" class="positive ui big submit button">-->
+        <!--	Finish <i class="icon arrow right"></i>-->
+        <!--</button>-->
+        <!--<span class="grayed" style="display: none;">-->
+        <!--	<i class="ui wait icon"></i>-->
+        <!--	Saving.. </span>-->
+    </div>
+    </form>
+    </div>
+
+
+    </section>
+    <!--/Job posts-section-->
+
+    <script src="https://www.pywe.org/static/js/jquery.min.js"></script>
+
+    <script>
+        window.specials = ['first']
+
+        function collectForm() {
+            myForm = document.getElementById("basketForm");
+
+            var saved = "first";
+            let formData = new FormData(myForm);
+            var myarray = [];
+            var big = {}
+            var info = {};
+            //This will build the form from name, value pairs
+
+            for (var pair of formData.entries()) {
+                var str = pair[0]
+                var res = str.substring(0, 5);
+                if (window.specials.includes(res)) {
+                    if (saved === res) {
+                        var key = (pair[0]).replace(res, "")
+                        info[key] = pair[1]
+                    }
+                    else {
+                        myarray.push(info)
+                        var info = {};
+                        var key = (pair[0]).replace(res, "")
+                        info[key] = pair[1]
+                        saved = (pair[0]).substring(0, 5);
+                    }
+                } else {
+                    big[pair[0]] = pair[1]
+                }
+            }
+            myarray.push(info)
+            big['drugs'] = myarray
+            // 			console.log('Saved Basket')
+
+            let em = parseInt(localStorage.getItem('editBask'))
+
+            db.baskets.get(em, function (et) {
+                // console.log(et)
+                et.basket = big;
+
+                db.baskets.put(et);
+            });
+
+
+            // 			db.baskets.where('id').equals(em).modify({basket: big});
+
+            $('body')
+                .toast({
+                    title: 'Success',
+
+                    message: 'Your Basket has been Updated !',
+                    class: 'orange',
+                    className: {
+                        toast: 'ui big message'
+                    }
+                });
+            window.location.href = "/campaigns/edit-session/"
+        }
+
+
+
+
+
+    </script>
+
+    <!-- more -->
+
+    <nav class="fab-container">
+        <a id="litbut" href="/campaigns/lockscreen" class="buttons"><i class="fa fa-share"></i></a>
+        <a id="litbut" href="/campaigns/observation-session" class="buttons"><i class="fa fa-eye"></i></a>
+        <a id="litbut" href="/campaigns/edit-pharmacy" class="buttons"><i class="fa fa-pencil"></i></a>
+
+        <a id="more"><i class="fa fa-plus"></i></a>
+
+    </nav>
+
+
+    <!-- Back to top -->
+    <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JQuery js-->
+    <script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
+
+
+
+    <!--Semantic js-->
+    <!--<script src="/static/plugins/Semantic-UI-CSS/semantic.js"></script>-->
+    <script src="/static/plugins/Semantic-UI-CSS/semantic.min.js"></script>
+
+    <!-- Cookie js -->
+    <script src="/static/plugins/cookie/jquery.ihavecookies.js"></script>
+    <script src="/static/plugins/cookie/cookie.js"></script>
+
+    <!-- Count Down-->
+    <script src="/static/plugins/count-down/jquery.lwtCountdown-1.0.js"></script>
+
+    <!-- Ion.RangeSlider -->
+    <script src="/static/plugins/jquery-uislider/jquery-ui.js"></script>
+
+    <!-- Custom scroll bar Js-->
+    <script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+    <!-- Custom Js-->
+    <script src="/static/js/custom.js"></script>
+
+
+    <script src="/static/js/campaign.js"></script>
+
+
+    <script>
+
+
+        function initForm() {
+            var session_name = localStorage.getItem('editItem')
+            var baskId = parseInt(localStorage.getItem('editBask'))
+            console.log(baskId)
+            db.baskets.get(baskId, function (bask) {
+                localStorage.setItem("baskLen", bask.basket.drugs.length)
+                console.log(bask.basket.insurance)
+                if (bask.basket.Gender !== "") {
+                    $("#Gender option:contains(" + bask.basket.Gender + ")").attr('selected', true).trigger('change');
+                }
+                if (bask.basket.insurance !== "") {
+                    $("#insurance option:contains(" + bask.basket.insurance + ")").attr('selected', true).trigger('change');
+                }
+                if (bask.basket.Age !== "") {
+                    document.forms[0].elements["Age"].value = bask.basket.Age
+                }
+
+
+                if (bask.basket.drugs.length == 1) {
+                    if (bask.basket.drugs[0].initial_request !== "") {
+                        $("#firstrequest_starter option:contains(" + bask.basket.drugs[0].initial_request + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].sale_driver !== "") {
+                        $("#firstsale_driver option:contains(" + bask.basket.drugs[0].sale_driver + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].switched !== "") {
+                        $("#firstswitched option:contains(" + bask.basket.drugs[0].switched + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].leaked !== "") {
+                        $("#firstleaked option:contains(" + bask.basket.drugs[0].leaked + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].division !== "") {
+                        $("#firstdivision option:contains(" + bask.basket.drugs[0].division + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].drug_sold !== "") {
+                        document.forms[0].elements["firstdrug_sold"].value = bask.basket.drugs[0].drug_sold
+                    }
+                    if (bask.basket.drugs[0].product_switched_or_leaked !== "") {
+                        document.forms[0].elements["firstdrug_switched_leaked"].value = bask.basket.drugs[0].product_switched_or_leaked
+                    }
+                    if (bask.basket.drugs[0].reason_for_switch_or_leak !== "") {
+                        $("#firstswitchleak_reason option:contains(" + bask.basket.drugs[0].reason_for_switch_or_leak + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].form_sold !== "") {
+                        $('#firstform_sold').dropdown('set selected', bask.basket.drugs[0].form_sold);
+                        // $("#firstform_sold option:contains(" + bask.basket.drugs[0].form_sold + ")").attr('selected', true).trigger('change');
+                    }
+                }
+                else {
+
+                    if (bask.basket.drugs[0].initial_request !== "") {
+                        $("#firstrequest_starter option:contains(" + bask.basket.drugs[0].initial_request + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].sale_driver !== "") {
+                        $("#firstsale_driver option:contains(" + bask.basket.drugs[0].sale_driver + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].switched !== "") {
+                        $("#firstswitched option:contains(" + bask.basket.drugs[0].switched + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].leaked !== "") {
+                        $("#firstleaked option:contains(" + bask.basket.drugs[0].leaked + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].division !== "") {
+                        $("#firstdivision option:contains(" + bask.basket.drugs[0].division + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].drug_sold !== "") {
+                        document.forms[0].elements["firstdrug_sold"].value = bask.basket.drugs[0].drug_sold
+                    }
+                    if (bask.basket.drugs[0].product_switched_or_leaked !== "") {
+                        document.forms[0].elements["firstdrug_switched_leaked"].value = bask.basket.drugs[0].product_switched_or_leaked
+                    }
+                    if (bask.basket.drugs[0].reason_for_switch_or_leak !== "") {
+                        $("#firstswitchleak_reason option:contains(" + bask.basket.drugs[0].reason_for_switch_or_leak + ")").attr('selected', true).trigger('change');
+                    }
+                    if (bask.basket.drugs[0].form_sold !== "") {
+                        $('#firstform_sold').dropdown('set selected', bask.basket.drugs[0].form_sold);
+                        // $("#firstform_sold option:contains(" + bask.basket.drugs[0].form_sold + ")").attr('selected', true).trigger('change');
+                    }
+
+
+
+
+                    for (let i = 1; i < localStorage.getItem("baskLen"); i++) {
+                        addDrugForm(i);
+                    }
+
+                    function makeid(length) {
+                        var result = '';
+                        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                        var charactersLength = characters.length;
+                        for (var i = 0; i < length; i++) {
+                            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                        }
+                        return result;
+                    }
+
+
+                    function addDrugForm(i) {
+
+                        var id = makeid(5)
+                        window.specials.push(id)
+
+                        $("#drugs").append(`<div class="animated slideInUp" id="` + id + `">
+			<div class="ui secondary segment">
+
+				<button onclick="removeDrugForm('`+ id + `')" class="ui left floated red button">Remove</button><hr>
+					<div class="fields">
+						<div class="field">
+							<label>Who started the request?</label>
+							<select id ="`+ id + `request_starter" name="` + id + `initial_request" class="ui compact dropdown">
+								<option value="">Choose One</option>
+								<option value="brand patient">brand patient</option>
+								<option value="brand prescription">brand prescription</option>
+								<option value="inn patient">inn patient</option>
+								<option value="inn prescription">inn prescription</option>
+							</select>
+							<input name="` + id + `basket" type="text" value="" hidden>
+						</div>
+
+						<div class="field">
+							<label>Who makes the final selection for the purchased product?</label>
+							<select id ="`+ id + `sale_driver" name="` + id + `sale_driver" class="ui dropdown" >
+								<option value="">Choose One</option>
+								<option value="Patient">Patient</option>
+								<option value="Pharmacist">Pharmacist</option>
+								<option value="Prescriber">Prescriber</option>
+							</select>
+						</div>
+
+
+						<div class="fields">
+							<div class="field `+ id + `switchy">
+								<label>Was there a switch?</label>
+								<select id="`+ id + `switched" name="` + id + `switched" class="ui compact dropdown ` + id + `switchy-field" >
+									<option value="">Choose</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</div>
+
+							<div class="field `+ id + `leaky">
+								<label>Was there a leak?</label>
+								<select id="`+ id + `leaked" name="` + id + `leaked" class="ui compact dropdown ` + id + `leaky-field"
+									>
+									<option value="">Choose</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+								</select>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="fields">
+						<div class="field `+ id + `product-sold">
+							<label>Brand name of drug that has been sold</label>
+							<div class="ui input">
+								<input id="`+ id + `drug_sold" name="` + id + `drug_sold" type="text" maxlength="200" >
+							</div>
+						</div>
+
+						<div class="field">
+							<label>What product was switched or leaked?</label>
+							<div class="ui input">
+								<input id="`+ id + `drug_switched_leaked" name="` + id + `product_switched_or_leaked" type="text" maxlength="200" >
+							</div>
+						</div>
+
+						<div class="field `+ id + `division-sold">
+							<label>Was the whole box sold? How was it divided?</label>
+							<select id="`+ id + `division" name="` + id + `division" class="ui dropdown" >
+								<option value="">Choose One</option>
+								<option value="unit">unit</option>
+								<option value="blister">blister</option>
+								<option value="box">box</option>
+								<option value="blister+unit">blister+unit</option>
+								<option value="box+unit">box+unit</option>
+								<option value="box+blister">box+blister</option>
+							</select>
+						</div>
+
+
+					</div>
+
+					<div class="fields">
+						<div class="field">
+							<label>Why was there a switch or a leak?</label>
+							<select id="`+ id + `switchleak_reason" name="` + id + `reason_for_switch_or_leak" class="ui dropdown" >
+								<option value="">Choose One</option>
+								<option value="Not available">Not available</option>
+								<option value="Price">Price</option>
+								<option value="Therapeutic Reason">Therapeutic Reason</option>
+								<option value="Other Reason">Other Reason</option>
+							</select>
+						</div>
+
+						<div class="field `+ id + `form-sold">
+							<label>What form of drug was sold? liquid,tablet?</label>
+							<select id="`+ id + `form_sold" name="` + id + `form_sold" class="ui search dropdown" >
+								<option value="">Choose One</option>
+								<option value=3>Capsule</option>
+								<option value=7>Cream</option>
+								<option value=14>Ear drop</option>
+								<option value=15>Eye drop</option>
+								<option value=9>Gel</option>
+								<option value=12>Inhaler</option>
+								<option value=6>Injection</option>
+								<option value=8>Ointment</option>
+								<option value=10>Patch</option>
+								<option value=13>Pessary</option>
+								<option value=16>Powder</option>
+								<option value=11>Spray</option>
+								<option value=1>Suppositories</option>
+								<option value=4>Suspension</option>
+								<option value=5>Syrup</option>
+								<option value=2>Tablet</option>
+							</select>
+						</div>
+
+					</div>
+				</div></div>`);
+                        $('#drugs .ui.dropdown')
+                            .dropdown({ on: 'click' });
+
+
+                        if (bask.basket.drugs[i].initial_request !== "") {
+                            $("#" + id + "request_starter option:contains(" + bask.basket.drugs[i].initial_request + ")").attr('selected', true).trigger('change');
+                        }
+                        if (bask.basket.drugs[i].sale_driver !== "") {
+                            $("#" + id + "sale_driver option:contains(" + bask.basket.drugs[i].sale_driver + ")").attr('selected', true).trigger('change');
+                        }
+                        if (bask.basket.drugs[i].switched !== "") {
+                            $("#" + id + "switched option:contains(" + bask.basket.drugs[i].switched + ")").attr('selected', true).trigger('change');
+                        }
+                        if (bask.basket.drugs[i].leaked !== "") {
+                            $("#" + id + "leaked option:contains(" + bask.basket.drugs[i].leaked + ")").attr('selected', true).trigger('change');
+                        }
+                        if (bask.basket.drugs[i].division !== "") {
+                            $("#" + id + "division option:contains(" + bask.basket.drugs[i].division + ")").attr('selected', true).trigger('change');
+                        }
+                        if (bask.basket.drugs[i].drug_sold !== "") {
+                            document.forms[0].elements[id + "drug_sold"].value = bask.basket.drugs[i].drug_sold
+                        }
+                        if (bask.basket.drugs[i].drug_switched_leaked !== "") {
+                            document.forms[0].elements[id + "drug_switched_leaked"].value = bask.basket.drugs[i].product_switched_or_leaked
+                        }
+                        if (bask.basket.drugs[i].reason_for_switch_or_leak !== "") {
+                            $("#" + id + "switchleak_reason option:contains(" + bask.basket.drugs[i].reason_for_switch_or_leak + ")").attr('selected', true).trigger('change');
+                        }
+                        if (bask.basket.drugs[i].form_sold !== "") {
+                        $('#' + id + 'form_sold').dropdown('set selected', bask.basket.drugs[i].form_sold);
+                        // $("#firstform_sold option:contains(" + bask.basket.drugs[0].form_sold + ")").attr('selected', true).trigger('change');
+                    }
+if($('.'+ id +'switchy-field').value == "Yes"){
+        $('.'+ id +'leaky-field').dropdown('set selected', "No");
+        $("."+ id +"leaky").attr('hidden',true);
+    }else{
+        $('.'+ id +'leaky-field').dropdown('set selected', "Yes");
+        $("."+ id +"switchy").attr('hidden',true);
+        $("."+ id +"leaky").attr('hidden',false);
+    }
+
+    if($('.'+ id +'leaky-field').value == "Yes"){
+        $('.'+ id +'switchy-field').dropdown('set selected', "No");
+        $("."+ id +"switchy").attr('hidden',true);
+        $("."+ id +"division-sold").attr('hidden',true);
+        $("."+ id +"form-sold").attr('hidden',true);
+        $("."+ id +"product-sold").attr('hidden',true);
+
+    }else{
+        $('.'+ id +'switchy-field').dropdown('set selected', "Yes");
+        $("."+ id +"leaky").attr('hidden',true);
+        $("."+ id +"switchy").attr('hidden',false);
+        $("."+ id +"product-sold").attr('hidden',false);
+        $("."+ id +"form-sold").attr('hidden',false);
+        $("."+ id +"division-sold").attr('hidden',false);
+    }
+
+                    $('.'+ id +'switchy-field').on('change', function(e) {
+    if(e.target.value == "Yes"){
+        $('.'+ id +'leaky-field').dropdown('set selected', "No");
+        $("."+ id +"leaky").attr('hidden',true);
+    }else{
+        $('.'+ id +'leaky-field').dropdown('set selected', "Yes");
+        $("."+ id +"switchy").attr('hidden',true);
+        $("."+ id +"leaky").attr('hidden',false);
+    }
+    });
+
+$('.'+ id +'leaky-field').on('change', function(e) {
+
+    if(e.target.value == "Yes"){
+        $('.'+ id +'switchy-field').dropdown('set selected', "No");
+        $("."+ id +"switchy").attr('hidden',true);
+        $("."+ id +"division-sold").attr('hidden',true);
+        $("."+ id +"form-sold").attr('hidden',true);
+        $("."+ id +"product-sold").attr('hidden',true);
+
+    }else{
+        $('.'+ id +'switchy-field').dropdown('set selected', "Yes");
+        $("."+ id +"leaky").attr('hidden',true);
+        $("."+ id +"switchy").attr('hidden',false);
+        $("."+ id +"product-sold").attr('hidden',false);
+        $("."+ id +"form-sold").attr('hidden',false);
+        $("."+ id +"division-sold").attr('hidden',false);
+    }
+    });
+
+                    }
+                    function removeDrugForm(id) {
+                        $("#" + id).transition('fade')
+                            .remove();
+                        // document.getElementById(id).style.display = "none"
+                    }
+                }
+            });
+        }
+
+
+
+function exists(ele){
+    if (ele !== null && ele !== undefined){return true}else{return false}
+}
+$('.switchy-field').on('change', function(e) {
+    if(e.target.value == "Yes"){
+        $(".leaky").attr('hidden',true);
+    }else{
+        $(".switchy").attr('hidden',true);
+        $(".leaky").attr('hidden',false);
+    }
+    });
+
+$('.leaky-field').on('change', function(e) {
+
+    if(e.target.value == "Yes"){
+        $(".switchy").attr('hidden',true);
+        $(".division-sold").attr('hidden',true);
+        $(".form-sold").attr('hidden',true);
+        $(".product-sold").attr('hidden',true);
+
+    }else{
+        $(".leaky").attr('hidden',true);
+        $(".switchy").attr('hidden',false);
+        $(".product-sold").attr('hidden',false);
+        $(".form-sold").attr('hidden',false);
+        $(".division-sold").attr('hidden',false);
+    }
+    });
+    </script>
+</body>
+
+</html>

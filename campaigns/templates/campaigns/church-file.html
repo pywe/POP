@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--  meta tags -->
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta name="google-site-verification" content="">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Title -->
+    <title>St Paul’s Parish, Kpehe Children’s Service Database</title>
+    <!-- Bootstrap Css -->
+    <link href="/static/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Animate Css-->
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <!-- Dashboard Css -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+
+    <!-- Font-awesome  Css -->
+    <link href="/static/css/icons.css" rel="stylesheet" />
+
+    <!-- Custom scroll bar css-->
+    <link href="/static/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    <!-- COLOR-SKINS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="/static/color-skins/color-skins/color10.css" />
+    <link href="https://www.pywe.org/static/css/animate.css" rel="stylesheet" />
+
+    <!--Semantic UI css-->
+    <link rel="stylesheet" href="/static/plugins/Semantic-UI-CSS/semantic.min.css">
+
+</head>
+
+<body>
+
+
+    <!--Sliders Section-->
+    <section>
+        <div class="bannerimg cover-image bg-background3" data-image-src="/static/images/banners/banner2.jpg">
+            <div class="header-text mb-0">
+                <div class="container">
+                    <div class="text-center text-white">
+                        <h1>St Paul’s Parish, Kpehe Children’s Service Database</h1>
+
+                        <ol class="breadcrumb text-center">
+                            <li class="breadcrumb-item"><a href="#">Welcome</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <div class="ui container">
+        <form id="smccForm" onsubmit="collectForm()" method="dialog" class="ui form">
+            <img class="ui fluid rounded image" src="/static/images/WhatsApp Image 2020-04-21 at 6.54.48 PM.jpeg">
+<div class="ui big icon message" style="margin: 2em 0">
+                <i class="idea icon"></i>
+                <div class="content"><p>Dear Parents/Guardians, the Priests and Animators of St Paul’s Roman Catholic Church, Kpehe kindly request that you please fill this out to help us reach out to you and your children especially during this lockdown as a result of COVID-19 Pandemic using all available means of Technology.</p></div>
+            </div>
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Parent</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class="field">
+                    <label>Name</label>
+                    <div class="two fields">
+                      <div class="field">
+                        <input type="text" name="Parent_first_name" placeholder="First Name" required>
+                      </div>
+                      <div class="field">
+                        <input type="text" name="Parent_last_name" placeholder="Last Name" required>
+                      </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Call Number</label>
+                            <input name="Parent_call_number"maxlength="14" type="text" placeholder="Number" required>
+                        </div>
+
+                        <div class="field">
+                            <label>Whatsapp Number</label>
+                            <input name="Parent_Whatsapp_Number" maxlength="14" type="text" placeholder="Number">
+                        </div>
+
+                    </div>
+                </div>
+    <div class="field">
+      <label>Residential Location</label>
+      <input name="residential_location" type="text" placeholder="Your answer" required>
+    </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div class="ui segment">
+                    <div class="ui header">Children</div>
+                </div>
+                <div class="ui secondary segment">
+                    <div class=" two fields">
+                       <div class="field">
+      <label>First name</label>
+      <input name="firstfirst_name" type="text" placeholder="First Name" required>
+    </div>
+    <div class="field">
+      <label>Last name</label>
+      <input name="firstlast_name" type="text" placeholder="Last Name" required>
+    </div>
+
+
+                    </div>
+
+                    <div class="four fields">
+                        <div class="field">
+                            <label>Date of Birth</label>
+<div class="ui calendar" id="example1">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input name="firstdob" min="2005-01-01" max="2021-01-01" type="date" placeholder="Date of Birth" required>
+  </div>
+</div>
+                        </div>
+
+                        <div class="field">
+                            <label>Age</label>
+                            <div class="ui right labeled input">
+                                <input name="firstage" type="number" placeholder="Your Answer" min="1" max="15" required>
+                                <div class="ui basic label">
+                                    yrs
+                                </div>
+                            </div>
+                        </div>
+<div class="field">
+                            <label>Which of these classes does your child belong to</label>
+                            <select name="firststage" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="100">100</option>
+                                <option value="200">200</option>
+                                <option value="300">300</option>
+                            </select>
+                        </div>
+<div class="field">
+                            <label>Any Specific Concerns or Information you would like to share with us?</label>
+                            <div class="ui input">
+                                <textarea name="firstconcerns" rows="1"></textarea>
+                            </div>
+                            <input hidden name="parent" type="number">
+                        </div>
+                    </div>
+
+                </div>
+                <div id="child"></div>
+
+                <div class="ui segment">
+                    <button class="ui labeled icon button" onclick="addChildForm()">
+                        <i class="plus icon"></i>
+                        Add Another Child
+                    </button>
+                </div>
+            </div>
+    </div>
+
+    <div class="ui horizontal divider">
+        <button type="submit" class="positive ui big submit button">
+            Submit <i class="icon arrow right"></i>
+        </button>
+        <span class="grayed" style="display: none;">
+            <i class="ui wait icon"></i>
+            Saving.. </span>
+    </div>
+    </form>
+
+    </div>
+
+
+    </section>
+    <script src="https://www.pywe.org/static/js/jquery.min.js"></script>
+    <script src="/static/js/axios.min.js"></script>
+    <script src="/static/js/sweetalert2@8.js"></script>
+
+    <script>
+        function collectForm() {
+            myForm = document.getElementById("smccForm");
+
+            var saved = "first";
+            let formData = new FormData(myForm);
+            var myarray = [];
+            var big = {}
+            var info = {};
+
+            for (var pair of formData.entries()) {
+                var str = pair[0]
+                var res = str.substring(0, 5);
+                if (window.specials.includes(res)) {
+                    if (saved === res) {
+                        var key = (pair[0]).replace(res, "")
+                        info[key] = pair[1]
+                    }
+                    else {
+                        myarray.push(info)
+                        var info = {};
+                        var key = (pair[0]).replace(res, "")
+                        info[key] = pair[1]
+                        saved = (pair[0]).substring(0, 5);
+                    }
+                } else {
+                    big[pair[0]] = pair[1]
+                }
+            }
+            myarray.push(info)
+            big['children'] = myarray
+
+            axios.post('/api/v1/church/create-parent/', {first_name:big.Parent_first_name,last_name:big.Parent_last_name,phone:big.Parent_call_number,whatsapp_phone:big.Parent_Whatsapp_Number,location:big.residential_location})
+          .then(function (response) {
+            sendChildren(response.data.data)
+            function sendChildren(id){
+    for (let i = 0; i < big.children.length; i++) {
+  big.children[i].parent = id
+}
+
+
+          axios.post('/api/v1/church/create-children/', {children:big.children})
+          .then(function (response) {
+          })
+          .catch(function (error) {
+              Swal.fire({
+              icon: 'error',
+              title: 'Sorry',
+              text: 'Something went wrong, Please try Again',
+            })
+              function exists(ele) {
+                if (ele !== null && ele !== undefined) {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            if (exists(error.response)){
+                console.log(error.response.data)
+            }
+          });
+
+}
+
+          })
+          .catch(function (error) {
+            console.log(error);
+            Swal.fire({
+              icon: 'error',
+              title: 'Sorry',
+              text: 'Something went wrong, Please try Again',
+            })
+          });
+
+
+            Swal.fire({
+              type: 'success',
+              title: 'Submitted Successfully',
+              text: 'Thanks for your Time, You can close this page.',
+              allowOutsideClick: false
+            })
+            $('#smccForm').form('clear')
+            $('#child').empty()
+        }
+
+
+
+
+
+    </script>
+
+
+
+    <!-- Back to top -->
+    <a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JQuery js-->
+    <script src="/static/js/vendors/jquery-3.2.1.min.js"></script>
+
+
+
+    <!--Semantic js-->
+    <!--<script src="/static/plugins/Semantic-UI-CSS/semantic.js"></script>-->
+    <script src="/static/plugins/Semantic-UI-CSS/semantic.min.js"></script>
+
+    <!-- Custom scroll bar Js-->
+    <script src="/static/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+    <!-- Custom Js-->
+    <script src="/static/js/custom.js"></script>
+
+
+
+    <script>
+        window.specials = ['first']
+        function makeid(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+
+
+        function addChildForm() {
+            var id = makeid(5)
+            window.specials.push(id)
+            $("#child").append(`<div class="animated slideInUp" id="` + id + `">
+            <div class="ui secondary segment">
+            <button onclick="removeChildForm('`+ id + `')" class="ui left floated red button">Remove</button><hr>
+                    <div class=" two fields">
+                       <div class="field">
+      <label>First name</label>
+      <input id="`+ id + `first_name" name="`+ id + `first_name" type="text" placeholder="First Name" required>
+    </div>
+    <div class="field">
+      <label>Last name</label>
+      <input name="`+ id + `last_name" type="text" placeholder="Last Name" required>
+    </div>
+
+
+                    </div>
+
+                    <div class="five fields">
+                        <div class="field">
+                            <label>Date of Birth</label>
+<div class="ui calendar" id="example1">
+  <div class="ui input left icon">
+    <i class="calendar icon"></i>
+    <input name="`+ id + `dob" min="2005-01-01" max="2021-01-01" type="date" placeholder="Date of Birth" required>
+  </div>
+</div>
+                        </div>
+
+                        <div class="field">
+                            <label>Age</label>
+                            <div class="ui right labeled input">
+                                <input name="`+ id + `age" type="number" placeholder="Your Answer" min="0" max="15" required>
+                                <div class="ui basic label">
+                                    yrs
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Is your child an active Sunday School Member? </label>
+                            <select name="`+ id + `active" class="ui dropdown" required>
+                                <option value="">Choose One</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="Sometimes">Sometimes</option>
+                            </select>
+                        </div>
+<div class="field">
+                            <label>Which of these classes does your child belong to</label>
+                            <select name="`+ id + `stage" class="ui dropdown">
+                                <option value="">Choose One</option>
+                                <option value="Ages 0-6">Ages 0-6</option>
+                                <option value="Ages 7-10">Ages 7-10</option>
+                                <option value="Ages 11-15">Ages 11-15</option>
+                            </select>
+                        </div>
+<div class="field">
+                            <label>Any Specific Concerns or Information you would like to share with us?</label>
+                            <div class="ui input">
+                                <textarea name="`+ id + `concerns" rows="1"></textarea>
+                            </div>
+                            <input hidden name="`+ id + `parent" type="number">
+                        </div>
+                    </div>
+
+                </div>`);
+            $('#child .ui.dropdown')
+                .dropdown({ on: 'click' });
+
+
+
+// window.location.href="#"+ id + "child_first_name"
+
+
+        }
+        function removeChildForm(id) {
+            $("#" + id).transition('fade').remove();
+        }
+    </script>
+
+</body>
+
+</html>

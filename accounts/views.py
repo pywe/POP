@@ -43,6 +43,7 @@ def api_login(request):
         # return render(request,template_name,args)
         myuser = {}
         myuser['username']=user.username
+        myuser['id']=user.id
         myuser['email']=user.email
         myuser['active']=user.is_active
         data = {'success':True,'message':'Successfully logged in',"user":myuser}
@@ -67,6 +68,7 @@ def fetch_campaigns(request):
         for campaign in campaign_list:
             obj = {}
             obj['name']=campaign.name
+            obj['id']=campaign.id
             obj['status']=campaign.status
             obj['country']=campaign.country.name
             objects.append(obj)

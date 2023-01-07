@@ -84,12 +84,9 @@
 									<div class="tabs-menus">
 										<!-- Tabs -->
 										<ul class="nav panel-tabs">
-											<li class=""><a href="#tab1" class="active" data-toggle="tab">All sessions (20)</a></li>
-											<li><a href="#tab2" data-toggle="tab">Active (08)</a></li>
-											<li><a href="#tab3" data-toggle="tab">Transmitted (05)</a></li>
-											<li><a href="#tab4" data-toggle="tab">Sold (03)</a></li>
-											<li><a href="#tab5" data-toggle="tab">Active (03)</a></li>
-											<li><a href="#tab6" data-toggle="tab">Expired (01)</a></li>
+											<button style="margin:5px" type="button" class="btn btn-warning mr-auto"><a class="text-white" href="/campaigns/new-session" ><i class="fa fa-signing"></i>New Session</a></button>
+											<button style="margin:5px" id="contbut" type="button" class="btn btn-success mr-auto"><a class="text-white" href="/campaigns/new-basket" ><i class="fa fa-plus"></i>Continue Current Session</a></button>
+											<button style="margin:5px" type="button" class="btn btn-success"><a class="text-white" href="/campaigns/lockscreen" ><i class="fa fa-share"></i>Lock Out</a></button>
 										</ul>
 									</div>
 									<div class="tab-content">
@@ -99,7 +96,8 @@
 													<tr>
 														<th></th>
 														<th class="w-100">Session Name</th>
-														<th>Date Created</th>
+														<th>Date Started</th>
+														<th>Date Finished</th>
 														<th>Baskets</th>
 														<th>Status</th>
 														<th >Action</th>
@@ -113,682 +111,15 @@
 												<thead>
 													<tr>
 														<th></th>
-														<th class="w-100">Latest Jobs</th>
-														<th>Location</th>
-														<th>Salary</th>
-														<th>Ad Status</th>
+														<th class="w-100">Session Name</th>
+														<th>Date Started</th>
+														<th>Date Finished</th>
+														<th>Baskets</th>
+														<th>Status</th>
 														<th >Action</th>
 													</tr>
 												</thead>
-												<tbody>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">BPO Jobs</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Feb-21-2018 , 16:54</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i>Ambrosia</td>
-														<td class="font-weight-semibold fs-16">$54 - $60</td>
-														<td>
-															<a href="#" class="badge badge-warning">Published</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Computer Operator</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Oct-23-2018 , 9:18</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Aldovia</td>
-														<td class="font-weight-semibold fs-16">$15 - $25</td>
-														<td>
-															<a href="#" class="badge badge-warning">Published</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">IT/Hardware</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i> Dec-15-2018 , 12:45 pm</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i>  Full Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Kraplakistan</td>
-														<td class="font-weight-semibold fs-16">$22 - $30</td>
-														<td>
-															<a href="#" class="badge badge-warning">Published</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Teachers/Lecturers</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Dec-03-2018 , 16:45</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i>  Full Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Estoccia</td>
-														<td class="font-weight-semibold fs-16">$35 - $50</td>
-														<td>
-															<a href="#" class="badge badge-warning">Published</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Web Developer</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-20-2018 , 16:54</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Eurasia</td>
-														<td class="font-weight-semibold fs-16">$12 - $30</td>
-														<td>
-															<a href="#" class="badge badge-warning">Published</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Driver</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Sep-22-2018 , 9:18 </a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i>Drusselstein</td>
-														<td class="font-weight-semibold fs-16">$23 - $40</td>
-														<td>
-															<a href="#" class="badge badge-warning">Published</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Cook/Chef</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Dec-21-2018 , 19:45</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Full Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i>Deltora</td>
-														<td class="font-weight-semibold fs-16 ">$76 - $80</td>
-														<td>
-															<a href="#" class="badge badge-warning">Published</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Marketing</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-25-2018 , 16:54</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i>Bozatta</td>
-														<td class="font-weight-semibold fs-16">$89 - $90</td>
-														<td>
-															<a href="#" class="badge badge-warning">Published</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-
-												</tbody>
-											</table>
-										</div>
-										<div class="tab-pane  table-responsive border-top userprof-tab" id="tab3">
-											<table class="table table-bordered table-hover  text-nowrap mb-0">
-												<thead>
-													<tr>
-														<th></th>
-														<th class="w-100">Latest Jobs</th>
-														<th>Location</th>
-														<th>Salary</th>
-														<th>Ad Status</th>
-														<th >Action</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Admin</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-15-2019 , 12:45</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Full Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Gondal</td>
-														<td class="font-weight-semibold fs-16">$22 - $34</td>
-														<td>
-															<a href="#" class="badge badge-primary">featured</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Customer Support</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-22-2018 , 9:18</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Holy Alliance</td>
-														<td class="font-weight-semibold fs-16">$14 - $20</td>
-														<td>
-															<a href="#" class="badge badge-primary">featured</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Data Entry</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-12-2018 , 16:50</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i>  Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Carovia</td>
-														<td class="font-weight-semibold fs-16">$35 - $40</td>
-														<td>
-															<a href="#" class="badge badge-primary">featured</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">HR Recruiter</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-15-2019 , 08:54</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Bandrinka</td>
-														<td class="font-weight-semibold fs-16">$89 - $90</td>
-														<td>
-															<a href="#" class="badge badge-primary">featured</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Receptionist</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-14-2018 , 19:18</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Antegria</td>
-														<td class="font-weight-semibold fs-16">$14- $50</td>
-														<td>
-															<a href="#" class="badge badge-primary">featured</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-
-												</tbody>
-											</table>
-										</div>
-										<div class="tab-pane  table-responsive border-top userprof-tab" id="tab4">
-											<table class="table table-bordered table-hover mb-0 text-nowrap">
-												<thead>
-													<tr>
-														<th></th>
-														<th class="w-100">Latest Jobs</th>
-														<th>Location</th>
-														<th>Salary</th>
-														<th>Ad Status</th>
-														<th >Action</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Marketing</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-25-2018 , 16:54</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i>Bozatta</td>
-														<td class="font-weight-semibold fs-16">$89 - $90</td>
-														<td>
-															<a href="#" class="badge badge-info">Sold</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Nurse</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Feb-21-2018 , 16:54</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Full Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Livonia</td>
-														<td class="font-weight-semibold fs-16">$25 - $40</td>
-														<td>
-															<a href="#" class="badge badge-info">Sold</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">IT Software</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-15-2019 , 12:45 pm</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Full Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Bangistan</td>
-														<td class="font-weight-semibold fs-16">$22 - $34</td>
-														<td>
-															<a href="#" class="badge badge-info">Sold</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-
-												</tbody>
-											</table>
-										</div>
-										<div class="tab-pane  table-responsive border-top userprof-tab" id="tab5">
-											<table class="table table-bordered table-hover mb-0 text-nowrap">
-												<thead>
-													<tr>
-														<th></th>
-														<th class="w-100">Latest Jobs</th>
-														<th>Location</th>
-														<th>Salary</th>
-														<th>Ad Status</th>
-														<th >Action</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Delivery Boys</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-25-2018 , 16:54</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Maltovia</td>
-														<td class="font-weight-semibold fs-16">$20 - $30</td>
-														<td>
-															<a href="#" class="badge badge-success">Active</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Sales</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-30-2018 , 11:54</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Graustark</td>
-														<td class="font-weight-semibold fs-16">$89 - $90</td>
-														<td>
-															<a href="#" class="badge badge-success">Active</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Web Designer</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-03-2018 , 12:50</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i>  Part Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Edonia</td>
-														<td class="font-weight-semibold fs-16">$35 - $40</td>
-														<td>
-															<a href="#" class="badge badge-success">Active</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<div class="tab-pane  table-responsive border-top userprof-tab" id="tab6">
-											<table class="table table-bordered table-hover mb-0 text-nowrap">
-												<thead>
-													<tr>
-														<th></th>
-														<th class="w-100">Latest Jobs</th>
-														<th>Location</th>
-														<th>Salary</th>
-														<th>Ad Status</th>
-														<th >Action</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>
-															<label class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" name="checkbox" value="checkbox">
-																<span class="custom-control-label"></span>
-															</label>
-														</td>
-														<td>
-															<div class="media mt-0 mb-0">
-																<div class="media-body">
-																	<div class="card-item-desc p-0">
-																		<a href="#" class="text-dark"><h4 class="font-weight-semibold">Life Insurance</h4></a>
-																		<a href="#"><i class="fa fa-clock-o w-4"></i>  Nov-15-2019 , 12:45</a><br>
-																		<a href="#"><i class="fa fa-tag w-4"></i> Full Time</a>
-																	</div>
-																</div>
-															</div>
-														</td>
-														<td><i class ="fa fa-map-marker mr-1 text-muted"></i> Fook Island</td>
-														<td class="font-weight-semibold fs-16">$22 - $30</td>
-														<td>
-															<a href="#" class="badge badge-danger">Expired</a>
-														</td>
-														<td>
-															<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="Save to Wishlist"><i class="fa fa-heart-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></a>
-														</td>
-													</tr>
-												</tbody>
+												<tbody id="transtab"></tbody>
 											</table>
 										</div>
 									</div>
@@ -799,7 +130,8 @@
 				</div>
 			</div>
 		</section>
-		<!--User Dashboard-->
+
+
 
 		<!-- Back to top -->
 		<a href="#top" id="back-to-top" ><i class="fa fa-arrow-up"></i></a>
@@ -812,12 +144,9 @@
 		<script src="/static/plugins/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 
 		<script src="/static/js/dexie.js"></script>
+        <script src="/static/js/axios.min.js"></script>
+        <script src="/static/js/sweetalert2@8.js"></script>
 
-<<<<<<< HEAD:campaigns/templates/campaigns/observation_session.html
-
-=======
-		
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/observation-session.html
 
 		<!--JQuery Sparkline Js-->
 		<script src="/static/js/vendors/jquery.sparkline.min.js"></script>
@@ -863,13 +192,12 @@
 		<script src="/static/js/custom.js"></script>
 
 		<script>
-<<<<<<< HEAD:campaigns/templates/campaigns/observation_session.html
-
-=======
-			
->>>>>>> c2b46e1a00c5d75a85b66e9fabfc53c8377b020b:campaigns/templates/campaigns/observation-session.html
+		if (localStorage.getItem('currsession')==null){
+		    $('#contbut').hide()
+		}
 			db.sessions.each(session => {
-				console.log(session)
+
+
 				var sessions = `<tr>
 														<td>
 															<label class="custom-control custom-checkbox">
@@ -886,20 +214,490 @@
 																</div>
 															</div>
 														</td>
-														<td><i class ="fa fa-clock-o mr-1 text-muted"></i>`+session.date_created+`</td>
-														<td class="font-weight-semibold fs-16">`+session.baskets.length+`</td>
+														<td><i class ="fa fa-clock-o mr-1 text-muted"></i>`+session.date_started+`</td>
+														<td><i class ="fa fa-clock-o mr-1 text-muted"></i>`+session.date_finished+`</td>
+														<td class="font-weight-semibold fs-16">`+session.basket_count+`</td>
 														<td>
 															<a href="#" class="badge badge-warning">`+session.status+`</a>
 														</td>
 														<td>
-															<!--<a class="btn btn-success btn-sm text-white" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>-->
-															<a class="btn btn-danger btn-sm text-white" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
-															<a class="btn btn-primary btn-sm text-white" data-toggle="tooltip" data-original-title="Transmit"><i class="fa fa-wifi"></i></a>
+															<button id="`+session.session_name+`edbtn" class="btn btn-success btn-sm text-white" data-toggle="tooltip" onclick="editSess('`+session.session_name+`')" data-original-title="Edit"><i class="fa fa-pencil"></i></button>
+															<button id="`+session.session_name+`mittbtn" class="btn btn-primary btn-sm text-white" data-toggle="tooltip" onclick="mitt('`+session.session_name+`')" data-original-title="Transmit"><i class="fa fa-wifi"></i></button>
 														</td>
 													</tr>`
 													document.getElementById("alltab").innerHTML +=sessions
-													console.log(sessions)
+
 			});
+
+
+function editSess(session_name) {
+    localStorage.setItem('editItem',session_name)
+    window.location.href="/campaigns/edit-session/"
+}
+
+window.onload = function() {
+
+    // window.mit = localStorage.getItem("mittSessame")
+    db.sessions.each(mit => {
+        if (mit.status=="Transmitted") {
+            $('#'+mit.session_name+'mittbtn').hide()
+            $('#'+mit.session_name+'edbtn').hide()
+        } else if (mit.date_finished=="Not Finished"){
+        console.log("Hiding button with id " +'#'+mit.session_name+'mittbtn')
+        $('#'+mit.session_name+'mittbtn').hide()
+        }else{
+            console.log("Hiding button with id " +'#'+mit.session_name+'edbtn')
+        $('#'+mit.session_name+'edbtn').hide()
+        }
+    })
+
+
+    db.sessions.where('session_name').equals(localStorage.getItem("currsession")).each(ket => {
+        if(ket.date_finished =="Not Finished"){
+        var btnid = localStorage.getItem("currsession")
+        $('#'+btnid+'mittbtn').hide()
+        }
+        else{
+            $('#contbut').hide()
+        }
+    });
+    if (localStorage.getItem('currsession')==null){
+		    $('#contbut').hide()
+		}
+  }
+
+
+
+
+function mitt(session_name){
+    Swal.fire({
+                  title: 'Transmitting!',
+                  allowOutsideClick: false,
+                  onBeforeOpen: () => {
+                    Swal.showLoading()
+                  },
+                })
+    window.msess = session_name
+    localStorage.setItem("mittSessame", session_name)
+    console.log(localStorage.getItem('crepharm'))
+    if (localStorage.getItem('crepharm') !== null){
+
+    let pharmid = parseInt(localStorage.getItem('pharm_id'))
+    var campid = parseInt(localStorage.getItem("campaignId"))
+    var usid = JSON.parse(localStorage.getItem("user")).id
+    let cresess = {"name":localStorage.getItem("mittSessame"),"campaign":campid,"pharmacy":pharmid,"user":parseInt(usid)}
+    console.log(cresess)
+    axios.post('/api/v1/campaigns/create-session/', cresess)
+    .then(function(response){
+                    localStorage.setItem("session_id", parseInt(response.data))
+                    console.log("Got session ID " + response.data)
+
+                    db.sessions.get(session_name,function (session){
+                    var baskets = session.baskIds;
+                    db.baskets.reverse().limit(baskets.length).each((db_basket) => {
+                        console.table(db_basket)
+                    //create basket at the back
+                    var sessid = localStorage.getItem("session_id")
+                          axios.post('/api/v1/campaigns/create-basket/', {"session":sessid})
+                          .then(function (response) {
+                              localStorage.setItem("backskid",parseInt(response.data))
+
+                        let cskid = localStorage.getItem('backskid')
+                        console.log("setting up basket "+ cskid +" for transmission")
+                        for (let i = 0; i < db_basket.basket.drugs.length; i++) {
+                          db_basket.basket.drugs[i].basket = parseInt(response.data);
+                          db_basket.basket.drugs[i].leaked = db_basket.basket.drugs[i].leaked.length==3
+                          db_basket.basket.drugs[i].switched = db_basket.basket.drugs[i].switched.length==3
+                          db.baskets.put(db_basket);
+                          window.drugs= db_basket.basket.drugs
+                            }
+                    window.doned=db_basket
+                    let skid = localStorage.getItem('backskid')
+                    let patient = {"basket":parseInt(skid),"insurance_scheme":db_basket.basket.insurance,"age":db_basket.basket.Age,"gender":db_basket.basket.Gender}
+                //   console.log(patient)
+
+                //   console.log(patient.basket)
+                  axios.post('/api/v1/campaigns/create-patient/', patient)
+                  .then(function (response) {
+                    for (let i = 0; i < window.drugs.length; i++) {
+                          window.drugs[i].basket = patient.basket
+                      }
+                      console.table(db_basket.basket.drugs)
+                    axios.post('/api/v1/campaigns/create-drug/', {"drugs":db_basket.basket.drugs})
+                  .then(function (response) {
+                    //   console.log(response)
+                    db_basket.status = 'Transmitted';
+                    db.baskets.put(db_basket);
+
+                  })
+
+                  .catch(function(error){
+                Swal.fire({
+                      type: 'error',
+                      title: 'Transmission Failed',
+                      text: 'Error while creating Drugs.',
+                    //   footer: '<a href>Code[1062] Contact support.</a>'
+                    })
+    })
+
+                  })
+                  .catch(function(error){
+                Swal.fire({
+                      type: 'error',
+                      title: 'Transmission Failed',
+                      text: 'Error while creating Patient.',
+                    //   footer: '<a href>Code[1062] Contact support.</a>'
+                    })
+    })
+
+
+
+
+                          })
+                          .catch(function(error){
+                              console.log(error)
+                            Swal.fire({
+                                  type: 'error',
+                                  title: 'Transmission Failed',
+                                  text: 'Error while creating Basket.',
+                                //   footer: '<a href>Code[1062] Contact support.</a>'
+                                })
+                })
+
+                    });
+db.ubrands.each(brand_item => {
+    console.log(brand_item.things)
+   axios.post('/api/v1/campaigns/create-drug-reference/', brand_item.things)
+        .then(function (response) {
+            console.log(response.data)
+            if(typeof response.data == 'number'){
+            console.log(response.data)
+            // $('body')
+            //     .toast({
+            //         title: 'Success',
+            //         message: 'Reference added',
+            //         class: 'orange',
+            //         className: {
+            //             toast:'ui big message'
+            //         }
+            //     });
+
+
+            } else{
+                console.log(response.data)
+                // $('body')
+                //   .toast({
+                //     class: 'error',
+                //     position: 'top left',
+                //     displayTime: 'auto',
+                //     message: `We could not add, Please Try again`
+                //   });
+            }
+})
+  .catch(function (error) {
+    if (exists(error.response)){
+              console.log(error.response.data);
+            //   db.caremessage.clear();
+            //   toaster("There was an error",2000)
+          }
+  });
+})
+db.uinns.each(inn_item => {
+   axios.post('/api/v1/campaigns/create-inn/', inn_item.things)
+        .then(function (response) {
+            console.log(response.data)
+            if(typeof response.data == 'number'){
+            console.log(response.data)
+            // $('body')
+            //     .toast({
+            //         title: 'Success',
+            //         message: 'Reference added',
+            //         class: 'orange',
+            //         className: {
+            //             toast:'ui big message'
+            //         }
+            //     });
+
+
+            } else{
+                console.log(response.data)
+                // $('body')
+                //   .toast({
+                //     class: 'error',
+                //     position: 'top left',
+                //     displayTime: 'auto',
+                //     message: `We could not add, Please Try again`
+                //   });
+            }
+})
+  .catch(function (error) {
+    if (exists(error.response)){
+              console.log(error.response.data);
+            //   db.caremessage.clear();
+            //   toaster("There was an error",2000)
+          }
+  });
+})
+
+                console.log("done")
+                    Swal.fire(
+                      'Done!',
+                      'Successfully Transmitted!',
+                      'success'
+                    )
+                    fetchCampaigns()
+                    let mittSessame = localStorage.getItem("mittSessame")
+                    console.log(mittSessame)
+                    db.sessions.where('session_name').equals(mittSessame).modify({status: "Transmitted"})
+                    db.baskets.clear();
+                    $('#'+window.msess+'mittbtn').hide()
+                    $('#'+window.msess+'edbtn').hide()
+
+})
+
+    })
+    .catch(function(error){
+        Swal.fire({
+                      type: 'error',
+                      title: 'Transmission Failed',
+                      text: 'Error while creating Session.',
+                    //   footer: '<a href>Code[1062] Contact support.</a>'
+                    })
+    })
+
+    }
+    else {
+    var ma = localStorage.getItem("pharmacy_name")
+    db.pharmacies.get(ma, function (info) {
+        console.log(info);
+axios.post('/api/v1/campaigns/create-pharmacy/', info.pharmacy_info)
+.then(function (response) {
+    if(typeof response.data == 'number'){
+    let pharmid = parseInt(response.data)
+    var campid = parseInt(localStorage.getItem("campaignId"))
+    localStorage.setItem("pharm_id", pharmid)
+    localStorage.setItem('crepharm', true)
+    var usid = JSON.parse(localStorage.getItem("user")).id
+    let crepharm = {"name":localStorage.getItem("mittSessame"),"campaign":campid,"pharmacy":pharmid,"user":parseInt(usid)}
+    console.log(crepharm)
+    axios.post('/api/v1/campaigns/create-session/', crepharm )
+    .then(function(response){
+                    localStorage.setItem("session_id", parseInt(response.data))
+                    console.log("Got session ID " + response.data)
+
+                    db.sessions.get(session_name,function (session){
+                    var baskets = session.baskIds;
+                    db.baskets.reverse().limit(baskets.length).each((db_basket) => {
+                        console.table(db_basket)
+                    //create basket at the back
+                    var sessid = localStorage.getItem("session_id")
+                          axios.post('/api/v1/campaigns/create-basket/', {"session":sessid})
+                          .then(function (response) {
+                              localStorage.setItem("backskid",parseInt(response.data))
+
+                        let cskid = localStorage.getItem('backskid')
+                        console.log("setting up basket "+ cskid +" for transmission")
+                        for (let i = 0; i < db_basket.basket.drugs.length; i++) {
+                          db_basket.basket.drugs[i].basket = parseInt(response.data);
+                          db_basket.basket.drugs[i].leaked = db_basket.basket.drugs[i].leaked.length==3
+                          db_basket.basket.drugs[i].switched = db_basket.basket.drugs[i].switched.length==3
+                          db.baskets.put(db_basket);
+                          window.drugs= db_basket.basket.drugs
+                            }
+                    window.doned=db_basket
+                    let skid = localStorage.getItem('backskid')
+                    let patient = {"basket":parseInt(skid),"insurance_scheme":db_basket.basket.insurance,"age":db_basket.basket.Age,"gender":db_basket.basket.Gender}
+                //   console.log(patient)
+
+                //   console.log(patient.basket)
+                  axios.post('/api/v1/campaigns/create-patient/', patient)
+                  .then(function (response) {
+                    for (let i = 0; i < window.drugs.length; i++) {
+                          window.drugs[i].basket = patient.basket
+                      }
+                      console.table(db_basket.basket.drugs)
+                    axios.post('/api/v1/campaigns/create-drug/', {"drugs":db_basket.basket.drugs})
+                  .then(function (response) {
+                    //   console.log(response)
+                    db_basket.status = 'Transmitted';
+                    db.baskets.put(db_basket);
+                  })
+
+                  .catch(function(error){
+                Swal.fire({
+                      type: 'error',
+                      title: 'Transmission Failed',
+                      text: 'Error while creating Drugs.',
+                    //   footer: '<a href>Code[1062] Contact support.</a>'
+                    })
+    })
+
+                  })
+                  .catch(function(error){
+                Swal.fire({
+                      type: 'error',
+                      title: 'Transmission Failed',
+                      text: 'Error while creating Patient.',
+                    //   footer: '<a href>Code[1062] Contact support.</a>'
+                    })
+    })
+
+
+
+
+                          })
+                          .catch(function(error){
+                              console.log(error)
+                            Swal.fire({
+                                  type: 'error',
+                                  title: 'Transmission Failed',
+                                  text: 'Error while creating Basket.',
+                                //   footer: '<a href>Code[1062] Contact support.</a>'
+                                })
+                })
+
+                    });
+
+//                     for (var a = 0; a < baskets.length; a++) {
+//                         sender(baskets[a]);
+//                         function sender(basket_id){
+//                     console.log(basket_id);
+//                     window.mittSess = basket_id;
+
+//                         }
+
+// }
+db.ubrands.each(brand_item => {
+    console.log(brand_item.things)
+   axios.post('/api/v1/campaigns/create-drug-reference/', brand_item.things)
+        .then(function (response) {
+            console.log(response.data)
+            if(typeof response.data == 'number'){
+            console.log(response.data)
+            // $('body')
+            //     .toast({
+            //         title: 'Success',
+            //         message: 'Reference added',
+            //         class: 'orange',
+            //         className: {
+            //             toast:'ui big message'
+            //         }
+            //     });
+
+
+            } else{
+                console.log(response.data)
+                // $('body')
+                //   .toast({
+                //     class: 'error',
+                //     position: 'top left',
+                //     displayTime: 'auto',
+                //     message: `We could not add, Please Try again`
+                //   });
+            }
+})
+  .catch(function (error) {
+    if (exists(error.response)){
+              console.log(error.response.data);
+            //   db.caremessage.clear();
+            //   toaster("There was an error",2000)
+          }
+  });
+})
+db.uinns.each(inn_item => {
+   axios.post('/api/v1/campaigns/create-inn/', inn_item.things)
+        .then(function (response) {
+            console.log(response.data)
+            if(typeof response.data == 'number'){
+            console.log(response.data)
+            // $('body')
+            //     .toast({
+            //         title: 'Success',
+            //         message: 'Reference added',
+            //         class: 'orange',
+            //         className: {
+            //             toast:'ui big message'
+            //         }
+            //     });
+
+
+            } else{
+                console.log(response.data)
+                // $('body')
+                //   .toast({
+                //     class: 'error',
+                //     position: 'top left',
+                //     displayTime: 'auto',
+                //     message: `We could not add, Please Try again`
+                //   });
+            }
+})
+  .catch(function (error) {
+    if (exists(error.response)){
+              console.log(error.response.data);
+            //   db.caremessage.clear();
+            //   toaster("There was an error",2000)
+          }
+  });
+})
+                console.log("done")
+                    Swal.fire(
+                      'Done!',
+                      'Successfully Transmitted!',
+                      'success'
+                    )
+                    fetchCampaigns()
+                    let mittSessame = localStorage.getItem("mittSessame")
+                    console.log(mittSessame)
+                    db.sessions.where('session_name').equals(mittSessame).modify({status: "Transmitted"})
+                    db.baskets.clear();
+                    $('#'+window.msess+'mittbtn').hide()
+                    $('#'+window.msess+'edbtn').hide()
+
+})
+
+    })
+    .catch(function(error){
+        Swal.fire({
+                      type: 'error',
+                      title: 'Transmission Failed',
+                      text: 'Error while creating Session.',
+                    //   footer: '<a href>Code[1062] Contact support.</a>'
+                    })
+    })
+} else{
+
+    Swal.fire({
+                      type: 'error',
+                      title: 'Transmission Failed',
+                      text: "Couldn't create Pharmacy, Problem with submitted data.",
+                    //   footer: '<a href>Code[1062] Contact support.</a>'
+                    })
+
+                    console.log(response.data)
+}
+
+})
+
+.catch(function (error) {
+                      Swal.fire({
+                      type: 'error',
+                      title: 'Transmission Failed',
+                      text: 'Please check your internet connection.',
+                    //   footer: '<a href>Contact support.</a>'
+                    })
+                    console.log(error);
+
+                  });
+
+
+
+    })
+
+}
+
+}
+
 
 		</script>
 		<script src="/static/js/login.js"></script>

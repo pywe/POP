@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+
 # Create your models here.
 
 
@@ -116,12 +117,13 @@ class Pharmacy(models.Model):
 
 class Session(models.Model):
     name = models.CharField(max_length=200,null=True)
+    campaign = models.ForeignKey(Campaign,null=True,on_delete=models.SET_NULL,help_text="To what campaign is this session tied?")
+    pharmacy = models.ForeignKey(Pharmacy,null=True,on_delete=models.SET_NULL,help_text="Where this basket of drugs is being created")
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank = True, on_delete = models.SET_NULL)
 
 
 # Fifth class model
 class Basket(models.Model):
-    pharmacy = models.ForeignKey(Pharmacy,null=True,on_delete=models.SET_NULL,help_text="Where this basket of drugs is being created")
     session = models.ForeignKey(Session,null=True,on_delete=models.SET_NULL,help_text="To what session is this tied?")
 
 
@@ -169,13 +171,13 @@ class Company(models.Model):
 
 
 # Second class model
-class drugReference(models.Model):
-    brand_name = models.CharField(max_length=200,null=True)
-    dossage = models.CharField(max_length=10,null=True)
-    inn = models.CharField(max_length=300,null=True,help_text="Active ingredient in the drug. eg. paracetamol")
-    form = models.ForeignKey(drugForm,null=True,on_delete=models.SET_NULL,help_text="liquid,tablet")
-    company = models.ForeignKey(Company,null=True,on_delete=models.SET_NULL,help_text="Manufacturing company")
-    therapeutic_purpose = models.TextField(null=True)
+# class drugReference(models.Model):
+#     brand_name = models.CharField(max_length=200,null=True)
+#     dossage = models.CharField(max_length=10,null=True)
+#     inn = models.CharField(max_length=300,null=True,help_text="Active ingredient in the drug. eg. paracetamol")
+#     form = models.ForeignKey(drugForm,null=True,on_delete=models.SET_NULL,help_text="liquid,tablet")
+#     company = models.ForeignKey(Company,null=True,on_delete=models.SET_NULL,help_text="Manufacturing company")
+#     therapeutic_purpose = models.TextField(null=True)
     # therapeutic_class =
 
 
@@ -200,7 +202,7 @@ divisions = (
 # Basket must be migrated before this model:Will serve as inlines
 class Drug(models.Model):
     basket = models.ForeignKey(Basket,null=True,on_delete=models.SET_NULL)
-    initial_request = models.CharField(max_length=15,choices=initials,null=True,help_text="Who started the request?")
+    initial_request = models.CharField(max_length=30,choices=initials,null=True,help_text="Who started the request?")
     # we will take the brand name from drugReference
     drug_sold = models.CharField(max_length=200,help_text="brand name of drug that has been sold?")
     sale_driver = models.CharField(max_length=15,choices=drivers,null=True,help_text="Who makes the final selection for the purchased product?")
@@ -265,6 +267,14 @@ class Inn(models.Model):
     def __str__(self):
         return self.inncode
 
+class drugReference(models.Model):
+    brand_name = models.CharField(max_length=200,null=True)
+    dossage = models.CharField(max_length=10,null=True)
+    inn = models.ForeignKey(Inn,null=True,on_delete=models.SET_NULL,help_text="Active ingredient in the drug. eg. paracetamol")
+    form = models.ForeignKey(drugForm,null=True,on_delete=models.SET_NULL,help_text="liquid,tablet")
+    company = models.ForeignKey(Company,null=True,on_delete=models.SET_NULL,help_text="Manufacturing company")
+    therapeutic_purpose = models.TextField(null=True)
+
 
 # First class model Prescriber
 class Prescriber(models.Model):
@@ -305,4 +315,27 @@ class PharmacyStandard(models.Model):
 # First class model InsuranceType
 class InsuranceType(models.Model):
     name = models.CharField(max_length=50,choices=insurance_options,null=True)
+
+
+# church models
+class Parent(models.Model):
+    first_name = models.CharField(max_length=100,null=True)
+    last_name = models.CharField(max_length=100,null=True)
+    phone = models.CharField(max_length=14,null=True)
+    whatsapp_phone = models.CharField(max_length=14,null=True)
+    # email = models.EmailField(null=True)
+    location = models.CharField(max_length=100,null=True)
+
+
+class Child(models.Model):
+    parent = models.ForeignKey(Parent,null=True,on_delete=models.SET_NULL,related_name = "children")
+    first_name = models.CharField(max_length=100,null=True)
+    last_name = models.CharField(max_length=100,null=True)
+    dob = models.DateField(null=True)
+    age = models.IntegerField(default=0)
+    # active = models.CharField(max_length=10,null=True)
+    stage = models.CharField(max_length=10,null=True)
+    concerns = models.TextField(null=True)
+
+
 
